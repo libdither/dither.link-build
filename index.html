@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.85.0" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/main.min.de286eb6e1c6b947e284ee9a60af0410d8860543871b02abdf21811ba18531f3.css" integrity="sha256-3ihutuHGuUfihO6aYK8EENiGBUOHGwKr3yGBG6GFMfM=" crossorigin="anonymous">
+	<title>About | Dither Link</title>
+	<script>
+	if (!(window.location.host.startsWith("127.0.0.1") || window.location.host.startsWith("localhost")) && (window.location
+			.protocol != "https:")) window.location.protocol = "https:";
+</script>
+
+</head>
+<body>
+	<div class="topnav">
+	
+	<h1>Dither</h1>
+	
+	
+	
+	<a href="/" title="About" class="active">About</a>
+	
+	
+	
+	<a href="/docs/" title="" class="">Docs</a>
+	
+	
+	
+	<a href="/inspiration/" title="Inspiration" class="">Inspiration</a>
+	
+	
+	
+	<a href="https://github.com/libdither" title="" class="">Git</a>
+	
+	<p>Mission: Decentralize the Internet</p>
+</div>
+	<article class="markdown"><blockquote id="warning"><p>Warning: If you see <code>www.dither.link</code> in the address bar, you may be on the centralized site. To browse in a decentralized manner, get the 
+  <a href="https://github.com/ipfs/ipfs-companion">IPFS Companion</a> extension for your browser</p>
+</blockquote>
+<h2 id="what-is-dither">
+  What Is Dither
+  <a class="anchor" href="#what-is-dither">#</a>
+</h2>
+<p>Dither is a toolbox to create privacy-respecting decentralized applications capable enough to replace most services on the Internet. This means services with no centralized servers, no single organization control, no censorship, and no surveilance by companies or governments.</p>
+<h2 id="why-we-need-it">
+  Why we need it
+  <a class="anchor" href="#why-we-need-it">#</a>
+</h2>
+<p>The internet has a major problem: it is too centralized. By this I mean that services &amp; software are provided by corporations who only respect their profits and not their users. This comes at odds with the fact that to use their products you have to first trust them with your personal data whatever that might be. Most people are already used to their data being taken and used by companies, but eventually as companies continue toe the line, the line of what people are ok with will move. Dither will give control back to the people about how their software should work and where they want to draw the line with their privacy.</p>
+<h2 id="the-core-of-dither">
+  The Core of Dither
+  <a class="anchor" href="#the-core-of-dither">#</a>
+</h2>
+<p>At the Core of Dither is essentially a service that allows applications on computers to communicate directly with each other through encrypted tunnels instead of through centralized servers. This can be used very simply for messenger applications, but Dither Core doesn&rsquo;t only provide that. Dither also allows for a Web of Trust. In comparison to services like Google, Discord, Facebook, etc, where you have to rely on them to provide you with valid information and trust them to not misuse the data you give them. With Dither, you are not relying on any one organization, instead you rely on computers you explicitly trust to provide you with services you need. These computers could be run by well-known organizations or your real life friends. And those computers have other computers that <em>they</em> trust. Thus creating a Web of Trust allows for the creation of a network where you can find information by going through only the people that you trust instead of corporate middlemen who have control over what you see.</p>
+<h2 id="general-structure">
+  General Structure
+  <a class="anchor" href="#general-structure">#</a>
+</h2>
+<p>Dither is built in swappable layers. The first layer is the Transport Layer (for example 
+  <a href="https://libp2p.io">libp2p</a> which allows for different Dither clients to establish direct connections with each other through the TCP or UDP protocols. The next layer is the Dither Service Layer which provides encryption, data storage, account management, packet routing, and many other components that are needed to make fully-fledged internet applications. The layer after that is the Application API Layer. Any application built on Dither should have a standard API so that multiple different methods of user interaction can be implemented for different people&rsquo;s workflows and preferences. This API contains data structure specifications and code written in a systems language (like Rust) for optimal performance. The final layer is the Interface Layer. It provides some method of interacting with the application API to make a usable program. The Interface Layer &amp; API Layer will be combined into one program and should interact with the Dither Service Layer through Inter-Process Communication.</p>
+<p>Imagine a new chat app with a standardized backend so that different people could create differently designed apps for effectively the same app functionality. The backend (Application API) would interface with the Dither Service Layer and using Dither&rsquo;s functions, implement a privacy-respecting, performant chat application. This modularity allows people to come along and rewrite the UI, or extend the API, or Dither itself! Which is extremely valuable because it allows for people to experiment and to selectively design end-user-applcations suited to their needs. For example, if one project was working on a Dither Chat App for android and they wanted to add a specific feature, they could extend their own version of the Application API and contribute it to other projects who use the same API for them to implement the feature if they wanted to.</p>
+<h2 id="core-tenets">
+  Core Tenets
+  <a class="anchor" href="#core-tenets">#</a>
+</h2>
+<p><em>Dither should be as modular as possible.</em></p>
+<p><em>Dither protocols and formats should be interoperable with existing protocols and formats to make transition to Dither as easy as possible.</em></p>
+<p><em>Dither should rely on itself as much as possible.</em></p>
+<p>Dither&rsquo;s Core tenets can be found in full 
+  <a href="/docs/spec/dither/#core-tenants%27">here</a></p>
+<h2 id="roadmap">
+  Roadmap
+  <a class="anchor" href="#roadmap">#</a>
+</h2>
+<p>Currently, Dither is in the simulation phase. Various core parts of Dither are being tested in the
+
+  <a href="https://github.com/libdither/dither-sim">dither-sim</a> repository.</p>
+<p>Once Dither Core moves out of the simulation phase, the very first thing I want to do with it is to create an application that can replace Discord called Dither Chat. In this application, Direct messages will be End-To-End Encrypted and servers can be hosted by a collection of trusted computers. Dither Chat will provide an easy-to-use API that can be used by different UI implementations to support as many platforms as possible.</p>
+</article>
+</body>
+
+</html>

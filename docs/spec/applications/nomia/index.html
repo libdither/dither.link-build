@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nomia is a program that allows for the standardization of composing data. Names, Resources &amp; Systems in Nomia will be able to be represented and stored in Dither.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Nomia is a program that allows for the standardization of composing data. Names, Resources &amp; Systems in Nomia will be able to be represented and stored in Dither." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.dither.link/docs/spec/applications/nomia/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Nomia | Dither Link</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.2b6faafd222e44aee28c6c64c8a33b86724f4ddfa861d8803e799236b1ad20c6.css" integrity="sha256-K2&#43;q/SIuRK7ijGxkyKM7hnJPTd&#43;oYdiAPnmSNrGtIMY=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.a7969b43227ef2d036242345733d17cc15b9fe64c5ba9568dcfe596c7d72fc16.js" integrity="sha256-p5abQyJ&#43;8tA2JCNFcz0XzBW5/mTFupVo3P5ZbH1y/BY=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <script>
+	if (!(window.location.host.startsWith("127.0.0.1") || window.location.host.startsWith("localhost")) && (window.location
+			.protocol != "https:")) window.location.protocol = "https:";
+</script>
+
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+<nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Dither Link</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    Page(/docs/_index.md)
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/" class="">Applications</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/analytics/" class="">Analytics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/disp/compilation/" class="">Compilation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/disp/de-brujin-index-alternative/" class="">De Brujin Index Alternative</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/disp/disp/" class="">Disp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/disp/examples/assembly/6502-assembly/" class="">6502 Assembly</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/disp/examples/assembly/hello-world/" class="">Hello World</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/disp/funclets/" class="">Funclets</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/disp/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/disp/live-rollbacks/" class="">Live Rollbacks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/disp/syntax/" class="">Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/disp/types/" class="">Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/dithca/" class="">Dithca</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/dither-chat/" class="">Dither Chat</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/dither-coin/" class="">Dither Coin</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/dither-dex/" class="">Dither Dex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/dither-git/" class="">Dither Git</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/dither-versioning/" class="">Dither Versioning</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/dithix/" class="">Dithix</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/nomia/" class=" active">Nomia</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/predictive-keyboard/" class="">Predictive Keyboard</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/protocol-of-truth/examples/" class="">Examples</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/protocol-of-truth/protocol-of-truth/" class="">Protocol of Truth</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/protocol-of-truth/protocol-types/" class="">Protocol Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/tree-of-math/" class="">Tree of Math</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/applications/user-proofs/verified-human/" class="">Verified Human</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/copyright-is-cancer/" class="">Copyright Is Cancer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/" class="">Dither</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/application-design-philosophy/" class="">Application Design Philosophy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/consensus/byzantine-federated-voting/" class="">Byzantine Federated Voting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/consensus/consensus-algorithms/" class="">Consensus Algorithms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/consensus/distance-aware-consensus/" class="">Distance Aware Consensus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/consensus/eventual-consensus/" class="">Eventual Consensus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/consensus/modular-consensus/" class="">Modular Consensus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/data/hashtypes/core-traits/" class="">Core Traits</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/data/hashtypes/hashtypes-old-old/" class="">Hashtypes Old Old</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/data/hashtypes/hashtypes-old/" class="">Hashtypes Old</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/data/hashtypes/hashtypes/" class="">Hashtypes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/data/hashtypes/lambda-calculus/" class="">Lambda Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/data/hashtypes/primitive-traits/" class="">Primitive Traits</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/data/hashtypes/self-verifying-structures/" class="">Self Verifying Structures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/data/proof-of-linked-data/" class="">Proof of Linked Data</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/data/reverse-hash-lookup/" class="">Reverse Hash Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/data/user-management/" class="">User Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/data/zero-knowledge-proofs/" class="">Zero Knowledge Proofs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/encryption/decentralized-kerberos/" class="">Decentralized Kerberos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/encryption/multikey/" class="">Multikey</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/routing/directional-trail-search/" class="">Directional Trail Search</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.dither.link/docs/spec/dither/routing/distance-based-routing/" class="">Distance Based Routing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+        
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Nomia</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+<aside class="hidden clearfix">
+  
+
+<nav id="TableOfContents"></nav>
+
+
+
+</aside>
+
+
+        
+      </header>
+
+      
+      
+<article class="markdown"><p>Nomia is a program that allows for the standardization of composing data.
+Names, Resources &amp; Systems in Nomia will be able to be represented and stored in Dither.</p>
+</article>
+
+      
+      
+
+      <footer class="book-footer">
+        
+<div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center"
+      href="https://github.com/libdither/dither-spec/edit/master/applications/nomia.md"
+      target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+
+        
+        
+      </footer>
+
+      
+
+
+      
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+
+<nav id="TableOfContents"></nav>
+
+
+
+        
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
