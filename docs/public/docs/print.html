@@ -1,0 +1,1109 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dither Ideas</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="dither/routing/distance-based-routing.html"><strong aria-hidden="true">1.2.</strong> Distance-Based Routing</a></li><li class="chapter-item expanded "><a href="dither/routing/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Directional Trail Search</a></li><li class="chapter-item expanded "><a href="dither/data/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="dither/data/zero-knowledge-proofs.html"><strong aria-hidden="true">1.5.</strong> Zero Knowledge Proofs</a></li><li class="chapter-item expanded "><a href="dither/data/user-management.html"><strong aria-hidden="true">1.6.</strong> User Management</a></li><li class="chapter-item expanded "><a href="dither.html"><strong aria-hidden="true">1.7.</strong> Consensus</a></li></ol></li><li class="chapter-item expanded "><a href="disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/expr.html"><strong aria-hidden="true">2.1.</strong> Core Expressions</a></li><li class="chapter-item expanded "><a href="disp/lambda-trees.html"><strong aria-hidden="true">2.2.</strong> Lambda Trees</a></li><li class="chapter-item expanded "><a href="disp/type-system.html"><strong aria-hidden="true">2.3.</strong> Type System</a></li><li class="chapter-item expanded "><a href="disp/provable-hardware-modeling.html"><strong aria-hidden="true">2.4.</strong> Provable Hardware Modeling</a></li><li class="chapter-item expanded "><a href="disp/hashtypes/hashtypes.html"><strong aria-hidden="true">2.5.</strong> Hashtypes</a></li></ol></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="applications/application-design-philosophy.html"><strong aria-hidden="true">3.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="applications/dither-chat.html"><strong aria-hidden="true">3.2.</strong> Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><a href="applications/dithca.html"><strong aria-hidden="true">3.3.</strong> Comment System - Dithca</a></li><li class="chapter-item expanded "><a href="applications/dithca.html"><strong aria-hidden="true">3.4.</strong> Package Manager - Dithix</a></li><li class="chapter-item expanded "><a href="applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.5.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="applications/protocol-of-truth/examples.html"><strong aria-hidden="true">3.5.1.</strong> Usage Examples (WIP)</a></li></ol></li><li class="chapter-item expanded "><a href="applications/dither-coin.html"><strong aria-hidden="true">3.6.</strong> Not your typical Cryptocurrency - Dither Coin</a></li><li class="chapter-item expanded "><a href="applications/d-framework/d-framework.html"><strong aria-hidden="true">3.7.</strong> Browser Alternative - D Framework</a></li></ol></li><li class="chapter-item expanded "><a href="future-vision.html"><strong aria-hidden="true">4.</strong> Future Vision of Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Articles</div></li><li class="chapter-item expanded "><a href="copyright-is-cancer.html"><strong aria-hidden="true">4.2.</strong> Copyright is Cancer</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Dither Ideas</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="the-dither-project"><a class="header" href="#the-dither-project">The Dither Project</a></h1>
+<ul>
+<li><a href="dither.html#the-dither-project">The Dither Project</a>
+<ul>
+<li><a href="dither.html#what-is-it">What is it?</a></li>
+<li><a href="dither.html#a-plan-for-the-future-of-the-internet">A Plan for the Future of the Internet</a></li>
+</ul>
+</li>
+<li><a href="dither.html#core-tenets">Core Tenets</a></li>
+<li><a href="dither.html#structure">Structure</a>
+<ul>
+<li><a href="dither.html#transport-layer">Transport Layer</a></li>
+<li><a href="dither.html#service-layer">Service Layer</a></li>
+<li><a href="dither.html#application-layer">Application Layer</a></li>
+<li><a href="dither.html#interface-layer">Interface Layer</a></li>
+</ul>
+</li>
+<li><a href="dither.html#other-links">Other Links</a>
+<ul>
+<li><a href="dither.html#inspirations-for-dither">Inspirations for Dither</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-it"><a class="header" href="#what-is-it">What is it?</a></h2>
+<p>Dither is a project with the goal of decentralizing the internet. It is a toolbox of various tools application developers can use to communicate privately, host data, manage accounts much more. It is currently being developed by <a href="https://github.com/zyansheep">@Zyansheep</a> and temporarily hosted via GitHub under the <a href="https://github.com/libdither">libdither</a> organization.</p>
+<h2 id="a-plan-for-the-future-of-the-internet"><a class="header" href="#a-plan-for-the-future-of-the-internet">A Plan for the Future of the Internet</a></h2>
+<p>The plan behind Dither is to create an modern internet unencumbered by any kind of central control. To accomplish this, Dither must somehow replace existing apps and services <em>by outcompeting them</em>. This is an incredibly monumental task, but there are some things that may help in Dither's favor.</p>
+<ul>
+<li><strong>No Hosting Costs</strong> — Being decentralized means the users host everything. If we can create a system to make it as painless as possible to host data, that would be ideal.</li>
+<li><strong>Redesigning Everything is Sometimes Good</strong> — If applications using Dither are fundamentally better designed than the alternative and it is easy to switch, users will be more likely to use them.</li>
+<li><strong>No Intellectual Property</strong> — Intellectual property protections do not apply to the core of Dither since it is a peer-to-peer network. This means that new platforms can be immediately populated with any existing content people might want to watch. Note: Precautions should be taken to make sure creators have a say in if they want their content to be shown on mainstream applications using the protocol to prevent public backlash.</li>
+<li><strong>Standardization</strong> — Dither's ecosystem of APIs will all be compatible with each other which will infinitely improve the experience of the user. (Imagine being able to use a Discord-like chat room or a Reddit-like comment system underneath a YouTube video, or really any kind of system you want. It's all modular!).</li>
+<li><strong>Natural Incentives</strong> — Similar to Brave browser's tipping system, If applications built on Dither have good incentive systems for content creation that extends to existing content, then creators whose content is uploaded to the network will automatically accrue income that will then be an incentive for them to claim their money and create an account. Unlike Brave, there won't be any KYC requirements :).</li>
+</ul>
+<p><em>The aim for Dither is to replace existing centralized applications with decentralized alternatives that are unified through their use of a singular, modular protocol.</em></p>
+<p>See the <a href="applications.html">application document</a> for outlines of various applications that could be built using Dither.</p>
+<h1 id="core-tenets"><a class="header" href="#core-tenets">Core Tenets</a></h1>
+<p>It seems necessary for projects to have guidelines so that everyone may be on the same page. These are the ones I've chosen for now, as with everything, they are subject to change.</p>
+<p><strong>Dither should be as modular as possible.</strong></p>
+<ul>
+<li>Reasoning: There should be no part of Dither that is difficult to replace with a different implementation and people should be able to pick and choose which parts they want.</li>
+</ul>
+<p><strong>Dither protocols, formats, and communities should be as interoperable as possible with existing protocols, formats, and communities</strong></p>
+<ul>
+<li>Reasoning: To grow Dither's userbase, It should be as easy as possible to transition to Dither from other services.</li>
+<li>One example of this would be allowing someone to pull comments from Reddit / Youtube into <a href="applications/dithca.html">Dithca</a> and hosting them in a decentralized manner.</li>
+<li>Another example might be <a href="applications/dithca.html">Dithca</a> storing Reddit credentials and being able to optionally interact with comment threads pulled from centralized websites.</li>
+</ul>
+<p><strong>Dither should rely on itself as much as possible for every aspect of development and usage.</strong></p>
+<ul>
+<li>Reasoning: It feels natural for a program to use itself if possible. Rust is written in itself, GitLabs is hosted using GitLabs, etc.</li>
+<li>Code Versioning, Storage, Building, Distribution, and Social communication should all run through Dither applications if it won't compromise development too much.</li>
+</ul>
+<h1 id="structure"><a class="header" href="#structure">Structure</a></h1>
+<p>Following the first tenet of Dither, in the future the lines between these layers will blur and everything will be a module. However, the design of current operating systems don't easily allow for shared code and data, requiring a more formal structure. In the future this layered structure will be replaced with a more <a href="dither/structure.html">flexible system</a>.</p>
+<h2 id="transport-layer"><a class="header" href="#transport-layer">Transport Layer</a></h2>
+<p>The transport layer is the part of Dither that deals with creating peer-to-peer connections with other computers running Dither.
+Currenly in the dither-sim program, this is implemented via a simple TCP stream. In the future this layer will be implemented using existing libraries such as <a href="https://libp2p.io/implementations/#transports">libp2p transports</a>, <a href="https://www.pluggabletransports.info/transports/">Pluggable Transports</a>, something else, or some amalgamation of all three. The idea behind this layer is to provide as many methods of communication as feasibly possible.</p>
+<h2 id="service-layer"><a class="header" href="#service-layer">Service Layer</a></h2>
+<p>The service layer provides all functionality related to <a href="dither/routing/distance-based-routing.html">routing</a>, encryption, <a href="dither/routing/directional-trail-search.html">data storage</a>, <a href="dither/data/user-management.html">user management</a> and everything else. Each of these services are split up into separate modules each of which runs its own processes and communicates with other services through inter-process communication. </p>
+<p>All these processes are managed as child processes under one &quot;main process&quot;. The main process contains the Transport Layer implementation, the routing protocol API and APIs for managing the child services as well as managing inter-process communication between child processes.</p>
+<h2 id="application-layer"><a class="header" href="#application-layer">Application Layer</a></h2>
+<p>The application layer contains services just like the service layer that are registered under the main process. These registered service's APIs can be used by other applications. </p>
+<p>The application layer also refers to the application's core API, which is used by the interface layer. This &quot;core application API&quot; can be built into the applicaiton's executable, or it can run as a service under the main process and used by multiple interfaces. This is left up to the application developers. Applications with multiple interfaces should prefer to register application APIs under the main process.</p>
+<p>Existing planned applications may be found <a href="applications.html">here</a>.</p>
+<h2 id="interface-layer"><a class="header" href="#interface-layer">Interface Layer</a></h2>
+<p>The final layer is the interface layer. This just refers to standalone applications that provide some kind of interface to the user using the services running under Dither.</p>
+<p>These interfaces can be implemented however, but it is recommended for them to follow Dither's <a href="dither/application-design-philosophy.html">application design philosophy</a> for some level of standardization.</p>
+<h1 id="other-links"><a class="header" href="#other-links">Other Links</a></h1>
+<h3 id="a-hrefditherinspirationshtmlinspirations-for-dithera"><a class="header" href="#a-hrefditherinspirationshtmlinspirations-for-dithera"><a href="dither/inspirations.html">Inspirations for Dither</a></a></h3>
+<p>Dither as with any creative endeavor takes inspiration from many other projects. This is a list of what parts of Dither have been inspired from other projects.</p>
+<h1 id="structure-1"><a class="header" href="#structure-1">Structure</a></h1>
+<h2 id="service-manager"><a class="header" href="#service-manager">Service Manager</a></h2>
+<h2 id="services"><a class="header" href="#services">Services</a></h2>
+<h2 id="applications"><a class="header" href="#applications">Applications</a></h2>
+<h1 id="distance-based-routing"><a class="header" href="#distance-based-routing">Distance Based Routing</a></h1>
+<p>The goal of Distance Based Routing (DBR) is to obfuscate connections between computers on the Dither network. It works similarly to I2P &amp; TOR, but is vastly improved by taking into account where proxy nodes are, instead of randomly selecting proxy nodes. It also allows for you to choose the trade-off between anonymity and speed.</p>
+<ul>
+<li>Bandwidth Trading</li>
+<li>Configurable Routing
+<ul>
+<li>Network Traversal</li>
+<li>Network Searching</li>
+<li>Onion Routing</li>
+<li>Routing Wormholes</li>
+</ul>
+</li>
+</ul>
+<h2 id="network-organization"><a class="header" href="#network-organization">Network Organization</a></h2>
+<p>The idea behind network organization is to be able to create a network that reflects the real-world positions of the computers. This is so that it is easy to calculate the latency between different locations in the network and to optimise routing paths.</p>
+<p>Note: You can also read the network organization <a href="https://www.dither.link/papers/distance-based-routing-whitepaper.pdf">research paper</a> (or don't, its not that good)</p>
+<h2 id="routing-coordinates"><a class="header" href="#routing-coordinates">Routing Coordinates</a></h2>
+<p>One of the main ideas behind Distance-based routing is to replace conventional IP addresses with a less structural addressing system. Instead of using an IP address to try to get the routing tables of the internet to route your data where you want it, Routing Coordinates allow for a less metadata-intensive way to route packets: instead of consulting extensive routing tables, all nodes have to do is route packets to a nodes closer to the packet's destination routing coordinates. This conveniently allows for keeping your IP address private, allowing for better protection against Denial of Service attacks.</p>
+<p>Unfortunately, there are drawbacks. Routing Coordinates are spatial coordinates that represent the <em>latency topology</em> of a network. Because light travels at the speed of light, this latency topology reflects real-world connections between computers and their relative locations in the world. This allows for the unfortunate possibility that with a sufficiently informed attacker, the precise real-world location of a device could be deduced from its routing coordinates. To deal with this Dither uses Onion Routing by default when connecting to any peers not specifically trusted.</p>
+<h2 id="onion-routing"><a class="header" href="#onion-routing">Onion Routing</a></h2>
+<p>Conventionally, onion routing is an incredibly slow strategy because of how peers are typically selected in the network. However, with Routing Coordinates, peers directly along the path of the packet can be selected to allow for very minimal overhead. (in addition, the <a href="https://arxiv.org/abs/1507.05724v3">HORNET</a> protocol will be used for its incredibly efficient symmetric encryption scheme).</p>
+<h2 id="bootstrapping"><a class="header" href="#bootstrapping">Bootstrapping</a></h2>
+<p>The by which a new node joins the network is as follows:</p>
+<ul>
+<li>The new node first needs to bootstrap off of at least one existing node.</li>
+<li>This existing node sends the new node a set of peer <code>Address</code>es selected based on how close they might be to the requesting node (this will represent a ring of nodes roughly a constant distance away from the existing node, this constant distance being the latency between the existing node and the new node).
+<ul>
+<li>In the case that the existing node has not been bootstrapped, it will notify the requesting node as such, and if the requesting node continues the connection, it will set its own Routing Coordinates to the origin of the coordinate space.</li>
+</ul>
+</li>
+<li>Assuming the existing node has at least one peer, the connecting node can accomplish the Local Peer Protocol.</li>
+<li>The new node takes the set of peer <code>Address</code>es that were received from the existing node and pings them, measuring connection latency to all of them. The new node queries the existing nodes with the closest latencies for their sets of peers, and repeats until a set of nodes has been aquired ordered by their latency from the new node.</li>
+<li>The node choses peers for it's &quot;active set&quot;, by default this is a few hundred of its closest nodes.</li>
+<li>The new node then uses <a href="https://en.wikipedia.org/wiki/True-range_multilateration">True-range multilateration</a> on the closest nodes of its active set to calculate its own Routing Coordinate and then broadcasts this routing coordinate to its active set.</li>
+<li>This concludes the bootstrapping process and the node can now use its routing coordinate as a temporary address on the network.</li>
+</ul>
+<h2 id="conflicting-networks"><a class="header" href="#conflicting-networks">Conflicting Networks</a></h2>
+<p>It is possible, (although unlikely) for two or more incompatible latency topologies to be formed in separate places. This can happen relatively easily if, say, two Dither networks formed independently on isolated networks and then these networks connected to each other. A solution to this problem is still in the works, however, this solution will most likely have to be a system that syncronizes itself.</p>
+<h2 id="routing-techniques"><a class="header" href="#routing-techniques">Routing Techniques</a></h2>
+<p>There are many possible routing techniques that could be built on top of Routing Coordinates, here is a list of some of the default ones:</p>
+<ul>
+<li>Default Routing
+<ul>
+<li>This uses the underlying networking protocol (i.e. Ipv4 or Ipv6) to send data to and from some address.</li>
+</ul>
+</li>
+<li>Traversal Routing
+<ul>
+<li>A packet using this routing method contains a destination routing coordinate. When a node receives a packet using this routing method, it simply sends the the packet to whatever node in it's active set that is closer to the destination.</li>
+</ul>
+</li>
+<li>Proxy Routing (i.e. Onion Routing)
+<ul>
+<li>Multiple nodes in the network are selected to temporarily proxy packets to their destination.</li>
+<li>Chains of these proxies can be formed with Onion Routing support to create re-usable network proxies. </li>
+</ul>
+</li>
+<li>Locality Routing
+<ul>
+<li>This is a method to protect the exact location of a node.</li>
+<li>All the nodes within a certain area in the routing coordinate space are instructed to route any packets they receive with a specific ID to a certain node in the space.</li>
+</ul>
+</li>
+</ul>
+<h2 id="bandwidth-trading"><a class="header" href="#bandwidth-trading">Bandwidth Trading</a></h2>
+<p>Proxying protocols that rely on the goodwill of peers to route packets typically have only a small number of willing peers to route (ex: TOR). This is why protocols like BitTorrent, I2P and IPFS have systems in place that require peers to play fair and contribute back to the network.</p>
+<p>To accomplish this behavior for Dither there are some potential solutions:</p>
+<ul>
+<li>A node records how much data has been forwarded through itself from each node in it's &quot;active set&quot; and uses nodes that use it the most for traversal. </li>
+</ul>
+<h1 id="directional-trail-search"><a class="header" href="#directional-trail-search">Directional Trail Search</a></h1>
+<p>Allows for a computer to fetch a piece of data from another computer based on the multihash of that piece of data, as long as at least one computer has the data.</p>
+<h2 id="general-structure"><a class="header" href="#general-structure">General Structure</a></h2>
+<p>Directional Trail Search takes inspiration for how ants find food: scent and pheromone trails. In Dither, these take form as &quot;holes&quot; and &quot;trails&quot;. Holes form when nodes broadcast to nearby nodes (nearby in terms of routing coordinates) that they have the data behind a given hash. Those nearby nodes will then note down the hash and which direction the broadcast came from. Then, when another node wants to find the data of that hash, it will send out many wandering packets [link needed] that will, when encountering a node that has the desired hash, will be routed by that node towards the node that actually has the data that generates the hash.</p>
+<p>The other form is &quot;trails&quot;. These form once a wandering packet has finally reached the node with the data it was looking for (the data the matches the hash). This destination node then sends a special traversal packet back to the sending node that tells each node on the way to take note of what direction the traversal packet came from. This forms a kind of trail in the network that other wandering packets can come across and follow to the desired node. This system also creates an effect where the more popular a given piece of data is, the faster a node hosting it will be found.</p>
+<p>For data that is not very popular and can't be find found with a reasonable number of wandering packets, a simple DHT can be used to map hashes to route coordinates.</p>
+<h2 id="specific-structure"><a class="header" href="#specific-structure">Specific Structure</a></h2>
+<p>Every node in Dither will have a binary tree structure that maps hashes to a relative routing direction or a direct peer (TBD).</p>
+<h2 id="downsides"><a class="header" href="#downsides">Downsides</a></h2>
+<p>While Directional Trail Search is much faster and more efficient than DHTs, it is not as good when considering rare data. With a DHT, as long as there is at least one node hosting the data, it will be found eventually. With DTS, there is no guarantee that a piece of data will be found.</p>
+<p>There are multiple potential solutions in order of feasibility:</p>
+<ul>
+<li>Use a DHT in addition to DTS by default</li>
+<li>Figure out how to get DTS to support rare files natively, perhaps by making nodes send out traversal packets pointing to themselves along the network to create artificial paths.</li>
+<li>Store routing coordinates / routing areas on the Reverse Hash Lookup.</li>
+<li>Implement a Network Coordination feature that tells all nodes in the network to notify a node when they find the requested data. (induces denial of service vector, probably a bad idea)</li>
+</ul>
+<h1 id="reverse-hash-lookup-wip"><a class="header" href="#reverse-hash-lookup-wip">Reverse Hash Lookup (WIP)</a></h1>
+<ul>
+<li>This solves the problem of having a hash and wanting to find pieces of data that link to that hash. This is super useful for comment systems and the like.</li>
+<li>This is a system by which one can find structures that link to a given hash implementing the reverse trait.</li>
+<li>If there is some pieces of data that links from or adds useful definitions to a given piece of data, this is the place for it. One example of this in practice might be having a comment thread. Each comment is its own Hashtype that contains the hash of the post or a replying comment. In order for someone who has the post structure to find the comments, they would need find all the pieces of data linking to this piece of data (i.e. a Reverse Hash Lookup)</li>
+<li>To implement this system, there will be a partial binary tree represented by a DAG that can be traversed using the data of the target. (i.e. the post structure's hash). Then the tree can be traversed down using consecutive trail searches. Until a list of all known linked hashes is found. These structures must contain a specific trait called a RevHash to be able to be validated onto the distributed tree. The addition of new links to this tree is done through an implementation of Dither Chain Consensus (see the <a href="dither/data/reverse-hash-lookup.html#dither-consensus-chains">#Dither Consensus Chains</a> section).</li>
+</ul>
+<p>Allows for finding what structures link to a given structure.</p>
+<p>Example: Someone can find a comment that links to a post, just given the hash of the post.</p>
+<h1 id="ideas-to-add"><a class="header" href="#ideas-to-add">IDEAS TO ADD</a></h1>
+<p>Keep track of the number of child nodes for each node in the tree so you can merge reverse hash lookup trees easily in a peer-to-peer fashion which means consensus can be less rigourous.</p>
+<h2 id="general-structure-1"><a class="header" href="#general-structure-1">General Structure</a></h2>
+<p>A binary hash-linked search tree stored in a decentralized fashion with <a href="dither/data/../routing/directional-trail-search.html">DTS</a> that maps a given hash to object that contains that hash. Hashes are agreed upon in a decentralized manner, but direct consensus is assured, and a pubsub system helps speed up consensus for high-activity hashes.</p>
+<h2 id="specific-structure-1"><a class="header" href="#specific-structure-1">Specific Structure</a></h2>
+<h3 id="tree"><a class="header" href="#tree">Tree</a></h3>
+<ul>
+<li>The goal for this tree is for nodes to contain as little information as possible so that large portions of the tree can be sent at once.</li>
+<li>A Binary Tree contains <code>Branch</code>es and <code>Node</code>s. For this structure, each one will be its own self-defining structure. Each node will contain</li>
+<li>Binary Tree, contains</li>
+</ul>
+<h3 id="traits"><a class="header" href="#traits">Traits</a></h3>
+<ul>
+<li>
+<p><code>Node&lt;T, L&gt;</code> - Nodes of the tree</p>
+<ul>
+<li><code>subnodes: List&lt;T, L&gt;</code> - subnodes of this node</li>
+</ul>
+</li>
+<li>
+<p><code>Leaf</code> - </p>
+</li>
+<li>
+<p>This is a system by which one can find structures that link to a given hash implementing the reverse trait.</p>
+</li>
+<li>
+<p>If there is some pieces of data that links from or adds useful defintions to a given piece of data, this is the place for it. One example of this in practice might be having a comment thread. Each comment is its own Hashstruct that contains the hash of the post or a replying comment. In order for someone who has the post structure to find the comments, they would need find all the pieces of data linking to this piece of data (i.e. a Reverse Hash Lookup)</p>
+</li>
+<li>
+<p>To implement this system, there will be a partial binary tree represented by a DAG that can be traversed using the data of the target. (i.e. the post structure's hash). Then the tree can be traversed down using consecutive trail searches. Until a list of all known linked hashes is found. These structures must contain a specific trait called a RevHash to be able to be validated onto the distributed tree. The addition of new links to this tree is done through an implementation of Dither Chain Consensus (see the <a href="dither/data/reverse-hash-lookup.html#dither-consensus-chains">#Dither Consensus Chains</a> section).</p>
+</li>
+</ul>
+<h1 id="zero-knowledge-proofs"><a class="header" href="#zero-knowledge-proofs">Zero Knowledge Proofs</a></h1>
+<p>These are really cool btw.</p>
+<p>Potential Applications:</p>
+<ul>
+<li>Anonymous Transactions</li>
+<li>Proof of Karma (proove that someone is trustworthy enough on the Dither network for them to be trusted without giving away more information than necessary)</li>
+<li>KYC/18+ requirements - For abiding by laws.</li>
+<li>(Is this even possible?) - Proove that some well-defined operation was done correctly on a given piece of data, i.e. that a binary was compiled correctly with no tampering.</li>
+<li>Prooving that a given Self-Defined Structure's valid proof is valid.</li>
+<li>Anonymous Auctions (Hiding what other people bid for items)</li>
+</ul>
+<p>Potential Traits:
+``</p>
+<h1 id="dithers-user-api"><a class="header" href="#dithers-user-api">Dither's User API</a></h1>
+<h2 id="purpose"><a class="header" href="#purpose">Purpose</a></h2>
+<p>Dither is aiming to replace the internet, so it needs a standard method of accounting. This includes storing user data publicly and privately, identifying users, and authenticating users. These accounts need to be able work across devices and should have varying levels of authentication for varying levels of storage of information.
+Dither accounts should also be able to prove qualities about themselves to external parties using zero-knowledge proofs.</p>
+<h2 id="goals"><a class="header" href="#goals">Goals</a></h2>
+<p>Accounts should be able to be accessed in a standard way that is accessible to any application.</p>
+<p>Accounts should have multiple levels of authentication for varying levels of access to information.</p>
+<p>Accounts should be able to expose however much information their users want.</p>
+<ul>
+<li>Whether it be a throwaway anonymous account or an account connected to every aspect of a person's life.</li>
+</ul>
+<h2 id="structure-2"><a class="header" href="#structure-2">Structure</a></h2>
+<p>A user is just a Public / Private key pair with encrypted and unencrypted data stored in a versioned data structure.</p>
+<p>There are two parts to this datastructure, a public versioned structure and a private encrypted structure. The public key is stored in the public structure, the private key is stored in the private structure. </p>
+<p>Any interaction between an application and a user on Dither is done through the Dither API. Applications can create users, authenticate as a user and discover the public data of other users through the User API.</p>
+<h2 id="user-definitions"><a class="header" href="#user-definitions">User Definitions</a></h2>
+<p>These public and private structures can have various definitions that define various qualities about the user. Definitions are just permissioned data that is stored by a user. Definitions can be publicly available, publicly writable or conditionally available, and writable with specific permissions.</p>
+<h3 id="examples-of-definitions"><a class="header" href="#examples-of-definitions">Examples of Definitions</a></h3>
+<ul>
+<li>Public
+<ul>
+<li>Username</li>
+<li>Autobiography</li>
+</ul>
+</li>
+<li>Private</li>
+</ul>
+<h2 id="user-api"><a class="header" href="#user-api">User API</a></h2>
+<p>Application </p>
+<ul>
+<li><code>CreateUser()</code>
+<ul>
+<li>Create new user (for permanent or temporary purposes)</li>
+<li>This will create a new user in this peer and give access to application that called this DitherAction</li>
+</ul>
+</li>
+<li><code>Bootstrap(PeerID, MultiAddr)</code>
+<ul>
+<li>Tell network layer to bootstrap to specific node (only used on startup)</li>
+</ul>
+</li>
+<li><code>Discover(UserId)</code>
+<ul>
+<li>Initiate a network tree request to discover info about a user. (e.g. hosting peers, public configuration)</li>
+<li>Depending on the queried user’s config information may or may not be returned.</li>
+</ul>
+</li>
+<li><code>Authenticate(UserId, UserToken)</code> - Authenticate to user on dither network
+<ul>
+<li>This will attempt to authenticate an application as a user on the network. </li>
+<li>When a token is sent to the peer(s) with permission over the user’s private key, the type of authentication is predetermined by the permissions in the private user configuration. The Types of Authentication are:
+<ul>
+<li>Hosting - the user’s private key is sent to the application and the application has full control over the user</li>
+<li>Proxy - all events are sent through peers with actual permission to sign messages</li>
+</ul>
+</li>
+<li>Will attempt to authenticate as a known user with known hosting peer</li>
+</ul>
+</li>
+<li><code>SendData(UserId, Data)</code>
+<ul>
+<li>Send data to specific application of specific UserId</li>
+<li>Can potentially be a local application (such as dither-scp or dither-db)</li>
+<li>Or another dither service running on another peer</li>
+</ul>
+</li>
+</ul>
+<h1 id="the-dither-project-1"><a class="header" href="#the-dither-project-1">The Dither Project</a></h1>
+<ul>
+<li><a href="dither.html#the-dither-project">The Dither Project</a>
+<ul>
+<li><a href="dither.html#what-is-it">What is it?</a></li>
+<li><a href="dither.html#a-plan-for-the-future-of-the-internet">A Plan for the Future of the Internet</a></li>
+</ul>
+</li>
+<li><a href="dither.html#core-tenets">Core Tenets</a></li>
+<li><a href="dither.html#structure">Structure</a>
+<ul>
+<li><a href="dither.html#transport-layer">Transport Layer</a></li>
+<li><a href="dither.html#service-layer">Service Layer</a></li>
+<li><a href="dither.html#application-layer">Application Layer</a></li>
+<li><a href="dither.html#interface-layer">Interface Layer</a></li>
+</ul>
+</li>
+<li><a href="dither.html#other-links">Other Links</a>
+<ul>
+<li><a href="dither.html#inspirations-for-dither">Inspirations for Dither</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-it-1"><a class="header" href="#what-is-it-1">What is it?</a></h2>
+<p>Dither is a project with the goal of decentralizing the internet. It is a toolbox of various tools application developers can use to communicate privately, host data, manage accounts much more. It is currently being developed by <a href="https://github.com/zyansheep">@Zyansheep</a> and temporarily hosted via GitHub under the <a href="https://github.com/libdither">libdither</a> organization.</p>
+<h2 id="a-plan-for-the-future-of-the-internet-1"><a class="header" href="#a-plan-for-the-future-of-the-internet-1">A Plan for the Future of the Internet</a></h2>
+<p>The plan behind Dither is to create an modern internet unencumbered by any kind of central control. To accomplish this, Dither must somehow replace existing apps and services <em>by outcompeting them</em>. This is an incredibly monumental task, but there are some things that may help in Dither's favor.</p>
+<ul>
+<li><strong>No Hosting Costs</strong> — Being decentralized means the users host everything. If we can create a system to make it as painless as possible to host data, that would be ideal.</li>
+<li><strong>Redesigning Everything is Sometimes Good</strong> — If applications using Dither are fundamentally better designed than the alternative and it is easy to switch, users will be more likely to use them.</li>
+<li><strong>No Intellectual Property</strong> — Intellectual property protections do not apply to the core of Dither since it is a peer-to-peer network. This means that new platforms can be immediately populated with any existing content people might want to watch. Note: Precautions should be taken to make sure creators have a say in if they want their content to be shown on mainstream applications using the protocol to prevent public backlash.</li>
+<li><strong>Standardization</strong> — Dither's ecosystem of APIs will all be compatible with each other which will infinitely improve the experience of the user. (Imagine being able to use a Discord-like chat room or a Reddit-like comment system underneath a YouTube video, or really any kind of system you want. It's all modular!).</li>
+<li><strong>Natural Incentives</strong> — Similar to Brave browser's tipping system, If applications built on Dither have good incentive systems for content creation that extends to existing content, then creators whose content is uploaded to the network will automatically accrue income that will then be an incentive for them to claim their money and create an account. Unlike Brave, there won't be any KYC requirements :).</li>
+</ul>
+<p><em>The aim for Dither is to replace existing centralized applications with decentralized alternatives that are unified through their use of a singular, modular protocol.</em></p>
+<p>See the <a href="applications.html">application document</a> for outlines of various applications that could be built using Dither.</p>
+<h1 id="core-tenets-1"><a class="header" href="#core-tenets-1">Core Tenets</a></h1>
+<p>It seems necessary for projects to have guidelines so that everyone may be on the same page. These are the ones I've chosen for now, as with everything, they are subject to change.</p>
+<p><strong>Dither should be as modular as possible.</strong></p>
+<ul>
+<li>Reasoning: There should be no part of Dither that is difficult to replace with a different implementation and people should be able to pick and choose which parts they want.</li>
+</ul>
+<p><strong>Dither protocols, formats, and communities should be as interoperable as possible with existing protocols, formats, and communities</strong></p>
+<ul>
+<li>Reasoning: To grow Dither's userbase, It should be as easy as possible to transition to Dither from other services.</li>
+<li>One example of this would be allowing someone to pull comments from Reddit / Youtube into <a href="applications/dithca.html">Dithca</a> and hosting them in a decentralized manner.</li>
+<li>Another example might be <a href="applications/dithca.html">Dithca</a> storing Reddit credentials and being able to optionally interact with comment threads pulled from centralized websites.</li>
+</ul>
+<p><strong>Dither should rely on itself as much as possible for every aspect of development and usage.</strong></p>
+<ul>
+<li>Reasoning: It feels natural for a program to use itself if possible. Rust is written in itself, GitLabs is hosted using GitLabs, etc.</li>
+<li>Code Versioning, Storage, Building, Distribution, and Social communication should all run through Dither applications if it won't compromise development too much.</li>
+</ul>
+<h1 id="structure-3"><a class="header" href="#structure-3">Structure</a></h1>
+<p>Following the first tenet of Dither, in the future the lines between these layers will blur and everything will be a module. However, the design of current operating systems don't easily allow for shared code and data, requiring a more formal structure. In the future this layered structure will be replaced with a more <a href="dither/structure.html">flexible system</a>.</p>
+<h2 id="transport-layer-1"><a class="header" href="#transport-layer-1">Transport Layer</a></h2>
+<p>The transport layer is the part of Dither that deals with creating peer-to-peer connections with other computers running Dither.
+Currenly in the dither-sim program, this is implemented via a simple TCP stream. In the future this layer will be implemented using existing libraries such as <a href="https://libp2p.io/implementations/#transports">libp2p transports</a>, <a href="https://www.pluggabletransports.info/transports/">Pluggable Transports</a>, something else, or some amalgamation of all three. The idea behind this layer is to provide as many methods of communication as feasibly possible.</p>
+<h2 id="service-layer-1"><a class="header" href="#service-layer-1">Service Layer</a></h2>
+<p>The service layer provides all functionality related to <a href="dither/routing/distance-based-routing.html">routing</a>, encryption, <a href="dither/routing/directional-trail-search.html">data storage</a>, <a href="dither/data/user-management.html">user management</a> and everything else. Each of these services are split up into separate modules each of which runs its own processes and communicates with other services through inter-process communication. </p>
+<p>All these processes are managed as child processes under one &quot;main process&quot;. The main process contains the Transport Layer implementation, the routing protocol API and APIs for managing the child services as well as managing inter-process communication between child processes.</p>
+<h2 id="application-layer-1"><a class="header" href="#application-layer-1">Application Layer</a></h2>
+<p>The application layer contains services just like the service layer that are registered under the main process. These registered service's APIs can be used by other applications. </p>
+<p>The application layer also refers to the application's core API, which is used by the interface layer. This &quot;core application API&quot; can be built into the applicaiton's executable, or it can run as a service under the main process and used by multiple interfaces. This is left up to the application developers. Applications with multiple interfaces should prefer to register application APIs under the main process.</p>
+<p>Existing planned applications may be found <a href="applications.html">here</a>.</p>
+<h2 id="interface-layer-1"><a class="header" href="#interface-layer-1">Interface Layer</a></h2>
+<p>The final layer is the interface layer. This just refers to standalone applications that provide some kind of interface to the user using the services running under Dither.</p>
+<p>These interfaces can be implemented however, but it is recommended for them to follow Dither's <a href="dither/application-design-philosophy.html">application design philosophy</a> for some level of standardization.</p>
+<h1 id="other-links-1"><a class="header" href="#other-links-1">Other Links</a></h1>
+<h3 id="a-hrefditherinspirationshtmlinspirations-for-dithera-1"><a class="header" href="#a-hrefditherinspirationshtmlinspirations-for-dithera-1"><a href="dither/inspirations.html">Inspirations for Dither</a></a></h3>
+<p>Dither as with any creative endeavor takes inspiration from many other projects. This is a list of what parts of Dither have been inspired from other projects.</p>
+<h1 id="disp-decentralized-lisp"><a class="header" href="#disp-decentralized-lisp">Disp (Decentralized Lisp)</a></h1>
+<p><em>What is a program? What is data? Why, they are one of the same.</em></p>
+<p>Inspired by:</p>
+<ul>
+<li>Lisp for its flexibility</li>
+<li>Idris &amp; Coq for the infinite expressiveness of dependent types</li>
+<li>Rust for its speed</li>
+<li>IPFS for deduplication</li>
+</ul>
+<h2 id="goals-1"><a class="header" href="#goals-1">Goals</a></h2>
+<ul>
+<li>Fastest compile times</li>
+<li>Fastest execution time</li>
+<li>Support for any possible cpu or interpreter</li>
+<li>Relatively easy transpilation from other languages</li>
+<li>Maximum re-use of code</li>
+<li>Seemless integration into Dither</li>
+<li>Abstraction of Execution Environment</li>
+</ul>
+<h2 id="ideas"><a class="header" href="#ideas">Ideas</a></h2>
+<ul>
+<li>Objects are stored in self-defining data structures, i.e. they link to data that describes the format of the object (whether that be structurally, in-memory, or symbolically).
+<ul>
+<li>An object can be defined by its computation -&gt; Compilation can be as incremental as you want.</li>
+<li></li>
+</ul>
+</li>
+<li>High level programs are provably compiled into arbitrary lower-level representations with minimal programmer input.
+<ul>
+<li>An inductive datatype like <code>Nat</code> could be provably compiled into something like <code>BigInt</code> and be much more efficient. In tern, as long as you either ignore the possibility or proove it never happens, <code>BigInt</code> could be transformed into a  <code>U64</code> or something similar.</li>
+</ul>
+</li>
+<li>Goal of compilation is cpu-specific object file complete with
+<ul>
+<li>data pre-loaded into memory</li>
+<li>list of cpu-specific instructions.</li>
+<li>hash of external virtual kernel API (i.e. syscall functions)</li>
+</ul>
+</li>
+<li>virtual kernel APIs can be constrained to give programs access to different parts of the computer, or forgone entirely for programs that only manipulate data.</li>
+<li>Running object files requires a uniquely setup syscall kernel API that can deal with interrupts</li>
+</ul>
+<h2 id="general-architecture"><a class="header" href="#general-architecture">General Architecture</a></h2>
+<ul>
+<li>
+<p>There are two structures that are core to disp: <code>Expr</code>, and <code>Judgement</code>. <code>Expr</code> is an inductive structure that represents all the terms and types of the language. <code>Judgement</code> is the structure that matches <code>Expr</code>s together to create a typing judgement (i.e. saying some term is of some type or <code>a : A</code>). See [[expr]] for more details.</p>
+</li>
+<li>
+<p>All structures of the language are defined through [[hashtypes]] </p>
+</li>
+<li>
+<p>All language types are themselves self-defining structures, including the final bytecode file.</p>
+</li>
+<li>
+<p>The language files are not stored as text files, they are instead stored as self-defining structures of groups of commands.</p>
+</li>
+</ul>
+<h1 id="expressions-in-disp"><a class="header" href="#expressions-in-disp">Expressions in Disp</a></h1>
+<p>An expression is an inductive datatype defined roughly as follows:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Expr {
+	Variable,
+	Lambda { bind: Binding, expr: Expr },
+	Application { func: Expr, func: Expr },
+	Type { order: Nat },
+	Pi { bind: Binding, bind_type: Expr, expr: Expr },
+}
+enum Binding {
+	None,
+	End,
+	Branch(Binding, Binding),
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>See how the <code>Binding</code> structure works <a href="disp/./lambda-trees.html">here</a></p>
+<p>The schema consists of the structures of the untyped lambda calculus combined with two type constructors <code>Type</code> and <code>Pi</code>. These represent the <a href="https://ncatlab.org/nlab/show/type+of+types">type of all types</a> with universe polymorphism and the <a href="https://ncatlab.org/nlab/show/dependent+product+type">dependent product type</a>. </p>
+<h1 id="lambda-trees-a-deduplication-friendly-alternative-to-de-brujin-indicies"><a class="header" href="#lambda-trees-a-deduplication-friendly-alternative-to-de-brujin-indicies">Lambda Trees: A deduplication friendly alternative to De Brujin Indicies.</a></h1>
+<p>Used in [Disp]</p>
+<p>The current most well known way of representing the lambda calculus is <a href="https://en.wikipedia.org/wiki/De_Bruijn_index">De Brujin Indicies</a>.</p>
+<p>This is where you have 3 variants of a lambda Term:</p>
+<ul>
+<li><code>Var(Number)</code> - Number represents how many layers of abstraction (lambdas) the variable is away from its intended binding</li>
+<li><code>App(Term, ...)</code> - Application is a list of Terms</li>
+<li><code>Lambda(Term)</code> - Lambda represents an abstraction point</li>
+</ul>
+<p>An example of what this might look like for common equations:</p>
+<ul>
+<li><code>λx . x</code> = <code>Lambda(Var(1))</code></li>
+<li><code>λx. λy. x</code> = <code>Lambda(Lambda(Var(2)))</code></li>
+<li><code>λx. (x (λx . λy . x) (λx . λy . y))</code> = <code>Lambda(App(Var(1), Lambda(Lambda(Var(1))), Lambda(Lambda(Var(2)))))</code></li>
+</ul>
+<p>For Disp, I have devised an alternative method that doesn't require integers (and thus is not limited by encoding constraints)</p>
+<p>Disp has the same 3 variants of Term:</p>
+<ul>
+<li><code>Var</code></li>
+<li><code>App(Term, Term)</code></li>
+<li><code>Lambda(PointerTree, Term)</code></li>
+</ul>
+<p>In addition to a construct PointerTree:</p>
+<ul>
+<li><code>None</code></li>
+<li><code>End</code></li>
+<li><code>Branch(PointerTree, PointerTree)</code></li>
+</ul>
+<p>In fact, the pointertree datastructure can be repurposed from the Term datastructure.
+<code>(End = Var, None = Lambda(Var, Var), Branch(PointerTree, PointerTree) = App(Term, Term))</code></p>
+<p>Common equation examples of this structure might look like:</p>
+<ul>
+<li><code>λx . x</code> = <code>Lambda(Var, Var)</code></li>
+<li><code>λx. λy. x</code> = <code>Lambda(Var, Lambda(None, Var))</code></li>
+<li><code>λx. (x (λx . λy . y) (λx . λy . x))</code> = <code>Lambda(Branch(Branch(End, None), None), App( App( Var, Lambda(None, Lambda(Var, Var)) ), Lambda(Var, Lambda(None, Var)) )</code>
+As opposed to De Brujin indices where the variables &quot;point&quot; to their corresponding lambda abstractions, with Lambda Trees, the lambda terms carry an auxiliary datastructure specifying exactly which Variables should be replaced.</li>
+</ul>
+<p>In addition when it comes to storage and integration with Dither, these lambda expressions are identified by hash which gives a datastructure like this:</p>
+<ul>
+<li><code>Var</code></li>
+<li><code>App(Hash, Hash)</code></li>
+<li><code>Lambda(Hash, Hash)</code></li>
+</ul>
+<p>This version of lambda calculus has been implemented in the <a href="https://github.com/libdither/disp">disp repository</a></p>
+<h1 id="type-system-of-disp"><a class="header" href="#type-system-of-disp">Type System of Disp</a></h1>
+<p>The type system of disp should be:</p>
+<ul>
+<li>Simple (few core inference rules)</li>
+<li>Complex (able to build complex type logic from simple rules)</li>
+</ul>
+<h3 id="places-of-inspiration"><a class="header" href="#places-of-inspiration">Places of Inspiration</a></h3>
+<ul>
+<li>ATS type system
+<ul>
+<li>Linear types</li>
+<li>Dependent / Refinement types</li>
+</ul>
+</li>
+</ul>
+<h2 id="dependent-types"><a class="header" href="#dependent-types">Dependent Types</a></h2>
+<p>Dependent types are the core of any good type system</p>
+<h1 id="provable-hardware-modeling"><a class="header" href="#provable-hardware-modeling">Provable Hardware Modeling</a></h1>
+<h4 id="how-do-we-generate-fast-code"><a class="header" href="#how-do-we-generate-fast-code">How do we generate fast code?</a></h4>
+<ul>
+<li>Currently, Optimizing Compilers generate fast code through intermediate representations and various techniques to figure out what code is needed and what code is not.
+<ul>
+<li>https://www.lihaoyi.com/post/HowanOptimizingCompilerWorks.html</li>
+</ul>
+</li>
+<li>These strategies are mostly arbitrary and not easily improvable. A programmer has to go through and figure out which optimizations are worth the compiler computation cost and which aren't. There are an immeasurable number of trade-offs and potential improvements for a given piece of hardware. This calls for a new method to quantify these trade-offs and create a better system.</li>
+</ul>
+<h4 id="how-do-we-create-fast-algorithms"><a class="header" href="#how-do-we-create-fast-algorithms">How do we create fast algorithms?</a></h4>
+<ul>
+<li>We typically manually write algorithms we think will run fast and then compare them to other algorithms using benchmarks. However, benchmarks have so many confounding factors that it is difficult to compare two of them and make definitive conclusions.
+<ul>
+<li>Results may also depend on whether the algorithm is fit for the CPU architecture. The same algorithm may run faster or slower depending on a bazillion different factors such as <a href="https://www.youtube.com/watch?v=r-TLSBdHe1A">layout</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="how-to-model-performance"><a class="header" href="#how-to-model-performance">How To Model Performance</a></h2>
+<p>To create efficient code, we must have a model of how that code is run. Typically this model is held in the programmer's mind and is expressed through compiler and algorithm design. Instead of holding it in our forgetful, biased brains, it might be a good idea to have a software-defined model of our hardware so that we can prove that our optimizations and algorithms are actually faster.</p>
+<p>Model specifications &amp; options</p>
+<ul>
+<li>Should take into account modern CPU features such as: pipelining, superscalar execution, out-of-order execution, and branch prediction.</li>
+<li>Should be generic enough to model different CPU generations of the same architecture.</li>
+<li>Should take into account other hardware qualities such as RAM latency, GPU parallelization options, and any other model-able aspect that could influence performance.</li>
+<li>Simple models could be hand-crafted using published characteristics from documents like the <a href="https://www.agner.org/optimize/#manual_instr_tab">Instruction Tables</a></li>
+<li>More sophisticated models could be made for open source CPU architectures by using the logic gate layout of the CPU. (This may be possible for architectures like RISC-V)</li>
+</ul>
+<p>Benefits to this approach include:</p>
+<ul>
+<li><strong>No more annoying benchmarks</strong> Faster algorithms can be provably faster for a given model.
+<ul>
+<li>Note: Benchmarks still need to be used to compare different models of a hardware system, however these benchmarks can be much more sophisticated and take into account more confounding factors.</li>
+</ul>
+</li>
+<li><strong>Faster optimization adoption</strong> Compilers can substitute old optimizations for faster ones without delay using a public distributed database of optimization.
+<ul>
+<li>Scenario
+<ul>
+<li>Bob has a new optimization for a certain pattern of functional expressions.</li>
+<li>Bob proves it is faster for a well-trusted model of x86_64 CPUs</li>
+<li>Bob broadcasts optimization to everyone</li>
+<li>Everyone checks the proof that it is faster</li>
+<li>Everyone uses new optimization, programs are faster</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="hashtypes"><a class="header" href="#hashtypes">Hashtypes</a></h1>
+<p>Hash types are how Dither deals with data. </p>
+<p>A fundamental property of hash types are that they describe their own domain. This includes: what data types make up the domain (i.e. bytes, types, other data types) and how those datatypes may be restricted (i.e. a data type might be variable in length depending on another type like a list).</p>
+<h2 id="fundamental-types"><a class="header" href="#fundamental-types">Fundamental Types</a></h2>
+<p>There are a few fundamental types.</p>
+<h3 id="multihash-type"><a class="header" href="#multihash-type"><code>Multihash</code> type</a></h3>
+<h3 id="expr-type"><a class="header" href="#expr-type"><code>Expr</code> type</a></h3>
+<p>Reflects Lambda Calculus</p>
+<p>Expr can be interpreted as 3 things:</p>
+<p>Bind Variant: (Varint)</p>
+<p>Lambda Variant: (<code>Multihash&lt;Expr&gt;</code>, <code>Multihash&lt;Expr&gt;</code>)</p>
+<p>Application Variant: </p>
+<h3 id="type-type"><a class="header" href="#type-type"><code>Type</code> type</a></h3>
+<h3 id=""><a class="header" href="#">`</a></h3>
+<h1 id="dither-application-index"><a class="header" href="#dither-application-index">Dither Application Index</a></h1>
+<h2 id="list-of-application-ideas"><a class="header" href="#list-of-application-ideas">List of application Ideas</a></h2>
+<ul>
+<li><a href="applications/dither-chat.html">Dither Chat</a> - Community Chat application aiming to replace Discord. Provides e2ee encrypted DMs, voice chat, servers, voting, and integration with most other chat protocols.</li>
+<li><a href="applications/dithca.html">Dithca</a> - Comprehensive &amp; Versatile decentralized comment system where anyone can comment on any type of data structure on Dither. Can interface with most other centralized comment systems and deal with misinformation &amp; crediting using a comprehensive community flagging system.
+<ul>
+<li>Can be used to create Reddit / Twitter Replacement. Can be integrated into other Dither applications or ported to web.</li>
+</ul>
+</li>
+<li><a href="applications/dither-git.html">Dithgit</a> - Github on Dither</li>
+<li><a href="applications/dithix.html">Dithix</a> - Dither Resource Manager: Manage and cache any kind of resource, interface between the Merkle Tree and the Filesystem.</li>
+<li><a href="applications/nomia.html">Nomia on Dither</a> - Nomia on Dither, </li>
+<li><a href="tree-of-math-old.html">Tree of Math</a> - Directed Acyclic Graph linking a standardized data structure for defintions and proofs together based on set theory creating a comprehensive tree of knowledge.</li>
+<li><a href="applications/dither-coin.html">Dither Coin</a> - Cryptocurrency that solves all the current problems and creates a complete digital replication of cash (being decentralized, anonymous, non-volatile, and difficult to trace).</li>
+<li><a href="applications/dither-dex.html">Dither DEX</a> - A all-faceted decentralized exchange to facilitate trade any kind of real or virtual asset. Supports meeting up in real life or exchanging other virtual assets anonymously and securely. Also supports moderation, karmic filtering</li>
+<li><a href="applications/protocol-of-truth/protocol-of-truth.html">Protocol of Truth</a></li>
+</ul>
+<h2 id="other-application-ideas"><a class="header" href="#other-application-ideas">Other Application Ideas:</a></h2>
+<ul>
+<li>Manga &amp; Reading App
+<ul>
+<li>UI will be similar to <a href="https://github.com/tachiyomiorg/tachiyomi">Tachiyomi</a>, but will also support book reading. Pulls content from various websites and stores on Dither. Written in Flutter, desktop &amp; mobile versions. Supports comments through Dithca. Has built-in feature for paying for translation &amp; replacing bad translations with better translations if they are made.</li>
+</ul>
+</li>
+<li>YouTube replacement
+<ul>
+<li>pulls and stores videos in a decentralized, uncensorable manner from any site that youtube-dl supports</li>
+<li>Built-in chat (Using Dithca protocol)</li>
+<li>Community-generated captions, sections, sponsor segments (pulled from sponsorblock) flagging etc.</li>
+<li>Support for likes, view counting (and congregating), and &quot;Hearts&quot; (method of giving Dither Coin to creators).</li>
+<li>Automatic community flagging of stolen/used content (including music, other people's videos, meme origins, pretty much anything)</li>
+<li>Community misinformation flagging of content (interfaces with Dithca)</li>
+</ul>
+</li>
+<li>Peer-to-Peer Exchange
+<ul>
+<li>Allow for the exchange</li>
+</ul>
+</li>
+</ul>
+<h1 id="application-design-philosophy"><a class="header" href="#application-design-philosophy">Application Design Philosophy</a></h1>
+<p>Application APIs should be future-proofed as much as possible</p>
+<p>Application GUIs should be generally be as cross platform as possible.</p>
+<p>There should be different modes of use for different user skill levels to try and accomidate as many people as possible.</p>
+<ul>
+<li>These modes should enable/disable various aspects of <em>configurability</em> in the application</li>
+<li><strong>Simple</strong> mode should be super easy to use for anyone and come with a quick tutorial
+<ul>
+<li>Configuration options should be assumed as much as possible, </li>
+</ul>
+</li>
+<li><strong>Default</strong> mode should come with a tutorial and explain how modes work and how to change them</li>
+<li><strong>Advanced</strong> mode assumes the user already knows how to use the app or can figure it out on their own. All configurability functionality should be enabled.
+<ul>
+<li>Application developers should strive to implement as much configurability as possible into every aspect of their application for complex users.</li>
+<li>For desktop applications, configuration on a small level (for specific contextual buttons or features) could be shown through right-click menus.</li>
+<li>For mobile applications these configuration items can be shown through a long-press.</li>
+</ul>
+</li>
+</ul>
+<h1 id="dither-chat"><a class="header" href="#dither-chat">Dither Chat</a></h1>
+<ul>
+<li><a href="applications/dither-chat.html#dither-chat">Dither Chat</a>
+<ul>
+<li><a href="applications/dither-chat.html#what-is-it">What is it</a></li>
+<li><a href="applications/dither-chat.html#users--sync">Users &amp; Sync</a></li>
+<li><a href="applications/dither-chat.html#chat-events">Chat Events</a></li>
+<li><a href="applications/dither-chat.html#event-storage---storage-of-a-sequence-of-events-in-memory-or-storage">Event Storage - Storage of a sequence of events in memory or storage</a></li>
+<li><a href="applications/dither-chat.html#trusted-friends-application-api">Trusted Friends Application API</a></li>
+<li><a href="applications/dither-chat.html#chat-interface">Chat Interface</a></li>
+<li><a href="applications/dither-chat.html#direct-messaging">Direct Messaging</a></li>
+<li><a href="applications/dither-chat.html#group-messaging">Group messaging</a></li>
+<li><a href="applications/dither-chat.html#servers">Servers</a>
+<ul>
+<li><a href="applications/dither-chat.html#roles-tags--colors">Roles, Tags &amp; Colors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-it-2"><a class="header" href="#what-is-it-2">What is it</a></h2>
+<p>Dither Chat is a decentralized communication application using the Dither protocol. Servers are communally hosted with local consensus. Bots and plugins will be supported and also communally hosted.
+tl;dr Discord but decentralized and better.</p>
+<h2 id="users--sync"><a class="header" href="#users--sync">Users &amp; Sync</a></h2>
+<ul>
+<li>Each user may have multiple Peers (devices that Dither is installed on)</li>
+<li>Chat Event history can be optionally synced across Peers.</li>
+<li>A peer may host multiple users</li>
+<li>Each UserId must have at least 1 peer that hosts it.</li>
+</ul>
+<h2 id="chat-events"><a class="header" href="#chat-events">Chat Events</a></h2>
+<ul>
+<li>All Events are signed with the private key of the person who sent it (these will be verified with a config option to let through or ignore unsigned or incorrectly signed events)</li>
+<li>Chat Message structure
+<ul>
+<li>Date sent, last edited, markdown data / embed json, UserID mentions, emoji reactions</li>
+</ul>
+</li>
+<li>Rich Presence (updating custom statuses and online/offline status)
+<ul>
+<li>Optional storage - can store presence update history (off by default)</li>
+<li>Optional sending, extracts information about what you are currently doing and updates your friends. (on by default)</li>
+<li>Customization options to only share with certain friends</li>
+</ul>
+</li>
+</ul>
+<h2 id="event-storage---storage-of-a-sequence-of-events-in-memory-or-storage"><a class="header" href="#event-storage---storage-of-a-sequence-of-events-in-memory-or-storage">Event Storage - Storage of a sequence of events in memory or storage</a></h2>
+<ul>
+<li>Stored as hash-linked local blocktree that messages are added to and new blocks are created when a certain amount of time elapses between the last message sent or max block size exceeded. Block size can be set to 1 to prevent messages being ordered out-of-order.</li>
+<li>Indexing can be done on a by-block level (TODO: more customization options needed)</li>
+<li>Block structure can allow for thread branching &amp; thread conversation movement across users. (e.g. create a group dm on top of an ongoing conversation)</li>
+</ul>
+<h2 id="trusted-friends-application-api"><a class="header" href="#trusted-friends-application-api">Trusted Friends Application API</a></h2>
+<ul>
+<li>Option to rank friends manually or by how much you chat with them</li>
+<li>Can mark friends as “Trusted, Neutral or Untrusted”</li>
+<li>Friend rank can be used by other applications</li>
+<li>e.g. for Stellar Consensus Protocol quorum selection</li>
+</ul>
+<h2 id="chat-interface"><a class="header" href="#chat-interface">Chat Interface</a></h2>
+<ul>
+<li>Built-in markdown formatting + advanced chat box (similar to discord)</li>
+<li>Link Displaying</li>
+<li>Metadata can be sent so receiver doesn’t have to send request to web pages</li>
+<li>TODO: Do we need to worry about invalid metadata being sent, tricking the user? Perhaps just scanning for suspicious domains is enough.</li>
+<li>Receivers can choose if they want to fetch link data, only fetch commonly used sites (e.g. youtube, twitter, soundcloud etc.) or not fetch anything at all and only display sent link metadata</li>
+</ul>
+<h2 id="direct-messaging"><a class="header" href="#direct-messaging">Direct Messaging</a></h2>
+<ul>
+<li>Simply sending JSON-encoded message/other events to UserID on Dither</li>
+</ul>
+<h2 id="group-messaging"><a class="header" href="#group-messaging">Group messaging</a></h2>
+<ul>
+<li>Messages are broadcast over gossipsub and conflicting blocks are ordered by time.</li>
+</ul>
+<h2 id="servers"><a class="header" href="#servers">Servers</a></h2>
+<ul>
+<li>Servers are communially hosted by the moderator's computers. However, the owner has full control over the server and can choose who can assist</li>
+<li>Red Nodes are hosting nodes, blue nodes are members. Blue node with yellow stroke is proxying it's connection to the server
+<img src="applications/dither-chat/server-framework.svg" alt="Network Structure for Dither Server" />
+Image of a possible dither-chat server arrangement</li>
+</ul>
+<h3 id="roles-tags--colors"><a class="header" href="#roles-tags--colors">Roles, Tags &amp; Colors</a></h3>
+<ul>
+<li>To distinguish people in a server, there are roles, name colors, and tags</li>
+<li>Tags are shown next to tagowner's name as a small icon (like in Discord)
+<ul>
+<li>By default there is only 1 tag enabled for a server: the <em>Owner</em> tag.</li>
+<li>There are other tag presets such as <em>Donator</em>, <em>Moderator</em> &amp; <em>Member</em></li>
+<li>Custom tags can be created and be attached to a specific role.</li>
+<li>Tags should be displayed in order of importance</li>
+</ul>
+</li>
+<li>Roles can be made for anyone and can have permissions attached to them
+<ul>
+<li>Roles and can also be organized into hierarchies where users can be  ranked-up to posses a higher role (usually with more permissions)</li>
+</ul>
+</li>
+<li>Each role has a color and color priority assigned
+<ul>
+<li>This is used to determine what color a user's username should be assigned</li>
+</ul>
+</li>
+</ul>
+<h1 id="dithca"><a class="header" href="#dithca">Dithca</a></h1>
+<h2 id="a-comprehensive-commenting-system-built-on-top-of-dither"><a class="header" href="#a-comprehensive-commenting-system-built-on-top-of-dither">A comprehensive commenting system built on top of Dither</a></h2>
+<p>Decentralized comment system adaptor.
+Fully customizable comment system stored as a Dither Consensus Chain that can be created from any piece of data.
+Uses Reddit's upvote/downvote system by default
+Acts on its own or as a proxy overlay to various comment sites.</p>
+<h2 id="comment-chain"><a class="header" href="#comment-chain">Comment Chain</a></h2>
+<p>WIP: Figure out how dither consensus works</p>
+<h3 id="comment-sort-methods"><a class="header" href="#comment-sort-methods">Comment Sort methods</a></h3>
+<p>https://medium.com/hacking-and-gonzo/how-reddit-ranking-algorithms-work-ef111e33d0d9</p>
+<h1 id="dithca-1"><a class="header" href="#dithca-1">Dithca</a></h1>
+<h2 id="a-comprehensive-commenting-system-built-on-top-of-dither-1"><a class="header" href="#a-comprehensive-commenting-system-built-on-top-of-dither-1">A comprehensive commenting system built on top of Dither</a></h2>
+<p>Decentralized comment system adaptor.
+Fully customizable comment system stored as a Dither Consensus Chain that can be created from any piece of data.
+Uses Reddit's upvote/downvote system by default
+Acts on its own or as a proxy overlay to various comment sites.</p>
+<h2 id="comment-chain-1"><a class="header" href="#comment-chain-1">Comment Chain</a></h2>
+<p>WIP: Figure out how dither consensus works</p>
+<h3 id="comment-sort-methods-1"><a class="header" href="#comment-sort-methods-1">Comment Sort methods</a></h3>
+<p>https://medium.com/hacking-and-gonzo/how-reddit-ranking-algorithms-work-ef111e33d0d9</p>
+<h1 id="protocol-of-truth"><a class="header" href="#protocol-of-truth">Protocol of Truth</a></h1>
+<p>This is a protocol of back and forth debate with the aim to evaluate the quality and truthfulness of content posted to the internet.</p>
+<p>If you have ever seen a photoshopped post on social media, or a video citing a badly done study, this techno-social protocol aims to inform through discourse the truthfulness of a given piece of media to anyone who might come across it.</p>
+<p>The outcomes of this protocol label specific pieces of content. Here are some potential labels:</p>
+<ul>
+<li>Truthful - Unobjectionably true</li>
+<li>False - Unobjectionably false
+<ul>
+<li>Benign - False, for comedy, or other reasons</li>
+</ul>
+</li>
+<li>Factful - Well researched argument with generally accepted sources</li>
+<li>Outdated - This might have been factful, but new information exists to provide alternative conclusions.</li>
+<li>Opinionated - Content that is not sourced</li>
+<li>Minority Opinion</li>
+<li>Missing Context</li>
+<li></li>
+</ul>
+<p>These labels are determined dynamically and are subject to change and dispution. The history of labels and the conversation around them are stored. Certain labels can only be applied on top of specific other labels.</p>
+<p>New Objection
+Undecided</p>
+<p>Correct
+Opinion</p>
+<h2 id="ideas-1"><a class="header" href="#ideas-1">Ideas</a></h2>
+<p>Idea: Instead of people upvoting and downvoting a given flag, they flag the flag and provide more supporting details. All this back and forth flagging results in a kind of &quot;tree of flags&quot; from which what is true, what is false, and what is ambiguous can be extracted.</p>
+<p>Scene: Someone posts a video, there is an error in the video, someone posts a correction in the comment with a relevant tag. </p>
+<h1 id="potential-examples-for-the-protocol-of-truth"><a class="header" href="#potential-examples-for-the-protocol-of-truth">Potential Examples for the Protocol of Truth</a></h1>
+<p>To flesh out the idea and provide context of what this might look like, here are some real-world examples of videos that would be labeled under the protocol of truth.</p>
+<h2 id="example-1-simple-factual-error"><a class="header" href="#example-1-simple-factual-error">Example 1: Simple Factual Error</a></h2>
+<p>In Youtuber Fireship's video &quot;Rust in 100 Seconds&quot; at 0:55 he incorrectly says that mutable values are stored in the heap.</p>
+<p>Ideal processes of correction:</p>
+<ul>
+<li>Someone realizes that there is an error and creates an <code>Objection</code>
+<ul>
+<li>Objections come with 3 parts: <code>Selection</code>, <code>Type</code>, <code>Reason</code>, and <code>Evidence</code> </li>
+<li>For the <code>Selection</code>, they use the <code>Transcript</code> selection type and select the following lines:
+<pre><code>00:55 mutable values or objects with an
+00:57 unknown size at compile time are stored
+00:59 in the heap memory
+</code></pre>
+</li>
+<li>They set the <a href="applications/protocol-of-truth/./protocol-types.html"><code>Type</code></a> to <code>Error</code>.</li>
+<li>For the <code>Reason</code> they say:</li>
+<li>
+<pre><code>&quot;While objects with unknown size at compile time are typically stored in the heap, mutable objects can be stored on the stack OR the heap.&quot;
+</code></pre>
+</li>
+<li>They do not give any <code>Evidence</code> as this is common knowledge in rust.</li>
+</ul>
+</li>
+<li>As people come to the video, they see the label on the video as <code>Pending - Potential Error</code> and click to see the <code>Objection</code> to do one of the following:
+<ul>
+<li>Mark the <code>Objection</code> as <code>True</code></li>
+<li>Mark the <code>Objection</code> as <code>False</code></li>
+<li>Flag the <code>Objection</code> as <code>Incomplete</code></li>
+<li>Flag the <code>Objection</code> as <code>Unknown</code></li>
+</ul>
+</li>
+<li>When flagging an Objection, you must have at least 10 karma and a verified human account. If you mark an objection as True while the statement is resolved as false or vice versa, you will loose 5 truth karma. If marked correctly you will gain 1 truth karma.</li>
+<li>Confident people may also stake 100, 1000, or 10,000 karma to add 2, 3, or 4 votes respectively. (You will also loose half of your staked karma if you mark incorrectly, although you will gain more points if guessed correctly).</li>
+<li>People may also stake their karma (max 10) on a resolution for increased karma return when the Objection comes to consensus in their favor. that they agree or that they are completely confident with the <code>Objection</code> (beause it is obvious). Or they comment under the objection with </li>
+<li>If after a substantial period of time there is a 4/5th majority either way (True or False or Unknown), the objection will be marked true or false, which will change the label of the video. If there is no super consensus, it is marked as controversial. Controversial resolutions will only effect the video label for certain <code>Objection</code> types.</li>
+<li>Ideally, the creator sees the <code>Objection</code> and the supporting &quot;True&quot; marks from the community, admits that they make an error and personally mark the <code>Objection</code> as True so that the community knows that the <code>Objection</code> has been acknowledged by the original creator.
+<ul>
+<li>In this case, Fireship could create a patch to that part of the video in response to the <code>Objection</code> and link to the original Objection to revert the &quot;small error&quot; label.</li>
+</ul>
+</li>
+</ul>
+<h1 id="dither-coin-ideas-are-work-in-progress"><a class="header" href="#dither-coin-ideas-are-work-in-progress">Dither Coin (Ideas are Work-In-Progress)</a></h1>
+<p>Dither's built-in cryptocurrency aims to solve all existing problems with crypto:</p>
+<ul>
+<li>Scalability
+<ul>
+<li>Uses IOTA block structure combined with Federated Byzantine Voting for coordination.</li>
+<li>Most users won't store the entire network history, just a slice of the current state relevent to performing transactions.</li>
+</ul>
+</li>
+<li>Speed
+<ul>
+<li>Using Stellar Consensus Protocol and IOTA will be helpful to speed.</li>
+<li>Bad Idea?: Also, there will be establishment of Zones in the network that have their own sub-exchanging separate from the rest of the network for fast local transactions. Usage of zones will be faster than sending transactions to the global network, however, for security purposes, zones must report transactions</li>
+</ul>
+</li>
+<li>Anonymity
+<ul>
+<li>Will use zk-STARKS to obfuscate transaction amounts and sender</li>
+</ul>
+</li>
+<li>Transaction Cost
+<ul>
+<li>Network is maintained by users, no mining necessary, therefore no fees will be required to transfer tokens.</li>
+</ul>
+</li>
+<li>Volatility
+<ul>
+<li>There will be a system of provable currency deletion where you can create Dither Coins from thin air by proving that you send a certain amount of other support crypto coins to a public key with no corresponding private key (i.e. proving that they are inaccessable). The amount of coins created will be market exchange rate of the given coin into the U.S. dollar at the time of the transaction. (exchange rate is maintained by the network)</li>
+<li><strong>This will ensure that the value of Dithercoin is tied to the US dollar.</strong></li>
+</ul>
+</li>
+<li>Ease of Use
+<ul>
+<li>Dither Coin will be built-in to all aspects of Dither for tipping and other things</li>
+<li>There will be SDKs so that Dither Coin can be built into other applications.</li>
+</ul>
+</li>
+<li>Ease of Purchase
+<ul>
+<li>A system for peer-to-peer purchase of Dither Coin using other assets will be created using Dither Chain. (Idea WIP)</li>
+</ul>
+</li>
+</ul>
+<h1 id="the-d-framework"><a class="header" href="#the-d-framework">The D Framework</a></h1>
+<p>The D framework is meant to be system for creating applications, documents, and any other kind of visual dynamic or static media. It is intended to replace the World Wide Web.</p>
+<h3 id="what-is-the-essence-of-a-static-piece-of-content"><a class="header" href="#what-is-the-essence-of-a-static-piece-of-content">What is the essence of a static piece of content?</a></h3>
+<p>A document, web page, or static site is kind of like a program with no inputs.</p>
+<p>A pdf document typically contains all the things it needs to render a page to the user, but it doesn't contain the rendered data itself. It merely contains data used to render the page, such as text, fonts, images, formatting and so forth. For a static site, this data is in the form of HTML, CSS, and other linked data. Everything is fetched from the server and parsed into a viewable page. Unfortunately, HTML and CSS is not a particularly efficient format and not super generalized, meaning you are limited in the kinds of static experiences you can create. </p>
+<h1 id="vision-for-the-future-of-dither"><a class="header" href="#vision-for-the-future-of-dither">Vision for the future of Dither</a></h1>
+<p>This document outlines a vision for the mid-to-far term structure of Dither once the Disp programming language matures.</p>
+<p>If you are looking for the current structure of Dither, check out the <a href="../dither.html#structure">Structure section</a> of the main Dither document.</p>
+<h2 id="abandoning-the-file"><a class="header" href="#abandoning-the-file">Abandoning the &quot;File&quot;</a></h2>
+<p>The file is the core of unix systems, but they have some issues.</p>
+<h1 id="why-copyright-is-cancer"><a class="header" href="#why-copyright-is-cancer">Why Copyright is Cancer</a></h1>
+<p>Copyright is ineffective in the internet age. Any piece of content can be pirated on a massive scale without the original creator even knowing. The only thing copyright does is suppress derivative creation on forums with strict copyright adherence. See these videos on why <a href="https://www.youtube.com/watch?v=1Jwo5qc78QU">the current copyright system is broken</a> and why it <a href="https://www.youtube.com/watch?v=QVkeJI2feyQ">makes no sense</a>. This document outlines an alternate system of funding creation that Dither aims to create.</p>
+<p><strong>Have a decentralized &amp; democratized forum of communication and publication that no institution or individual can meaningfully obstruct.</strong> Dither is a protocol for creating decentralized applications.</p>
+<p><strong>Provide a direct connection of support between the consumers and the creators allowing people to directly support creators for the content they produce</strong> (<a href="https://www.youtube.com/watch?v=mnnYCJNhw7w">Paying for Production, not Distribution</a>). Even huge projects like Marvel movies or video games can be supported through community fundraising. Each production raises the reputation of the artist(s), allowing them to raise more money from their fans for the next project.</p>
+<p><strong>Preventing artists from having control over their art allows all artists to use and adapt and <em>recreate</em> the work of other artists</strong>. Imagine all the games and movies that were super hyped up but totally flopped. If anyone was allowed to make anyone else's work but better, artists have an incentive to make good stories so that they can raise money for their next project, instead of making something crappy and making all their money off of preorders. This would also prevent the fragmentation of distribution services as no one entity can have exclusive control over a piece of content.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
