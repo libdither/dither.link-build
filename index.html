@@ -56,53 +56,47 @@
 <p><em>Dither should rely on itself as much as possible.</em></p>
 <p>More details on Dither&rsquo;s Core Tenets can be found 
   <a href="docs/dither.html#core-tenants">here</a></p>
-<h2 id="the-core-of-dither">
-  The Core of Dither
-  <a class="anchor" href="#the-core-of-dither">#</a>
+<h2 id="the-core-services-of-dither">
+  The Core Services of Dither
+  <a class="anchor" href="#the-core-services-of-dither">#</a>
 </h2>
-<p>Dither is at its core a piece of software that allows applications utilizing it to do two fundamental things:</p>
+<p>Dither is at its core a piece of software that allows applications built on top of it to do a few funamdental things:</p>
 <ul>
 <li>Send data to other computers in a flexibly private manner, where the user can choose how untraceable they want their connection to be (improves on TOR, I2P, and others). 
       
   <a href="docs/dither/routing/distance-based-routing.html">See more</a></li>
-<li>Host public data in such a way to distribute to burden of hosting over all parties interested in the data, while hiding information about the individual hosts of the data. (improves on IPFS, Bittorrent, and others) 
+<li>Host public data in such a way to distribute to burden of hosting over all parties interested in the data, while hiding information about the individual hosts and users of the data. (improves on IPFS, Bittorrent, and others) 
       
   <a href="docs/dither/routing/directional-trail-search.html">See More</a></li>
 </ul>
-<p>In addition to those two things, applications can use</p>
-<p>allows applications to communicate with other computers in an untraceable manner, and privi</p>
-<p>that allows applications on computers to communicate directly with each other through untraceable tunnels instead of through centralized servers. This can be used very simply for messenger applications, but Dither Core doesn&rsquo;t only provide that. Dither also allows for a Web of Trust. In comparison to services like Google, Discord, Facebook, etc, where you have to rely on them to provide you with valid information and trust them to not misuse the data you give them. With Dither, you are not relying on any one organization, instead you rely on computers you explicitly trust to provide you with services you need. These computers could be run by well-known organizations or your real life friends. And those computers have other computers that <em>they</em> trust. Thus creating a Web of Trust allows for the creation of a network where you can find information by going through only the people that you trust instead of corporate middlemen who have control over what you see.</p>
+<p>In addition to these two primary services, applications can use various other services to create a cohesive decentralized, private, and trustless internet.</p>
 <h2 id="general-structure">
   General Structure
   <a class="anchor" href="#general-structure">#</a>
 </h2>
-<p>In accordance with the first tenant of Dither, Dither&rsquo;s core is built in small, interdependent modules. These modules have similarities between them, so it is convenient to categorize them into layers.</p>
+<p>In accordance with the first tenant of Dither, Dither&rsquo;s core is built in small, interdependent modules. However, to make these modules as sandboxed as possible, interactions with the system and the user will not be run as Dither modules for the time being.</p>
 <ul>
-<li>The first layer is the 
-  <a href="docs/dither.html#transport-layer">Transport Layer</a>
+<li>The main part of Dither is the 
+  <a href="docs/dither.html#main-process">Core Process</a>
 <ul>
-<li>The modules of this layer provides an API for forming 
+<li>This is what you need to download to use Dither on any device and it has two functions: It manages all the other services running under Dither, and it manages communication with other computers using whatever installed network device it can find on the computer it is installed on.</li>
+<li>For the communication part, it provides an API for other services to create 
   <a href="https://en.wikipedia.org/wiki/Reliability_%28computer_networking%29">reliable</a> (or optionally unreliable) unencrypted connections between Dither nodes to facilitate peer-to-peer communication. Existing libraries like 
   <a href="https://libp2p.io">libp2p</a> or 
   <a href="https://www.pluggabletransports.info/">Pluggable Transports</a> will most likely be used here.</li>
+<li>There is also an API for registering a new service with the Core Process and for establishing API connections between them.</li>
 </ul>
 </li>
-<li>The second layer is the 
-  <a href="docs/dither.html#service-layer">Service Layer</a>
+<li>The second part is the 
+  <a href="docs/dither.html#service-layer">Service Swarm</a>
 <ul>
-<li>This layer contains the modules of various core Dither services such as those providing encryption, anonymous routing, data fetching, account management and others. The modules in this layer may be interdependent on each other.</li>
+<li>This part contains the various core services such as those providing encryption, anonymous routing, data fetching, account management and others as well as those providing specific application APIs for specific UI applications on the system.</li>
 </ul>
 </li>
-<li>The third layer is the 
-  <a href="docs/dither.html#application-layer">Application Layer</a>
+<li>The third part is the 
+  <a href="docs/dither.html#user-interface">User Interface</a>
 <ul>
-<li>This layer contains modules defining the backend APIs for various Dither applications. These APIs may also be interdependent</li>
-</ul>
-</li>
-<li>The fourth layer is 
-  <a href="docs/dither.html#interface-layer">Interface Layer</a>
-<ul>
-<li>The final layer is the Interface Layer. It provides some method of interacting with the application API to make a usable program. This could be a fancy UI using web technology or a simple command-line interface.</li>
+<li>This part manages creating a user interface as a &ldquo;frontend&rdquo; for a service running in the Service Swarm. An interface could be anything from a fancy UI using web technology or a simple command-line interface. Ideally, these frontend programs should be very small because all the complicated computing is done by the backend.</li>
 </ul>
 </li>
 </ul>
@@ -115,9 +109,9 @@
   <a href="https://github.com/libdither/dither-sim">dither-sim</a> and
 
   <a href="https://github.com/zyansheep/dither-sim-tauri">dither-sim-tauri</a> repositories.</p>
-<p>Once Dither Core moves out of the simulation phase, the first proof-of-concept application will be a chat as outlined in the 
+<p>Once Dither Core moves out of the simulation phase, the first proof-of-concept application will be a chat app as outlined in the 
       
-  <a href="docs/applications/dither-chat.html">Dither Chat application spec</a>. In this application, Direct messages will be End-To-End Encrypted and servers can be hosted by a collection of trusted computers. Dither Chat will provide an easy-to-use API that can be used by different UI implementations to support as many platforms as possible.</p>
+  <a href="docs/applications/dither-chat.html">Dither Chat application spec</a>. In this application, Direct messages will be End-To-End Encrypted and servers can be hosted by a collection of trusted computers. Dither Chat will provide an easy-to-use, modular usable by many different interfaces to support as many platforms as possible.</p>
 </article>
 </body>
 
