@@ -175,8 +175,8 @@
 <li><a href="#structure">Structure</a>
 <ul>
 <li><a href="#core-process">Core Process</a></li>
-<li><a href="#service-layer">Service Layer</a></li>
-<li><a href="#application-layer">Application Layer</a></li>
+<li><a href="#service-swarm">Service Swarm</a></li>
+<li><a href="#user-interface">User Interface</a></li>
 <li><a href="#interface-layer">Interface Layer</a></li>
 </ul>
 </li>
@@ -219,12 +219,14 @@
 <h1 id="structure"><a class="header" href="#structure">Structure</a></h1>
 <p>Following the first tenet of Dither, in the future the lines between these layers will blur and everything will be a module. However, the design of current operating systems don't easily allow for shared code and data, requiring a more formal structure. In the future this layered structure will be replaced with a more <a href="dither/structure.html">flexible system</a>.</p>
 <h2 id="core-process"><a class="header" href="#core-process">Core Process</a></h2>
-<p>The main process is main part of Dither that deals with creating peer-to-peer connections with other computers running Dither.
+<p>The Core Dither Process is the part that deals with all operating system-facing operations such as data storage, establishing peer-to-peer connections with other computers, in addition to managing all Dither services and connections between them.</p>
+<p>This &quot;Core Process&quot; provides a few core APIs that only certain services running in the &quot;Service Swarm&quot; are allowed to use for security purposes. The idea behind a &quot;Core Process&quot; is to create a sandboxed environment for services to run in a safe manner.</p>
+<p>peer-to-peer connections with other computers running Dither.
 Currenly in the dither-sim program, this is implemented via a simple TCP stream. In the future this layer will be implemented using existing libraries such as <a href="https://libp2p.io/implementations/#transports">libp2p transports</a>, <a href="https://www.pluggabletransports.info/transports/">Pluggable Transports</a>, something else, or some amalgamation of all three. The idea behind this layer is to provide as many methods of communication as feasibly possible.</p>
-<h2 id="service-layer"><a class="header" href="#service-layer">Service Layer</a></h2>
+<h2 id="service-swarm"><a class="header" href="#service-swarm">Service Swarm</a></h2>
 <p>The service layer provides all functionality related to <a href="dither/routing/distance-based-routing.html">routing</a>, encryption, <a href="dither/routing/directional-trail-search.html">data storage</a>, <a href="dither/data/user-management.html">user management</a> and everything else. Each of these services are split up into separate modules each of which runs its own processes and communicates with other services through inter-process communication. </p>
 <p>All these processes are managed as child processes under one &quot;main process&quot;. The main process contains the Transport Layer implementation, the routing protocol API and APIs for managing the child services as well as managing inter-process communication between child processes.</p>
-<h2 id="application-layer"><a class="header" href="#application-layer">Application Layer</a></h2>
+<h2 id="user-interface"><a class="header" href="#user-interface">User Interface</a></h2>
 <p>The application layer contains services just like the service layer that are registered under the main process. These registered service's APIs can be used by other applications. </p>
 <p>The application layer also refers to the application's core API, which is used by the interface layer. This &quot;core application API&quot; can be built into the applicaiton's executable, or it can run as a service under the main process and used by multiple interfaces. This is left up to the application developers. Applications with multiple interfaces should prefer to register application APIs under the main process.</p>
 <p>Existing planned applications may be found <a href="applications.html">here</a>.</p>

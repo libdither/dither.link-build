@@ -177,8 +177,8 @@
 <li><a href="dither.html#structure">Structure</a>
 <ul>
 <li><a href="dither.html#core-process">Core Process</a></li>
-<li><a href="dither.html#service-layer">Service Layer</a></li>
-<li><a href="dither.html#application-layer">Application Layer</a></li>
+<li><a href="dither.html#service-swarm">Service Swarm</a></li>
+<li><a href="dither.html#user-interface">User Interface</a></li>
 <li><a href="dither.html#interface-layer">Interface Layer</a></li>
 </ul>
 </li>
@@ -221,12 +221,14 @@
 <h1 id="structure"><a class="header" href="#structure">Structure</a></h1>
 <p>Following the first tenet of Dither, in the future the lines between these layers will blur and everything will be a module. However, the design of current operating systems don't easily allow for shared code and data, requiring a more formal structure. In the future this layered structure will be replaced with a more <a href="dither/structure.html">flexible system</a>.</p>
 <h2 id="core-process"><a class="header" href="#core-process">Core Process</a></h2>
-<p>The main process is main part of Dither that deals with creating peer-to-peer connections with other computers running Dither.
+<p>The Core Dither Process is the part that deals with all operating system-facing operations such as data storage, establishing peer-to-peer connections with other computers, in addition to managing all Dither services and connections between them.</p>
+<p>This &quot;Core Process&quot; provides a few core APIs that only certain services running in the &quot;Service Swarm&quot; are allowed to use for security purposes. The idea behind a &quot;Core Process&quot; is to create a sandboxed environment for services to run in a safe manner.</p>
+<p>peer-to-peer connections with other computers running Dither.
 Currenly in the dither-sim program, this is implemented via a simple TCP stream. In the future this layer will be implemented using existing libraries such as <a href="https://libp2p.io/implementations/#transports">libp2p transports</a>, <a href="https://www.pluggabletransports.info/transports/">Pluggable Transports</a>, something else, or some amalgamation of all three. The idea behind this layer is to provide as many methods of communication as feasibly possible.</p>
-<h2 id="service-layer"><a class="header" href="#service-layer">Service Layer</a></h2>
+<h2 id="service-swarm"><a class="header" href="#service-swarm">Service Swarm</a></h2>
 <p>The service layer provides all functionality related to <a href="dither/routing/distance-based-routing.html">routing</a>, encryption, <a href="dither/routing/directional-trail-search.html">data storage</a>, <a href="dither/data/user-management.html">user management</a> and everything else. Each of these services are split up into separate modules each of which runs its own processes and communicates with other services through inter-process communication. </p>
 <p>All these processes are managed as child processes under one &quot;main process&quot;. The main process contains the Transport Layer implementation, the routing protocol API and APIs for managing the child services as well as managing inter-process communication between child processes.</p>
-<h2 id="application-layer"><a class="header" href="#application-layer">Application Layer</a></h2>
+<h2 id="user-interface"><a class="header" href="#user-interface">User Interface</a></h2>
 <p>The application layer contains services just like the service layer that are registered under the main process. These registered service's APIs can be used by other applications. </p>
 <p>The application layer also refers to the application's core API, which is used by the interface layer. This &quot;core application API&quot; can be built into the applicaiton's executable, or it can run as a service under the main process and used by multiple interfaces. This is left up to the application developers. Applications with multiple interfaces should prefer to register application APIs under the main process.</p>
 <p>Existing planned applications may be found <a href="applications.html">here</a>.</p>
@@ -254,74 +256,73 @@ Currenly in the dither-sim program, this is implemented via a simple TCP stream.
 <h2 id="services"><a class="header" href="#services">Services</a></h2>
 <h2 id="applications"><a class="header" href="#applications">Applications</a></h2>
 <h1 id="distance-based-routing"><a class="header" href="#distance-based-routing">Distance Based Routing</a></h1>
-<p>The goal of Distance Based Routing (DBR) is to obfuscate connections between computers on the Dither network. It works similarly to I2P &amp; TOR, but is vastly improved by taking into account where proxy nodes are, instead of randomly selecting proxy nodes. It also allows for you to choose the trade-off between anonymity and speed.</p>
-<ul>
-<li>Bandwidth Trading</li>
-<li>Configurable Routing
-<ul>
-<li>Network Traversal</li>
-<li>Network Searching</li>
-<li>Onion Routing</li>
-<li>Routing Wormholes</li>
-</ul>
-</li>
-</ul>
+<p>Distance Based Routing (DBR) is a protocol to obfuscate connections between computers on the Dither network. It improves on speed and flexibility over existing solutions (i.e. I2P and TOR) by taking into account the latency between nodes on the network. Instead of having to randomly choose nodes from a list to route through, by knowing the relative latencies of nodes, routing paths between nodes can be chosen to optimize for low-latency or anonymity, or a balance of both.</p>
+<p>Note: There is a <a href="https://www.dither.link/papers/distance-based-routing-whitepaper.pdf">research paper</a> comparing DBR to existing random-route solutions, for a somewhat amateurish comparison.</p>
+<h2 id="the-main-idea"><a class="header" href="#the-main-idea">The Main Idea</a></h2>
+<p>To figure out the relative latencies between nodes so as to establish low-latency paths to a destination, DBR makes the observation that the latency between nodes is roughly correlated to the physical distance between them. This means coordinates can be assigned to nodes such that the latencies between nodes can be estimated as the euclidian distance between coordinates. These coordinates will be referred to as &quot;routing coordinates&quot;.</p>
 <h2 id="network-organization"><a class="header" href="#network-organization">Network Organization</a></h2>
-<p>The idea behind network organization is to be able to create a network that reflects the real-world positions of the computers. This is so that it is easy to calculate the latency between different locations in the network and to optimise routing paths.</p>
-<p>Note: You can also read the network organization <a href="https://www.dither.link/papers/distance-based-routing-whitepaper.pdf">research paper</a> (or don't, its not that good)</p>
+<p>To assign coordinates to nodes, there is a process of self-organization that functions as follows. This process happens whenever a new node joins the network.</p>
+<ol>
+<li>New node bootstraps onto the network via 1 or more existing nodes.</li>
+<li>New node tests response times (latency) to existing nodes. </li>
+<li>New node requests for new peers from existing nodes.</li>
+<li>Existing nodes notify some slice of their peers that a new node would like new peers.</li>
+<li>Notified nodes initiate connection with new node and each node measures latency.</li>
+<li>New node takes note of the smallest latencies and goes back to step 3 until there are no closer nodes who want to peer.</li>
+<li>After a certain number of closest nodes are found whose latency measurements are stable, the new node then calculates its own routing coordinates via <a href="https://en.wikipedia.org/wiki/True-range_multilateration">multilateration</a> and broadcasts them to all the nodes used in the calculation.</li>
+</ol>
+<p>Through this process, a distributed small-world network is formed that roughly matches the physical relations between the nodes.</p>
+<p>Note: This process is more complicated to account for measuring errors, inconsistencies between routing coordinate networks and other potential problems.</p>
 <h2 id="routing-coordinates"><a class="header" href="#routing-coordinates">Routing Coordinates</a></h2>
-<p>One of the main ideas behind Distance-based routing is to replace conventional IP addresses with a less structural addressing system. Instead of using an IP address to try to get the routing tables of the internet to route your data where you want it, Routing Coordinates allow for a less metadata-intensive way to route packets: instead of consulting extensive routing tables, all nodes have to do is route packets to a nodes closer to the packet's destination routing coordinates. This conveniently allows for keeping your IP address private, allowing for better protection against Denial of Service attacks.</p>
-<p>Unfortunately, there are drawbacks. Routing Coordinates are spatial coordinates that represent the <em>latency topology</em> of a network. Because light travels at the speed of light, this latency topology reflects real-world connections between computers and their relative locations in the world. This allows for the unfortunate possibility that with a sufficiently informed attacker, the precise real-world location of a device could be deduced from its routing coordinates. To deal with this Dither uses Onion Routing by default when connecting to any peers not specifically trusted.</p>
-<h2 id="onion-routing"><a class="header" href="#onion-routing">Onion Routing</a></h2>
-<p>Conventionally, onion routing is an incredibly slow strategy because of how peers are typically selected in the network. However, with Routing Coordinates, peers directly along the path of the packet can be selected to allow for very minimal overhead. (in addition, the <a href="https://arxiv.org/abs/1507.05724v3">HORNET</a> protocol will be used for its incredibly efficient symmetric encryption scheme).</p>
-<h2 id="bootstrapping"><a class="header" href="#bootstrapping">Bootstrapping</a></h2>
-<p>The by which a new node joins the network is as follows:</p>
+<p>Routing coordinates in this system acts as a replacement to IP addresses. A packet coupled with a routing coordinate can be routed to its destination by each node along the path comparing its own coordinate to the coordinate on the packet to figure out in which direction in the network (and by extension, which node) the packet should travel to next. This is way better for a peer-to-peer application because you don't need global routing tables or complicated peering and address space allocation protocols (like the existing internet). Routing coordinates are pretty much infinitely scalable. </p>
+<p>That said, routing coordinates on their own give away <em>more</em> information than traditional IP addresses do. Since the self-organized networks that routing coordinates are used in reflect real-world network topologies, just knowing someone's routing coordinate could be akin to knowing what block they live on. This is acceptable because it is much easier to do efficient onion routing on networks with routing coordinates which means that the majority of connections will be onion routed, providing better privacy overall.</p>
+<p>Other benefits of routing coordinates are that they have the potential to almost completely prevent denial-of-service attacks. To even attempt such an attack, the attacker must find the routing coordinate or IP address of their target, which is essentially impossible unless the target specifically shared their coordinates publically for some reason. Even if the attacker does have the routing coordinate, trying to DOS a routing coordinate is like trying to DOS the entire expanse of network between the attacker and the target, the attacker(s) will be ineffective or blocked automatically for overuse of the network. Even distributed denial of service attacks can be mitigated with additions to the protocol allowing the victim to notify the network that they are being attacked and to rate limit the attackers.</p>
+<h2 id="anonymous-routing-onions-garlic-and-all-the-others"><a class="header" href="#anonymous-routing-onions-garlic-and-all-the-others">Anonymous Routing (Onions, Garlic, and all the others...)</a></h2>
+<p>Conventionally, anonymous routing is an incredibly slow ordeal because of how intermediate peers are selected from the network. Due to this inefficiency, onion routing protocols have been somewhat limited in what kind of privacy they can provide because of usability being a concern. This is no longer the case with DBR, which may support all kinds of anonymous routing schemes:</p>
 <ul>
-<li>The new node first needs to bootstrap off of at least one existing node.</li>
-<li>This existing node sends the new node a set of peer <code>Address</code>es selected based on how close they might be to the requesting node (this will represent a ring of nodes roughly a constant distance away from the existing node, this constant distance being the latency between the existing node and the new node).
+<li><a href="https://en.wikipedia.org/wiki/Onion_routing">Onion Routing</a>
 <ul>
-<li>In the case that the existing node has not been bootstrapped, it will notify the requesting node as such, and if the requesting node continues the connection, it will set its own Routing Coordinates to the origin of the coordinate space.</li>
+<li>The simplest routing of them all. Simply select a list of peers and establish a route from beginning to end.</li>
 </ul>
 </li>
-<li>Assuming the existing node has at least one peer, the connecting node can accomplish the Local Peer Protocol.</li>
-<li>The new node takes the set of peer <code>Address</code>es that were received from the existing node and pings them, measuring connection latency to all of them. The new node queries the existing nodes with the closest latencies for their sets of peers, and repeats until a set of nodes has been aquired ordered by their latency from the new node.</li>
-<li>The node choses peers for it's &quot;active set&quot;, by default this is a few hundred of its closest nodes.</li>
-<li>The new node then uses <a href="https://en.wikipedia.org/wiki/True-range_multilateration">True-range multilateration</a> on the closest nodes of its active set to calculate its own Routing Coordinate and then broadcasts this routing coordinate to its active set.</li>
-<li>This concludes the bootstrapping process and the node can now use its routing coordinate as a temporary address on the network.</li>
-</ul>
-<h2 id="conflicting-networks"><a class="header" href="#conflicting-networks">Conflicting Networks</a></h2>
-<p>It is possible, (although unlikely) for two or more incompatible latency topologies to be formed in separate places. This can happen relatively easily if, say, two Dither networks formed independently on isolated networks and then these networks connected to each other. A solution to this problem is still in the works, however, this solution will most likely have to be a system that syncronizes itself.</p>
-<h2 id="routing-techniques"><a class="header" href="#routing-techniques">Routing Techniques</a></h2>
-<p>There are many possible routing techniques that could be built on top of Routing Coordinates, here is a list of some of the default ones:</p>
+<li>Garlic Routing
 <ul>
-<li>Default Routing
-<ul>
-<li>This uses the underlying networking protocol (i.e. Ipv4 or Ipv6) to send data to and from some address.</li>
+<li>Similar to onion routing, but when sending packets to multiple peers at once, send them together for them to be split apart at some mid-point in the path.</li>
 </ul>
 </li>
-<li>Traversal Routing
+<li>Multi-path routing
 <ul>
-<li>A packet using this routing method contains a destination routing coordinate. When a node receives a packet using this routing method, it simply sends the the packet to whatever node in it's active set that is closer to the destination.</li>
+<li>Maintain multiple Onion routes throughout the network and randomly send packets along all or some subset of them.</li>
 </ul>
 </li>
-<li>Proxy Routing (i.e. Onion Routing)
+<li>Pool Routing
 <ul>
-<li>Multiple nodes in the network are selected to temporarily proxy packets to their destination.</li>
-<li>Chains of these proxies can be formed with Onion Routing support to create re-usable network proxies. </li>
-</ul>
-</li>
-<li>Locality Routing
-<ul>
-<li>This is a method to protect the exact location of a node.</li>
-<li>All the nodes within a certain area in the routing coordinate space are instructed to route any packets they receive with a specific ID to a certain node in the space.</li>
+<li>Create a group that nodes can join. All nodes randomly send randomly-sized data packets to all other nodes at random intervals, sending real data (padded) if there is data to send and sending random bytes if not.</li>
 </ul>
 </li>
 </ul>
+<p>DBR plans to use a modification of the <a href="https://arxiv.org/abs/1507.05724v3">HORNET</a> protocol for setting up fast onion-routed links.</p>
+<h2 id="conflicting-coordinate-spaces"><a class="header" href="#conflicting-coordinate-spaces">Conflicting Coordinate Spaces</a></h2>
+<p>It is possible, (although unlikely) for two or more incompatible latency topologies to be formed independently in separate places and then come together later. A solution to this problem is still in the works, but it is likely the solution will come from the principle <a href="https://en.wikipedia.org/wiki/Synchronization_of_chaos">synchronization of chaos</a>.</p>
+<p>A system built on synchronization might work by which as the two networks start to grow close and share nodes that can't resolve an accurate routing coordinate between the two conflicting spaces, it sets off a chain reaction through which the conflicted nodes &quot;poison&quot; other nodes to recalculate their coordinate spaces which creates a new coordinate space merging the two old ones (or one gets subsumed into the other).</p>
 <h2 id="bandwidth-trading"><a class="header" href="#bandwidth-trading">Bandwidth Trading</a></h2>
-<p>Proxying protocols that rely on the goodwill of peers to route packets typically have only a small number of willing peers to route (ex: TOR). This is why protocols like BitTorrent, I2P and IPFS have systems in place that require peers to play fair and contribute back to the network.</p>
-<p>To accomplish this behavior for Dither there are some potential solutions:</p>
+<p>Routing protocols that rely on the goodwill of peers to allow others to use their bandwidth to route packets typically have only a small number of willing peers to route packets (i.e.: TOR). This is why protocols like BitTorrent, I2P and IPFS have systems in place that incentivize peers to play fair and contribute back to the network.</p>
+<p>To accomplish this behavior for DBR there needs to be some kind of way to limit packets going through nodes that either don't use the network that much or don't have a lot of bandwidth capacity. Also to take into consideration are the management of nodes that have inconsistent uptime or inconsistent routing.</p>
+<p>Lets analyze the situation:</p>
 <ul>
-<li>A node records how much data has been forwarded through itself from each node in it's &quot;active set&quot; and uses nodes that use it the most for traversal. </li>
+<li>Each node is a pipe and a water pump.</li>
+<li>The pipe is sometimes closed and has a set max amount of water that can flow. The pipe also doesn't want to be overused.</li>
+<li>The pump sometimes pumps water down various other pipes. This water should always reach its end destination taking various twists and turns throughout the network of pipes.</li>
+</ul>
+<p>The goal:</p>
+<ul>
+<li>Each node wants as little water as possible to flow through their pipe, but as much water as possible to flow out of their pump through other people's pipes, and nodes want a diverse selection of pipes (for anonymity).</li>
+</ul>
+<p>Ideas:</p>
+<ul>
+<li>Each node keeps track of the amount of water (bytes) flowing through its pipe from nearby pumps.</li>
+<li>Each node's pump only sends water through pipes it knows it has received water from.</li>
+<li>There is more to theorize about here for future research :)</li>
 </ul>
 <h1 id="directional-trail-search"><a class="header" href="#directional-trail-search">Directional Trail Search</a></h1>
 <p>Allows for a computer to fetch a piece of data from another computer based on the multihash of that piece of data, as long as at least one computer has the data.</p>
@@ -473,8 +474,8 @@ Dither accounts should also be able to prove qualities about themselves to exter
 <li><a href="dither.html#structure">Structure</a>
 <ul>
 <li><a href="dither.html#core-process">Core Process</a></li>
-<li><a href="dither.html#service-layer">Service Layer</a></li>
-<li><a href="dither.html#application-layer">Application Layer</a></li>
+<li><a href="dither.html#service-swarm">Service Swarm</a></li>
+<li><a href="dither.html#user-interface">User Interface</a></li>
 <li><a href="dither.html#interface-layer">Interface Layer</a></li>
 </ul>
 </li>
@@ -517,12 +518,14 @@ Dither accounts should also be able to prove qualities about themselves to exter
 <h1 id="structure-3"><a class="header" href="#structure-3">Structure</a></h1>
 <p>Following the first tenet of Dither, in the future the lines between these layers will blur and everything will be a module. However, the design of current operating systems don't easily allow for shared code and data, requiring a more formal structure. In the future this layered structure will be replaced with a more <a href="dither/structure.html">flexible system</a>.</p>
 <h2 id="core-process-1"><a class="header" href="#core-process-1">Core Process</a></h2>
-<p>The main process is main part of Dither that deals with creating peer-to-peer connections with other computers running Dither.
+<p>The Core Dither Process is the part that deals with all operating system-facing operations such as data storage, establishing peer-to-peer connections with other computers, in addition to managing all Dither services and connections between them.</p>
+<p>This &quot;Core Process&quot; provides a few core APIs that only certain services running in the &quot;Service Swarm&quot; are allowed to use for security purposes. The idea behind a &quot;Core Process&quot; is to create a sandboxed environment for services to run in a safe manner.</p>
+<p>peer-to-peer connections with other computers running Dither.
 Currenly in the dither-sim program, this is implemented via a simple TCP stream. In the future this layer will be implemented using existing libraries such as <a href="https://libp2p.io/implementations/#transports">libp2p transports</a>, <a href="https://www.pluggabletransports.info/transports/">Pluggable Transports</a>, something else, or some amalgamation of all three. The idea behind this layer is to provide as many methods of communication as feasibly possible.</p>
-<h2 id="service-layer-1"><a class="header" href="#service-layer-1">Service Layer</a></h2>
+<h2 id="service-swarm-1"><a class="header" href="#service-swarm-1">Service Swarm</a></h2>
 <p>The service layer provides all functionality related to <a href="dither/routing/distance-based-routing.html">routing</a>, encryption, <a href="dither/routing/directional-trail-search.html">data storage</a>, <a href="dither/data/user-management.html">user management</a> and everything else. Each of these services are split up into separate modules each of which runs its own processes and communicates with other services through inter-process communication. </p>
 <p>All these processes are managed as child processes under one &quot;main process&quot;. The main process contains the Transport Layer implementation, the routing protocol API and APIs for managing the child services as well as managing inter-process communication between child processes.</p>
-<h2 id="application-layer-1"><a class="header" href="#application-layer-1">Application Layer</a></h2>
+<h2 id="user-interface-1"><a class="header" href="#user-interface-1">User Interface</a></h2>
 <p>The application layer contains services just like the service layer that are registered under the main process. These registered service's APIs can be used by other applications. </p>
 <p>The application layer also refers to the application's core API, which is used by the interface layer. This &quot;core application API&quot; can be built into the applicaiton's executable, or it can run as a service under the main process and used by multiple interfaces. This is left up to the application developers. Applications with multiple interfaces should prefer to register application APIs under the main process.</p>
 <p>Existing planned applications may be found <a href="applications.html">here</a>.</p>
