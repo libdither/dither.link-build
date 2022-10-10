@@ -167,8 +167,30 @@
 <p>The type system of disp should be:</p>
 <ul>
 <li>Simple (few core inference rules)</li>
-<li>Complex (able to build complex type logic from simple rules)</li>
+<li>Universally Constructive (everything needed should be constructable from the few core structures)</li>
+<li>Representative (it should create a foundation for all of computer science and math)</li>
 </ul>
+<h2 id="current-ideas"><a class="header" href="#current-ideas">Current Ideas</a></h2>
+<h3 id="substructural-type-system"><a class="header" href="#substructural-type-system">Substructural Type System</a></h3>
+<p>For a systems language, runtime overhead must be kept to a minimum. This means that the restrictions on lifetime and movability of heap and stack allocations should be modeled and enforced at compile time, instead of relying on a runtime methods such as garbage collection or reference counting.</p>
+<p>Disp uses a type system that divides terms and types into 3 categories:</p>
+<p>Unrestricted</p>
+<ul>
+<li>This includes most types, type constructors, and terms that can fit in a single CPU register.</li>
+<li>U nrestricted objects may be moved around and duplicated at will in a program and don't require a specific function defining how they are deallocated.</li>
+</ul>
+<p>Linear</p>
+<ul>
+<li>This includes terms allocated on the heap, mostly structures with variable-length allocations.</li>
+<li>Linear objects must be used in each context exactly once and must define at least one destructor or else it won't typecheck.</li>
+<li>Linear objects may contain unrestricted objects, just like how heap-allocated objects may contain numbers that can be stored in registers.</li>
+</ul>
+<p>Ordered</p>
+<ul>
+<li>This includes any term allocated on the stack. Ordered allocations must be </li>
+</ul>
+<p>To model stack based allocations, which cannot be shallowly duplicated (like integers) or deallocated without effecting other objects (like heap-based objects), Disp will utilize an ordered type system, similar to the type system in webassembly, which easily models storing objects on a stack.</p>
+<h3 id="minimal-type-theory"><a class="header" href="#minimal-type-theory">Minimal Type Theory</a></h3>
 <h3 id="places-of-inspiration"><a class="header" href="#places-of-inspiration">Places of Inspiration</a></h3>
 <ul>
 <li>ATS type system
@@ -180,6 +202,10 @@
 </ul>
 <h2 id="dependent-types"><a class="header" href="#dependent-types">Dependent Types</a></h2>
 <p>Dependent types are the core of any good type system</p>
+<h2 id="inspiration"><a class="header" href="#inspiration">Inspiration</a></h2>
+<p><a href="https://www.youtube.com/watch?v=zt0OQb1DBko">ATS Language</a>
+<a href="https://mitpress-request.mit.edu/sites/default/files/titles/content/9780262162289_sch_0001.pdf">Substructural Type Systems</a>
+<a href="https://www.math.unipd.it/%7Esambin/txt/MaiettiSambin-rev2.pdf">Towards a Minimalist Foundation for Constructive Mathematics</a></p>
 
                     </main>
 
