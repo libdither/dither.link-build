@@ -240,21 +240,47 @@ Currenly in the dither-sim program, this is implemented via a simple TCP stream.
 <p>Dither as with any creative endeavor takes inspiration from many other projects. This is a list of what parts of Dither have been inspired from other projects.</p>
 <h1 id="structure-1"><a class="header" href="#structure-1">Structure</a></h1>
 <p>This document outlines the major structure of Dither.</p>
-<h2 id="service-manager"><a class="header" href="#service-manager">Service Manager</a></h2>
-<p>At the core of Dither is the service manager. This will be written in Rust and only one instance should run on any given user account.</p>
-<p>The service manager comes in 2 parts, each with its own API.</p>
+<h2 id="system-manager"><a class="header" href="#system-manager">System Manager</a></h2>
+<p>At the core of Dither is the system manager. This will be written in Rust and should only be run once on any given user account. The system manager provides a sandbox for Dither protocols and is built in a modular fashion to support any kind of setup or platform Dither might run on.</p>
+<h3 id="core-services"><a class="header" href="#core-services">Core Services</a></h3>
+<p>In order to sandbox Dither services, the system manager provides certain core services such as access to storage, network, or other Dither services.</p>
 <ul>
-<li>The Service Manager
+<li>Service Manager
 <ul>
-<li>This starts and stops, manages state, connections between services, and isolates them from the rest of the system.</li>
+<li>Provides any service with access the ability to organize other service's permissions, manage storage, as well as stop and start services at will.</li>
 </ul>
 </li>
-<li>
-<h2 id="the-transport-api"><a class="header" href="#the-transport-api">The Transport API</a></h2>
+<li>Network Service
+<ul>
+<li>Provides any service with access the ability to establish arbitrary TCP or UDP connections.</li>
+</ul>
+</li>
+<li>Storage Service
+<ul>
+<li>Provides any service with access the ability to fetch and store data unique to that service.</li>
+</ul>
 </li>
 </ul>
+<p>Other services may be added as needed.</p>
+<h3 id="service-swarm-1"><a class="header" href="#service-swarm-1">Service Swarm</a></h3>
+<p>The system manager acts as a kind of sandbox for all services running on Dither and facilitates communication between different services.</p>
 <h2 id="services"><a class="header" href="#services">Services</a></h2>
+<p>This is a list of planned Dither services and their dependencies, note these may be split up into smaller sub-services.</p>
+<ul>
+<li>Distance-Based Routing, DBR (Network, Storage)</li>
+<li>Directional-Trail Search, DTS (Distance-Based Routing, Storage)</li>
+<li>Reverse-hash-lookup, RHL (Directional-Trail Search)</li>
+<li>User Manager (DBR, DTS, RHL, Storage)</li>
+<li>Dither Chat (DBR, DTS, RHL, User Manager, Storage)</li>
+<li>Dithca (DTS, RHL, User Manager, Storage)</li>
+<li>Protocol of Truth (DTS, RHL)</li>
+</ul>
 <h2 id="applications"><a class="header" href="#applications">Applications</a></h2>
+<p>Applications in Dither will be external programs that communicate with specific services in the Dither System Manager. 
+i.e. 
+Dither Chat will use the Dither Chat Service
+Dithca will use the Dithca service.</p>
+<p>Or applications can use a multitude of different services as needed.</p>
 <h1 id="distance-based-routing"><a class="header" href="#distance-based-routing">Distance Based Routing</a></h1>
 <p>Distance Based Routing (DBR) is a protocol to obfuscate connections between computers on the Dither network. It improves on speed and flexibility over existing solutions (i.e. I2P and TOR) by taking into account the latency between nodes on the network. Instead of having to randomly choose nodes from a list to route through, by knowing the relative latencies of nodes, routing paths between nodes can be chosen to optimize for low-latency or anonymity, or a balance of both.</p>
 <p>Note: There is a <a href="https://www.dither.link/papers/distance-based-routing-whitepaper.pdf">research paper</a> comparing DBR to existing random-route solutions, for a somewhat amateurish comparison.</p>
@@ -527,7 +553,7 @@ Dither accounts should also be able to prove qualities about themselves to exter
 <p>This &quot;Core Process&quot; provides a few core APIs that only certain services running in the &quot;Service Swarm&quot; are allowed to use for security purposes. The idea behind a &quot;Core Process&quot; is to create a sandboxed environment for services to run in a safe manner.</p>
 <p>peer-to-peer connections with other computers running Dither.
 Currenly in the dither-sim program, this is implemented via a simple TCP stream. In the future this layer will be implemented using existing libraries such as <a href="https://libp2p.io/implementations/#transports">libp2p transports</a>, <a href="https://www.pluggabletransports.info/transports/">Pluggable Transports</a>, something else, or some amalgamation of all three. The idea behind this layer is to provide as many methods of communication as feasibly possible.</p>
-<h2 id="service-swarm-1"><a class="header" href="#service-swarm-1">Service Swarm</a></h2>
+<h2 id="service-swarm-2"><a class="header" href="#service-swarm-2">Service Swarm</a></h2>
 <p>The service layer provides all functionality related to <a href="dither/routing/distance-based-routing.html">routing</a>, encryption, <a href="dither/routing/directional-trail-search.html">data storage</a>, <a href="dither/data/user-management.html">user management</a> and everything else. Each of these services are split up into separate modules each of which runs its own processes and communicates with other services through inter-process communication. </p>
 <p>All these processes are managed as child processes under one &quot;main process&quot;. The main process contains the Transport Layer implementation, the routing protocol API and APIs for managing the child services as well as managing inter-process communication between child processes.</p>
 <h2 id="user-interface-1"><a class="header" href="#user-interface-1">User Interface</a></h2>

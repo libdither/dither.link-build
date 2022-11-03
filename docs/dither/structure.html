@@ -165,21 +165,47 @@
                     <main>
                         <h1 id="structure"><a class="header" href="#structure">Structure</a></h1>
 <p>This document outlines the major structure of Dither.</p>
-<h2 id="service-manager"><a class="header" href="#service-manager">Service Manager</a></h2>
-<p>At the core of Dither is the service manager. This will be written in Rust and only one instance should run on any given user account.</p>
-<p>The service manager comes in 2 parts, each with its own API.</p>
+<h2 id="system-manager"><a class="header" href="#system-manager">System Manager</a></h2>
+<p>At the core of Dither is the system manager. This will be written in Rust and should only be run once on any given user account. The system manager provides a sandbox for Dither protocols and is built in a modular fashion to support any kind of setup or platform Dither might run on.</p>
+<h3 id="core-services"><a class="header" href="#core-services">Core Services</a></h3>
+<p>In order to sandbox Dither services, the system manager provides certain core services such as access to storage, network, or other Dither services.</p>
 <ul>
-<li>The Service Manager
+<li>Service Manager
 <ul>
-<li>This starts and stops, manages state, connections between services, and isolates them from the rest of the system.</li>
+<li>Provides any service with access the ability to organize other service's permissions, manage storage, as well as stop and start services at will.</li>
 </ul>
 </li>
-<li>
-<h2 id="the-transport-api"><a class="header" href="#the-transport-api">The Transport API</a></h2>
+<li>Network Service
+<ul>
+<li>Provides any service with access the ability to establish arbitrary TCP or UDP connections.</li>
+</ul>
+</li>
+<li>Storage Service
+<ul>
+<li>Provides any service with access the ability to fetch and store data unique to that service.</li>
+</ul>
 </li>
 </ul>
+<p>Other services may be added as needed.</p>
+<h3 id="service-swarm"><a class="header" href="#service-swarm">Service Swarm</a></h3>
+<p>The system manager acts as a kind of sandbox for all services running on Dither and facilitates communication between different services.</p>
 <h2 id="services"><a class="header" href="#services">Services</a></h2>
+<p>This is a list of planned Dither services and their dependencies, note these may be split up into smaller sub-services.</p>
+<ul>
+<li>Distance-Based Routing, DBR (Network, Storage)</li>
+<li>Directional-Trail Search, DTS (Distance-Based Routing, Storage)</li>
+<li>Reverse-hash-lookup, RHL (Directional-Trail Search)</li>
+<li>User Manager (DBR, DTS, RHL, Storage)</li>
+<li>Dither Chat (DBR, DTS, RHL, User Manager, Storage)</li>
+<li>Dithca (DTS, RHL, User Manager, Storage)</li>
+<li>Protocol of Truth (DTS, RHL)</li>
+</ul>
 <h2 id="applications"><a class="header" href="#applications">Applications</a></h2>
+<p>Applications in Dither will be external programs that communicate with specific services in the Dither System Manager. 
+i.e. 
+Dither Chat will use the Dither Chat Service
+Dithca will use the Dithca service.</p>
+<p>Or applications can use a multitude of different services as needed.</p>
 
                     </main>
 
