@@ -167,26 +167,45 @@
 <p>Distance Based Routing (DBR) is a protocol to obfuscate connections between computers on the Dither network. It improves on speed and flexibility over existing solutions (i.e. I2P and TOR) by taking into account the latency between nodes on the network. Instead of having to randomly choose nodes from a list to route through, by knowing the relative latencies of nodes, routing paths between nodes can be chosen to optimize for low-latency or anonymity, or a balance of both.</p>
 <p>Note: There is a <a href="https://www.dither.link/papers/distance-based-routing-whitepaper.pdf">research paper</a> comparing DBR to existing random-route solutions, for a somewhat amateurish comparison.</p>
 <h2 id="the-main-idea"><a class="header" href="#the-main-idea">The Main Idea</a></h2>
-<p>To figure out the relative latencies between nodes so as to establish low-latency paths to a destination, DBR makes the observation that the latency between nodes is roughly correlated to the physical distance between them. This means coordinates can be assigned to nodes such that the latencies between nodes can be estimated as the euclidian distance between coordinates. These coordinates will be referred to as &quot;routing coordinates&quot;.</p>
-<h2 id="network-organization"><a class="header" href="#network-organization">Network Organization</a></h2>
-<p>To assign coordinates to nodes, there is a process of self-organization that functions as follows. This process happens whenever a new node joins the network.</p>
+<p>To figure out the relative latencies between nodes so as to establish low-latency paths to a destination, DBR makes the observation that the <strong>latency between nodes roughly correlates with the physical distance between them</strong>. This means coordinates can be assigned to nodes such that the communication latency between nodes can be estimated as the euclidian distance between coordinates. These coordinates will be referred to as &quot;routing coordinates&quot;.</p>
+<p>While the goal of distancce-based routing could be achieved by assigning a routing coordinate to each node in the network, This has two major problems: </p>
 <ol>
-<li>New node bootstraps onto the network via 1 or more existing nodes.</li>
-<li>New node tests response times (latency) to existing nodes. </li>
-<li>New node requests for new peers from existing nodes.</li>
-<li>Existing nodes notify some slice of their peers that a new node would like new peers.</li>
-<li>Notified nodes initiate connection with new node and each node measures latency.</li>
-<li>New node takes note of the smallest latencies and goes back to step 3 until there are no closer nodes who want to peer.</li>
-<li>After a certain number of closest nodes are found whose latency measurements are stable, the new node then calculates its own routing coordinates via <a href="https://en.wikipedia.org/wiki/True-range_multilateration">multilateration</a> and broadcasts them to all the nodes used in the calculation.</li>
+<li>
+<p>Individual nodes or even whole parts of the network may be moving in relation to other parts of the network. (i.e. an airplane, or interplanetary communication). Thus requiring continuous recalculation of routing coordinates for all moving parties involved (which may include an entire planet, if used for inter-planetary routing).</p>
+</li>
+<li>
+<p>Multiple networks may form independently and thus may have incompatible coordinate systems when communicating, requiring expansive re-syncronization or some kind of coordinate translation.</p>
+</li>
 </ol>
-<p>Through this process, a distributed small-world network is formed that roughly matches the physical relations between the nodes.</p>
-<p>Note: This process is more complicated to account for measuring errors, inconsistencies between routing coordinate networks and other potential problems.</p>
-<h2 id="routing-coordinates"><a class="header" href="#routing-coordinates">Routing Coordinates</a></h2>
-<p>Routing coordinates in this system acts as a replacement to IP addresses. A packet coupled with a routing coordinate can be routed to its destination by each node along the path comparing its own coordinate to the coordinate on the packet to figure out in which direction in the network (and by extension, which node) the packet should travel to next. This is way better for a peer-to-peer application because you don't need global routing tables or complicated peering and address space allocation protocols (like the existing internet). Routing coordinates are pretty much infinitely scalable. </p>
-<p>That said, routing coordinates on their own give away <em>more</em> information than traditional IP addresses do. Since the self-organized networks that routing coordinates are used in reflect real-world network topologies, just knowing someone's routing coordinate could be akin to knowing what block they live on. This is acceptable because it is much easier to do efficient onion routing on networks with routing coordinates which means that the majority of connections will be onion routed, providing better privacy overall.</p>
-<p>Other benefits of routing coordinates are that they have the potential to almost completely prevent denial-of-service attacks. To even attempt such an attack, the attacker must find the routing coordinate or IP address of their target, which is essentially impossible unless the target specifically shared their coordinates publically for some reason. Even if the attacker does have the routing coordinate, trying to DOS a routing coordinate is like trying to DOS the entire expanse of network between the attacker and the target, the attacker(s) will be ineffective or blocked automatically for overuse of the network. Even distributed denial of service attacks can be mitigated with additions to the protocol allowing the victim to notify the network that they are being attacked and to rate limit the attackers.</p>
+<p>The simple solution to this issue is to do what we humans do, <em>allow for different frames of reference</em>. Instead of each node calculating its own coordinates based on the coordinates of other nodes, each node is the center of its own universe and all other nodes are simply offset from itself. I will call these offsets &quot;relative routing coordinates&quot; (RRCs). When two nodes want to communicate with each other, they must figure out where they are relative to some shared frame of reference.</p>
+<h2 id="peer-discovery"><a class="header" href="#peer-discovery">Peer Discovery</a></h2>
+<p>To assign relative coordinates to nodes, there is a process of peer-discovery that functions as follows. This process happens whenever a new node joins the network.</p>
+<ol>
+<li>New node bootstraps onto the network by initiating connection to one or more existing nodes.</li>
+<li>New node tests response times (latency) to connected nodes (peers). </li>
+<li>New node requests from some subset of lowest-latency peers that it would like more peers.</li>
+<li>New node's peers notify some slice of their peers that a new node would like more connections.</li>
+<li>Notified nodes initiate connection with new node and new node measures latency to new peers.</li>
+<li>New node takes note of the smallest latencies of its peers and goes back to step 3 until there are no closer nodes who want to peer.</li>
+<li>After a certain number of closest nodes are found whose latency measurements are stable, the new node then calculates relative routing coordinates for all of its active peers via <a href="https://en.wikipedia.org/wiki/True-range_multilateration">multilateration</a> and broadcasts them to all the nodes used in the calculation.</li>
+</ol>
+<p>Through this process, a distributed small-world network is formed that reflects the physical topology of the relative orientations of the nodes.</p>
+<h2 id="relative-routing-coordinates"><a class="header" href="#relative-routing-coordinates">Relative Routing Coordinates</a></h2>
+<p>Relative Routing coordinates (RRC) in this system acts as a replacement for IP addresses in conventional routing.</p>
+<h3 id="process"><a class="header" href="#process">Process</a></h3>
+<p>A packet with an RRC can be routed to its destination via the following process:</p>
+<ol>
+<li>Node chooses the peer that will receive the packet next by comparing RRC directions</li>
+<li>Node subtracts next peer's RRC from packet's RRC</li>
+<li>Node forwards modified packet to next peer</li>
+</ol>
+<p>The process continues until the packet's RRC is all zeroes and the last node it reaches either is the destination node, knows the destination node, or is the wrong node in which case the packet is dropped or sent back depending on the packet type.</p>
+<h3 id="usage"><a class="header" href="#usage">Usage</a></h3>
+<p>Compared to the global routing tables and complicated peering and address space allocation protocols that the existing internet uses. RRCs are much better for peer-to-peer applications because they are pretty much infinitely scalable. </p>
+<p>That said, RRCs in some ways give away <em>more</em> information than traditional IP addresses do. Since the self-organized networks that use RRCs reflect real-world network topologies, just knowing someone's routing coordinate relative to you could be akin to knowing roughly where they live. This is an acceptable risk because it is much easier to do efficient onion routing on networks with RRCs than those without meaning that there is no reason not to have all connections onion-routed to some degree, providing better privacy overall.</p>
+<p>Other benefits of routing coordinates are that they have the potential to almost completely prevent denial-of-service attacks. To even attempt such an attack, the attacker must find the routing coordinate of their target. Disregarding user error, this kind of attack is essentially impossible since everything is onion-routed by default. Even if the attacker does have the target's routing coordinate, trying to DOS a routing coordinate is like trying to DOS the entire expanse of network between the attacker and the target, the attacker(s) will be ineffective or blocked by other nodes automatically for overuse of the network. Even distributed denial of service attacks can be mitigated with additions to the protocol allowing the victim to notify the network that they are being attacked and to rate limit the attackers.</p>
 <h2 id="anonymous-routing-onions-garlic-and-all-the-others"><a class="header" href="#anonymous-routing-onions-garlic-and-all-the-others">Anonymous Routing (Onions, Garlic, and all the others...)</a></h2>
-<p>Conventionally, anonymous routing is an incredibly slow ordeal because of how intermediate peers are selected from the network. Due to this inefficiency, onion routing protocols have been somewhat limited in what kind of privacy they can provide because of usability being a concern. This is no longer the case with DBR, which may support all kinds of anonymous routing schemes:</p>
+<p>Conventionally, anonymous routing is an incredibly slow ordeal because of how intermediate peers are selected from the network. Due to this inefficiency, onion routing protocols have been somewhat limited in what kind of privacy they can provide because low data rates and high latency was a concern. This is no longer the case with DBR, which may support all kinds of anonymous routing schemes:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Onion_routing">Onion Routing</a>
 <ul>
@@ -210,18 +229,15 @@
 </li>
 </ul>
 <p>DBR plans to use a modification of the <a href="https://arxiv.org/abs/1507.05724v3">HORNET</a> protocol for setting up fast onion-routed links.</p>
-<h2 id="conflicting-coordinate-spaces"><a class="header" href="#conflicting-coordinate-spaces">Conflicting Coordinate Spaces</a></h2>
-<p>It is possible, (although unlikely) for two or more incompatible latency topologies to be formed independently in separate places and then come together later. A solution to this problem is still in the works, but it is likely the solution will come from the principle <a href="https://en.wikipedia.org/wiki/Synchronization_of_chaos">synchronization of chaos</a>.</p>
-<p>A system built on synchronization might work by which as the two networks start to grow close and share nodes that can't resolve an accurate routing coordinate between the two conflicting spaces, it sets off a chain reaction through which the conflicted nodes &quot;poison&quot; other nodes to recalculate their coordinate spaces which creates a new coordinate space merging the two old ones (or one gets subsumed into the other).</p>
-<h2 id="bandwidth-trading"><a class="header" href="#bandwidth-trading">Bandwidth Trading</a></h2>
-<p>Routing protocols that rely solely on people voluntarily hosting nodes typically only have a relatively small number of peers willing to route packets through themselves (i.e.: TOR). This is why protocols like BitTorrent, I2P and IPFS have systems in place that incentivize peers who use the network to contribute back for the benefit of all.</p>
-<p>To accomplish this behavior for DBR there must to be some way to limit packets going through nodes that either don't use the network that much or don't have a lot of bandwidth capacity. Also to take into consideration are the management of nodes that have inconsistent uptime or inconsistent routing.</p>
+<h2 id="preventing-network-abuse"><a class="header" href="#preventing-network-abuse">Preventing Network Abuse</a></h2>
+<p>Routing protocols that rely solely on people voluntarily hosting nodes typically only have a relatively small number of peers willing to route packets through themselves (i.e. TOR). This is why protocols like BitTorrent, I2P and IPFS have systems in place that incentivize peers who use the network to contribute back for the benefit of all.</p>
+<p>To accomplish this behavior for DBR there must to be some way to limit packets going through nodes that either don't use the network that much or don't have a lot of bandwidth capacity and speed up packets through nodes that contribute greatly to the network. Also to take into consideration are the management of nodes that have inconsistent uptime or inconsistent routing.</p>
 <p>When talking about incentives, we are talking about game theory. So lets analyze the game theoretical situation at the level of an individual node.</p>
 <p>Constraints:</p>
 <ul>
-<li>Each node is directly connected to a fixed number of other nodes at a varying distances.</li>
-<li>Each node wants to send traffic through other nodes.</li>
-<li>Each node wants to establish onion proxies with other nodes.</li>
+<li>Each node is directly connected to a fixed number of other nodes at a varying latencies and bandwidth.</li>
+<li>Each node wants to send traffic through other nodes to use the network.</li>
+<li>Each node wants to establish onion proxies with other nodes for privacy.</li>
 <li>Each node has set of parameters that may change over time:
 <ul>
 <li>Percentage of the time it will immediately respond and route a packet.</li>
