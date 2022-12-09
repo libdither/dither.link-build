@@ -164,7 +164,8 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="distance-based-routing"><a class="header" href="#distance-based-routing">Distance Based Routing</a></h1>
-<p>Distance Based Routing (DBR) is a protocol to obfuscate connections between computers on the Dither network. It improves on speed and flexibility over existing solutions (i.e. I2P and TOR) by taking into account the latency between nodes on the network. Instead of having to randomly choose nodes from a list to route through, by knowing the relative latencies of nodes, routing paths between nodes can be chosen to optimize for low-latency or anonymity, or a balance of both.</p>
+<p>Distance Based Routing (DBR) is a protocol for efficiently obfuscating connections between computers.</p>
+<p>It improves on speed and flexibility over existing solutions (i.e. I2P and TOR) by taking into account the latency between nodes on the network. Instead of having to randomly choose nodes from a global list to route through, by knowing the relative latencies of nodes, routing paths between nodes can be chosen to optimize for low-latency or anonymity, or a balance of both.</p>
 <p>Note: There is a <a href="https://www.dither.link/papers/distance-based-routing-whitepaper.pdf">research paper</a> comparing DBR to existing random-route solutions, for a somewhat amateurish comparison.</p>
 <h2 id="the-main-idea"><a class="header" href="#the-main-idea">The Main Idea</a></h2>
 <p>To figure out the relative latencies between nodes so as to establish low-latency paths to a destination, DBR makes the observation that the <strong>latency between nodes roughly correlates with the physical distance between them</strong>. This means coordinates can be assigned to nodes such that the communication latency between nodes can be estimated as the euclidian distance between coordinates. These coordinates will be referred to as &quot;routing coordinates&quot;.</p>
