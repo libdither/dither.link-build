@@ -163,41 +163,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="reverse-hash-lookup-wip"><a class="header" href="#reverse-hash-lookup-wip">Reverse Hash Lookup (WIP)</a></h1>
-<p>Directed Acyclic Graph data structures (DAGs) may be elegant for storing and linking pieces of data, but they don't provide any kind of mutability on their own. This is the purpose of the Reverse Hash Lookup (RHL). RHL allows you to create a piece of data that links to two or more other pieces of data (via hash-linking) <em>and then lookup the link given one of the linked pieces of data</em>.</p>
-<h2 id="structure"><a class="header" href="#structure">Structure</a></h2>
-<p>RHL has many different ways to solve the two problems of distributing links and finding links. (Links here being pieces of data containing the hash of some other object that is being &quot;linked to&quot;). Links could be shared only with friends or trusted individuals, links could be broadcast all over the network and re-stored by other nodes, links could be stored in blockchains or link maps maintained by centralized servers, etc. All these different use-cases may be useful for different applications, so RHL tries to generalize over all possible use-cases.</p>
-<p>Ideas:</p>
-<ul>
-<li>A Link defines its own methods of distribution and search. (Perhaps embedded as a hashtype).</li>
-</ul>
-<h3 id="methods-of-distribution--search"><a class="header" href="#methods-of-distribution--search">Methods of Distribution &amp; Search</a></h3>
-<ul>
-<li>A link can be broadcast to some set of trusted nodes (friend group), queries are done by asking friends if they have registered any links to an object.</li>
-<li>A link can be registered in some sort of global consensus
-<ul>
-<li>Central server(s) store any links that are uploaded and respond to queries</li>
-<li>Blockchain storing links (all &quot;full&quot; nodes store all links), queries done locally</li>
-<li>Global Binary Tree mapping hashes to links (less space, more network activity when searching)</li>
-</ul>
-</li>
-<li>A link can be broadcast via a publish-subscribe system and exist ephemerally, find beliefs by constantly listening on a topic (or to the entire network).</li>
-</ul>
-<h2 id="potential-applications"><a class="header" href="#potential-applications">Potential Applications</a></h2>
-<p>This kinda of system is useful as a basis for other systems that need to link disparate pieces of data together for the purposes of querying or consensus. Here are just a few examples of the systems that RHL could enable:</p>
-<ul>
-<li><a href="../../applications/dithca.html">Comment systems</a>. Each comment is a piece of data signed by some individual. Links can created over the comments that allow for querying some subset of all the comments, i.e. <code>top comments</code> or <code>set of all comments</code> or <code>comments from friends</code>. These links themselves may be immutable, but can be joined together via other links in a chain where the newest link in the chain is the most up-to-date view of the comment system.</li>
-<li><a href="../../applications/web-of-beliefs.html">Web of Beliefs</a>. A justification / rule links two beliefs together and beliefs may be private or publicly shared and distributed. Beliefs justified by some rule sets may be more propagated than others (i.e. scientific beliefs). Or beliefs can be accepted or rejected based on arbitrary social conditions like &quot;what proportion of my friends hold belief x?&quot; (Such as is the case with names). Multiple conflicting beliefs can be held at once, such as if it is not clear which one should be accepted as default (or there are uses for both beliefs in different context, such as with definitions).</li>
-<li><a href="zero-knowledge-proofs.html#example-trusted-user-distributed-anonymous-count">Anonymous Interactions</a>. Links could be generated ephemerally to prove that a public key in some trusted set of public keys interacted with a piece of content in some manner, and then added to some hyperloglog or statistical counter.</li>
-</ul>
-<h2 id="specification-ideas"><a class="header" href="#specification-ideas">Specification Ideas</a></h2>
-<p>Disp type <code>Link&lt;Type&gt;</code> is implemented for whatever hash type is used in the specific link needed. i.e.</p>
-<p>For a link to be type-valid, the objects it links to must also be the correct type. Zero-knowledge proofs could be used for this application in the future to avoid unnecessary fetching.</p>
-<pre><code>struct Link&lt;T: Type&gt; {
-  hash: Multihash,
-  valid_link: (fetch(hash) : T)
-}
-</code></pre>
+                        <h1 id="reverse-hash-lookup"><a class="header" href="#reverse-hash-lookup">Reverse Hash Lookup</a></h1>
 
                     </main>
 
