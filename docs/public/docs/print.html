@@ -4,39 +4,25 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Dither Ideas</title>
-        
         <meta name="robots" content="noindex" />
-        
-        
 
 
         <!-- Custom HTML head -->
         
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="favicon.svg">
-        
-        
         <link rel="shortcut icon" href="favicon.png">
-        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        
         <link rel="stylesheet" href="css/print.css" media="print">
-        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -44,19 +30,19 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
+        <link rel="stylesheet" href="custom.css">
 
-        
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -72,7 +58,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -84,12 +70,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -97,17 +85,38 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="dither/routing/distance-based-routing.html"><strong aria-hidden="true">1.2.</strong> Distance-Based Routing</a></li><li class="chapter-item expanded "><a href="dither/routing/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Directional Trail Search</a></li><li class="chapter-item expanded "><a href="dither/data/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="dither/data/zero-knowledge-proofs.html"><strong aria-hidden="true">1.5.</strong> Zero Knowledge Proofs</a></li><li class="chapter-item expanded "><a href="dither/data/user-management.html"><strong aria-hidden="true">1.6.</strong> User Management</a></li><li class="chapter-item expanded "><a href="dither.html"><strong aria-hidden="true">1.7.</strong> Consensus</a></li></ol></li><li class="chapter-item expanded "><a href="disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/expr.html"><strong aria-hidden="true">2.1.</strong> Core Expressions</a></li><li class="chapter-item expanded "><a href="disp/lambda-trees.html"><strong aria-hidden="true">2.2.</strong> Lambda Trees</a></li><li class="chapter-item expanded "><a href="disp/type-system.html"><strong aria-hidden="true">2.3.</strong> Type System</a></li><li class="chapter-item expanded "><a href="disp/provable-hardware-modeling.html"><strong aria-hidden="true">2.4.</strong> Provable Hardware Modeling</a></li><li class="chapter-item expanded "><a href="disp/hashtypes/hashtypes.html"><strong aria-hidden="true">2.5.</strong> Hashtypes</a></li></ol></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="applications/application-design-philosophy.html"><strong aria-hidden="true">3.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="applications/dither-chat.html"><strong aria-hidden="true">3.2.</strong> Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><a href="applications/dithca.html"><strong aria-hidden="true">3.3.</strong> Comment System - Dithca</a></li><li class="chapter-item expanded "><a href="applications/dithca.html"><strong aria-hidden="true">3.4.</strong> Package Manager - Dithix</a></li><li class="chapter-item expanded "><a href="applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.5.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="applications/protocol-of-truth/examples.html"><strong aria-hidden="true">3.5.1.</strong> Usage Examples (WIP)</a></li></ol></li><li class="chapter-item expanded "><a href="applications/dither-coin.html"><strong aria-hidden="true">3.6.</strong> Not your typical Cryptocurrency - Dither Coin</a></li><li class="chapter-item expanded "><a href="applications/d-framework/d-framework.html"><strong aria-hidden="true">3.7.</strong> Browser Alternative - D Framework</a></li></ol></li><li class="chapter-item expanded "><a href="future-vision.html"><strong aria-hidden="true">4.</strong> Future Vision of Dither</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="copyright-is-cancer.html"><strong aria-hidden="true">5.1.</strong> Copyright is Cancer</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="dither/routing.html"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="dither/user-management.html"><strong aria-hidden="true">1.5.</strong> Account Management</a></li><li class="chapter-item expanded "><a href="dither/identity.html"><strong aria-hidden="true">1.6.</strong> Identity Management</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/type-system.html"><strong aria-hidden="true">2.1.1.</strong> Standard Type System</a></li></ol></li><li class="chapter-item expanded "><a href="disp/syntax-agnosticism.html"><strong aria-hidden="true">2.2.</strong> Syntax Agnosticism</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/syntax.html"><strong aria-hidden="true">2.2.1.</strong> Standard Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="disp/names.html"><strong aria-hidden="true">2.3.</strong> Naming with Knowledge Graphs</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> Modular Parsing</div></li><li class="chapter-item expanded "><a href="disp/hardware-modeling.html"><strong aria-hidden="true">2.5.</strong> Hardware Modeling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.6.</strong> Self-Defined Types</div></li><li class="chapter-item expanded "><a href="disp/implementation.html"><strong aria-hidden="true">2.7.</strong> Specification</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/bind-trees.html"><strong aria-hidden="true">2.7.1.</strong> Bind Trees</a></li></ol></li><li class="chapter-item expanded "><a href="disp/gpt4-spec.html"><strong aria-hidden="true">2.8.</strong> GPT4-Spec</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.9.</strong> Examples</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/examples/category_theory.html"><strong aria-hidden="true">2.9.1.</strong> Category Theory Definitions</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="applications/application-design-philosophy.html"><strong aria-hidden="true">4.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="copyright-is-cancer.html"><strong aria-hidden="true">4.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="what-is-a-monad.html"><strong aria-hidden="true">5.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="node_discovery_ideas.html"><strong aria-hidden="true">5.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -116,35 +125,30 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">Dither Ideas</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
+
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -152,10 +156,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -165,7 +168,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="the-dither-project"><a class="header" href="#the-dither-project">The Dither Project</a></h1>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="the-dither-project"><a class="header" href="#the-dither-project">The Dither Project</a></h1>
 <ul>
 <li><a href="dither.html#the-dither-project">The Dither Project</a>
 <ul>
@@ -177,8 +181,8 @@
 <li><a href="dither.html#structure">Structure</a>
 <ul>
 <li><a href="dither.html#core-process">Core Process</a></li>
-<li><a href="dither.html#service-layer">Service Layer</a></li>
-<li><a href="dither.html#application-layer">Application Layer</a></li>
+<li><a href="dither.html#service-swarm">Service Swarm</a></li>
+<li><a href="dither.html#user-interface">User Interface</a></li>
 <li><a href="dither.html#interface-layer">Interface Layer</a></li>
 </ul>
 </li>
@@ -221,12 +225,14 @@
 <h1 id="structure"><a class="header" href="#structure">Structure</a></h1>
 <p>Following the first tenet of Dither, in the future the lines between these layers will blur and everything will be a module. However, the design of current operating systems don't easily allow for shared code and data, requiring a more formal structure. In the future this layered structure will be replaced with a more <a href="dither/structure.html">flexible system</a>.</p>
 <h2 id="core-process"><a class="header" href="#core-process">Core Process</a></h2>
-<p>The main process is main part of Dither that deals with creating peer-to-peer connections with other computers running Dither.
+<p>The Core Dither Process is the part that deals with all operating system-facing operations such as data storage, establishing peer-to-peer connections with other computers, in addition to managing all Dither services and connections between them.</p>
+<p>This &quot;Core Process&quot; provides a few core APIs that only certain services running in the &quot;Service Swarm&quot; are allowed to use for security purposes. The idea behind a &quot;Core Process&quot; is to create a sandboxed environment for services to run in a safe manner.</p>
+<p>peer-to-peer connections with other computers running Dither.
 Currenly in the dither-sim program, this is implemented via a simple TCP stream. In the future this layer will be implemented using existing libraries such as <a href="https://libp2p.io/implementations/#transports">libp2p transports</a>, <a href="https://www.pluggabletransports.info/transports/">Pluggable Transports</a>, something else, or some amalgamation of all three. The idea behind this layer is to provide as many methods of communication as feasibly possible.</p>
-<h2 id="service-layer"><a class="header" href="#service-layer">Service Layer</a></h2>
+<h2 id="service-swarm"><a class="header" href="#service-swarm">Service Swarm</a></h2>
 <p>The service layer provides all functionality related to <a href="dither/routing/distance-based-routing.html">routing</a>, encryption, <a href="dither/routing/directional-trail-search.html">data storage</a>, <a href="dither/data/user-management.html">user management</a> and everything else. Each of these services are split up into separate modules each of which runs its own processes and communicates with other services through inter-process communication. </p>
 <p>All these processes are managed as child processes under one &quot;main process&quot;. The main process contains the Transport Layer implementation, the routing protocol API and APIs for managing the child services as well as managing inter-process communication between child processes.</p>
-<h2 id="application-layer"><a class="header" href="#application-layer">Application Layer</a></h2>
+<h2 id="user-interface"><a class="header" href="#user-interface">User Interface</a></h2>
 <p>The application layer contains services just like the service layer that are registered under the main process. These registered service's APIs can be used by other applications. </p>
 <p>The application layer also refers to the application's core API, which is used by the interface layer. This &quot;core application API&quot; can be built into the applicaiton's executable, or it can run as a service under the main process and used by multiple interfaces. This is left up to the application developers. Applications with multiple interfaces should prefer to register application APIs under the main process.</p>
 <p>Existing planned applications may be found <a href="applications.html">here</a>.</p>
@@ -234,322 +240,386 @@ Currenly in the dither-sim program, this is implemented via a simple TCP stream.
 <p>The final layer is the interface layer. This just refers to standalone applications that provide some kind of interface to the user using the services running under Dither.</p>
 <p>These interfaces can be implemented however, but it is recommended for them to follow Dither's <a href="dither/application-design-philosophy.html">application design philosophy</a> for some level of standardization.</p>
 <h1 id="other-links"><a class="header" href="#other-links">Other Links</a></h1>
-<h3 id="a-hrefditherinspirationshtmlinspirations-for-dithera"><a class="header" href="#a-hrefditherinspirationshtmlinspirations-for-dithera"><a href="dither/inspirations.html">Inspirations for Dither</a></a></h3>
+<h3 id="inspirations-for-dither"><a class="header" href="#inspirations-for-dither"><a href="dither/inspirations.html">Inspirations for Dither</a></a></h3>
 <p>Dither as with any creative endeavor takes inspiration from many other projects. This is a list of what parts of Dither have been inspired from other projects.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="structure-1"><a class="header" href="#structure-1">Structure</a></h1>
 <p>This document outlines the major structure of Dither.</p>
-<h2 id="service-manager"><a class="header" href="#service-manager">Service Manager</a></h2>
-<p>At the core of Dither is the service manager. This will be written in Rust and only one instance should run on any given user account.</p>
-<p>The service manager comes in 2 parts, each with its own API.</p>
+<h2 id="system-manager"><a class="header" href="#system-manager">System Manager</a></h2>
+<p>At the core of Dither is the system manager. This will be written in Rust and should only be run once on any given user account. The system manager provides a sandbox for Dither protocols and is built in a modular fashion to support any kind of setup or platform Dither might run on.</p>
+<h3 id="core-services"><a class="header" href="#core-services">Core Services</a></h3>
+<p>In order to sandbox Dither services, the system manager provides certain core services such as access to storage, network, or other Dither services.</p>
 <ul>
-<li>The Service Manager
+<li>Service Manager
 <ul>
-<li>This starts and stops, manages state, connections between services, and isolates them from the rest of the system.</li>
+<li>Provides any service with access the ability to organize other service's permissions, manage storage, as well as stop and start services at will.</li>
 </ul>
+</li>
+<li>Network Service
+<ul>
+<li>Provides any service with access the ability to establish arbitrary TCP or UDP connections.</li>
+</ul>
+</li>
+<li>Storage Service
+<ul>
+<li>Provides any service with access the ability to fetch and store data unique to that service.</li>
+</ul>
+</li>
+</ul>
+<p>Other services may be added as needed.</p>
+<h3 id="service-swarm-1"><a class="header" href="#service-swarm-1">Service Swarm</a></h3>
+<p>The system manager acts as a kind of sandbox for all services running on Dither and facilitates communication between different services.</p>
+<h2 id="services"><a class="header" href="#services">Services</a></h2>
+<p>This is a list of planned Dither services and their dependencies, note these may be split up into smaller sub-services.</p>
+<ul>
+<li>Distance-Based Routing, DBR (Network, Storage)</li>
+<li>Directional-Trail Search, DTS (Distance-Based Routing, Storage)</li>
+<li>Reverse-hash-lookup, RHL (Directional-Trail Search)</li>
+<li>User Manager (DBR, DTS, RHL, Storage)</li>
+<li>Dither Chat (DBR, DTS, RHL, User Manager, Storage)</li>
+<li>Dithca (DTS, RHL, User Manager, Storage)</li>
+<li>Protocol of Truth (DTS, RHL)</li>
+</ul>
+<h2 id="applications"><a class="header" href="#applications">Applications</a></h2>
+<p>Applications in Dither will be external programs that communicate with specific services in the Dither System Manager. 
+i.e. 
+Dither Chat will use the Dither Chat Service
+Dithca will use the Dithca service.</p>
+<p>Or applications can use a multitude of different services as needed.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="dither-anonymous-routing"><a class="header" href="#dither-anonymous-routing">Dither Anonymous Routing</a></h1>
+<p>Dither Anonymous Routing (DAR) is a peer-to-peer protocol for efficiently and flexibly obfuscating connections between computers.</p>
+<p>It improves on speed and versatility over existing solutions (i.e. I2P and TOR) by incorporating latency and bandwidth estimation techniques so that intermediate relays may be (optionally) optimally chosen. It exposes this option to applications built on DAR, allowing the developers and users to explicitly dictate the trade-off they prefer between speed and anonymity for each networked application they use.</p>
+<p>In addition, to align itself with the philosophy of Dither, DAR aims to be as generic as possible, so that different encryption schemes and transport types may be used for different connections to hedge against the risk of one of them breaking, as well as easily allowing for novel schemes that may not be rigorously tested, but have desirable properties such as the stateless encryption protocol described in <a href="https://arxiv.org/pdf/1507.05724v3.pdf">HORNET</a>.</p>
+<h2 id="route-properties-prediction-rpp"><a class="header" href="#route-properties-prediction-rpp">Route Properties Prediction (RPP)</a></h2>
+<p>In order to optimally select relays to establish onion routes through, it would be desirable to select nodes that have high-bandwidth connections and are located “en-route” between the sender and receiver. In small networks, this could be accomplished by every node measuring latency and bandwidth to every other node periodically, and then compiling a two separate shared <code>N*N</code> matrices representing the pairwise measurements of latency and bandwidth respectively. Then, when a path of relays needs to be selected, the requesting node would test all possible paths through the network to find the shortest ones and then send requests to nodes on those paths to be relays. This would (probably) work but exposes lots of information about the network publically and even in relatively small networks of even 20+ nodes, computational, communication, and storage costs make this solution completely infeasible.</p>
+<p>There are still some methods to solve this problem, albeit less accurately. An individual without much experience in linear algebra might be able to think up a solution to solve the latency part of the problem, simply by observing that <em>latency between nodes seems to roughly correlate with physical distance between nodes</em>. To see if this correlation is modle-able in practice, one could assign 3-dimensional coordinates (because we live in a 3D world) to each node and have each node progressively update that coordinate such as to minimize the latency prediction error with its peers, functionally “embedding” the latency metric into a 3D space. In this scenario, real-world latency is predicted via the “Euclidean Distance” function and this is roughly what the <a href="https://pdos.csail.mit.edu/papers/vivaldi:sigcomm/paper.pdf">Vivaldi</a> paper does, and it does predict latency. This method is considerably inaccurate because while Latency <em>does</em> correlate with physical distance, is not a direct causal relationship. Anything from internal processing latency, dynamic packet switching, or just a cable that doesn’t go directly from the source to destination will lengthen distances, which will then distort the space that we are trying to use to predict latencies.</p>
+<p>For the math people: There are two properties that Euclidean physical space must have, but latency does not: Symmetry, and The Triangle Inequality. In physical space, the distance from point A to point B must be equivalent no matter from which you are measuring. This is not the case for computers on the internet as ISPs may delay connections initiated by certain nodes but not others. Symmetry violations are rare and typically non-consequential, but Triangle Inequality violations are <em>everywhere</em> when measuring latency. The Triangle Inequality says that given a measurement from point A to point B, a measurement from point A to B to C must always be greater than from A to B. (assuming C is not A or B). This inequality is frequently violated on the internet due to the tree-like way it is organized and the fact that routing tables may not always route packets along the most optimal paths (due to misconfiguration, or congestion management).</p>
+<p>For those who know linear algebra, the better way to solve this problem is to imagine a large, partially filled <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> matrix, where the ith row and jth column represent a latency or bandwidth measurement from node i to node j. When constructed on real networks, various papers have discovered that this matrix has a <a href="https://en.wikipedia.org/wiki/Rank_(linear_algebra)">low rank</a>. Rank is a metric measuring how <em>linearly independent</em> rows and columns of a matrix is, and matrices that are low-rank can be approximated by two matrices <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> is the approximate rank of a large <code>N*N</code> matrix. Given a vector from column i from the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> matrix and vector from row j from the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> matrix factor, the dot product between the two vectors is the predicted latency from node i to node j. Note that unlike Vivaldi, this measurement is directional and you could swap rows/column indices where the vectors are chosen from to get a measurement from node j to node i instead.
+The “factorization” algorithm can be done on a single computer, but it can also be modified to work across a distributed peer-to-peer network similar to Vivaldi by simply doing running an optimization algorithm on each node to find a pair of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>-size vectors that minimizes the difference between measured latency/bandwidth to directly connected nodes and predicted latency/bandwidth. I call this set of vectors “Routing Coordinates”.</p>
+<h3 id="modeling-fluctuating-connections"><a class="header" href="#modeling-fluctuating-connections">Modeling Fluctuating Connections</a></h3>
+<p>While the goal of distance-based routing could be achieved by calculating a routing coordinate to each node in the network, This has two major problems: </p>
+<ol>
+<li>
+<p>Individual nodes or even whole parts of the network may be moving in relation to other parts of the network, and thus fluctuating in terms of  (i.e. an airplane, or interplanetary communication). Thus requiring continuous recalculation of routing coordinates for all moving parties involved (which may include an entire planet, if used for inter-planetary routing).</p>
 </li>
 <li>
-<h2 id="the-transport-api"><a class="header" href="#the-transport-api">The Transport API</a></h2>
+<p>Multiple networks may form independently and thus may form incompatible coordinate systems when communicating, requiring resynchronization or some kind of coordinate translation.</p>
 </li>
-</ul>
-<h2 id="services"><a class="header" href="#services">Services</a></h2>
-<h2 id="applications"><a class="header" href="#applications">Applications</a></h2>
-<h1 id="distance-based-routing"><a class="header" href="#distance-based-routing">Distance Based Routing</a></h1>
-<p>The goal of Distance Based Routing (DBR) is to obfuscate connections between computers on the Dither network. It works similarly to I2P &amp; TOR, but is vastly improved by taking into account where proxy nodes are, instead of randomly selecting proxy nodes. It also allows for you to choose the trade-off between anonymity and speed.</p>
+</ol>
+<p>The solution to this issue that would work with a Vivaldi-type prediction scheme reflects something that humans do: <em>allow for different frames of reference</em>. Instead of each node calculating its own coordinates based on the global coordinates of other nodes, each node is the center of its own universe and it simply represents other nodes are simply offset from itself. I will call these offsets “relative routing coordinates” (RRCs). When two nodes want to communicate with each other, they must agree on some shared known point of reference, and then exchange their relative routing coordinates to that reference to be able to route through the network. This would formalize the idea that groups of computers may be changing relative to other groups of computers and would allow for more granular changes of relative coordinates rather than constant changes of global coordinates.</p>
+<p>Unfortunately, this strategy doesn’t work for matrix-factorization-based latency prediction, because translation is not a transformation that preserves the dot product between two vectors. Only rotations and reflections do. The problem here is still open, but I suspect the solution will entail some form of <a href="https://sci-hub.st/https://dl.acm.org/doi/10.1109/TNET.2020.3022757">tensor factorization</a> or perhaps an even more advanced machine learning model. A somewhat general form of the problem is formalized as follows:</p>
+<p>The metric is predicted at some time via some black box function using the local coordinates and remote coordinates:
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.244em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9579em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span></span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0833em;"><span class="mord">ˆ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></p>
+<p>Metrics are occasionally measured at some time t: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>We must minimize the difference between the predicted and measured metric at any given time and update our current coordinates.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.7333em;vertical-align:-1.0389em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6679em;"><span style="top:-2.1612em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mrel mtight">∈</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5935em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop"><span class="mop"><span class="mop"><span class="mord mathrm" style="margin-right:0.01389em;">arg</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathrm">min</span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.0389em;"><span></span></span></span></span></span></span><span class="mspace"> </span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></span></p>
+<h3 id="other-concerns-and-assumptions"><a class="header" href="#other-concerns-and-assumptions">Other Concerns and Assumptions</a></h3>
+<p>An assumption of this scheme is that intermediate routes will be directly connected to each other, but this will often not be the case, especially in the case where intermediate nodes are far away from each other. In this case, the current vision for the protocol states that packets will traverse through nodes in-between relays on the network. This will probably cause unnecessary congestion, but hopefully the discovery and peer-to-peer karma system will route the majority of traffic along high-connected nodes.</p>
+<h2 id="peer-discovery"><a class="header" href="#peer-discovery">Peer Discovery</a></h2>
+<p>To form a network, there needs to be a process for new nodes to connect to existing nodes. Dither Anonymous Routing aims to allow peers to be as anonymous as possible, and thus the peer discovery method aims to expose as little as possible about nodes on the network. Specifically, as little information as possible about nodes that don’t want to be discovered, and nodes far away (latency-wise) from the new node.</p>
+<p>TLDR: Peer Discovery must expose information about <em>some</em> nodes, but should only expose information about nodes that are nearby and want to be known.</p>
+<p>For more information, check out the <a href="dither/./discovery.html">Discovery</a> section.</p>
+<p>To assign routing coordinates to nodes, there is a process of peer-discovery that functions as follows. This process happens whenever a new node joins the network.</p>
+<ol>
+<li>New node bootstraps onto the network by initiating connection to one or more existing nodes.</li>
+<li>New node tests response times (latency) to connected nodes (peers). </li>
+<li>New node requests from some subset of lowest-latency (closest) peers that it would like more peers.</li>
+<li>New node’s peers notify some slice of their peers that a new node would like more connections.</li>
+<li>Notified nodes initiate connection if they are configured to do so and measure latency to new peers.</li>
+<li>Notified nodes initiate connection with new nodes and new nodes measure latency to new peers.</li>
+<li>New node takes note of the smallest latencies of its peers and goes back to step 3 until there are no closer nodes who want to peer.</li>
+<li>After a certain number of closest nodes are found whose latency measurements are stable, the new node then calculates routing coordinates and is records its currently connected nodes so that it may reconnect when if went offline.</li>
+</ol>
+<p>Through this process, a distributed network is formed that reflects the physical topology of the relative orientations of the nodes.</p>
+<h3 id="process"><a class="header" href="#process">Process</a></h3>
+<p>A packet with an RRC can be routed to its destination via the following process:</p>
+<ol>
+<li>Node chooses the peer that will receive the packet next by comparing RRC directions</li>
+<li>Node subtracts next peer’s RRC from packet’s RRC</li>
+<li>Node forwards modified packet to next peer</li>
+</ol>
+<p>The process continues until the packet’s RRC is all zeroes and the last node it reaches either is the destination node, knows the destination node, or is the wrong node in which case the packet is dropped or sent back depending on the packet type.</p>
+<h3 id="usage"><a class="header" href="#usage">Usage</a></h3>
+<p>Compared to the global routing tables and complicated peering and address space allocation protocols that the existing internet uses. Routing Coordinates are much better for peer-to-peer applications because they are pretty much infinitely scalable. </p>
+<p>That said, RC in some ways give away <em>more</em> information than traditional IP addresses do. Since the self-organized networks that use RCs reflect real-world network topologies, just knowing someone’s routing coordinate relative to you could be akin to knowing roughly where they live. This is an acceptable risk because it is much easier to do efficient onion routing on networks with RCs than those without meaning that there is no reason not to have all connections onion-routed to some degree, providing better privacy overall.</p>
+<p>Other benefits of routing coordinates are that they have the potential to almost completely prevent denial-of-service attacks. To even attempt such an attack, the attacker must find the routing coordinate of their target. Disregarding user error, this kind of attack is essentially impossible since everything is onion-routed by default. Even if the attacker does have the target’s routing coordinate, trying to DOS a routing coordinate is like trying to DOS the entire expanse of network between the attacker and the target, the attacker(s) will be ineffective or blocked by other nodes automatically for overuse of the network. Even distributed denial of service attacks can be mitigated with additions to the protocol allowing the victim to notify the network that they are being attacked and to rate limit the attackers.</p>
+<h2 id="anonymous-routing-onions-garlic-and-all-the-others"><a class="header" href="#anonymous-routing-onions-garlic-and-all-the-others">Anonymous Routing (Onions, Garlic, and all the others…)</a></h2>
+<p>Conventionally, anonymous routing is an incredibly slow ordeal because of how intermediate peers are selected from the network. Due to this inefficiency, onion routing protocols have been somewhat limited in what kind of privacy they can provide because low data rates and high latency was a concern. This is no longer the case with DBR, which may support all kinds of anonymous routing schemes:</p>
 <ul>
-<li>Bandwidth Trading</li>
-<li>Configurable Routing
+<li><a href="https://en.wikipedia.org/wiki/Onion_routing">Onion Routing</a>
 <ul>
-<li>Network Traversal</li>
-<li>Network Searching</li>
-<li>Onion Routing</li>
-<li>Routing Wormholes</li>
-</ul>
-</li>
-</ul>
-<h2 id="network-organization"><a class="header" href="#network-organization">Network Organization</a></h2>
-<p>The idea behind network organization is to be able to create a network that reflects the real-world positions of the computers. This is so that it is easy to calculate the latency between different locations in the network and to optimise routing paths.</p>
-<p>Note: You can also read the network organization <a href="https://www.dither.link/papers/distance-based-routing-whitepaper.pdf">research paper</a> (or don't, its not that good)</p>
-<h2 id="routing-coordinates"><a class="header" href="#routing-coordinates">Routing Coordinates</a></h2>
-<p>One of the main ideas behind Distance-based routing is to replace conventional IP addresses with a less structural addressing system. Instead of using an IP address to try to get the routing tables of the internet to route your data where you want it, Routing Coordinates allow for a less metadata-intensive way to route packets: instead of consulting extensive routing tables, all nodes have to do is route packets to a nodes closer to the packet's destination routing coordinates. This conveniently allows for keeping your IP address private, allowing for better protection against Denial of Service attacks.</p>
-<p>Unfortunately, there are drawbacks. Routing Coordinates are spatial coordinates that represent the <em>latency topology</em> of a network. Because light travels at the speed of light, this latency topology reflects real-world connections between computers and their relative locations in the world. This allows for the unfortunate possibility that with a sufficiently informed attacker, the precise real-world location of a device could be deduced from its routing coordinates. To deal with this Dither uses Onion Routing by default when connecting to any peers not specifically trusted.</p>
-<h2 id="onion-routing"><a class="header" href="#onion-routing">Onion Routing</a></h2>
-<p>Conventionally, onion routing is an incredibly slow strategy because of how peers are typically selected in the network. However, with Routing Coordinates, peers directly along the path of the packet can be selected to allow for very minimal overhead. (in addition, the <a href="https://arxiv.org/abs/1507.05724v3">HORNET</a> protocol will be used for its incredibly efficient symmetric encryption scheme).</p>
-<h2 id="bootstrapping"><a class="header" href="#bootstrapping">Bootstrapping</a></h2>
-<p>The by which a new node joins the network is as follows:</p>
-<ul>
-<li>The new node first needs to bootstrap off of at least one existing node.</li>
-<li>This existing node sends the new node a set of peer <code>Address</code>es selected based on how close they might be to the requesting node (this will represent a ring of nodes roughly a constant distance away from the existing node, this constant distance being the latency between the existing node and the new node).
-<ul>
-<li>In the case that the existing node has not been bootstrapped, it will notify the requesting node as such, and if the requesting node continues the connection, it will set its own Routing Coordinates to the origin of the coordinate space.</li>
-</ul>
-</li>
-<li>Assuming the existing node has at least one peer, the connecting node can accomplish the Local Peer Protocol.</li>
-<li>The new node takes the set of peer <code>Address</code>es that were received from the existing node and pings them, measuring connection latency to all of them. The new node queries the existing nodes with the closest latencies for their sets of peers, and repeats until a set of nodes has been aquired ordered by their latency from the new node.</li>
-<li>The node choses peers for it's &quot;active set&quot;, by default this is a few hundred of its closest nodes.</li>
-<li>The new node then uses <a href="https://en.wikipedia.org/wiki/True-range_multilateration">True-range multilateration</a> on the closest nodes of its active set to calculate its own Routing Coordinate and then broadcasts this routing coordinate to its active set.</li>
-<li>This concludes the bootstrapping process and the node can now use its routing coordinate as a temporary address on the network.</li>
-</ul>
-<h2 id="conflicting-networks"><a class="header" href="#conflicting-networks">Conflicting Networks</a></h2>
-<p>It is possible, (although unlikely) for two or more incompatible latency topologies to be formed in separate places. This can happen relatively easily if, say, two Dither networks formed independently on isolated networks and then these networks connected to each other. A solution to this problem is still in the works, however, this solution will most likely have to be a system that syncronizes itself.</p>
-<h2 id="routing-techniques"><a class="header" href="#routing-techniques">Routing Techniques</a></h2>
-<p>There are many possible routing techniques that could be built on top of Routing Coordinates, here is a list of some of the default ones:</p>
-<ul>
-<li>Default Routing
-<ul>
-<li>This uses the underlying networking protocol (i.e. Ipv4 or Ipv6) to send data to and from some address.</li>
+<li>The simplest routing of them all. Simply select a list of peers and establish a route from beginning to end.</li>
 </ul>
 </li>
-<li>Traversal Routing
+<li>Garlic Routing
 <ul>
-<li>A packet using this routing method contains a destination routing coordinate. When a node receives a packet using this routing method, it simply sends the the packet to whatever node in it's active set that is closer to the destination.</li>
+<li>Similar to onion routing, but when sending packets to multiple peers at once, send them together for them to be split apart at some mid-point in the path.</li>
 </ul>
 </li>
-<li>Proxy Routing (i.e. Onion Routing)
+<li>Multi-path routing
 <ul>
-<li>Multiple nodes in the network are selected to temporarily proxy packets to their destination.</li>
-<li>Chains of these proxies can be formed with Onion Routing support to create re-usable network proxies. </li>
+<li>Maintain multiple Onion routes throughout the network and randomly send packets along all or some subset of them.</li>
 </ul>
 </li>
-<li>Locality Routing
+<li>Pool Routing
 <ul>
-<li>This is a method to protect the exact location of a node.</li>
-<li>All the nodes within a certain area in the routing coordinate space are instructed to route any packets they receive with a specific ID to a certain node in the space.</li>
+<li>Create a group that nodes can join. All nodes randomly send randomly-sized data packets to all other nodes at random intervals, sending real data (padded) if there is data to send and sending random bytes if not.</li>
 </ul>
 </li>
 </ul>
-<h2 id="bandwidth-trading"><a class="header" href="#bandwidth-trading">Bandwidth Trading</a></h2>
-<p>Proxying protocols that rely on the goodwill of peers to route packets typically have only a small number of willing peers to route (ex: TOR). This is why protocols like BitTorrent, I2P and IPFS have systems in place that require peers to play fair and contribute back to the network.</p>
-<p>To accomplish this behavior for Dither there are some potential solutions:</p>
+<p>DBR plans to use a modification of the <a href="https://arxiv.org/abs/1507.05724v3">HORNET</a> protocol for setting up fast onion-routed links.</p>
+<h2 id="preventing-network-abuse"><a class="header" href="#preventing-network-abuse">Preventing Network Abuse</a></h2>
+<p>Routing protocols that rely solely on people voluntarily hosting nodes typically only have a relatively small number of peers willing to route packets through themselves (i.e. TOR). This is why protocols like BitTorrent, I2P and IPFS have systems in place that incentivize peers who use the network to contribute back for the benefit of all.</p>
+<p>To accomplish this behavior for DBR there must be some way to limit packets going through nodes that either don’t use the network that much or don’t have a lot of bandwidth capacity and speed up packets through nodes that contribute greatly to the network. Also, to take into consideration are the management of nodes that have inconsistent uptime or inconsistent routing.</p>
+<p>When talking about incentives, we are talking about game theory. So lets analyze the game theoretical situation at the level of an individual node.</p>
+<p>Constraints:</p>
 <ul>
-<li>A node records how much data has been forwarded through itself from each node in it's &quot;active set&quot; and uses nodes that use it the most for traversal. </li>
+<li>Each node is directly connected to a fixed number of other nodes at a varying latencies and bandwidth.</li>
+<li>Each node wants to send traffic through other nodes to use the network.</li>
+<li>Each node wants to establish onion proxies with other nodes for privacy.</li>
+<li>Each node has set of parameters that may change over time:
+<ul>
+<li>Percentage of the time it will immediately respond and route a packet.</li>
+<li>Amount of traffic per unit time it is willing to route on average.</li>
+<li>Max amount of traffic per unit time it can route.</li>
 </ul>
+</li>
+</ul>
+<p>The goal is to allow for unrelated nodes to route and establish proxies through each other in proportion to how much each node contributes in some way to the network.</p>
+<p>Ideas:</p>
+<ul>
+<li>Each node keeps track of the amount of traffic (bytes) flowing through its itself from directly connected nodes.</li>
+<li>Each node only sends traffic through direct nodes it knows it has received traffic from.</li>
+<li>There is more to theorize about here for future research :)</li>
+</ul>
+<h2 id="research-inspirations--similar-work"><a class="header" href="#research-inspirations--similar-work">Research, Inspirations &amp; Similar Work</a></h2>
+<p>(List in rough order of reading of notable articles I am using to implement Dither Routing. If anyone knows of any similar work not listed here, please let me know on Matrix!)</p>
+<p>[1] <a href="https://arxiv.org/pdf/1507.05724v3.pdf">HORNET: High-speed Onion Routing at the Network Layer</a></p>
+<ul>
+<li>Stateless Onion Routing, improves establishment of onion routes as well as speed of forwarding.</li>
+</ul>
+<p>[2] Vivaldi - <a href="https://pdos.csail.mit.edu/papers/vivaldi:sigcomm/paper.pdf">pdf</a>, <a href="https://www.youtube.com/watch?v=AszPoJjWK9Q&amp;t=1690s">video</a></p>
+<ul>
+<li>The paper that pretty much started the distributed Network Coodinate System field of research.</li>
+</ul>
+<p>[3] <a href="https://boonloo.cis.upenn.edu/papers/msherr-dissertation.pdf">Coordinate-Based Routing for High Performance Anonymity</a></p>
+<ul>
+<li>Applying Vivaldi to Anonymous Routing</li>
+</ul>
+<p>[4] <a href="https://user.informatik.uni-goettingen.de/~ychen/papers/Phoenix_TNSM.pdf">Phoenix: A Weight-Based Network Coordinate
+System Using Matrix Factorization</a></p>
+<ul>
+<li>Improvements on Vivaldi, uses Matrix Factorization instead of Euclidian Embedding</li>
+</ul>
+<p>[5] <a href="https://ix.cs.uoregon.edu/~lijun/pubs/pdfs/chen15ncshield.pdf">NCShield: Protecting Decentralized, Matrix
+Factorization-Based Network Coordinate Systems</a></p>
+<ul>
+<li>Threat modeling on Network Coordinate Systems. Prevents Frog-Boiling attacks.</li>
+</ul>
+<p>[6] <a href="https://arxiv.org/pdf/1201.1174.pdf">DMFSGD: A Decentralized Matrix Factorization Algorithm for Network Distance Prediction</a></p>
+<ul>
+<li>Improvements on Phoenix paper’s algorithm.</li>
+</ul>
+<p>[7] <a href="https://netdb.cis.upenn.edu/papers/a3-ndss.pdf">Application-Aware Anonymity, Sherr et al.</a></p>
+<ul>
+<li></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="directional-trail-search"><a class="header" href="#directional-trail-search">Directional Trail Search</a></h1>
-<p>Allows for a computer to fetch a piece of data from another computer based on the multihash of that piece of data, as long as at least one computer has the data.</p>
-<h2 id="general-structure"><a class="header" href="#general-structure">General Structure</a></h2>
-<p>Directional Trail Search takes inspiration for how ants find food: scent and pheromone trails. In Dither, these take form as &quot;holes&quot; and &quot;trails&quot;. Holes form when nodes broadcast to nearby nodes (nearby in terms of routing coordinates) that they have the data behind a given hash. Those nearby nodes will then note down the hash and which direction the broadcast came from. Then, when another node wants to find the data of that hash, it will send out many wandering packets [link needed] that will, when encountering a node that has the desired hash, will be routed by that node towards the node that actually has the data that generates the hash.</p>
-<p>The other form is &quot;trails&quot;. These form once a wandering packet has finally reached the node with the data it was looking for (the data the matches the hash). This destination node then sends a special traversal packet back to the sending node that tells each node on the way to take note of what direction the traversal packet came from. This forms a kind of trail in the network that other wandering packets can come across and follow to the desired node. This system also creates an effect where the more popular a given piece of data is, the faster a node hosting it will be found.</p>
-<p>For data that is not very popular and can't be find found with a reasonable number of wandering packets, a simple DHT can be used to map hashes to route coordinates.</p>
-<h2 id="specific-structure"><a class="header" href="#specific-structure">Specific Structure</a></h2>
-<p>Every node in Dither will have a binary tree structure that maps hashes to a relative routing direction or a direct peer (TBD).</p>
+<p>Directional Trail Search (DTS) is a protocol for efficiently fetching a piece of stored data from a network given its hash.</p>
+<p>It is intended to be a vast improvement over existing protocols like <a href="https://ipfs.tech/">IPFS</a> by removing the use of spatially-inefficient Distributed Hash Tables (DHT), allowing for anonymous retrival and optionally anonymous hosting, and fixing the issue of scalability to create a true &quot;inter-planetary&quot; file system.</p>
+<h2 id="the-main-idea"><a class="header" href="#the-main-idea">The Main Idea</a></h2>
+<p>DTS works via two forces: </p>
+<ul>
+<li>The desire of people (nodes) who want to host information and want their information to  be quickly accessible.</li>
+<li>The desire of people (nodes) who want to access information and want to access it as fast as possible.</li>
+</ul>
+<p>These two forces are corralled by DTS to create an efficient system to host and find data. First let us talk about the desire of a node who wants to host some data. This desire manifests in the form of a &quot;data trail&quot;.</p>
+<p>A data trail in DTS is a trail left in the network with the sole purpose of leading to a specific piece of data. Specifically, a trail is a chain of peered nodes that store a mapping between the hash of a specific piece of data, and the id of the next peer in the chain.</p>
+<p>A data trail is formed with the following process:</p>
+<ul>
+<li>A node that wants to host information broadcasts a &quot;trail-laying&quot; packet that travels to a specific <a href="dither/distance-based-routing.html">relative coordinate</a> on the network.</li>
+<li>All the nodes that this &quot;trail-laying&quot; packet encounters on the way to its destination will do one of the following:
+<ul>
+<li>Reject to be a part of the trail, sending the packet to the previous node in the chain. This will reflect poorly on the node if it wants to host data of its own.</li>
+<li>Register a connection between the hash contained within the packet and the id of the node the packet came from and forward the packet on to another node of a consistent distance away that it thinks will agree to be apart of the chain.</li>
+</ul>
+</li>
+<li>Allowing nodes to either host data &amp; be apart of trails or not host data and not be apart of trails makes sure packets flow along computers that actually host data and are likely to be relatively stable and with resources to spare.</li>
+</ul>
+<p>Once a data trail is formed, it may be encountered by a &quot;trail-tracing&quot; packet which, once on the trail, is routed directly to the root of the trail.</p>
+<p>However, this trail of nodes may be very thin, and thus trail-searching packets may have a hard time finding trail because they skip over too many nodes. To fix this issue, trail-laying packets will broadcast out to all known peers within a certain range that they are a part of a trail related to a specific hash. Peers receiving this broadcast will use a counting bloom filter to make a record that they are nearby a trail for a specific hash. &quot;trail-searching&quot; packets that come across these &quot;nearby-trail&quot; nodes can ask the nodes to ask all their peers within a certain radius if the peers are apart of a real trail. This casts a larger net and makes it easier to find trails without putting undue burden on too many nodes.</p>
+<p>WIP: Section about the requesters role in the network and the expectations of the network for requesters to contribute to hosting for some time. (like bitorrent or ipfs)</p>
+<h2 id="specific-structure-wip"><a class="header" href="#specific-structure-wip">Specific Structure (WIP)</a></h2>
+<p><em>Note: This is an insanely hard problem to solve well: finding the node hosting a piece of data that matches a given hash on a network. The protocol here is a formulation of a protocol that might work to solve this problem.</em></p>
+<p>Every Dither node implementing DTS contains the following state:</p>
+<ul>
+<li>A hashmap that maps multihashes to its corresponding data stored on disk, so that the node may retrieve its own data.
+<ul>
+<li>The size of this map should be primarily up to the node owner's discretion, depending on how much data they would like to store.</li>
+<li>Data may be temporarily be added to this hashmap to help with the caching of other node's data.</li>
+</ul>
+</li>
+<li>A hashmap that maps multihashes to peers.</li>
+<li>A bloom filter containing a set of multihashes of which there are trails nearby.</li>
+</ul>
+<p>Every node will store the following information about their peers:</p>
+<ul>
+<li>WIP</li>
+</ul>
 <h2 id="downsides"><a class="header" href="#downsides">Downsides</a></h2>
-<p>While Directional Trail Search is much faster and more efficient than DHTs, it is not as good when considering rare data. With a DHT, as long as there is at least one node hosting the data, it will be found eventually. With DTS, there is no guarantee that a piece of data will be found.</p>
+<p>While Directional Trail Search is in theory much faster and much more efficient than DHTs, it is likely not as good when considering rare data. With a DHT, as long as there is at least one node hosting the data, it will be found eventually. With DTS, there is no guarantee that a piece of data will be found (i.e. if the data trails are too far away from the requesting node to be encountered by a searching packet).</p>
 <p>There are multiple potential solutions in order of feasibility:</p>
 <ul>
-<li>Use a DHT in addition to DTS by default</li>
-<li>Figure out how to get DTS to support rare files natively, perhaps by making nodes send out traversal packets pointing to themselves along the network to create artificial paths.</li>
+<li>Use a DHT in addition to DTS by default (this may have privacy implications)</li>
+<li>Figure out how to get DTS to work better for rare files, perhaps by making it so that trails form circles around the earth and thus are nearly impossible not to encounter.</li>
 <li>Store routing coordinates / routing areas on the Reverse Hash Lookup.</li>
 <li>Implement a Network Coordination feature that tells all nodes in the network to notify a node when they find the requested data. (induces denial of service vector, probably a bad idea)</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="reverse-hash-lookup-wip"><a class="header" href="#reverse-hash-lookup-wip">Reverse Hash Lookup (WIP)</a></h1>
-<ul>
-<li>This solves the problem of having a hash and wanting to find pieces of data that link to that hash. This is super useful for comment systems and the like.</li>
-<li>This is a system by which one can find structures that link to a given hash implementing the reverse trait.</li>
-<li>If there is some pieces of data that links from or adds useful definitions to a given piece of data, this is the place for it. One example of this in practice might be having a comment thread. Each comment is its own Hashtype that contains the hash of the post or a replying comment. In order for someone who has the post structure to find the comments, they would need find all the pieces of data linking to this piece of data (i.e. a Reverse Hash Lookup)</li>
-<li>To implement this system, there will be a partial binary tree represented by a DAG that can be traversed using the data of the target. (i.e. the post structure's hash). Then the tree can be traversed down using consecutive trail searches. Until a list of all known linked hashes is found. These structures must contain a specific trait called a RevHash to be able to be validated onto the distributed tree. The addition of new links to this tree is done through an implementation of Dither Chain Consensus (see the <a href="dither/data/reverse-hash-lookup.html#dither-consensus-chains">#Dither Consensus Chains</a> section).</li>
-</ul>
-<p>Allows for finding what structures link to a given structure.</p>
-<p>Example: Someone can find a comment that links to a post, just given the hash of the post.</p>
-<h1 id="ideas-to-add"><a class="header" href="#ideas-to-add">IDEAS TO ADD</a></h1>
-<p>Keep track of the number of child nodes for each node in the tree so you can merge reverse hash lookup trees easily in a peer-to-peer fashion which means consensus can be less rigourous.</p>
-<h2 id="general-structure-1"><a class="header" href="#general-structure-1">General Structure</a></h2>
-<p>A binary hash-linked search tree stored in a decentralized fashion with <a href="dither/data/../routing/directional-trail-search.html">DTS</a> that maps a given hash to object that contains that hash. Hashes are agreed upon in a decentralized manner, but direct consensus is assured, and a pubsub system helps speed up consensus for high-activity hashes.</p>
-<h2 id="specific-structure-1"><a class="header" href="#specific-structure-1">Specific Structure</a></h2>
-<h3 id="tree"><a class="header" href="#tree">Tree</a></h3>
-<ul>
-<li>The goal for this tree is for nodes to contain as little information as possible so that large portions of the tree can be sent at once.</li>
-<li>A Binary Tree contains <code>Branch</code>es and <code>Node</code>s. For this structure, each one will be its own self-defining structure. Each node will contain</li>
-<li>Binary Tree, contains</li>
-</ul>
-<h3 id="traits"><a class="header" href="#traits">Traits</a></h3>
-<ul>
-<li>
-<p><code>Node&lt;T, L&gt;</code> - Nodes of the tree</p>
-<ul>
-<li><code>subnodes: List&lt;T, L&gt;</code> - subnodes of this node</li>
-</ul>
-</li>
-<li>
-<p><code>Leaf</code> - </p>
-</li>
-<li>
-<p>This is a system by which one can find structures that link to a given hash implementing the reverse trait.</p>
-</li>
-<li>
-<p>If there is some pieces of data that links from or adds useful defintions to a given piece of data, this is the place for it. One example of this in practice might be having a comment thread. Each comment is its own Hashstruct that contains the hash of the post or a replying comment. In order for someone who has the post structure to find the comments, they would need find all the pieces of data linking to this piece of data (i.e. a Reverse Hash Lookup)</p>
-</li>
-<li>
-<p>To implement this system, there will be a partial binary tree represented by a DAG that can be traversed using the data of the target. (i.e. the post structure's hash). Then the tree can be traversed down using consecutive trail searches. Until a list of all known linked hashes is found. These structures must contain a specific trait called a RevHash to be able to be validated onto the distributed tree. The addition of new links to this tree is done through an implementation of Dither Chain Consensus (see the <a href="dither/data/reverse-hash-lookup.html#dither-consensus-chains">#Dither Consensus Chains</a> section).</p>
-</li>
-</ul>
-<h1 id="zero-knowledge-proofs"><a class="header" href="#zero-knowledge-proofs">Zero Knowledge Proofs</a></h1>
-<p>These are really cool btw.</p>
-<p>Potential Applications:</p>
-<ul>
-<li>Anonymous Transactions</li>
-<li>Proof of Karma (proove that someone is trustworthy enough on the Dither network for them to be trusted without giving away more information than necessary)</li>
-<li>KYC/18+ requirements - For abiding by laws.</li>
-<li>(Is this even possible?) - Proove that some well-defined operation was done correctly on a given piece of data, i.e. that a binary was compiled correctly with no tampering.</li>
-<li>Prooving that a given Self-Defined Structure's valid proof is valid.</li>
-<li>Anonymous Auctions (Hiding what other people bid for items)</li>
-</ul>
-<p>Potential Traits:
-``</p>
-<h1 id="dithers-user-api"><a class="header" href="#dithers-user-api">Dither's User API</a></h1>
-<h2 id="purpose"><a class="header" href="#purpose">Purpose</a></h2>
-<p>Dither is aiming to replace the internet, so it needs a standard method of accounting. This includes storing user data publicly and privately, identifying users, and authenticating users. These accounts need to be able work across devices and should have varying levels of authentication for varying levels of storage of information.
-Dither accounts should also be able to prove qualities about themselves to external parties using zero-knowledge proofs.</p>
-<h2 id="goals"><a class="header" href="#goals">Goals</a></h2>
-<p>Accounts should be able to be accessed in a standard way that is accessible to any application.</p>
-<p>Accounts should have multiple levels of authentication for varying levels of access to information.</p>
-<p>Accounts should be able to expose however much information their users want.</p>
-<ul>
-<li>Whether it be a throwaway anonymous account or an account connected to every aspect of a person's life.</li>
-</ul>
+<p>Directed Acyclic Graph data structures (DAGs) may be elegant for storing and linking pieces of data, but they don't provide any kind of mutability on their own. This is the purpose of the Reverse Hash Lookup (RHL). RHL allows you to create a piece of data that links to two or more other pieces of data (via hash-linking) <em>and then lookup the link given one of the linked pieces of data</em>.</p>
 <h2 id="structure-2"><a class="header" href="#structure-2">Structure</a></h2>
-<p>A user is just a Public / Private key pair with encrypted and unencrypted data stored in a versioned data structure.</p>
-<p>There are two parts to this datastructure, a public versioned structure and a private encrypted structure. The public key is stored in the public structure, the private key is stored in the private structure. </p>
-<p>Any interaction between an application and a user on Dither is done through the Dither API. Applications can create users, authenticate as a user and discover the public data of other users through the User API.</p>
-<h2 id="user-definitions"><a class="header" href="#user-definitions">User Definitions</a></h2>
-<p>These public and private structures can have various definitions that define various qualities about the user. Definitions are just permissioned data that is stored by a user. Definitions can be publicly available, publicly writable or conditionally available, and writable with specific permissions.</p>
-<h3 id="examples-of-definitions"><a class="header" href="#examples-of-definitions">Examples of Definitions</a></h3>
+<p>RHL has many different ways to solve the two problems of distributing links and finding links. (Links here being pieces of data containing the hash of some other object that is being &quot;linked to&quot;). Links could be shared only with friends or trusted individuals, links could be broadcast all over the network and re-stored by other nodes, links could be stored in blockchains or link maps maintained by centralized servers, etc. All these different use-cases may be useful for different applications, so RHL tries to generalize over all possible use-cases.</p>
+<p>Ideas:</p>
 <ul>
-<li>Public
+<li>A Link defines its own methods of distribution and search. (Perhaps embedded as a hashtype).</li>
+</ul>
+<h3 id="methods-of-distribution--search"><a class="header" href="#methods-of-distribution--search">Methods of Distribution &amp; Search</a></h3>
 <ul>
-<li>Username</li>
-<li>Autobiography</li>
+<li>A link can be broadcast to some set of trusted nodes (friend group), queries are done by asking friends if they have registered any links to an object.</li>
+<li>A link can be registered in some sort of global consensus
+<ul>
+<li>Central server(s) store any links that are uploaded and respond to queries</li>
+<li>Blockchain storing links (all &quot;full&quot; nodes store all links), queries done locally</li>
+<li>Global Binary Tree mapping hashes to links (less space, more network activity when searching)</li>
 </ul>
 </li>
-<li>Private</li>
+<li>A link can be broadcast via a publish-subscribe system and exist ephemerally, find beliefs by constantly listening on a topic (or to the entire network).</li>
 </ul>
-<h2 id="user-api"><a class="header" href="#user-api">User API</a></h2>
-<p>Application </p>
+<h2 id="potential-applications"><a class="header" href="#potential-applications">Potential Applications</a></h2>
+<p>This kinda of system is useful as a basis for other systems that need to link disparate pieces of data together for the purposes of querying or consensus. Here are just a few examples of the systems that RHL could enable:</p>
 <ul>
-<li><code>CreateUser()</code>
-<ul>
-<li>Create new user (for permanent or temporary purposes)</li>
-<li>This will create a new user in this peer and give access to application that called this DitherAction</li>
+<li><a href="dither/../../applications/dithca.html">Comment systems</a>. Each comment is a piece of data signed by some individual. Links can created over the comments that allow for querying some subset of all the comments, i.e. <code>top comments</code> or <code>set of all comments</code> or <code>comments from friends</code>. These links themselves may be immutable, but can be joined together via other links in a chain where the newest link in the chain is the most up-to-date view of the comment system.</li>
+<li><a href="dither/../../applications/web-of-beliefs.html">Web of Beliefs</a>. A justification / rule links two beliefs together and beliefs may be private or publicly shared and distributed. Beliefs justified by some rule sets may be more propagated than others (i.e. scientific beliefs). Or beliefs can be accepted or rejected based on arbitrary social conditions like &quot;what proportion of my friends hold belief x?&quot; (Such as is the case with names). Multiple conflicting beliefs can be held at once, such as if it is not clear which one should be accepted as default (or there are uses for both beliefs in different context, such as with definitions).</li>
+<li><a href="dither/zero-knowledge-proofs.html#example-trusted-user-distributed-anonymous-count">Anonymous Interactions</a>. Links could be generated ephemerally to prove that a public key in some trusted set of public keys interacted with a piece of content in some manner, and then added to some hyperloglog or statistical counter.</li>
 </ul>
-</li>
-<li><code>Bootstrap(PeerID, MultiAddr)</code>
+<h2 id="specification-ideas"><a class="header" href="#specification-ideas">Specification Ideas</a></h2>
+<p>Disp type <code>Link&lt;Type&gt;</code> is implemented for whatever hash type is used in the specific link needed. i.e.</p>
+<p>For a link to be type-valid, the objects it links to must also be the correct type. Zero-knowledge proofs could be used for this application in the future to avoid unnecessary fetching.</p>
+<pre><code>struct Link&lt;T: Type&gt; {
+  hash: Multihash,
+  valid_link: (fetch(hash) : T)
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="user-magagement"><a class="header" href="#user-magagement">User Magagement</a></h1>
+<h2 id="desirable-properties"><a class="header" href="#desirable-properties">Desirable Properties</a></h2>
 <ul>
-<li>Tell network layer to bootstrap to specific node (only used on startup)</li>
-</ul>
-</li>
-<li><code>Discover(UserId)</code>
+<li>Flexible Provenance
 <ul>
-<li>Initiate a network tree request to discover info about a user. (e.g. hosting peers, public configuration)</li>
-<li>Depending on the queried user’s config information may or may not be returned.</li>
-</ul>
-</li>
-<li><code>Authenticate(UserId, UserToken)</code> - Authenticate to user on dither network
-<ul>
-<li>This will attempt to authenticate an application as a user on the network. </li>
-<li>When a token is sent to the peer(s) with permission over the user’s private key, the type of authentication is predetermined by the permissions in the private user configuration. The Types of Authentication are:
-<ul>
-<li>Hosting - the user’s private key is sent to the application and the application has full control over the user</li>
-<li>Proxy - all events are sent through peers with actual permission to sign messages</li>
+<li>A user should be able to choose how strong the link between the data they publish and themselves is. (i.e. optional / zk proof / ring signature signing)</li>
 </ul>
 </li>
-<li>Will attempt to authenticate as a known user with known hosting peer</li>
+<li>Flexible Privacy
+<ul>
+<li>A user should be able to choose to a reasonable extent who can see the data they publish. (i.e. one-to-many group-based publishing)</li>
 </ul>
 </li>
-<li><code>SendData(UserId, Data)</code>
+<li>Multi-device support &amp; Realistic recovery mechanisms from compromised devices.
 <ul>
-<li>Send data to specific application of specific UserId</li>
-<li>Can potentially be a local application (such as dither-scp or dither-db)</li>
-<li>Or another dither service running on another peer</li>
+<li>If a user looses access to their devices or a mechanism of authentication (password) or device gets compromised, there should be realistic mechanisms to recover the damage both to the public and privately.</li>
 </ul>
 </li>
-</ul>
-<h1 id="the-dither-project-1"><a class="header" href="#the-dither-project-1">The Dither Project</a></h1>
+<li>Anonymous Collective Feedback
 <ul>
-<li><a href="dither.html#the-dither-project">The Dither Project</a>
-<ul>
-<li><a href="dither.html#what-is-it">What is it?</a></li>
-<li><a href="dither.html#a-plan-for-the-future-of-the-internet">A Plan for the Future of the Internet</a></li>
+<li>For mechanisms of collective feedback (like/dislike counters, analytics), the data associated with the feedback event should not in general be attributable to a particular group, but should be verifiable that it was a unique member of the group that did the feedback.</li>
 </ul>
 </li>
-<li><a href="dither.html#core-tenets">Core Tenets</a></li>
-<li><a href="dither.html#structure">Structure</a>
+<li>Flexible Storage Permissions
 <ul>
-<li><a href="dither.html#core-process">Core Process</a></li>
-<li><a href="dither.html#service-layer">Service Layer</a></li>
-<li><a href="dither.html#application-layer">Application Layer</a></li>
-<li><a href="dither.html#interface-layer">Interface Layer</a></li>
+<li>Encrypted data associated with a user, stored across many different computers, should support permission hierarchies based on the sensitivity of the data. I.e. requiring more factors of authentication.</li>
 </ul>
 </li>
-<li><a href="dither.html#other-links">Other Links</a>
+<li>Web-of-trust Identity
 <ul>
-<li><a href="dither.html#inspirations-for-dither">Inspirations for Dither</a></li>
+<li>Data associated with a user's identity should be vouchable by other users (in a web-of-trust) or by mechanistic processes. The identifying data should</li>
 </ul>
 </li>
 </ul>
-<h2 id="what-is-it-1"><a class="header" href="#what-is-it-1">What is it?</a></h2>
-<p>Dither is a project with the goal of decentralizing the internet. It is a toolbox of various tools application developers can use to communicate privately, host data, manage accounts much more. It is currently being developed by <a href="https://github.com/zyansheep">@Zyansheep</a> and temporarily hosted via GitHub under the <a href="https://github.com/libdither">libdither</a> organization.</p>
-<h2 id="a-plan-for-the-future-of-the-internet-1"><a class="header" href="#a-plan-for-the-future-of-the-internet-1">A Plan for the Future of the Internet</a></h2>
-<p>The plan behind Dither is to create an modern internet unencumbered by any kind of central control. To accomplish this, Dither must somehow replace existing apps and services <em>by outcompeting them</em>. This is an incredibly monumental task, but there are some things that may help in Dither's favor.</p>
+<h2 id="inspiration"><a class="header" href="#inspiration">Inspiration</a></h2>
 <ul>
-<li><strong>No Hosting Costs</strong> — Being decentralized means the users host everything. If we can create a system to make it as painless as possible to host data, that would be ideal.</li>
-<li><strong>Redesigning Everything is Sometimes Good</strong> — If applications using Dither are fundamentally better designed than the alternative and it is easy to switch, users will be more likely to use them.</li>
-<li><strong>No Intellectual Property</strong> — Intellectual property protections do not apply to the core of Dither since it is a peer-to-peer network. This means that new platforms can be immediately populated with any existing content people might want to watch. Note: Precautions should be taken to make sure creators have a say in if they want their content to be shown on mainstream applications using the protocol to prevent public backlash.</li>
-<li><strong>Standardization</strong> — Dither's ecosystem of APIs will all be compatible with each other which will infinitely improve the experience of the user. (Imagine being able to use a Discord-like chat room or a Reddit-like comment system underneath a YouTube video, or really any kind of system you want. It's all modular!).</li>
-<li><strong>Natural Incentives</strong> — Similar to Brave browser's tipping system, If applications built on Dither have good incentive systems for content creation that extends to existing content, then creators whose content is uploaded to the network will automatically accrue income that will then be an incentive for them to claim their money and create an account. Unlike Brave, there won't be any KYC requirements :).</li>
+<li>Scuttlebutt</li>
+<li>Polycentric</li>
 </ul>
-<p><em>The aim for Dither is to replace existing centralized applications with decentralized alternatives that are unified through their use of a singular, modular protocol.</em></p>
-<p>See the <a href="applications.html">application document</a> for outlines of various applications that could be built using Dither.</p>
-<h1 id="core-tenets-1"><a class="header" href="#core-tenets-1">Core Tenets</a></h1>
-<p>It seems necessary for projects to have guidelines so that everyone may be on the same page. These are the ones I've chosen for now, as with everything, they are subject to change.</p>
-<p><strong>Dither should be as modular as possible.</strong></p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="identity"><a class="header" href="#identity">Identity</a></h1>
+<p>Identification is needed when one party must store and retrieve data associated with another party for the purpose of specific interaction.</p>
+<p>Formally, identification is the process by which one party (identifier) under some assumptions internally associates some external stimulus with the known identity of another party, thus changing the identifying party's behavior.</p>
+<p>For Example: </p>
 <ul>
-<li>Reasoning: There should be no part of Dither that is difficult to replace with a different implementation and people should be able to pick and choose which parts they want.</li>
-</ul>
-<p><strong>Dither protocols, formats, and communities should be as interoperable as possible with existing protocols, formats, and communities</strong></p>
+<li>A service (identifying party) must identify a user (identified party) using a username and password (external stimulus) to allow the user to log in (changed behavior).
 <ul>
-<li>Reasoning: To grow Dither's userbase, It should be as easy as possible to transition to Dither from other services.</li>
-<li>One example of this would be allowing someone to pull comments from Reddit / Youtube into <a href="applications/dithca.html">Dithca</a> and hosting them in a decentralized manner.</li>
-<li>Another example might be <a href="applications/dithca.html">Dithca</a> storing Reddit credentials and being able to optionally interact with comment threads pulled from centralized websites.</li>
+<li>Main Assumption: The user's password or computer they are using has not been compromised.</li>
 </ul>
-<p><strong>Dither should rely on itself as much as possible for every aspect of development and usage.</strong></p>
+</li>
+<li>An individual must identify a fellow human being using their senses before treating them not as a stranger.
 <ul>
-<li>Reasoning: It feels natural for a program to use itself if possible. Rust is written in itself, GitLabs is hosted using GitLabs, etc.</li>
-<li>Code Versioning, Storage, Building, Distribution, and Social communication should all run through Dither applications if it won't compromise development too much.</li>
+<li>Main Assumption: The fellow human is not attempting to disguise themselves as someone else.</li>
 </ul>
-<h1 id="structure-3"><a class="header" href="#structure-3">Structure</a></h1>
-<p>Following the first tenet of Dither, in the future the lines between these layers will blur and everything will be a module. However, the design of current operating systems don't easily allow for shared code and data, requiring a more formal structure. In the future this layered structure will be replaced with a more <a href="dither/structure.html">flexible system</a>.</p>
-<h2 id="core-process-1"><a class="header" href="#core-process-1">Core Process</a></h2>
-<p>The main process is main part of Dither that deals with creating peer-to-peer connections with other computers running Dither.
-Currenly in the dither-sim program, this is implemented via a simple TCP stream. In the future this layer will be implemented using existing libraries such as <a href="https://libp2p.io/implementations/#transports">libp2p transports</a>, <a href="https://www.pluggabletransports.info/transports/">Pluggable Transports</a>, something else, or some amalgamation of all three. The idea behind this layer is to provide as many methods of communication as feasibly possible.</p>
-<h2 id="service-layer-1"><a class="header" href="#service-layer-1">Service Layer</a></h2>
-<p>The service layer provides all functionality related to <a href="dither/routing/distance-based-routing.html">routing</a>, encryption, <a href="dither/routing/directional-trail-search.html">data storage</a>, <a href="dither/data/user-management.html">user management</a> and everything else. Each of these services are split up into separate modules each of which runs its own processes and communicates with other services through inter-process communication. </p>
-<p>All these processes are managed as child processes under one &quot;main process&quot;. The main process contains the Transport Layer implementation, the routing protocol API and APIs for managing the child services as well as managing inter-process communication between child processes.</p>
-<h2 id="application-layer-1"><a class="header" href="#application-layer-1">Application Layer</a></h2>
-<p>The application layer contains services just like the service layer that are registered under the main process. These registered service's APIs can be used by other applications. </p>
-<p>The application layer also refers to the application's core API, which is used by the interface layer. This &quot;core application API&quot; can be built into the applicaiton's executable, or it can run as a service under the main process and used by multiple interfaces. This is left up to the application developers. Applications with multiple interfaces should prefer to register application APIs under the main process.</p>
-<p>Existing planned applications may be found <a href="applications.html">here</a>.</p>
-<h2 id="interface-layer-1"><a class="header" href="#interface-layer-1">Interface Layer</a></h2>
-<p>The final layer is the interface layer. This just refers to standalone applications that provide some kind of interface to the user using the services running under Dither.</p>
-<p>These interfaces can be implemented however, but it is recommended for them to follow Dither's <a href="dither/application-design-philosophy.html">application design philosophy</a> for some level of standardization.</p>
-<h1 id="other-links-1"><a class="header" href="#other-links-1">Other Links</a></h1>
-<h3 id="a-hrefditherinspirationshtmlinspirations-for-dithera-1"><a class="header" href="#a-hrefditherinspirationshtmlinspirations-for-dithera-1"><a href="dither/inspirations.html">Inspirations for Dither</a></a></h3>
-<p>Dither as with any creative endeavor takes inspiration from many other projects. This is a list of what parts of Dither have been inspired from other projects.</p>
+</li>
+<li>When receiving an encrypted message from a friend, the receiver must identify the friend by verifying the signature of the message using the friend's known public key.
+<ul>
+<li>Main Assumption: The public key truly does belong to the friend and the friend's private key has not been compromised.</li>
+</ul>
+</li>
+</ul>
+<h2 id="design"><a class="header" href="#design">Design</a></h2>
+<p>In Dither, there will be two general categories of identification.</p>
+<ul>
+<li>Cryptographic identification</li>
+<li>Characteristic-based identification.</li>
+</ul>
+<p>Cryptographic identification will occur for when one needs to identify an party on other other end of a specific communication channel.</p>
+<p>Characteristic-based identification will occur when one needs to find publically-declared associated data (i.e. public keys) of another party given only knowing certain characteristics of the other party.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="disp-decentralized-lisp"><a class="header" href="#disp-decentralized-lisp">Disp (Decentralized Lisp)</a></h1>
 <p><em>What is a program? What is data? Why, they are one of the same.</em></p>
 <p>Inspired by:</p>
 <ul>
-<li>Lisp for its flexibility</li>
+<li>Lisp for treating programs-as-data.</li>
 <li>Idris &amp; Coq for the infinite expressiveness of dependent types</li>
-<li>Rust for its speed</li>
-<li>IPFS for deduplication</li>
+<li>Rust for its safe &amp; fast zero-cost abstractions.</li>
+<li>IPFS for deduplication of shared code</li>
 </ul>
-<h2 id="goals-1"><a class="header" href="#goals-1">Goals</a></h2>
+<h2 id="goals"><a class="header" href="#goals">Goals</a></h2>
+<p>A general outline of the (very lofty) goals of Disp.</p>
 <ul>
-<li>Fastest compile times</li>
-<li>Fastest execution time</li>
-<li>Support for any possible cpu or interpreter</li>
-<li>Relatively easy transpilation from other languages</li>
-<li>Maximum re-use of code</li>
-<li>Seemless integration into Dither</li>
-<li>Abstraction of Execution Environment</li>
+<li>Absolute flexibility &amp; configurability</li>
+<li>Most efficient language to run</li>
+<li>Support for compilation to any cpu / interpreter</li>
+<li>Most efficient language to write
+<ul>
+<li>Projectional Editing
+<ul>
+<li>Localization-agnostic naming</li>
+</ul>
+</li>
+<li>Mixable syntax
+<ul>
+<li>Transpilation from any other language</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Seamless integration into Dither</li>
+</ul>
+<h2 id="core-ideas"><a class="header" href="#core-ideas">Core Ideas</a></h2>
+<ul>
+<li><a href="disp/syntax-agnosticism.html">Agnostic Syntax</a></li>
+<li><a href="disp/universal-system-of-types.html">Universal System of Types</a></li>
+<li><a href="disp/hardware-modeling.html">Hardware Modeling</a></li>
 </ul>
 <h2 id="ideas"><a class="header" href="#ideas">Ideas</a></h2>
 <ul>
@@ -589,89 +659,221 @@ Currenly in the dither-sim program, this is implemented via a simple TCP stream.
 <p>The language files are not stored as text files, they are instead stored as self-defining structures of groups of commands.</p>
 </li>
 </ul>
-<h1 id="expressions-in-disp"><a class="header" href="#expressions-in-disp">Expressions in Disp</a></h1>
-<p>An expression is an inductive datatype defined roughly as follows:</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="universal-system-of-types"><a class="header" href="#universal-system-of-types">Universal System of Types</a></h1>
+<blockquote>
+<p>a type system is a logical system comprising a set of rules that assigns a property called a type to every &quot;term&quot;</p>
+</blockquote>
+<p>Who choses the rules that assign types to terms? What makes one set of rules better than another? Some type systems are more general than others, some are more easily compiled into efficient bytecode, some allow for writing complex mathematical proofs. Exactly how large is this design space?</p>
+<p>Disp captures the entire design space of possible type systems by generalizing the concept of types:</p>
+<p><em>To make a long story short, a type is simply a program that returns true, false, or loops forever when given the source code of another program.</em></p>
+<p>This allows the programmer to define their own type system in Disp. Or just use a pre-made one.</p>
+<h2 id="the-implementation"><a class="header" href="#the-implementation">The Implementation</a></h2>
+<p>In disp, every term is stored in a <a href="disp/names.html">context</a> as a judgement that contains a term and a type:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>enum Expr {
-	Variable,
-	Lambda { bind: Binding, expr: Expr },
-	Application { func: Expr, func: Expr },
-	Type { order: Nat },
-	Pi { bind: Binding, bind_type: Expr, expr: Expr },
+</span>struct Judgement {
+	term: Expr,
+	ty: Expr,
 }
-enum Binding {
-	None,
-	End,
-	Branch(Binding, Binding),
-}
-<span class="boring">}
-</span></code></pre></pre>
-<p>See how the <code>Binding</code> structure works <a href="disp/./lambda-trees.html">here</a></p>
-<p>The schema consists of the structures of the untyped lambda calculus combined with two type constructors <code>Type</code> and <code>Pi</code>. These represent the <a href="https://ncatlab.org/nlab/show/type+of+types">type of all types</a> with universe polymorphism and the <a href="https://ncatlab.org/nlab/show/dependent+product+type">dependent product type</a>. </p>
-<h1 id="lambda-trees-a-deduplication-friendly-alternative-to-de-brujin-indicies"><a class="header" href="#lambda-trees-a-deduplication-friendly-alternative-to-de-brujin-indicies">Lambda Trees: A deduplication friendly alternative to De Brujin Indicies.</a></h1>
-<p>Used in [Disp]</p>
-<p>The current most well known way of representing the lambda calculus is <a href="https://en.wikipedia.org/wiki/De_Bruijn_index">De Brujin Indicies</a>.</p>
-<p>This is where you have 3 variants of a lambda Term:</p>
-<ul>
-<li><code>Var(Number)</code> - Number represents how many layers of abstraction (lambdas) the variable is away from its intended binding</li>
-<li><code>App(Term, ...)</code> - Application is a list of Terms</li>
-<li><code>Lambda(Term)</code> - Lambda represents an abstraction point</li>
-</ul>
-<p>An example of what this might look like for common equations:</p>
-<ul>
-<li><code>λx . x</code> = <code>Lambda(Var(1))</code></li>
-<li><code>λx. λy. x</code> = <code>Lambda(Lambda(Var(2)))</code></li>
-<li><code>λx. (x (λx . λy . x) (λx . λy . y))</code> = <code>Lambda(App(Var(1), Lambda(Lambda(Var(1))), Lambda(Lambda(Var(2)))))</code></li>
-</ul>
-<p>For Disp, I have devised an alternative method that doesn't require integers (and thus is not limited by encoding constraints)</p>
-<p>Disp has the same 3 variants of Term:</p>
-<ul>
-<li><code>Var</code></li>
-<li><code>App(Term, Term)</code></li>
-<li><code>Lambda(PointerTree, Term)</code></li>
-</ul>
-<p>In addition to a construct PointerTree:</p>
-<ul>
-<li><code>None</code></li>
-<li><code>End</code></li>
-<li><code>Branch(PointerTree, PointerTree)</code></li>
-</ul>
-<p>In fact, the pointertree datastructure can be repurposed from the Term datastructure.
-<code>(End = Var, None = Lambda(Var, Var), Branch(PointerTree, PointerTree) = App(Term, Term))</code></p>
-<p>Common equation examples of this structure might look like:</p>
-<ul>
-<li><code>λx . x</code> = <code>Lambda(Var, Var)</code></li>
-<li><code>λx. λy. x</code> = <code>Lambda(Var, Lambda(None, Var))</code></li>
-<li><code>λx. (x (λx . λy . y) (λx . λy . x))</code> = <code>Lambda(Branch(Branch(End, None), None), App( App( Var, Lambda(None, Lambda(Var, Var)) ), Lambda(Var, Lambda(None, Var)) )</code>
-As opposed to De Brujin indices where the variables &quot;point&quot; to their corresponding lambda abstractions, with Lambda Trees, the lambda terms carry an auxiliary datastructure specifying exactly which Variables should be replaced.</li>
-</ul>
-<p>In addition when it comes to storage and integration with Dither, these lambda expressions are identified by hash which gives a datastructure like this:</p>
-<ul>
-<li><code>Var</code></li>
-<li><code>App(Hash, Hash)</code></li>
-<li><code>Lambda(Hash, Hash)</code></li>
-</ul>
-<p>This version of lambda calculus has been implemented in the <a href="https://github.com/libdither/disp">disp repository</a></p>
+<span class="boring">}</span></code></pre></pre>
+<p>To verify if a judgement is valid and may be stored in a context, the compiler encodes the term using simple church-encoded data structures (like tuples and sums). The encoded form is then applied to the <code>ty</code> expression and beta-reduced. The judgement is considered valid if the expression reduces to <code>Expr::Var</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="type-system-of-disp"><a class="header" href="#type-system-of-disp">Type System of Disp</a></h1>
-<p>The type system of disp should be:</p>
+<p>While the type system of Disp can be literally <a href="disp/universal-system-of-types.html">any computable program</a>, disp will have its own standard type system defined in the standard <a href="disp/names.html">context</a> that will allow for the creation of programs optimisable to a level at or beyond the speed of C and Rust.</p>
+<p>The standard type system for disp should be:</p>
 <ul>
-<li>Simple (few core inference rules)</li>
-<li>Complex (able to build complex type logic from simple rules)</li>
+<li>Simple
+<ul>
+<li>Relatively few core inference rules</li>
+<li>More complex types are constructed from a few simple primitive type constructors.</li>
 </ul>
-<h3 id="places-of-inspiration"><a class="header" href="#places-of-inspiration">Places of Inspiration</a></h3>
+</li>
+<li>Fast
 <ul>
-<li>ATS type system
+<li>Types that reflect hardware primitives (such as machinecode) should be representable and the type system should be able to reason about equivalence between inefficient high-level types and efficient low-level types.</li>
+</ul>
+</li>
+<li>Consistent
 <ul>
-<li>Linear types</li>
-<li>Dependent / Refinement types</li>
+<li>Logic of types should be consistent</li>
+<li>Type checking should never loop indefinitely</li>
+</ul>
+</li>
+<li>Representative
+<ul>
+<li>The standard type system for Disp aims to be a viable foundation for all of mathematics.</li>
 </ul>
 </li>
 </ul>
-<h2 id="dependent-types"><a class="header" href="#dependent-types">Dependent Types</a></h2>
-<p>Dependent types are the core of any good type system</p>
-<h1 id="provable-hardware-modeling"><a class="header" href="#provable-hardware-modeling">Provable Hardware Modeling</a></h1>
+<h2 id="substructural-types"><a class="header" href="#substructural-types">Substructural Types</a></h2>
+<p>For a systems language, runtime overhead must be kept to a minimum. This means that the restrictions on lifetime and movability of heap and stack allocations should be modeled and enforced at compile time, instead of relying on a runtime methods such as garbage collection or reference counting.</p>
+<p>Disp uses a type system that divides terms and types into 3 categories:</p>
+<p>Unrestricted</p>
+<ul>
+<li>This includes most types, type constructors, and terms that can fit in a single CPU register.</li>
+<li>Unrestricted objects may be moved around and duplicated at will in a program and don't require a specific function defining how they are deallocated.</li>
+</ul>
+<p>Linear</p>
+<ul>
+<li>This includes terms allocated on the heap, mostly structures with variable-length allocations.</li>
+<li>Linear objects must be used in each context exactly once and must define at least one destructor or else it won't typecheck.</li>
+<li>Linear objects may contain unrestricted objects, just like how heap-allocated objects may contain numbers that can be stored in registers.</li>
+<li>Examples: ATS, Rust kinda</li>
+</ul>
+<p>Ordered</p>
+<ul>
+<li>This includes any term allocated on the stack, which is pretty much anything else.</li>
+<li>Ordered objects must be used in each context exactly once and can only be used in reverse-order of allocation (like a stack).</li>
+<li>Ordered objects may contain unrestricted or linear objects.</li>
+<li>Examples: <a href="https://binji.github.io/posts/webassembly-type-checking/">Webassembly</a>, Porth</li>
+</ul>
+<p>A paper outlining a potential framework for a type system unifying all 3 of these substructural modes can be found <a href="https://mitpress-request.mit.edu/sites/default/files/titles/content/9780262162289_sch_0001.pdf">here</a>.</p>
+<h2 id="minimal-type-theory"><a class="header" href="#minimal-type-theory">Minimal Type Theory</a></h2>
+<p>In order for Disp to be able to double as a general-purpose theorem prover, the ideas from <a href="https://www.math.unipd.it/~sambin/txt/MaiettiSambin-rev2.pdf">this paper</a> describing a Minimal Type Theory (mTT) may be used.</p>
+<h2 id="inspiration-1"><a class="header" href="#inspiration-1">Inspiration</a></h2>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=zt0OQb1DBko">ATS Language</a></p>
+</li>
+<li>
+<p><a href="https://mitpress-request.mit.edu/sites/default/files/titles/content/9780262162289_sch_0001.pdf">Substructural Type Systems</a></p>
+</li>
+<li>
+<p><a href="https://www.math.unipd.it/~sambin/txt/MaiettiSambin-rev2.pdf">Towards a Minimalist Foundation for Constructive Mathematics</a></p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="syntax-agnosticism"><a class="header" href="#syntax-agnosticism">Syntax Agnosticism</a></h1>
+<p>Syntax is one of the most visible barriers separating different languages from each other. It is easy to distinguish between Lisp and C, BASIC and APL, Haskell and Fortran. All these languages can pretty much do the same things, but their different syntax plays a big role in preventing programmers experienced in one from trying out another.</p>
+<p>Disp aims to solve this issue by allowing the programmer to use whatever syntax style they prefer. This is possible because Disp is not stored in text files, it is instead temporarily rendered to a text file in a given syntax style and then parsed back to a structured binary format. Syntax styles should be compatible with each other and switching between them should be as simple as a click of a button.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="syntax"><a class="header" href="#syntax">Syntax</a></h1>
+<p>Since Disp has <a href="disp/syntax-agnosticism.html">Syntax Agnosticism</a>, it does not require one set syntax. For consistency and branding purposes however, Disp will have its own succinct and readable default syntax. This </p>
+<p>Disp's default syntax is still a work-in-progress, however I think I want something similar to lisp with various Rust conventions sprinkled in.</p>
+<h2 id="note-this-syntax-is-just-an-idea-and-subject-to-lots-of-change"><a class="header" href="#note-this-syntax-is-just-an-idea-and-subject-to-lots-of-change">Note: This Syntax is just an idea and subject to lots of change</a></h2>
+<pre><code>// By itself, this is a comment
+// It doubles as documentation when paired with an object
+
+// This is an object, its type in inferred.
+set Unit ();
+
+// The function type is a function that takes two types A and B and returns a dependent product type where B is *not* dependent on a term of A.
+set -&gt; λ[A B] Π[_:A] B
+set /\ λ[A B] Π[C:Type] (A -&gt; B -&gt; C) -&gt; C
+set id_type Π[A: Type] A -&gt; A
+set id λ[t] λ[x] x : id_type
+
+// Pair constructor
+set pair_type Π[A: Type, B: Type] A -&gt; B -&gt; C
+set pair λ[x y f] f x y
+
+set Bool Π[A: Type] A -&gt; A -&gt; A {
+	true: λ[x y] x
+	false: λ[x y] y
+}
+
+
+
+
+
+
+
+</code></pre>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<pre><code>// This is a comment, it also doubles as documentation
+
+// Variables
+(set ten 10:b64)
+
+// variable names can have most symbols in them
+(set ten? 10) // literal 10 resolves to 10:bsize
+
+(use std::flow::assert)
+(assert_exact ten ten?) // =&gt; true only on 64-bit systems, because bsize = b64
+(assert_eq ten ten?) // =&gt; always true
+
+// Reason about functions
+(use std::code::compile)
+(assert_exact
+	// Parentheses implied
+	compile `(a b) `(assert_eq a b) 
+	compile `(a b) `(panic_if (!= a b))
+	compile `(a b) `(if (= a b) (panic))
+) // =&gt; these functions are the exact same when compiled
+
+// Strings
+(set string &quot;Hello, World!&quot;) // implies &quot;Hello, World!&quot;:String
+
+// String declaration follows the same declaration convention as Rust, except that Strings are stack-allocated by default.
+(print string) // =&gt; prints out &quot;Hello, World!&quot;
+(print &quot;And the God of Programming said: {:?}&quot; string) // =&gt; prints out formatted string with debug representation of string.
+
+// Type definition (with type macro)
+(type SomeStruct
+	number b64
+	_ (String Character)
+)
+
+// This macro resolves to something similar to using the formats of Type and TypeLocalization hashtype.
+(set SomeStruct ( (hash b64) ( (hash String) (hash Character)):Type))
+(set SomeStructLocalization ((hash SomeStruct) ):TypeLocalization)
+
+// Trait definition using trait macro
+// A trait defines a collection of adjacent data (either a function, or a value) that is attached to a Type
+(trait SomeTrait
+	fn size (&amp;self) (usize)
+)
+
+(impl AddOne SomeStruct
+	set add_one (fn (~self) (self) (
+		(inc (loc self number) 1)
+		(self)
+	))
+)
+
+// Initiate SomeStruct with values
+// symbol = thing notation is equivalent to (set symbol thing)
+some_struct = (1098342 (&quot;Hello, World!&quot;, 'u')):SomeStruct
+
+(some_struct size)
+
+(1098342:B64 -12304: String:&quot;hello there&quot; Symbol:hello)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="names"><a class="header" href="#names">Names</a></h1>
+<h2 id="a-natural-idea"><a class="header" href="#a-natural-idea">A Natural Idea</a></h2>
+<p>A word in a language is a label to which we assign a definition. These definitions may be physical or abstract, but in a programming languages: a definition is a piece of code.</p>
+<p><code>let id = λx . x</code> - We are fitting the label &quot;id&quot; to the definition <code>λx . x</code></p>
+<p>Words in natural languages may have more than one definition. When using these words in conversation however, typically only one definition is intended by the speaker. The definitions and names we use in conversation are set by the <em>context</em> of the conversation to which the speaker hopes the listener has deduced correctly. </p>
+<p>Contexts also exist in programming languages. Namespaces, modules, classes. Unlike real conversation where contexts can be deduced from various cues, computers need to know exactly what definition a label corresponds to and can't just &quot;figure it out&quot; (yet). A context in a programming language is meticulously organized hierarchy of modules. When using these modules, programmers have to specifically import names into the context of their code, requiring the programmer to keep in their head where in the module hierarchy all the names they need to use are.</p>
+<p>Contrast this to how we deal with context in natural languages, where when starting a conversation, we assume don't assume what the single definition of a given word will be without first inferring a context from surrounding cues. For example if we are talking garnishing food, you might be referring to adding things whereas if we are talking about garnishing wages, we are talking about taking away. This is the way our brains are used to dealing with context, so it puts a special strain on the programmer where a complex pre-defined hierarchy must be memorized to actually program effectively.</p>
+<p>The goal: Remove this burden on the programmer by resolving names from the context of the program.</p>
+<h2 id="implementation"><a class="header" href="#implementation">Implementation</a></h2>
+<p>A perfect way to model resolving from contexts is to use a <a href="https://en.wikipedia.org/wiki/Knowledge_graph">knowledge graph</a>. A name may resolve to many different expressions, but the scope of possibilities may be restricted further by the context of the types of surrounding types or specifically declared contexts.</p>
+<h1 id="structure-3"><a class="header" href="#structure-3">Structure</a></h1>
+<p>Names and programs in Disp are separate, this is so that alpha-equivalence is preserved and so that the same program may be able to named differently by different people.</p>
+<p>A program is represented by an <a href="disp/expr.html"><code>Expr</code></a>. A Named program is represented by a <code>NamedExpr</code></p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Expr {
+	Abs { binding: Binding, expr: Expr },
+	App { func: Expr, args: Expr }
+	Var,
+}
+struct NamedExpr {
+	name: String,
+	expr: NameTree,
+}
+enum NameTree {
+	Abs { bind_name: String, expr: NameTree }, // For Abs and Pi binding
+	App { left: NameTree, right: NameTree } // For App
+	Name(NamedExpr)
+	End,
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="hardware-modeling"><a class="header" href="#hardware-modeling">Hardware Modeling</a></h1>
 <h4 id="how-do-we-generate-fast-code"><a class="header" href="#how-do-we-generate-fast-code">How do we generate fast code?</a></h4>
 <ul>
 <li>Currently, Optimizing Compilers generate fast code through intermediate representations and various techniques to figure out what code is needed and what code is not.
@@ -720,20 +922,202 @@ As opposed to De Brujin indices where the variables &quot;point&quot; to their c
 </ul>
 </li>
 </ul>
-<h1 id="hashtypes"><a class="header" href="#hashtypes">Hashtypes</a></h1>
-<p>Hash types are how Dither deals with data. </p>
-<p>A fundamental property of hash types are that they describe their own domain. This includes: what data types make up the domain (i.e. bytes, types, other data types) and how those datatypes may be restricted (i.e. a data type might be variable in length depending on another type like a list).</p>
-<h2 id="fundamental-types"><a class="header" href="#fundamental-types">Fundamental Types</a></h2>
-<p>There are a few fundamental types.</p>
-<h3 id="multihash-type"><a class="header" href="#multihash-type"><code>Multihash</code> type</a></h3>
-<h3 id="expr-type"><a class="header" href="#expr-type"><code>Expr</code> type</a></h3>
-<p>Reflects Lambda Calculus</p>
-<p>Expr can be interpreted as 3 things:</p>
-<p>Bind Variant: (Varint)</p>
-<p>Lambda Variant: (<code>Multihash&lt;Expr&gt;</code>, <code>Multihash&lt;Expr&gt;</code>)</p>
-<p>Application Variant: </p>
-<h3 id="type-type"><a class="header" href="#type-type"><code>Type</code> type</a></h3>
-<h3 id=""><a class="header" href="#">`</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="fundamental-constructs"><a class="header" href="#fundamental-constructs">Fundamental Constructs</a></h1>
+<h2 id="expressions"><a class="header" href="#expressions">Expressions</a></h2>
+<p>Expressions in Disp are programs and match the untyped lambda calculus. They are represented as follows:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Expr {
+	Var,
+	Lam { bind: Binding, expr: Expr },
+	App { func: Expr, func: Expr },
+}
+enum Binding {
+	None,
+	End,
+	Branch(Binding, Binding),
+}
+<span class="boring">}</span></code></pre></pre>
+<p>See how the <code>Binding</code> structure works <a href="disp/./bind-trees.html">here</a>.</p>
+<h2 id="judgements"><a class="header" href="#judgements">Judgements</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Judgement {
+	term: Expr,
+	ty: Expr,
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Judgements are considered valid if when the structure of <code>term</code> is encoded into the lambda calculus, and <code>Expr::App(ty, encoding)</code> beta-reduces to <code>Expr::Var</code>.</p>
+<h2 id="contexts"><a class="header" href="#contexts">Contexts</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Context {
+	names: Map&lt;String, Judgement&gt;
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="bind-trees-a-deduplication-friendly-alternative-to-de-brujin-indicies"><a class="header" href="#bind-trees-a-deduplication-friendly-alternative-to-de-brujin-indicies">Bind Trees: A deduplication friendly alternative to De Brujin Indicies.</a></h1>
+<p>Used in [Disp]</p>
+<p>The current most well known way of representing the lambda calculus is <a href="https://en.wikipedia.org/wiki/De_Bruijn_index">De Brujin Indicies</a>.</p>
+<p>This is where you have 3 variants of a term:</p>
+<ul>
+<li><code>Var(Number)</code> - Number represents how many layers of abstraction (lambdas) the variable is away from its intended binding</li>
+<li><code>App(Term, ...)</code> - Application is a list of Terms</li>
+<li><code>Lam(Term)</code> - Lambda represents an abstraction point</li>
+</ul>
+<p>An example of what this might look like for common equations:</p>
+<ul>
+<li><code>λx . x</code> = <code>Lam(Var(1))</code></li>
+<li><code>λx. λy. x</code> = <code>Lam(Lam(Var(2)))</code></li>
+<li><code>λx. (x (λx . λy . x) (λx . λy . y))</code> = <code>Lam(App(Var(1), Lam(Lam(Var(1))), Lam(Lam(Var(2)))))</code></li>
+</ul>
+<p>For Disp, I have devised an alternative method that doesn't require integers (and thus is not limited by encoding constraints)</p>
+<p>Disp has the same 3 variants of Term:</p>
+<ul>
+<li><code>Var</code></li>
+<li><code>App(Term, Term)</code></li>
+<li><code>Lam(Binding, Term)</code></li>
+</ul>
+<p>In addition to a construct Binding:</p>
+<ul>
+<li><code>None</code></li>
+<li><code>End</code></li>
+<li><code>Branch(Binding, Binding)</code></li>
+</ul>
+<p>In fact, the Binding datastructure can be repurposed from the Term datastructure.
+<code>(End = Var, None = Lam(Var, Var), Branch(Binding, Binding) = App(Term, Term))</code></p>
+<p>Common equation examples of this structure might look like:</p>
+<ul>
+<li><code>λx . x</code> = <code>Lam(Var, Var)</code></li>
+<li><code>λx. λy. x</code> = <code>Lam(Var, Lam(None, Var))</code></li>
+<li><code>λx. (x (λx . λy . y) (λx . λy . x))</code> = <code>Lam(Branch(Branch(End, None), None), App( App( Var, Lam(None, Lam(Var, Var)) ), Lam(Var, Lam(None, Var)) )</code>
+As opposed to De Brujin indices where the variables &quot;point&quot; to their corresponding lambda abstractions, with Bind Trees, the lambda terms carry an auxiliary datastructure specifying exactly which Variables should be replaced.</li>
+</ul>
+<p>In addition when it comes to storage and integration with Dither, these lambda expressions are identified by hash which gives a datastructure like this:</p>
+<ul>
+<li><code>Var</code></li>
+<li><code>App(Hash, Hash)</code></li>
+<li><code>Lam(Hash, Hash)</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="disp-language-design"><a class="header" href="#disp-language-design">Disp Language Design</a></h1>
+<p>Disp is an ambitious programming language designed to be the ultimate language that can successfully interpret the source code of any other language in the world. The primary features of disp include user-defined syntax, abstract syntax trees (ASTs), flexibility in programming paradigms, and extensibility. This summary outlines the key aspects of the language's design, organized into relevant sections.</p>
+<h2 id="abstract-syntax-trees-asts"><a class="header" href="#abstract-syntax-trees-asts">Abstract Syntax Trees (ASTs)</a></h2>
+<p>ASTs are the backbone of disp, serving as a flexible representation of various programming constructs, paradigms, and languages. ASTs are user-defined and can represent anything from lambda calculus expressions and combinator calculi to Turing machines, assembly instructions, or LLVM IR.</p>
+<h2 id="user-defined-syntax"><a class="header" href="#user-defined-syntax">User-Defined Syntax</a></h2>
+<p>Disp allows users to create custom syntax and define their own ASTs. A default AST serves as the starting point for newcomers, and it can be extended or modified as needed. Users can create their own parsers and pretty-printers to handle new syntax, which can be used to parse different programming paradigms down to a single &quot;core&quot; AST.</p>
+<h2 id="default-ast"><a class="header" href="#default-ast">Default AST</a></h2>
+<p>The default AST is designed to be versatile and configurable, allowing users to easily extend it with their own syntax and constructs. This AST should include support for common programming paradigms and constructs, such as if-else statements, loops, pattern matching, functions, and more.</p>
+<h2 id="programming-paradigms"><a class="header" href="#programming-paradigms">Programming Paradigms</a></h2>
+<p>Disp is designed to support a wide range of programming paradigms, including object-oriented, functional, and procedural styles. These paradigms are handled by defining different ASTs that can represent each paradigm and by providing parsers and pretty-printers that can parse and generate code for the chosen paradigm. Disp leverages the underlying Turing completeness of these paradigms to enable their coexistence and interconversion.</p>
+<h2 id="type-system"><a class="header" href="#type-system">Type System</a></h2>
+<p>Disp will feature a strong static type system with support for &quot;steady typing,&quot; a variant of gradual typing. Steady typing allows for type annotations to be optional, with the IDE guiding users through type mismatches and helping them identify potential issues without being overwhelmed. Disp aims to have a robust type inference system to minimize the need for explicit type information.</p>
+<h2 id="concurrency-and-parallelism"><a class="header" href="#concurrency-and-parallelism">Concurrency and Parallelism</a></h2>
+<p>Concurrency and parallelism in disp will be managed through AST definitions. The default AST and parser (Default Disp) will include concurrency constructs similar to Rust's approach, defining types like Future and using syntactic sugar to simplify their usage.</p>
+<h2 id="error-handling-and-debugging"><a class="header" href="#error-handling-and-debugging">Error Handling and Debugging</a></h2>
+<p>Disp will adopt an error handling strategy inspired by Rust, using types like Result and Option along with syntactic sugar for easier usage. Additionally, Disp aims to have a strong static type system to help users identify potential issues. Future developments may include live debuggers and other advanced debugging tools.</p>
+<h2 id="libraries-modules-and-namespaces"><a class="header" href="#libraries-modules-and-namespaces">Libraries, Modules, and Namespaces</a></h2>
+<p>Disp will not have a traditional module system for its default variant. Instead, all names will occupy a global namespace. AST patterns will encourage keeping separate ASTs for name definitions and structural definitions, allowing the compiler to deduce the correct name usage based on context. Code will be stored in a deduplicated, decentralized database with names accessible in a global lookup table.</p>
+<h2 id="interoperability"><a class="header" href="#interoperability">Interoperability</a></h2>
+<p>Disp will support interoperability with other languages and libraries through specific AST extensions. Users can create extended ASTs with primitives for external library calls and link them using the disp command.</p>
+<h2 id="performance-and-optimization"><a class="header" href="#performance-and-optimization">Performance and Optimization</a></h2>
+<p>Disp will optimize code through equivalence graphs and machine learning algorithms trained in a decentralized manner. By leveraging linear and ordered types, Disp will allow for advanced rewrites and optimizations that are inaccessible to other languages.</p>
+<h2 id="security-and-sandbox"><a class="header" href="#security-and-sandbox">Security and Sandbox</a></h2>
+<p>Disp's ASTs can be compiled to various targets, including WebAssembly, enabling sandboxed execution. This flexibility allows disp to be run securely in different environments.</p>
+<h2 id="tooling-and-ecosystem"><a class="header" href="#tooling-and-ecosystem">Tooling and Ecosystem</a></h2>
+<p>Tooling for disp is still in the early stages of planning. The ultimate goal is to create a structural editor with robust debugging, REPL, and syntax-modifying features. In the meantime, a single disp command will be used to add (parse) text files of code into ASTs, convert those ASTs to other ASTs (for compilation or changing code style), and provide target-specific AST interpreters for working with external libraries in other languages (like C).</p>
+<h2 id="standard-library-and-built-in-functions"><a class="header" href="#standard-library-and-built-in-functions">Standard Library and Built-in Functions</a></h2>
+<p>The scope of the standard library for disp will need to be determined. It should provide common utility functions, data structures, and algorithms. The standard library can be implemented as part of the core language or as separate, user-extensible modules.
+Language Evolution and Versioning</p>
+<p>Disp should have a mechanism for managing language versions and compatibility between different versions of disp code and libraries. This will ensure smooth transitions as new features are added or existing features are modified.</p>
+<h2 id="documentation-and-learning-resources"><a class="header" href="#documentation-and-learning-resources">Documentation and Learning Resources</a></h2>
+<p>High-quality documentation, tutorials, and learning resources are essential for the success and adoption of disp. A plan should be put in place for the creation and maintenance of comprehensive documentation to support both new and existing users.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>Disp is a highly ambitious and flexible programming language designed to interpret the source code of any other language. With user-defined syntax, versatile ASTs, support for multiple programming paradigms, a strong static type system, and a focus on optimization, disp aims to be the ultimate programming language. The language will continue to evolve as new features are added and existing features are refined, with a strong emphasis on tooling, documentation, and learning resources to support its growing user base.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// Endofunctor is a function from `Type -&gt; Type` and a mapping operation for morphisms.
+set Endofunctor { F : { A : Type } -&gt; Type } -&gt; {
+	/// map is a mapping operation for outgoing morphisms on `A : Type`.
+	map : { [ B : Type, morphism : A -&gt; B ], a : F(A) } -&gt; F(B)
+}
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// Magma is a type with a &quot;unit&quot; element and a binary operation
+set Magma [ M : Type ] -&gt; {
+	unit: M,
+	mult: [a : M, b : M] -&gt; M
+}
+
+/// Associativity is a property of a type and a binary operation
+set Associativity [ M : Type, bin_op: [M, M] -&gt; M ] -&gt; { {a, b, c} : M^3 } Equivalence(bin_op(bin_op(a, b), c), bin_op(a, bin_op(b, c)))
+
+/// Identity is a property of a type, element `elem` of the type, and a binary operation `bin_op` over the type proving that there is some element of the type such that `bin_op(m, elem) = m` and `bin_op(elem, m) = m`
+set Identity [ M : Type, { elem: M, bin_op: [M, M] -&gt; M } ] -&gt; { m : M } {
+	Equivalence(bin_op(m, elem), m),
+	Equivalence(bin_op(elem, m), m)
+}
+
+/// Inverse is a property of a type, element `elem` of the type, and a binary operation over the type proving that for all elements `a` of the type there is a corresponding element `inverse_a` such that `bin_op(a, inverse_a) = elem` and `bin_op(inverse_a, a) = elem`
+set Inverse [ M : Type, elem: M, bin_op: [M, M] -&gt; M ] -&gt; { m : M } [
+	inverse_a : M,
+	{
+		Equivalence(bin_op(a, inverse_a), elem),
+		Equivalence(bin_op(inverse_a, a), elem)
+	}
+]
+
+/// A Semigroup is a magma with associativity
+set Semigroup [ M : Type ] -&gt; [
+	magma: Magma[M],
+	Associativity[M, magma.mult]
+]
+
+/// A Monoid is a magma with associativity and identity
+set Monoid [ M : Type ] -&gt; [
+	magma: Magma[M],
+	{
+		Associativity[M, magma.mult],
+		Identity[M, magma],
+	}
+]
+
+/// A group is a magma with associativity, identity, and inversability
+set Group [ M : Type ] -&gt; [
+	magma: Magma[M],
+	{
+		Associativity[M, magma.mult],
+		Identity[M, magma],
+		Inversability[M, magma]
+	}
+]
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// Full definition of a monoid
+set Monoid [ M : Type ] -&gt; [
+	{
+		unit : M,
+		multiplication : [a : M, b : M] -&gt; M
+	},
+	{
+		associativity : { a : M, b : M, c : M } -&gt; Equivalence(multiplication[multiplication[a, b], c], multiplication[a, multiplication[b, c]])
+		identity : { a : M } -&gt; Equivalence(multiplication(a, unit), multiplication(unit, a))
+	}
+]
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// A Monad is just an Endofunctor and a Monoid
+set Monad [ M : Type -&gt; Type ] -&gt; {
+	Endofunctor(M)
+	Monoid(M)
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="dither-application-index"><a class="header" href="#dither-application-index">Dither Application Index</a></h1>
 <h2 id="list-of-application-ideas"><a class="header" href="#list-of-application-ideas">List of application Ideas</a></h2>
 <ul>
@@ -774,26 +1158,7 @@ As opposed to De Brujin indices where the variables &quot;point&quot; to their c
 </ul>
 </li>
 </ul>
-<h1 id="application-design-philosophy"><a class="header" href="#application-design-philosophy">Application Design Philosophy</a></h1>
-<p>Application APIs should be future-proofed as much as possible</p>
-<p>Application GUIs should be generally be as cross platform as possible.</p>
-<p>There should be different modes of use for different user skill levels to try and accomidate as many people as possible.</p>
-<ul>
-<li>These modes should enable/disable various aspects of <em>configurability</em> in the application</li>
-<li><strong>Simple</strong> mode should be super easy to use for anyone and come with a quick tutorial
-<ul>
-<li>Configuration options should be assumed as much as possible, </li>
-</ul>
-</li>
-<li><strong>Default</strong> mode should come with a tutorial and explain how modes work and how to change them</li>
-<li><strong>Advanced</strong> mode assumes the user already knows how to use the app or can figure it out on their own. All configurability functionality should be enabled.
-<ul>
-<li>Application developers should strive to implement as much configurability as possible into every aspect of their application for complex users.</li>
-<li>For desktop applications, configuration on a small level (for specific contextual buttons or features) could be shown through right-click menus.</li>
-<li>For mobile applications these configuration items can be shown through a long-press.</li>
-</ul>
-</li>
-</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="dither-chat"><a class="header" href="#dither-chat">Dither Chat</a></h1>
 <ul>
 <li><a href="applications/dither-chat.html#dither-chat">Dither Chat</a>
@@ -814,7 +1179,7 @@ As opposed to De Brujin indices where the variables &quot;point&quot; to their c
 </ul>
 </li>
 </ul>
-<h2 id="what-is-it-2"><a class="header" href="#what-is-it-2">What is it</a></h2>
+<h2 id="what-is-it-1"><a class="header" href="#what-is-it-1">What is it</a></h2>
 <p>Dither Chat is a decentralized communication application using the Dither protocol. Servers are communally hosted with local consensus. Bots and plugins will be supported and also communally hosted.
 tl;dr Discord but decentralized and better.</p>
 <h2 id="users--sync"><a class="header" href="#users--sync">Users &amp; Sync</a></h2>
@@ -898,160 +1263,305 @@ Image of a possible dither-chat server arrangement</li>
 </ul>
 </li>
 </ul>
-<h1 id="dithca"><a class="header" href="#dithca">Dithca</a></h1>
-<h2 id="a-comprehensive-commenting-system-built-on-top-of-dither"><a class="header" href="#a-comprehensive-commenting-system-built-on-top-of-dither">A comprehensive commenting system built on top of Dither</a></h2>
-<p>Decentralized comment system adaptor.
-Fully customizable comment system stored as a Dither Consensus Chain that can be created from any piece of data.
-Uses Reddit's upvote/downvote system by default
-Acts on its own or as a proxy overlay to various comment sites.</p>
-<h2 id="comment-chain"><a class="header" href="#comment-chain">Comment Chain</a></h2>
-<p>WIP: Figure out how dither consensus works</p>
-<h3 id="comment-sort-methods"><a class="header" href="#comment-sort-methods">Comment Sort methods</a></h3>
-<p>https://medium.com/hacking-and-gonzo/how-reddit-ranking-algorithms-work-ef111e33d0d9</p>
-<h1 id="dithca-1"><a class="header" href="#dithca-1">Dithca</a></h1>
-<h2 id="a-comprehensive-commenting-system-built-on-top-of-dither-1"><a class="header" href="#a-comprehensive-commenting-system-built-on-top-of-dither-1">A comprehensive commenting system built on top of Dither</a></h2>
-<p>Decentralized comment system adaptor.
-Fully customizable comment system stored as a Dither Consensus Chain that can be created from any piece of data.
-Uses Reddit's upvote/downvote system by default
-Acts on its own or as a proxy overlay to various comment sites.</p>
-<h2 id="comment-chain-1"><a class="header" href="#comment-chain-1">Comment Chain</a></h2>
-<p>WIP: Figure out how dither consensus works</p>
-<h3 id="comment-sort-methods-1"><a class="header" href="#comment-sort-methods-1">Comment Sort methods</a></h3>
-<p>https://medium.com/hacking-and-gonzo/how-reddit-ranking-algorithms-work-ef111e33d0d9</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="protocol-of-truth"><a class="header" href="#protocol-of-truth">Protocol of Truth</a></h1>
 <p>This is a protocol of back and forth debate with the aim to evaluate the quality and truthfulness of content posted to the internet.</p>
-<p>If you have ever seen a photoshopped post on social media, or a video citing a badly done study, this techno-social protocol aims to inform through discourse the truthfulness of a given piece of media to anyone who might come across it.</p>
-<p>The outcomes of this protocol label specific pieces of content. Here are some potential labels:</p>
+<p>If you have ever seen a photoshopped post on social media, or a video citing a badly done study you will know that it is incredibly hard to figure out how well-researched a piece of content is at first glance. This Dither protocol aims to inform through discourse the truthfulness of a given piece of media to anyone who might come across it.</p>
+<h3 id="the-process"><a class="header" href="#the-process">The Process</a></h3>
+<p>The process for the Protocol of Truth is carried out by trusted individuals (chosen by a karma system). The steps are as follows:</p>
+<ol>
+<li>The Media is examined for a set of assertions it makes as well as deductive and inductive reasoning made using the assertions. This creates a &quot;Assertion Graph&quot;.</li>
+<li>Once the graph is constructed and properly cited (i.e. each assertion should provide some link to the part of the media it was extracted from) assertions may be supported or criticized.</li>
+<li>Assertions in &quot;Assertion Graphs&quot; may be shared between different media and thus the supporting evidence presented by one media may be used in the justification of another. This supporting evidence may be found independently or through the author's cited sources.</li>
+<li>Each Assertion in the graph may be labeled through a persistent voting scheme under the following categories of deduction type, truthfulness and standard of evidence.</li>
+</ol>
 <ul>
-<li>Truthful - Unobjectionably true</li>
-<li>False - Unobjectionably false
+<li><strong>Deductive / Inductive</strong> - What kind of assertion is it.</li>
+<li><strong>Truthiness</strong> - How the trusted community rates the assertion in terms of truthfulness.
 <ul>
-<li>Benign - False, for comedy, or other reasons</li>
+<li>Inherited - The assertion is deduced from the assumptions, therefore its truthfulness is inherited from the truthfulness of the assumptions.</li>
+<li>Likely True - The assertion is likely true</li>
+<li>Likely False - The assertion is likely false</li>
+<li>Ambiguous - The truth of the assertion cannot be satisfyingly asserted either way.</li>
 </ul>
 </li>
-<li>Factful - Well researched argument with generally accepted sources</li>
-<li>Outdated - This might have been factful, but new information exists to provide alternative conclusions.</li>
-<li>Opinionated - Content that is not sourced</li>
-<li>Minority Opinion</li>
-<li>Missing Context</li>
-<li></li>
-</ul>
-<p>These labels are determined dynamically and are subject to change and dispution. The history of labels and the conversation around them are stored. Certain labels can only be applied on top of specific other labels.</p>
-<p>New Objection
-Undecided</p>
-<p>Correct
-Opinion</p>
-<h2 id="ideas-1"><a class="header" href="#ideas-1">Ideas</a></h2>
-<p>Idea: Instead of people upvoting and downvoting a given flag, they flag the flag and provide more supporting details. All this back and forth flagging results in a kind of &quot;tree of flags&quot; from which what is true, what is false, and what is ambiguous can be extracted.</p>
-<p>Scene: Someone posts a video, there is an error in the video, someone posts a correction in the comment with a relevant tag. </p>
-<h1 id="potential-examples-for-the-protocol-of-truth"><a class="header" href="#potential-examples-for-the-protocol-of-truth">Potential Examples for the Protocol of Truth</a></h1>
-<p>To flesh out the idea and provide context of what this might look like, here are some real-world examples of videos that would be labeled under the protocol of truth.</p>
-<h2 id="example-1-simple-factual-error"><a class="header" href="#example-1-simple-factual-error">Example 1: Simple Factual Error</a></h2>
-<p>In Youtuber Fireship's video &quot;Rust in 100 Seconds&quot; at 0:55 he incorrectly says that mutable values are stored in the heap.</p>
-<p>Ideal processes of correction:</p>
+<li><strong>Standard of Evidence</strong>
 <ul>
-<li>Someone realizes that there is an error and creates an <code>Objection</code>
-<ul>
-<li>Objections come with 3 parts: <code>Selection</code>, <code>Type</code>, <code>Reason</code>, and <code>Evidence</code> </li>
-<li>For the <code>Selection</code>, they use the <code>Transcript</code> selection type and select the following lines:
-<pre><code>00:55 mutable values or objects with an
-00:57 unknown size at compile time are stored
-00:59 in the heap memory
-</code></pre>
-</li>
-<li>They set the <a href="applications/protocol-of-truth/./protocol-types.html"><code>Type</code></a> to <code>Error</code>.</li>
-<li>For the <code>Reason</code> they say:</li>
-<li>
-<pre><code>&quot;While objects with unknown size at compile time are typically stored in the heap, mutable objects can be stored on the stack OR the heap.&quot;
-</code></pre>
-</li>
-<li>They do not give any <code>Evidence</code> as this is common knowledge in rust.</li>
-</ul>
-</li>
-<li>As people come to the video, they see the label on the video as <code>Pending - Potential Error</code> and click to see the <code>Objection</code> to do one of the following:
-<ul>
-<li>Mark the <code>Objection</code> as <code>True</code></li>
-<li>Mark the <code>Objection</code> as <code>False</code></li>
-<li>Flag the <code>Objection</code> as <code>Incomplete</code></li>
-<li>Flag the <code>Objection</code> as <code>Unknown</code></li>
-</ul>
-</li>
-<li>When flagging an Objection, you must have at least 10 karma and a verified human account. If you mark an objection as True while the statement is resolved as false or vice versa, you will loose 5 truth karma. If marked correctly you will gain 1 truth karma.</li>
-<li>Confident people may also stake 100, 1000, or 10,000 karma to add 2, 3, or 4 votes respectively. (You will also loose half of your staked karma if you mark incorrectly, although you will gain more points if guessed correctly).</li>
-<li>People may also stake their karma (max 10) on a resolution for increased karma return when the Objection comes to consensus in their favor. that they agree or that they are completely confident with the <code>Objection</code> (beause it is obvious). Or they comment under the objection with </li>
-<li>If after a substantial period of time there is a 4/5th majority either way (True or False or Unknown), the objection will be marked true or false, which will change the label of the video. If there is no super consensus, it is marked as controversial. Controversial resolutions will only effect the video label for certain <code>Objection</code> types.</li>
-<li>Ideally, the creator sees the <code>Objection</code> and the supporting &quot;True&quot; marks from the community, admits that they make an error and personally mark the <code>Objection</code> as True so that the community knows that the <code>Objection</code> has been acknowledged by the original creator.
-<ul>
-<li>In this case, Fireship could create a patch to that part of the video in response to the <code>Objection</code> and link to the original Objection to revert the &quot;small error&quot; label.</li>
+<li>Statistically Significant - The assertion is supported by sound scientific observation or experiment.</li>
+<li>Personal Experience - The assertion is a personal observation, it is subject to individual bias.</li>
+<li>Common Knowledge - The assertion is generally held to be true, but there is no specific evidence to support it. i.e. stuff like &quot;thing X exists&quot; or &quot;hammers are generally used to hammer in nails&quot;. There is no hard evidence for it, but it is generally held to be true. This is the least powerful standard of evidence and should be replaced with a more powerful form if at all possible.</li>
 </ul>
 </li>
 </ul>
-<h1 id="dither-coin-ideas-are-work-in-progress"><a class="header" href="#dither-coin-ideas-are-work-in-progress">Dither Coin (Ideas are Work-In-Progress)</a></h1>
-<p>Dither's built-in cryptocurrency aims to solve all existing problems with crypto:</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="application-design-philosophy"><a class="header" href="#application-design-philosophy">Application Design Philosophy</a></h1>
+<p>Application APIs should be future-proofed as much as possible</p>
+<p>Application GUIs should be generally be as cross platform as possible.</p>
+<p>There should be different modes of use for different user skill levels to try and accomidate as many people as possible.</p>
 <ul>
-<li>Scalability
+<li>These modes should enable/disable various aspects of <em>configurability</em> in the application</li>
+<li><strong>Simple</strong> mode should be super easy to use for anyone and come with a quick tutorial
 <ul>
-<li>Uses IOTA block structure combined with Federated Byzantine Voting for coordination.</li>
-<li>Most users won't store the entire network history, just a slice of the current state relevent to performing transactions.</li>
+<li>Configuration options should be assumed as much as possible, </li>
 </ul>
 </li>
-<li>Speed
+<li><strong>Default</strong> mode should come with a tutorial and explain how modes work and how to change them</li>
+<li><strong>Advanced</strong> mode assumes the user already knows how to use the app or can figure it out on their own. All configurability functionality should be enabled.
 <ul>
-<li>Using Stellar Consensus Protocol and IOTA will be helpful to speed.</li>
-<li>Bad Idea?: Also, there will be establishment of Zones in the network that have their own sub-exchanging separate from the rest of the network for fast local transactions. Usage of zones will be faster than sending transactions to the global network, however, for security purposes, zones must report transactions</li>
-</ul>
-</li>
-<li>Anonymity
-<ul>
-<li>Will use zk-STARKS to obfuscate transaction amounts and sender</li>
-</ul>
-</li>
-<li>Transaction Cost
-<ul>
-<li>Network is maintained by users, no mining necessary, therefore no fees will be required to transfer tokens.</li>
-</ul>
-</li>
-<li>Volatility
-<ul>
-<li>There will be a system of provable currency deletion where you can create Dither Coins from thin air by proving that you send a certain amount of other support crypto coins to a public key with no corresponding private key (i.e. proving that they are inaccessable). The amount of coins created will be market exchange rate of the given coin into the U.S. dollar at the time of the transaction. (exchange rate is maintained by the network)</li>
-<li><strong>This will ensure that the value of Dithercoin is tied to the US dollar.</strong></li>
-</ul>
-</li>
-<li>Ease of Use
-<ul>
-<li>Dither Coin will be built-in to all aspects of Dither for tipping and other things</li>
-<li>There will be SDKs so that Dither Coin can be built into other applications.</li>
-</ul>
-</li>
-<li>Ease of Purchase
-<ul>
-<li>A system for peer-to-peer purchase of Dither Coin using other assets will be created using Dither Chain. (Idea WIP)</li>
+<li>Application developers should strive to implement as much configurability as possible into every aspect of their application for complex users.</li>
+<li>For desktop applications, configuration on a small level (for specific contextual buttons or features) could be shown through right-click menus.</li>
+<li>For mobile applications these configuration items can be shown through a long-press.</li>
 </ul>
 </li>
 </ul>
-<h1 id="the-d-framework"><a class="header" href="#the-d-framework">The D Framework</a></h1>
-<p>The D framework is meant to be system for creating applications, documents, and any other kind of visual dynamic or static media. It is intended to replace the World Wide Web.</p>
-<h3 id="what-is-the-essence-of-a-static-piece-of-content"><a class="header" href="#what-is-the-essence-of-a-static-piece-of-content">What is the essence of a static piece of content?</a></h3>
-<p>A document, web page, or static site is kind of like a program with no inputs.</p>
-<p>A pdf document typically contains all the things it needs to render a page to the user, but it doesn't contain the rendered data itself. It merely contains data used to render the page, such as text, fonts, images, formatting and so forth. For a static site, this data is in the form of HTML, CSS, and other linked data. Everything is fetched from the server and parsed into a viewable page. Unfortunately, HTML and CSS is not a particularly efficient format and not super generalized, meaning you are limited in the kinds of static experiences you can create. </p>
-<h1 id="vision-for-the-future-of-dither"><a class="header" href="#vision-for-the-future-of-dither">Vision for the future of Dither</a></h1>
-<p>This document outlines a vision for the mid-to-far term structure of Dither once the Disp programming language matures.</p>
-<p>If you are looking for the current structure of Dither, check out the <a href="../dither.html#structure">Structure section</a> of the main Dither document.</p>
-<h2 id="abandoning-the-file"><a class="header" href="#abandoning-the-file">Abandoning the &quot;File&quot;</a></h2>
-<p>The file is the core of unix systems, but they have some issues.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="why-copyright-is-cancer"><a class="header" href="#why-copyright-is-cancer">Why Copyright is Cancer</a></h1>
 <p>Copyright is ineffective in the internet age. Any piece of content can be pirated on a massive scale without the original creator even knowing. The only thing copyright does is suppress derivative creation on forums with strict copyright adherence. See these videos on why <a href="https://www.youtube.com/watch?v=1Jwo5qc78QU">the current copyright system is broken</a> and why it <a href="https://www.youtube.com/watch?v=QVkeJI2feyQ">makes no sense</a>. This document outlines an alternate system of funding creation that Dither aims to create.</p>
 <p><strong>Have a decentralized &amp; democratized forum of communication and publication that no institution or individual can meaningfully obstruct.</strong> Dither is a protocol for creating decentralized applications.</p>
 <p><strong>Provide a direct connection of support between the consumers and the creators allowing people to directly support creators for the content they produce</strong> (<a href="https://www.youtube.com/watch?v=mnnYCJNhw7w">Paying for Production, not Distribution</a>). Even huge projects like Marvel movies or video games can be supported through community fundraising. Each production raises the reputation of the artist(s), allowing them to raise more money from their fans for the next project.</p>
 <p><strong>Preventing artists from having control over their art allows all artists to use and adapt and <em>recreate</em> the work of other artists</strong>. Imagine all the games and movies that were super hyped up but totally flopped. If anyone was allowed to make anyone else's work but better, artists have an incentive to make good stories so that they can raise money for their next project, instead of making something crappy and making all their money off of preorders. This would also prevent the fragmentation of distribution services as no one entity can have exclusive control over a piece of content.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="but-what-is-a-monad"><a class="header" href="#but-what-is-a-monad">But What <strong>IS</strong> a Monad?</a></h1>
+<blockquote>
+<p>This is an article that defines what a Monad while trying to stay as close as possible to its roots in Category Theory.</p>
+</blockquote>
+<p>If you've ever heard of monads in the context of functional programming, you've likely also heard that they are just &quot;Monoids in the Category of Endofunctors&quot;. But what does that even <em>mean</em>?</p>
+<p>A Category (designated using curly letters, i.e. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.1689em;">C</span></span></span></span>), for the purposes of this article, is simply some defined set of mathematical objects (numbers, values, types, terms, or even categories themselves) as well as some set of &quot;morphisms&quot; defined between the objects. A category also has some conventions such as:</p>
+<ul>
+<li>Every object has a morphism to itself (called the identity morphism)</li>
+<li>Morphisms can be combined into other morphisms much like function composition.</li>
+<li>Morphism composition is associative.</li>
+</ul>
+<p>Functors in category theory are simply morphisms in a &quot;category of categories&quot;. Where categories are objects and functors are just morphisms that map one category to another. This can be visualized at either a high level of abstraction where the functor <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> is just one arrow between two categories (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.22925em;">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.04087em;">B</span></span></span></span>). Or at a lower level where a functor could be represented as many parellel arrows uniquely mapping every object and morphism in category <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.22925em;">A</span></span></span></span> to an object or morphism in category <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.04087em;">B</span></span></span></span>.</p>
+<p>Endofunctors are just the special case where the two categories <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.22925em;">A</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.04087em;">B</span></span></span></span> are in fact the same category. Endofunctors are essentially just a mapping between each object and morphism in a category to another object/morphism <em>in the same category</em>.</p>
+<p>Endofunctors come up when working in a specific Categories. The category <code>Type</code> is a category where the objects are terms/types and the morphisms are functions between terms/types. This is the category that is expressed by programming language's type systems.</p>
+<p>There are many programming languages that have endofunctors. <code>Option</code> in Rust, <code>Maybe</code> in Haskell, or really any kind of wrapper type in any language is technically an endofunctor. While most languages <em>have</em> endofunctors, most don't have a powerful enough type system to formalize the definition of endofunctors itself. (For rustaceans, think of it like a <code>trait</code> that you can implement for type constructors like <code>Option</code> or <code>Vec</code>, not <code>Option&lt;T&gt;</code>, just <code>Option</code> by itself, not a language feature yet unfortunately ☹️).</p>
+<p>When defining what it means to be an Endofunctor formally within a given Category of objects (i.e. a Type System), one needs a powerful <em>dependently-typed</em> lagnuage. For the purposes of this article, we will be using a fictitious dependently-typed language. The following is an outline of some of the general features of the language.</p>
+<blockquote>
+<p>Pseudocode Definitions (skip this if you think you can grok the psuedocode first try):</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//This binds some name to a value in some context. The value may be a type (like Vec(A)) or a value (like `3`)
+set &lt;name&gt; &lt;value&gt;
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// A name bound to a value may be given a valid type, or one will be inferred.
+// This will have an inferred type of `Nat` because 3 is most likely to be a natural number
+set three 3
+// The type of `four` is specified to be `Int` (i.e. an integer). This is valid because while 4 : Nat, Nat is a subset of Int.
+set four 4 : Int
+// This is a type declaration. `Likelyhood` is defined to be a set of two numbers of type `Nat` and `Float`. Optionally, two names have been assigned to these numbers: `count` and `probability`. Curly braces represents un-ordered sets of objects.
+set Likelyhood { count: Nat, probability: Float }
+// The above definition is semantically equivalent to this definition:
+set Likelyhood { probability: Float, count: Num }
+// But the above two expressions are semantically different from this: (Brackets represent an ordered set, i.e. a list)
+set Likelyhood [ count: Num, probability: Float ]
+
+<span class="boring">}</span></code></pre></pre>
+<pre><code class="language-haskell"># If you are used to haskell-based currying the first two definitions of `Complex` would be independently equivalent to the following two functions.
+Likelyhood_a : Num -&gt; Float -&gt; Type
+Likelyhood_b : Float -&gt; Num -&gt; Type
+# But the 3rd definition would only be equivalent to Likelyhood_a
+</code></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// type constructors can be defined like this
+set Vector3 { A : Type } { A, A, A } -&gt; { A, A, A }
+// This definition has an implicit `[]` creating an ordering between `{A : Type} and `{A, A, A}`, in this case the ordering is required because {A, A, A} is dependent on {A : Type} being specified.
+
+// Types can also be unnamed and referred to by a name in some context (i.e. like how functions in rust traits don't name the type of the function, just the name of the function implementation)
+type add_one : Num -&gt; Num
+
+// This is defining add_one in accordance with its previous defined type. It would be an error to define add_one twice with different implementations in the same context.
+set add_one { a } -&gt; a + 1 
+<span class="boring">}</span></code></pre></pre>
+</blockquote>
+<p>Okay now that we have pseudocode out of the way, we can get to defining an endofunctor :D</p>
+<p>In this language, Endofunctors can be defined as a collection of two functions: a function <code>F</code> that takes a type (<code>A</code>) and returns a type (<code>F&lt;A&gt;</code>) (i.e. the type constructor), and a function that is defined to take an arbitrary function from <code>A -&gt; B</code> where <code>B</code> can be anything and returns a function <code>F&lt;A&gt;</code> -&gt; <code>F&lt;B&gt;</code> (i.e. a morphism constructor). This definition allows one to abstract over a specific endofunctor definition and refer to all endofunctors as a collective. This endofunctor could be defined as follows using a &quot;typeclass&quot; construction (thing <code>trait</code> or <code>interface</code>), which are essentially just type functions that take an object and return an implementation, and can be partially defined (implemented) in various places around the codebase.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// An Endofunctor is a type function that takes a value F of type `Type -&gt; Type` (i.e. a type constructor / wrapper) and returns a set (implementation) containing one type and a bound value-name (i.e. map).
+set Endofunctor { F : { A : Type } -&gt; Type } -&gt; {
+	// Specifies the type of a function that is bound to the name `map`. Is a function that takes 1. an ordered set of arbitrary type B and morphism from A -&gt; B and 2. some value of type F(A).
+	// Returns F(B). Can be partially applied by passing either the ordered set or F(A) first. 
+	// If passing the ordered set first, the function resolves to F(A) -&gt; F(B).
+	// If passing F(A), the function resolves to some kind of generic constant parameterized by a type and a function. [B : Type, m : A -&gt; B] -&gt; F(B).
+	map : { [ B : Type, morphism : A -&gt; B ], a : F(A) } -&gt; F(B);
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Examples of various type constructors and specifications (implementations) of the Endofunctor class.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// Maybe is a function of type `Type -&gt; Type`
+set Maybe { T : Type } -&gt; Enum {
+	Something [ t : T ],
+	None,
+}
+// Defines the Endofunctor &quot;function&quot; for a specific type constructor.
+set impl_maybe_endofunctor {
+	set map { [ B, morphism ], a } -&gt; match a {
+		Something[a] =&gt; Something(morphism(a))
+		None =&gt; None
+	}
+} : Endofunctor(Maybe)
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// List is a List
+set List { T : Type } -&gt; Enum {
+	Cons { list : List T, value : T }, // Recursion defined implicitly
+	Nil,
+}
+// Specifies the Endofunctor for the List constructor.
+set impl_list_endofunctor {
+	set map { [ B, morphism ], a } -&gt; (match a {
+		Cons { list, value } =&gt; Cons(map{[B, morphism],list}, morphism(value)) // Recursion defined implicitly
+		Nil =&gt; Nil
+	})
+} : Endofunctor(List)
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// Generic Identity Function Constructor, we need this to define unit for the Monad.
+set identity [T, v] v : [T : Type] [T] T
+<span class="boring">}</span></code></pre></pre>
+<p>NOTICE: New Syntax / Convention, <code>identity</code> is the name assigned to the expression <code>[T, v] v</code>. But that expression has also been associated with a type.</p>
+<p>The name of the type of identity is ^Identity. identity : ^Identity. The names themselves also get translated from snake_case (identity), to PascalCase (^Identity).</p>
+<p>There is analogous syntax for finding a value defined for a given type. This may not always resolve because multiple values could be defined for a given type. </p>
+<p>Example: to refer to impl_maybe_endofunctor, you can instead do _ : Endofunctor(Maybe).</p>
+<p>This also works when defining &quot;implementations&quot;. You can use <code>_</code> to not define a name, and instead let type inference do its job.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>set _ {
+	set map { [ B, morphism ], a } -&gt; Identity(morphism)
+} : Endofunctor(Identity)
+
+// The above is basically equivalent this in rust :)
+impl Endofunctor for Identity {
+	fn map&lt;B&gt;(morphism : impl Fn(A) -&gt; B, a : Identity) -&gt; identity(morphism(a))
+}
+<span class="boring">}</span></code></pre></pre>
+<p>OKAY, Now we define the Monad! According to category theory, a monad in a category defined as a monoid in the category of endofunctors of some other category.</p>
+<p>But what exactly is a monoid? Wikipedia describes a monoid as a particular object <code>M</code> combined with two morphisms &quot;multiplication&quot; and &quot;unit&quot;.</p>
+<p>Lets define a Monoid first... We will define a monoid as a type constructor that takes any object constructs a set of two morphisms, unit and multiplication.</p>
+<p>We also need to ensure that the two monoid laws of associativity and identity hold. i.e. (a * b) * c = a * (b * c), and a * identity = identity * a</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>set Monoid [ M : Type ] {
+	unit : M,
+	multiplication : [a : M, b : M] -&gt; M
+	associativity_proof : { a : M, b : M, c : M } multiplication[multiplication[a, b], c] = multiplication[a, multiplication[b, c]]
+	identity_proof : { a : M } multiplication(a, unit) = multiplication(unit, a)
+}
+<span class="boring">}</span></code></pre></pre>
+<p>But what can we do with this monoid?
+We can descibe types coupled with operations that resemble a monoid! (Assume <code>Nat</code> is the type of natural numbers)</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>set naturals_addition_monoid {
+	set unit 0,
+	set multiplication addition,
+	set associativity_proof { a, b, c } &lt;proof of associativity&gt; // These are left out because writing proofs in type theory is complicated
+	set identity_proof { a } &lt;proof of identity&gt;
+} : Monoid(Nat)
+<span class="boring">}</span></code></pre></pre>
+<p>Alright lets do another one! This time on a type we've actually seen before (I'll add type annotations for unit and multiplication so its more clear what is going on here)</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>set maybe_flat_map_monoid {
+	set unit [A] -&gt; Maybe::Something : { A : Type } -&gt; Enum // This type is equivalent to `Maybe`
+	set multiplication [a, b] -&gt; match a {
+		Something(a) =&gt; b(a),
+		Nothing =&gt; Nothing
+	} : ({ A : Type } -&gt; Enum) ({ B : Type} -&gt; Enum) -&gt; Maybe // This is equivalent to `[Maybe Maybe] -&gt; Maybe`
+	set associativity_proof { a , b , c } &lt;proof of associativity&gt;
+	set identity_proof { a } &lt;proof of identity&gt;
+} : Monoid(Maybe) // This is a monoid defined for the *type constructor itself* `Maybe`, *not* impl&lt;A&gt; Monoid for Maybe&lt;A&gt;, impl Monoid for Maybe.
+<span class="boring">}</span></code></pre></pre>
+<p>Oh wait, since <code>Maybe</code> is a endofunctor, isn't this just a Monad? (A monad is a monoid defined on an endofunctor after all) Lets try and pinpoint a more exact definition of a Monad :)</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>set Monad [ M : Type -&gt; Type, M_is_functor : Endofunctor(A) ] {
+	unit : M,
+	multiplication : [a : M, b : M] -&gt; M
+	associativity_proof : { a : M, b : M, c : M } multiplication[multiplication[a, b], c] = multiplication[a, multiplication[b, c]]
+	identity_proof : { a : M } multiplication(a, unit) = multiplication(unit, a)
+}
+<span class="boring">}</span></code></pre></pre>
+<p>If you followed all that, You should now have a good understanding of what a Monad is!
+(Specifying it is essentially the same as a monoid above)</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="how-to-do-node-discovery-while-limiting-structural-data-leakage"><a class="header" href="#how-to-do-node-discovery-while-limiting-structural-data-leakage">How to do Node Discovery while Limiting Structural Data Leakage?</a></h1>
+<p>Debate: When requesting for peers from a connected node, should the node send back a list of publically available IPs? Or should the node forward the request to the peers in question for them to initiate the connection?</p>
+<ul>
+<li>Sending back a list of public IPs
+<ul>
+<li>Pros:
+<ul>
+<li>Faster to implement (kinda)</li>
+<li>Used by most networks</li>
+<li>Possibly easier NAT tunneling? (because it doesn't inherently require an open listening port)</li>
+</ul>
+</li>
+<li>Cons:
+<ul>
+<li>Allows for easy enumeration of all nodes in the network by just requesting lists and connecting to nodes.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Notifying peers of the request for them to connect.
+<ul>
+<li>Does this strategy actually prevent peer enumeration? 
+<ul>
+<li>People with a single computer can just request for a given node and ask for new connections to get IPs. If they repeatedly do this from different IPs, they can get a good sense of all the peers of a given node.
+<ul>
+<li>Fix: Instead of just forwarding request to all peers. Forward request to one peer at a time and have that peer report back the measured latency. Forward  request to another peer if first peer reported greater latency than request receiver. If peer was in fact closer to requester, that peer connects to the requester and the process starts anew.</li>
+</ul>
+</li>
+<li>Even if the peer selection is random and only ~2-3 peers will be contacted at any given peer request, you can still repeatedly ask the node to eventually get a list of all peers.
+<ul>
+<li>Fix: Request is only forwarded to peers of a similar latency to the requesting node. This also likely makes for quicker convergence to a &quot;local group&quot; as well as prevents closeby peers from needlessly connecting to requesters.</li>
+<li>Also: any node after the initial requested node can use network coordinates to more accurately recommend closer and closer nodes to forward the peer request to.</li>
+</ul>
+</li>
+<li>If someone can place nodes relatively close to a given node (&lt;30ms), they can do peer requests at various distances and eventually sus out all the peers.
+<ul>
+<li>One way to lessen this attack would be for some peers to simply not participate in the discovery process. Its not a process that needs a whole lot of participants anyway. These peers could initialize connections only if arbitrary (user-defined based on threat profile) conditions are met such as:
+<ul>
+<li>Predefined trust between the requester and the peer (via any kind of trust-system like web of trust, trusted certificates, or simply a set of trusted public keys)</li>
+<li>A lighter requirement might be that the node must be connected to some subset of their peers.</li>
+<li>A third requirement could be that the node must be within a certain latency radius as predicted by routing coordinates.</li>
+</ul>
+</li>
+<li>No matter how many times unknown IPs request for peers from a given node, it will never forward the request to these peers.</li>
+<li>Another way to lessen this kind of attack might be to require new nodes to have knowledge of multiple bootstrap nodes before new peers may be requested. These bootstrap nodes could then collude to decide which of their peers is closest to the requesting node and forward the request on to them (passing along all the latency measurements and routing coordinate estimate data for even more accurate positioning).</li>
+</ul>
+</li>
+<li>At this point, I think only an ISP would be able to figure out peer relationships via faking nodes and doing peer requests, and it would probably be easier for them to just do direct traffic analysis...</li>
+</ul>
+</li>
+<li>Pros
+<ul>
+<li>Provides wayy more protection from even relatively advanced adversaries trying to probe the structure of the network.</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>wayyy more complex</li>
+<li>Slower for new nodes to bootstrap depending on design (although its likely fine once they already have established connections to nearby peers), could also potentially be speed up by web-of-trust stuff (i.e. bootstrapping off multiple friends).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
 
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -1059,49 +1569,51 @@ Opinion</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
 
-                
             </nav>
 
         </div>
 
-        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
 
-        
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
-        
 
-        
-        <script type="text/javascript">
+
+        <script>
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
-        
-        <script type="text/javascript">
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-        
-        
 
+    </div>
     </body>
 </html>

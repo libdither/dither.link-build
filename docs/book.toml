@@ -8,3 +8,9 @@ title = "Dither Ideas"
 
 [build]
 build-dir = "public/docs"
+
+[output.html]
+additional-css = ["custom.css"]
+
+[preprocessor.katex]
+after = ["links"]

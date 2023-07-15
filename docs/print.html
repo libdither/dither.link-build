@@ -4,39 +4,25 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Dither Ideas</title>
-        
         <meta name="robots" content="noindex" />
-        
-        
 
 
         <!-- Custom HTML head -->
         
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="favicon.svg">
-        
-        
         <link rel="shortcut icon" href="favicon.png">
-        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        
         <link rel="stylesheet" href="css/print.css" media="print">
-        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -44,19 +30,19 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
+        <link rel="stylesheet" href="custom.css">
 
-        
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -72,7 +58,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -84,12 +70,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -97,17 +85,38 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="dither/routing.html"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.5.</strong> User Management - WIP</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.6.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/type-system.html"><strong aria-hidden="true">2.1.1.</strong> Standard Type System</a></li></ol></li><li class="chapter-item expanded "><a href="disp/syntax-agnosticism.html"><strong aria-hidden="true">2.2.</strong> Syntax Agnosticism</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/syntax.html"><strong aria-hidden="true">2.2.1.</strong> Standard Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="disp/names.html"><strong aria-hidden="true">2.3.</strong> Naming with Knowledge Graphs</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> Modular Parsing</div></li><li class="chapter-item expanded "><a href="disp/hardware-modeling.html"><strong aria-hidden="true">2.5.</strong> Hardware Modeling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.6.</strong> Self-Defined Types</div></li><li class="chapter-item expanded "><a href="disp/implementation.html"><strong aria-hidden="true">2.7.</strong> Specification</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/bind-trees.html"><strong aria-hidden="true">2.7.1.</strong> Bind Trees</a></li></ol></li><li class="chapter-item expanded "><a href="disp/gpt4-spec.html"><strong aria-hidden="true">2.8.</strong> GPT4-Spec</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.9.</strong> Examples</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/examples/category_theory.html"><strong aria-hidden="true">2.9.1.</strong> Category Theory Definitions</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="applications/application-design-philosophy.html"><strong aria-hidden="true">4.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="copyright-is-cancer.html"><strong aria-hidden="true">4.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="what-is-a-monad.html"><strong aria-hidden="true">5.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="node_discovery_ideas.html"><strong aria-hidden="true">5.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="dither/routing.html"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="dither/user-management.html"><strong aria-hidden="true">1.5.</strong> Account Management</a></li><li class="chapter-item expanded "><a href="dither/identity.html"><strong aria-hidden="true">1.6.</strong> Identity Management</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/type-system.html"><strong aria-hidden="true">2.1.1.</strong> Standard Type System</a></li></ol></li><li class="chapter-item expanded "><a href="disp/syntax-agnosticism.html"><strong aria-hidden="true">2.2.</strong> Syntax Agnosticism</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/syntax.html"><strong aria-hidden="true">2.2.1.</strong> Standard Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="disp/names.html"><strong aria-hidden="true">2.3.</strong> Naming with Knowledge Graphs</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> Modular Parsing</div></li><li class="chapter-item expanded "><a href="disp/hardware-modeling.html"><strong aria-hidden="true">2.5.</strong> Hardware Modeling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.6.</strong> Self-Defined Types</div></li><li class="chapter-item expanded "><a href="disp/implementation.html"><strong aria-hidden="true">2.7.</strong> Specification</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/bind-trees.html"><strong aria-hidden="true">2.7.1.</strong> Bind Trees</a></li></ol></li><li class="chapter-item expanded "><a href="disp/gpt4-spec.html"><strong aria-hidden="true">2.8.</strong> GPT4-Spec</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.9.</strong> Examples</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="disp/examples/category_theory.html"><strong aria-hidden="true">2.9.1.</strong> Category Theory Definitions</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="applications/application-design-philosophy.html"><strong aria-hidden="true">4.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="copyright-is-cancer.html"><strong aria-hidden="true">4.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="what-is-a-monad.html"><strong aria-hidden="true">5.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="node_discovery_ideas.html"><strong aria-hidden="true">5.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -116,35 +125,30 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">Dither Ideas</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
+
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -152,10 +156,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -165,7 +168,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="the-dither-project"><a class="header" href="#the-dither-project">The Dither Project</a></h1>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="the-dither-project"><a class="header" href="#the-dither-project">The Dither Project</a></h1>
 <ul>
 <li><a href="dither.html#the-dither-project">The Dither Project</a>
 <ul>
@@ -236,8 +240,9 @@ Currenly in the dither-sim program, this is implemented via a simple TCP stream.
 <p>The final layer is the interface layer. This just refers to standalone applications that provide some kind of interface to the user using the services running under Dither.</p>
 <p>These interfaces can be implemented however, but it is recommended for them to follow Dither's <a href="dither/application-design-philosophy.html">application design philosophy</a> for some level of standardization.</p>
 <h1 id="other-links"><a class="header" href="#other-links">Other Links</a></h1>
-<h3 id="a-hrefditherinspirationshtmlinspirations-for-dithera"><a class="header" href="#a-hrefditherinspirationshtmlinspirations-for-dithera"><a href="dither/inspirations.html">Inspirations for Dither</a></a></h3>
+<h3 id="inspirations-for-dither"><a class="header" href="#inspirations-for-dither"><a href="dither/inspirations.html">Inspirations for Dither</a></a></h3>
 <p>Dither as with any creative endeavor takes inspiration from many other projects. This is a list of what parts of Dither have been inspired from other projects.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="structure-1"><a class="header" href="#structure-1">Structure</a></h1>
 <p>This document outlines the major structure of Dither.</p>
 <h2 id="system-manager"><a class="header" href="#system-manager">System Manager</a></h2>
@@ -281,48 +286,65 @@ i.e.
 Dither Chat will use the Dither Chat Service
 Dithca will use the Dithca service.</p>
 <p>Or applications can use a multitude of different services as needed.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="dither-anonymous-routing"><a class="header" href="#dither-anonymous-routing">Dither Anonymous Routing</a></h1>
-<p>Dither Anonymous Routing (DAR) is a protocol for efficiently obfuscating connections between computers.</p>
-<p>It improves on speed and flexibility over existing solutions (I2P and TOR) by taking into account the latency between nodes on the network. Instead of having to randomly choose nodes from a global list to route through, by knowing the relative latencies of nodes, routing paths between nodes can be chosen to optimize for low-latency or anonymity, or a balance of both.</p>
-<h2 id="distance-based-routing-dbr"><a class="header" href="#distance-based-routing-dbr">Distance-Based Routing (DBR)</a></h2>
-<p>To figure out the relative latencies between nodes so as to establish low-latency paths to a destination, DBR makes the observation that the <strong>latency between nodes roughly correlates with the physical distance between them</strong>. This means coordinates can be assigned to nodes such that the communication latency between nodes can be estimated as the euclidian distance between coordinates. These coordinates will be referred to as &quot;routing coordinates&quot;.</p>
-<p>While the goal of distancce-based routing could be achieved by assigning a routing coordinate to each node in the network, This has two major problems: </p>
+<p>Dither Anonymous Routing (DAR) is a peer-to-peer protocol for efficiently and flexibly obfuscating connections between computers.</p>
+<p>It improves on speed and versatility over existing solutions (i.e. I2P and TOR) by incorporating latency and bandwidth estimation techniques so that intermediate relays may be (optionally) optimally chosen. It exposes this option to applications built on DAR, allowing the developers and users to explicitly dictate the trade-off they prefer between speed and anonymity for each networked application they use.</p>
+<p>In addition, to align itself with the philosophy of Dither, DAR aims to be as generic as possible, so that different encryption schemes and transport types may be used for different connections to hedge against the risk of one of them breaking, as well as easily allowing for novel schemes that may not be rigorously tested, but have desirable properties such as the stateless encryption protocol described in <a href="https://arxiv.org/pdf/1507.05724v3.pdf">HORNET</a>.</p>
+<h2 id="route-properties-prediction-rpp"><a class="header" href="#route-properties-prediction-rpp">Route Properties Prediction (RPP)</a></h2>
+<p>In order to optimally select relays to establish onion routes through, it would be desirable to select nodes that have high-bandwidth connections and are located “en-route” between the sender and receiver. In small networks, this could be accomplished by every node measuring latency and bandwidth to every other node periodically, and then compiling a two separate shared <code>N*N</code> matrices representing the pairwise measurements of latency and bandwidth respectively. Then, when a path of relays needs to be selected, the requesting node would test all possible paths through the network to find the shortest ones and then send requests to nodes on those paths to be relays. This would (probably) work but exposes lots of information about the network publically and even in relatively small networks of even 20+ nodes, computational, communication, and storage costs make this solution completely infeasible.</p>
+<p>There are still some methods to solve this problem, albeit less accurately. An individual without much experience in linear algebra might be able to think up a solution to solve the latency part of the problem, simply by observing that <em>latency between nodes seems to roughly correlate with physical distance between nodes</em>. To see if this correlation is modle-able in practice, one could assign 3-dimensional coordinates (because we live in a 3D world) to each node and have each node progressively update that coordinate such as to minimize the latency prediction error with its peers, functionally “embedding” the latency metric into a 3D space. In this scenario, real-world latency is predicted via the “Euclidean Distance” function and this is roughly what the <a href="https://pdos.csail.mit.edu/papers/vivaldi:sigcomm/paper.pdf">Vivaldi</a> paper does, and it does predict latency. This method is considerably inaccurate because while Latency <em>does</em> correlate with physical distance, is not a direct causal relationship. Anything from internal processing latency, dynamic packet switching, or just a cable that doesn’t go directly from the source to destination will lengthen distances, which will then distort the space that we are trying to use to predict latencies.</p>
+<p>For the math people: There are two properties that Euclidean physical space must have, but latency does not: Symmetry, and The Triangle Inequality. In physical space, the distance from point A to point B must be equivalent no matter from which you are measuring. This is not the case for computers on the internet as ISPs may delay connections initiated by certain nodes but not others. Symmetry violations are rare and typically non-consequential, but Triangle Inequality violations are <em>everywhere</em> when measuring latency. The Triangle Inequality says that given a measurement from point A to point B, a measurement from point A to B to C must always be greater than from A to B. (assuming C is not A or B). This inequality is frequently violated on the internet due to the tree-like way it is organized and the fact that routing tables may not always route packets along the most optimal paths (due to misconfiguration, or congestion management).</p>
+<p>For those who know linear algebra, the better way to solve this problem is to imagine a large, partially filled <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> matrix, where the ith row and jth column represent a latency or bandwidth measurement from node i to node j. When constructed on real networks, various papers have discovered that this matrix has a <a href="https://en.wikipedia.org/wiki/Rank_(linear_algebra)">low rank</a>. Rank is a metric measuring how <em>linearly independent</em> rows and columns of a matrix is, and matrices that are low-rank can be approximated by two matrices <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> is the approximate rank of a large <code>N*N</code> matrix. Given a vector from column i from the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> matrix and vector from row j from the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> matrix factor, the dot product between the two vectors is the predicted latency from node i to node j. Note that unlike Vivaldi, this measurement is directional and you could swap rows/column indices where the vectors are chosen from to get a measurement from node j to node i instead.
+The “factorization” algorithm can be done on a single computer, but it can also be modified to work across a distributed peer-to-peer network similar to Vivaldi by simply doing running an optimization algorithm on each node to find a pair of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>-size vectors that minimizes the difference between measured latency/bandwidth to directly connected nodes and predicted latency/bandwidth. I call this set of vectors “Routing Coordinates”.</p>
+<h3 id="modeling-fluctuating-connections"><a class="header" href="#modeling-fluctuating-connections">Modeling Fluctuating Connections</a></h3>
+<p>While the goal of distance-based routing could be achieved by calculating a routing coordinate to each node in the network, This has two major problems: </p>
 <ol>
 <li>
-<p>Individual nodes or even whole parts of the network may be moving in relation to other parts of the network. (i.e. an airplane, or interplanetary communication). Thus requiring continuous recalculation of routing coordinates for all moving parties involved (which may include an entire planet, if used for inter-planetary routing).</p>
+<p>Individual nodes or even whole parts of the network may be moving in relation to other parts of the network, and thus fluctuating in terms of  (i.e. an airplane, or interplanetary communication). Thus requiring continuous recalculation of routing coordinates for all moving parties involved (which may include an entire planet, if used for inter-planetary routing).</p>
 </li>
 <li>
-<p>Multiple networks may form independently and thus may have incompatible coordinate systems when communicating, requiring expansive re-syncronization or some kind of coordinate translation.</p>
+<p>Multiple networks may form independently and thus may form incompatible coordinate systems when communicating, requiring resynchronization or some kind of coordinate translation.</p>
 </li>
 </ol>
-<p>The simple solution to this issue is to do what we humans do, <em>allow for different frames of reference</em>. Instead of each node calculating its own coordinates based on the coordinates of other nodes, each node is the center of its own universe and all other nodes are simply offset from itself. I will call these offsets &quot;relative routing coordinates&quot; (RRCs). When two nodes want to communicate with each other, they must figure out where they are relative to some shared frame of reference.</p>
+<p>The solution to this issue that would work with a Vivaldi-type prediction scheme reflects something that humans do: <em>allow for different frames of reference</em>. Instead of each node calculating its own coordinates based on the global coordinates of other nodes, each node is the center of its own universe and it simply represents other nodes are simply offset from itself. I will call these offsets “relative routing coordinates” (RRCs). When two nodes want to communicate with each other, they must agree on some shared known point of reference, and then exchange their relative routing coordinates to that reference to be able to route through the network. This would formalize the idea that groups of computers may be changing relative to other groups of computers and would allow for more granular changes of relative coordinates rather than constant changes of global coordinates.</p>
+<p>Unfortunately, this strategy doesn’t work for matrix-factorization-based latency prediction, because translation is not a transformation that preserves the dot product between two vectors. Only rotations and reflections do. The problem here is still open, but I suspect the solution will entail some form of <a href="https://sci-hub.st/https://dl.acm.org/doi/10.1109/TNET.2020.3022757">tensor factorization</a> or perhaps an even more advanced machine learning model. A somewhat general form of the problem is formalized as follows:</p>
+<p>The metric is predicted at some time via some black box function using the local coordinates and remote coordinates:
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.244em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9579em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span></span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0833em;"><span class="mord">ˆ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></p>
+<p>Metrics are occasionally measured at some time t: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>We must minimize the difference between the predicted and measured metric at any given time and update our current coordinates.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.7333em;vertical-align:-1.0389em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6679em;"><span style="top:-2.1612em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mrel mtight">∈</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5935em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop"><span class="mop"><span class="mop"><span class="mord mathrm" style="margin-right:0.01389em;">arg</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathrm">min</span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.0389em;"><span></span></span></span></span></span></span><span class="mspace"> </span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></span></p>
+<h3 id="other-concerns-and-assumptions"><a class="header" href="#other-concerns-and-assumptions">Other Concerns and Assumptions</a></h3>
+<p>An assumption of this scheme is that intermediate routes will be directly connected to each other, but this will often not be the case, especially in the case where intermediate nodes are far away from each other. In this case, the current vision for the protocol states that packets will traverse through nodes in-between relays on the network. This will probably cause unnecessary congestion, but hopefully the discovery and peer-to-peer karma system will route the majority of traffic along high-connected nodes.</p>
 <h2 id="peer-discovery"><a class="header" href="#peer-discovery">Peer Discovery</a></h2>
-<p>To assign relative coordinates to nodes, there is a process of peer-discovery that functions as follows. This process happens whenever a new node joins the network.</p>
+<p>To form a network, there needs to be a process for new nodes to connect to existing nodes. Dither Anonymous Routing aims to allow peers to be as anonymous as possible, and thus the peer discovery method aims to expose as little as possible about nodes on the network. Specifically, as little information as possible about nodes that don’t want to be discovered, and nodes far away (latency-wise) from the new node.</p>
+<p>TLDR: Peer Discovery must expose information about <em>some</em> nodes, but should only expose information about nodes that are nearby and want to be known.</p>
+<p>For more information, check out the <a href="dither/./discovery.html">Discovery</a> section.</p>
+<p>To assign routing coordinates to nodes, there is a process of peer-discovery that functions as follows. This process happens whenever a new node joins the network.</p>
 <ol>
 <li>New node bootstraps onto the network by initiating connection to one or more existing nodes.</li>
 <li>New node tests response times (latency) to connected nodes (peers). </li>
-<li>New node requests from some subset of lowest-latency peers that it would like more peers.</li>
-<li>New node's peers notify some slice of their peers that a new node would like more connections.</li>
-<li>Notified nodes initiate connection with new node and new node measures latency to new peers.</li>
+<li>New node requests from some subset of lowest-latency (closest) peers that it would like more peers.</li>
+<li>New node’s peers notify some slice of their peers that a new node would like more connections.</li>
+<li>Notified nodes initiate connection if they are configured to do so and measure latency to new peers.</li>
+<li>Notified nodes initiate connection with new nodes and new nodes measure latency to new peers.</li>
 <li>New node takes note of the smallest latencies of its peers and goes back to step 3 until there are no closer nodes who want to peer.</li>
-<li>After a certain number of closest nodes are found whose latency measurements are stable, the new node then calculates relative routing coordinates for all of its active peers via <a href="https://en.wikipedia.org/wiki/True-range_multilateration">multilateration</a> and broadcasts them to all the nodes used in the calculation.</li>
+<li>After a certain number of closest nodes are found whose latency measurements are stable, the new node then calculates routing coordinates and is records its currently connected nodes so that it may reconnect when if went offline.</li>
 </ol>
-<p>Through this process, a distributed small-world network is formed that reflects the physical topology of the relative orientations of the nodes.</p>
-<h2 id="relative-routing-coordinates"><a class="header" href="#relative-routing-coordinates">Relative Routing Coordinates</a></h2>
-<p>Relative Routing coordinates (RRC) in this system acts as a replacement for IP addresses in conventional routing.</p>
+<p>Through this process, a distributed network is formed that reflects the physical topology of the relative orientations of the nodes.</p>
 <h3 id="process"><a class="header" href="#process">Process</a></h3>
 <p>A packet with an RRC can be routed to its destination via the following process:</p>
 <ol>
 <li>Node chooses the peer that will receive the packet next by comparing RRC directions</li>
-<li>Node subtracts next peer's RRC from packet's RRC</li>
+<li>Node subtracts next peer’s RRC from packet’s RRC</li>
 <li>Node forwards modified packet to next peer</li>
 </ol>
-<p>The process continues until the packet's RRC is all zeroes and the last node it reaches either is the destination node, knows the destination node, or is the wrong node in which case the packet is dropped or sent back depending on the packet type.</p>
+<p>The process continues until the packet’s RRC is all zeroes and the last node it reaches either is the destination node, knows the destination node, or is the wrong node in which case the packet is dropped or sent back depending on the packet type.</p>
 <h3 id="usage"><a class="header" href="#usage">Usage</a></h3>
-<p>Compared to the global routing tables and complicated peering and address space allocation protocols that the existing internet uses. RRCs are much better for peer-to-peer applications because they are pretty much infinitely scalable. </p>
-<p>That said, RRCs in some ways give away <em>more</em> information than traditional IP addresses do. Since the self-organized networks that use RRCs reflect real-world network topologies, just knowing someone's routing coordinate relative to you could be akin to knowing roughly where they live. This is an acceptable risk because it is much easier to do efficient onion routing on networks with RRCs than those without meaning that there is no reason not to have all connections onion-routed to some degree, providing better privacy overall.</p>
-<p>Other benefits of routing coordinates are that they have the potential to almost completely prevent denial-of-service attacks. To even attempt such an attack, the attacker must find the routing coordinate of their target. Disregarding user error, this kind of attack is essentially impossible since everything is onion-routed by default. Even if the attacker does have the target's routing coordinate, trying to DOS a routing coordinate is like trying to DOS the entire expanse of network between the attacker and the target, the attacker(s) will be ineffective or blocked by other nodes automatically for overuse of the network. Even distributed denial of service attacks can be mitigated with additions to the protocol allowing the victim to notify the network that they are being attacked and to rate limit the attackers.</p>
-<h2 id="anonymous-routing-onions-garlic-and-all-the-others"><a class="header" href="#anonymous-routing-onions-garlic-and-all-the-others">Anonymous Routing (Onions, Garlic, and all the others...)</a></h2>
+<p>Compared to the global routing tables and complicated peering and address space allocation protocols that the existing internet uses. Routing Coordinates are much better for peer-to-peer applications because they are pretty much infinitely scalable. </p>
+<p>That said, RC in some ways give away <em>more</em> information than traditional IP addresses do. Since the self-organized networks that use RCs reflect real-world network topologies, just knowing someone’s routing coordinate relative to you could be akin to knowing roughly where they live. This is an acceptable risk because it is much easier to do efficient onion routing on networks with RCs than those without meaning that there is no reason not to have all connections onion-routed to some degree, providing better privacy overall.</p>
+<p>Other benefits of routing coordinates are that they have the potential to almost completely prevent denial-of-service attacks. To even attempt such an attack, the attacker must find the routing coordinate of their target. Disregarding user error, this kind of attack is essentially impossible since everything is onion-routed by default. Even if the attacker does have the target’s routing coordinate, trying to DOS a routing coordinate is like trying to DOS the entire expanse of network between the attacker and the target, the attacker(s) will be ineffective or blocked by other nodes automatically for overuse of the network. Even distributed denial of service attacks can be mitigated with additions to the protocol allowing the victim to notify the network that they are being attacked and to rate limit the attackers.</p>
+<h2 id="anonymous-routing-onions-garlic-and-all-the-others"><a class="header" href="#anonymous-routing-onions-garlic-and-all-the-others">Anonymous Routing (Onions, Garlic, and all the others…)</a></h2>
 <p>Conventionally, anonymous routing is an incredibly slow ordeal because of how intermediate peers are selected from the network. Due to this inefficiency, onion routing protocols have been somewhat limited in what kind of privacy they can provide because low data rates and high latency was a concern. This is no longer the case with DBR, which may support all kinds of anonymous routing schemes:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Onion_routing">Onion Routing</a>
@@ -349,7 +371,7 @@ Dithca will use the Dithca service.</p>
 <p>DBR plans to use a modification of the <a href="https://arxiv.org/abs/1507.05724v3">HORNET</a> protocol for setting up fast onion-routed links.</p>
 <h2 id="preventing-network-abuse"><a class="header" href="#preventing-network-abuse">Preventing Network Abuse</a></h2>
 <p>Routing protocols that rely solely on people voluntarily hosting nodes typically only have a relatively small number of peers willing to route packets through themselves (i.e. TOR). This is why protocols like BitTorrent, I2P and IPFS have systems in place that incentivize peers who use the network to contribute back for the benefit of all.</p>
-<p>To accomplish this behavior for DBR there must to be some way to limit packets going through nodes that either don't use the network that much or don't have a lot of bandwidth capacity and speed up packets through nodes that contribute greatly to the network. Also to take into consideration are the management of nodes that have inconsistent uptime or inconsistent routing.</p>
+<p>To accomplish this behavior for DBR there must be some way to limit packets going through nodes that either don’t use the network that much or don’t have a lot of bandwidth capacity and speed up packets through nodes that contribute greatly to the network. Also, to take into consideration are the management of nodes that have inconsistent uptime or inconsistent routing.</p>
 <p>When talking about incentives, we are talking about game theory. So lets analyze the game theoretical situation at the level of an individual node.</p>
 <p>Constraints:</p>
 <ul>
@@ -385,24 +407,25 @@ Dithca will use the Dithca service.</p>
 <ul>
 <li>Applying Vivaldi to Anonymous Routing</li>
 </ul>
-<p>[4] <a href="https://user.informatik.uni-goettingen.de/%7Eychen/papers/Phoenix_TNSM.pdf">Phoenix: A Weight-Based Network Coordinate
+<p>[4] <a href="https://user.informatik.uni-goettingen.de/~ychen/papers/Phoenix_TNSM.pdf">Phoenix: A Weight-Based Network Coordinate
 System Using Matrix Factorization</a></p>
 <ul>
 <li>Improvements on Vivaldi, uses Matrix Factorization instead of Euclidian Embedding</li>
 </ul>
-<p>[5] <a href="https://ix.cs.uoregon.edu/%7Elijun/pubs/pdfs/chen15ncshield.pdf">NCShield: Protecting Decentralized, Matrix
+<p>[5] <a href="https://ix.cs.uoregon.edu/~lijun/pubs/pdfs/chen15ncshield.pdf">NCShield: Protecting Decentralized, Matrix
 Factorization-Based Network Coordinate Systems</a></p>
 <ul>
 <li>Threat modeling on Network Coordinate Systems. Prevents Frog-Boiling attacks.</li>
 </ul>
 <p>[6] <a href="https://arxiv.org/pdf/1201.1174.pdf">DMFSGD: A Decentralized Matrix Factorization Algorithm for Network Distance Prediction</a></p>
 <ul>
-<li>Improvements on Phoenix paper's algorithm.</li>
+<li>Improvements on Phoenix paper’s algorithm.</li>
 </ul>
 <p>[7] <a href="https://netdb.cis.upenn.edu/papers/a3-ndss.pdf">Application-Aware Anonymity, Sherr et al.</a></p>
 <ul>
 <li></li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="directional-trail-search"><a class="header" href="#directional-trail-search">Directional Trail Search</a></h1>
 <p>Directional Trail Search (DTS) is a protocol for efficiently fetching a piece of stored data from a network given its hash.</p>
 <p>It is intended to be a vast improvement over existing protocols like <a href="https://ipfs.tech/">IPFS</a> by removing the use of spatially-inefficient Distributed Hash Tables (DHT), allowing for anonymous retrival and optionally anonymous hosting, and fixing the issue of scalability to create a true &quot;inter-planetary&quot; file system.</p>
@@ -454,6 +477,7 @@ Factorization-Based Network Coordinate Systems</a></p>
 <li>Store routing coordinates / routing areas on the Reverse Hash Lookup.</li>
 <li>Implement a Network Coordination feature that tells all nodes in the network to notify a node when they find the requested data. (induces denial of service vector, probably a bad idea)</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="reverse-hash-lookup-wip"><a class="header" href="#reverse-hash-lookup-wip">Reverse Hash Lookup (WIP)</a></h1>
 <p>Directed Acyclic Graph data structures (DAGs) may be elegant for storing and linking pieces of data, but they don't provide any kind of mutability on their own. This is the purpose of the Reverse Hash Lookup (RHL). RHL allows you to create a piece of data that links to two or more other pieces of data (via hash-linking) <em>and then lookup the link given one of the linked pieces of data</em>.</p>
 <h2 id="structure-2"><a class="header" href="#structure-2">Structure</a></h2>
@@ -489,6 +513,77 @@ Factorization-Based Network Coordinate Systems</a></p>
   valid_link: (fetch(hash) : T)
 }
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="user-magagement"><a class="header" href="#user-magagement">User Magagement</a></h1>
+<h2 id="desirable-properties"><a class="header" href="#desirable-properties">Desirable Properties</a></h2>
+<ul>
+<li>Flexible Provenance
+<ul>
+<li>A user should be able to choose how strong the link between the data they publish and themselves is. (i.e. optional / zk proof / ring signature signing)</li>
+</ul>
+</li>
+<li>Flexible Privacy
+<ul>
+<li>A user should be able to choose to a reasonable extent who can see the data they publish. (i.e. one-to-many group-based publishing)</li>
+</ul>
+</li>
+<li>Multi-device support &amp; Realistic recovery mechanisms from compromised devices.
+<ul>
+<li>If a user looses access to their devices or a mechanism of authentication (password) or device gets compromised, there should be realistic mechanisms to recover the damage both to the public and privately.</li>
+</ul>
+</li>
+<li>Anonymous Collective Feedback
+<ul>
+<li>For mechanisms of collective feedback (like/dislike counters, analytics), the data associated with the feedback event should not in general be attributable to a particular group, but should be verifiable that it was a unique member of the group that did the feedback.</li>
+</ul>
+</li>
+<li>Flexible Storage Permissions
+<ul>
+<li>Encrypted data associated with a user, stored across many different computers, should support permission hierarchies based on the sensitivity of the data. I.e. requiring more factors of authentication.</li>
+</ul>
+</li>
+<li>Web-of-trust Identity
+<ul>
+<li>Data associated with a user's identity should be vouchable by other users (in a web-of-trust) or by mechanistic processes. The identifying data should</li>
+</ul>
+</li>
+</ul>
+<h2 id="inspiration"><a class="header" href="#inspiration">Inspiration</a></h2>
+<ul>
+<li>Scuttlebutt</li>
+<li>Polycentric</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="identity"><a class="header" href="#identity">Identity</a></h1>
+<p>Identification is needed when one party must store and retrieve data associated with another party for the purpose of specific interaction.</p>
+<p>Formally, identification is the process by which one party (identifier) under some assumptions internally associates some external stimulus with the known identity of another party, thus changing the identifying party's behavior.</p>
+<p>For Example: </p>
+<ul>
+<li>A service (identifying party) must identify a user (identified party) using a username and password (external stimulus) to allow the user to log in (changed behavior).
+<ul>
+<li>Main Assumption: The user's password or computer they are using has not been compromised.</li>
+</ul>
+</li>
+<li>An individual must identify a fellow human being using their senses before treating them not as a stranger.
+<ul>
+<li>Main Assumption: The fellow human is not attempting to disguise themselves as someone else.</li>
+</ul>
+</li>
+<li>When receiving an encrypted message from a friend, the receiver must identify the friend by verifying the signature of the message using the friend's known public key.
+<ul>
+<li>Main Assumption: The public key truly does belong to the friend and the friend's private key has not been compromised.</li>
+</ul>
+</li>
+</ul>
+<h2 id="design"><a class="header" href="#design">Design</a></h2>
+<p>In Dither, there will be two general categories of identification.</p>
+<ul>
+<li>Cryptographic identification</li>
+<li>Characteristic-based identification.</li>
+</ul>
+<p>Cryptographic identification will occur for when one needs to identify an party on other other end of a specific communication channel.</p>
+<p>Characteristic-based identification will occur when one needs to find publically-declared associated data (i.e. public keys) of another party given only knowing certain characteristics of the other party.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="disp-decentralized-lisp"><a class="header" href="#disp-decentralized-lisp">Disp (Decentralized Lisp)</a></h1>
 <p><em>What is a program? What is data? Why, they are one of the same.</em></p>
 <p>Inspired by:</p>
@@ -522,9 +617,9 @@ Factorization-Based Network Coordinate Systems</a></p>
 </ul>
 <h2 id="core-ideas"><a class="header" href="#core-ideas">Core Ideas</a></h2>
 <ul>
-<li></li>
+<li><a href="disp/syntax-agnosticism.html">Agnostic Syntax</a></li>
 <li><a href="disp/universal-system-of-types.html">Universal System of Types</a></li>
-<li>[Binding Trees]</li>
+<li><a href="disp/hardware-modeling.html">Hardware Modeling</a></li>
 </ul>
 <h2 id="ideas"><a class="header" href="#ideas">Ideas</a></h2>
 <ul>
@@ -564,6 +659,7 @@ Factorization-Based Network Coordinate Systems</a></p>
 <p>The language files are not stored as text files, they are instead stored as self-defining structures of groups of commands.</p>
 </li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="universal-system-of-types"><a class="header" href="#universal-system-of-types">Universal System of Types</a></h1>
 <blockquote>
 <p>a type system is a logical system comprising a set of rules that assigns a property called a type to every &quot;term&quot;</p>
@@ -574,16 +670,15 @@ Factorization-Based Network Coordinate Systems</a></p>
 <p>This allows the programmer to define their own type system in Disp. Or just use a pre-made one.</p>
 <h2 id="the-implementation"><a class="header" href="#the-implementation">The Implementation</a></h2>
 <p>In disp, every term is stored in a <a href="disp/names.html">context</a> as a judgement that contains a term and a type:</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>struct Judgement {
 	term: Expr,
 	ty: Expr,
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>To verify if a judgement is valid and may be stored in a context, the compiler encodes the term using simple church-encoded data structures (like tuples and sums). The encoded form is then applied to the <code>ty</code> expression and beta-reduced. The judgement is considered valid if the expression reduces to <code>Expr::Var</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="type-system-of-disp"><a class="header" href="#type-system-of-disp">Type System of Disp</a></h1>
 <p>While the type system of Disp can be literally <a href="disp/universal-system-of-types.html">any computable program</a>, disp will have its own standard type system defined in the standard <a href="disp/names.html">context</a> that will allow for the creation of programs optimisable to a level at or beyond the speed of C and Rust.</p>
 <p>The standard type system for disp should be:</p>
@@ -635,8 +730,8 @@ Factorization-Based Network Coordinate Systems</a></p>
 </ul>
 <p>A paper outlining a potential framework for a type system unifying all 3 of these substructural modes can be found <a href="https://mitpress-request.mit.edu/sites/default/files/titles/content/9780262162289_sch_0001.pdf">here</a>.</p>
 <h2 id="minimal-type-theory"><a class="header" href="#minimal-type-theory">Minimal Type Theory</a></h2>
-<p>In order for Disp to be able to double as a general-purpose theorem prover, the ideas from <a href="https://www.math.unipd.it/%7Esambin/txt/MaiettiSambin-rev2.pdf">this paper</a> describing a Minimal Type Theory (mTT) may be used.</p>
-<h2 id="inspiration"><a class="header" href="#inspiration">Inspiration</a></h2>
+<p>In order for Disp to be able to double as a general-purpose theorem prover, the ideas from <a href="https://www.math.unipd.it/~sambin/txt/MaiettiSambin-rev2.pdf">this paper</a> describing a Minimal Type Theory (mTT) may be used.</p>
+<h2 id="inspiration-1"><a class="header" href="#inspiration-1">Inspiration</a></h2>
 <ul>
 <li>
 <p><a href="https://www.youtube.com/watch?v=zt0OQb1DBko">ATS Language</a></p>
@@ -645,12 +740,14 @@ Factorization-Based Network Coordinate Systems</a></p>
 <p><a href="https://mitpress-request.mit.edu/sites/default/files/titles/content/9780262162289_sch_0001.pdf">Substructural Type Systems</a></p>
 </li>
 <li>
-<p><a href="https://www.math.unipd.it/%7Esambin/txt/MaiettiSambin-rev2.pdf">Towards a Minimalist Foundation for Constructive Mathematics</a></p>
+<p><a href="https://www.math.unipd.it/~sambin/txt/MaiettiSambin-rev2.pdf">Towards a Minimalist Foundation for Constructive Mathematics</a></p>
 </li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="syntax-agnosticism"><a class="header" href="#syntax-agnosticism">Syntax Agnosticism</a></h1>
 <p>Syntax is one of the most visible barriers separating different languages from each other. It is easy to distinguish between Lisp and C, BASIC and APL, Haskell and Fortran. All these languages can pretty much do the same things, but their different syntax plays a big role in preventing programmers experienced in one from trying out another.</p>
 <p>Disp aims to solve this issue by allowing the programmer to use whatever syntax style they prefer. This is possible because Disp is not stored in text files, it is instead temporarily rendered to a text file in a given syntax style and then parsed back to a structured binary format. Syntax styles should be compatible with each other and switching between them should be as simple as a click of a button.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="syntax"><a class="header" href="#syntax">Syntax</a></h1>
 <p>Since Disp has <a href="disp/syntax-agnosticism.html">Syntax Agnosticism</a>, it does not require one set syntax. For consistency and branding purposes however, Disp will have its own succinct and readable default syntax. This </p>
 <p>Disp's default syntax is still a work-in-progress, however I think I want something similar to lisp with various Rust conventions sprinkled in.</p>
@@ -743,6 +840,7 @@ some_struct = (1098342 (&quot;Hello, World!&quot;, 'u')):SomeStruct
 
 (1098342:B64 -12304: String:&quot;hello there&quot; Symbol:hello)
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="names"><a class="header" href="#names">Names</a></h1>
 <h2 id="a-natural-idea"><a class="header" href="#a-natural-idea">A Natural Idea</a></h2>
 <p>A word in a language is a label to which we assign a definition. These definitions may be physical or abstract, but in a programming languages: a definition is a piece of code.</p>
@@ -756,8 +854,7 @@ some_struct = (1098342 (&quot;Hello, World!&quot;, 'u')):SomeStruct
 <h1 id="structure-3"><a class="header" href="#structure-3">Structure</a></h1>
 <p>Names and programs in Disp are separate, this is so that alpha-equivalence is preserved and so that the same program may be able to named differently by different people.</p>
 <p>A program is represented by an <a href="disp/expr.html"><code>Expr</code></a>. A Named program is represented by a <code>NamedExpr</code></p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>enum Expr {
 	Abs { binding: Binding, expr: Expr },
@@ -774,8 +871,8 @@ enum NameTree {
 	Name(NamedExpr)
 	End,
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="hardware-modeling"><a class="header" href="#hardware-modeling">Hardware Modeling</a></h1>
 <h4 id="how-do-we-generate-fast-code"><a class="header" href="#how-do-we-generate-fast-code">How do we generate fast code?</a></h4>
 <ul>
@@ -825,11 +922,11 @@ enum NameTree {
 </ul>
 </li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="fundamental-constructs"><a class="header" href="#fundamental-constructs">Fundamental Constructs</a></h1>
 <h2 id="expressions"><a class="header" href="#expressions">Expressions</a></h2>
 <p>Expressions in Disp are programs and match the untyped lambda calculus. They are represented as follows:</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>enum Expr {
 	Var,
@@ -841,29 +938,25 @@ enum Binding {
 	End,
 	Branch(Binding, Binding),
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>See how the <code>Binding</code> structure works <a href="disp/./bind-trees.html">here</a>.</p>
 <h2 id="judgements"><a class="header" href="#judgements">Judgements</a></h2>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>struct Judgement {
 	term: Expr,
 	ty: Expr,
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>Judgements are considered valid if when the structure of <code>term</code> is encoded into the lambda calculus, and <code>Expr::App(ty, encoding)</code> beta-reduces to <code>Expr::Var</code>.</p>
 <h2 id="contexts"><a class="header" href="#contexts">Contexts</a></h2>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>struct Context {
 	names: Map&lt;String, Judgement&gt;
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="bind-trees-a-deduplication-friendly-alternative-to-de-brujin-indicies"><a class="header" href="#bind-trees-a-deduplication-friendly-alternative-to-de-brujin-indicies">Bind Trees: A deduplication friendly alternative to De Brujin Indicies.</a></h1>
 <p>Used in [Disp]</p>
 <p>The current most well known way of representing the lambda calculus is <a href="https://en.wikipedia.org/wiki/De_Bruijn_index">De Brujin Indicies</a>.</p>
@@ -907,6 +1000,7 @@ As opposed to De Brujin indices where the variables &quot;point&quot; to their c
 <li><code>App(Hash, Hash)</code></li>
 <li><code>Lam(Hash, Hash)</code></li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="disp-language-design"><a class="header" href="#disp-language-design">Disp Language Design</a></h1>
 <p>Disp is an ambitious programming language designed to be the ultimate language that can successfully interpret the source code of any other language in the world. The primary features of disp include user-defined syntax, abstract syntax trees (ASTs), flexibility in programming paradigms, and extensibility. This summary outlines the key aspects of the language's design, organized into relevant sections.</p>
 <h2 id="abstract-syntax-trees-asts"><a class="header" href="#abstract-syntax-trees-asts">Abstract Syntax Trees (ASTs)</a></h2>
@@ -941,18 +1035,16 @@ Language Evolution and Versioning</p>
 <p>High-quality documentation, tutorials, and learning resources are essential for the success and adoption of disp. A plan should be put in place for the creation and maintenance of comprehensive documentation to support both new and existing users.</p>
 <h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
 <p>Disp is a highly ambitious and flexible programming language designed to interpret the source code of any other language. With user-defined syntax, versatile ASTs, support for multiple programming paradigms, a strong static type system, and a focus on optimization, disp aims to be the ultimate programming language. The language will continue to evolve as new features are added and existing features are refined, with a strong emphasis on tooling, documentation, and learning resources to support its growing user base.</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>/// Endofunctor is a function from `Type -&gt; Type` and a mapping operation for morphisms.
 set Endofunctor { F : { A : Type } -&gt; Type } -&gt; {
 	/// map is a mapping operation for outgoing morphisms on `A : Type`.
 	map : { [ B : Type, morphism : A -&gt; B ], a : F(A) } -&gt; F(B)
 }
-<span class="boring">}
-</span></code></pre></pre>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>/// Magma is a type with a &quot;unit&quot; element and a binary operation
 set Magma [ M : Type ] -&gt; {
@@ -1002,10 +1094,8 @@ set Group [ M : Type ] -&gt; [
 		Inversability[M, magma]
 	}
 ]
-<span class="boring">}
-</span></code></pre></pre>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>/// Full definition of a monoid
 set Monoid [ M : Type ] -&gt; [
@@ -1018,18 +1108,16 @@ set Monoid [ M : Type ] -&gt; [
 		identity : { a : M } -&gt; Equivalence(multiplication(a, unit), multiplication(unit, a))
 	}
 ]
-<span class="boring">}
-</span></code></pre></pre>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>/// A Monad is just an Endofunctor and a Monoid
 set Monad [ M : Type -&gt; Type ] -&gt; {
 	Endofunctor(M)
 	Monoid(M)
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="dither-application-index"><a class="header" href="#dither-application-index">Dither Application Index</a></h1>
 <h2 id="list-of-application-ideas"><a class="header" href="#list-of-application-ideas">List of application Ideas</a></h2>
 <ul>
@@ -1070,6 +1158,7 @@ set Monad [ M : Type -&gt; Type ] -&gt; {
 </ul>
 </li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="dither-chat"><a class="header" href="#dither-chat">Dither Chat</a></h1>
 <ul>
 <li><a href="applications/dither-chat.html#dither-chat">Dither Chat</a>
@@ -1174,6 +1263,7 @@ Image of a possible dither-chat server arrangement</li>
 </ul>
 </li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="protocol-of-truth"><a class="header" href="#protocol-of-truth">Protocol of Truth</a></h1>
 <p>This is a protocol of back and forth debate with the aim to evaluate the quality and truthfulness of content posted to the internet.</p>
 <p>If you have ever seen a photoshopped post on social media, or a video citing a badly done study you will know that it is incredibly hard to figure out how well-researched a piece of content is at first glance. This Dither protocol aims to inform through discourse the truthfulness of a given piece of media to anyone who might come across it.</p>
@@ -1203,6 +1293,7 @@ Image of a possible dither-chat server arrangement</li>
 </ul>
 </li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="application-design-philosophy"><a class="header" href="#application-design-philosophy">Application Design Philosophy</a></h1>
 <p>Application APIs should be future-proofed as much as possible</p>
 <p>Application GUIs should be generally be as cross platform as possible.</p>
@@ -1223,203 +1314,210 @@ Image of a possible dither-chat server arrangement</li>
 </ul>
 </li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="why-copyright-is-cancer"><a class="header" href="#why-copyright-is-cancer">Why Copyright is Cancer</a></h1>
 <p>Copyright is ineffective in the internet age. Any piece of content can be pirated on a massive scale without the original creator even knowing. The only thing copyright does is suppress derivative creation on forums with strict copyright adherence. See these videos on why <a href="https://www.youtube.com/watch?v=1Jwo5qc78QU">the current copyright system is broken</a> and why it <a href="https://www.youtube.com/watch?v=QVkeJI2feyQ">makes no sense</a>. This document outlines an alternate system of funding creation that Dither aims to create.</p>
 <p><strong>Have a decentralized &amp; democratized forum of communication and publication that no institution or individual can meaningfully obstruct.</strong> Dither is a protocol for creating decentralized applications.</p>
 <p><strong>Provide a direct connection of support between the consumers and the creators allowing people to directly support creators for the content they produce</strong> (<a href="https://www.youtube.com/watch?v=mnnYCJNhw7w">Paying for Production, not Distribution</a>). Even huge projects like Marvel movies or video games can be supported through community fundraising. Each production raises the reputation of the artist(s), allowing them to raise more money from their fans for the next project.</p>
 <p><strong>Preventing artists from having control over their art allows all artists to use and adapt and <em>recreate</em> the work of other artists</strong>. Imagine all the games and movies that were super hyped up but totally flopped. If anyone was allowed to make anyone else's work but better, artists have an incentive to make good stories so that they can raise money for their next project, instead of making something crappy and making all their money off of preorders. This would also prevent the fragmentation of distribution services as no one entity can have exclusive control over a piece of content.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="but-what-is-a-monad"><a class="header" href="#but-what-is-a-monad">But What <strong>IS</strong> a Monad?</a></h1>
 <blockquote>
 <p>This is an article that defines what a Monad while trying to stay as close as possible to its roots in Category Theory.</p>
 </blockquote>
 <p>If you've ever heard of monads in the context of functional programming, you've likely also heard that they are just &quot;Monoids in the Category of Endofunctors&quot;. But what does that even <em>mean</em>?</p>
-<p>A Category, for the purposes of this article, is simply some defined set of mathematical objects (numbers, values, types, terms, or even categories themselves) as well as some set of &quot;morphisms&quot; defined between the objects. A category also has some conventions such as:</p>
+<p>Well for one, this quote could use some more detail. The more descriptive quote is: &quot;a monad in <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.26006em;">X</span></span></span></span> is just a monoid in the category of endofunctors of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.26006em;">X</span></span></span></span>, with product replaced by composition of endofunctors and unit set by the identity endofunctor.&quot;</p>
+<p>Throughout this article, we will define &quot;Category&quot;, &quot;Endofunctor&quot; and &quot;Monoid&quot; in a fictional programming language, and put these definitions together to define a Monad.</p>
+<p>A Category (designated using curly letters, i.e. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.1689em;">C</span></span></span></span>), for the purposes of this article, is simply some defined set of mathematical objects (numbers, values, types, terms, or even categories themselves) as well as some set of &quot;morphisms&quot; defined between the objects. A category also has some conventions such as:</p>
 <ul>
 <li>Every object has a morphism to itself (called the identity morphism)</li>
-<li>Morphisms can be combined much like function composition.</li>
+<li>Morphisms can be combined together into other morphisms much like function composition.</li>
 <li>Morphism composition is associative.</li>
 </ul>
-<p>Functors in category theory are simply morphisms in a &quot;category of categories&quot;. Where categories are objects and functors are just morphisms that map one category to another. This can be visualized at either a high level of abstraction where the functor is just one arrow from category A -&gt; category B. Or at a lower level where a functor could be represented as many parellel arrows uniquely mapping every object and morphism in category A to an object or morphism in category B.</p>
-<p>Endofunctors are just the special case where this &quot;category of categories&quot; just contains one object (a single category). And one morphism (the endofunctor) mapping every object and morphism in the category to another object / morphism in the category.</p>
-<p>When working in a specific Category though, (i.e. a category of terms or types in a programming language) an Endofunctor can be defined as a typeclass on type functions. (for the rustaceans, think of it like a <code>trait</code> that you can implement for type constructors like <code>Option</code> or <code>Vec</code> not <code>Option&lt;T&gt;</code>, just <code>Option</code> by itself).</p>
-<p>When defining what it means to be an Endofunctor formally within a given Category of objects (i.e. a Type System), it can be defined as a collection of two functions: a function that takes a type (A) and returns a type (<code>F&lt;A&gt;</code>) (i.e. the type constructor), and a function that is defined to take an arbitrary function from <code>A -&gt; B</code> where <code>B</code> can be anything and returns a function <code>F&lt;A&gt;</code> -&gt; <code>F&lt;B&gt;</code> (i.e. a morphism constructor). This definition allows one to abstract over a specific endofunctor definition and refer to all endofunctors as a collective. This endofunctor could be defined as follows (warning: pseudocode)</p>
+<p>Functors in category theory are simply morphisms in a &quot;category of categories&quot;. Where categories are objects and functors are just morphisms that map one category to another. This can be visualized at either a high level of abstraction where the functor <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> is just one arrow between two categories (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.22925em;">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.04087em;">B</span></span></span></span>). Or at a lower level where a functor could be represented as many parellel arrows uniquely mapping every object and morphism in category <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.22925em;">A</span></span></span></span> to an object or morphism in category <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.04087em;">B</span></span></span></span>.</p>
+<p>Endofunctors are just the special case where the two categories <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.22925em;">A</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7em;"></span><span class="mord mathscr" style="margin-right:0.04087em;">B</span></span></span></span> are the same category. Endofunctors are essentially just a mapping between each object and morphism in a category to another object/morphism <em>in the same category</em>.</p>
+<p>Endofunctors come up often when working in a specific Categories. For example all the types in a programming language, form a category, where the morphisms are functions defined between them. This category is called <code>Type</code>, and can be thought of as the &quot;type of types&quot;.</p>
+<p>There are many programming languages that have endofunctors. <code>Option</code> in Rust, <code>Maybe</code> in Haskell, or really any kind of wrapper type in any language is technically an endofunctor. While most languages <em>have</em> endofunctors, most don't have a powerful enough type system to formalize the definition of endofunctors itself. (For rustaceans, think of it like a <code>trait</code> that you can implement for type constructors like <code>Option</code> or <code>Vec</code>, not <code>Option&lt;T&gt;</code>, just <code>Option</code> by itself. this is not yet possible in rust at the time this article was written).</p>
+<p>When defining what it means to be an Endofunctor formally within a given Category of objects (i.e. a Type System), one needs a powerful <em>dependently-typed</em> lagnuage. For the purposes of this article, we will be using a fictitious dependently-typed language. The following is an outline of some of the general features of the language.</p>
 <blockquote>
-<p>Pseudocode Definitions (skip this if you think you can grok the psuedocode first try XD):</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<p>Pseudocode Definitions (skip this if you think you can grok the psuedocode first try):</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>//This binds some name to a value in some context. The value may be a type (like Vec(A)) or a value (like `3`)
-set &lt;name&gt; &lt;value&gt;
-<span class="boring">}
-</span></code></pre></pre>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+</span>//This binds some name to a value and an optional type in some context. The value may be a type (like Vec(A)) or a value (like `3`)
+let &lt;name&gt; [: &lt;type&gt;] := &lt;value&gt;
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// A name bound to a value may be given a valid type, or one will be inferred.
 // This will have an inferred type of `Nat` because 3 is most likely to be a natural number
-set three 3
-// The type of `four` is specified to be `Int` (i.e. an integer). This is valid because while 4 : Nat, Nat is a subset of Int.
-set four 4 : Int
-// This is a type declaration. `Likelyhood` is defined to be a set of two numbers of type `Nat` and `Float`. Optionally, two names have been assigned to these numbers: `count` and `probability`. Curly braces represents un-ordered sets of objects.
-set Likelyhood { count: Nat, probability: Float }
+let three := 3
+// The type of `four` is specified to be `Int` (i.e. an integer). This is valid because while 4 is inferred to be Nat, Nat is a subset of Int (integers).
+let four : Int := 4
+// This is a type declaration. `Likelyhood` is defined to be a set of two numbers of type `Nat` and `Float`. Optionally, two names have been assigned to these numbers: `count` and `probability`. Curly braces represents un-ordered sets of objects. The inferred type here is the type of all types: `Type`.
+let Likelyhood := { count: Nat, probability: Float }
 // The above definition is semantically equivalent to this definition:
-set Likelyhood { probability: Float, count: Num }
+let Likelyhood := { probability: Float, count: Num }
 // But the above two expressions are semantically different from this: (Brackets represent an ordered set, i.e. a list)
-set Likelyhood [ count: Num, probability: Float ]
+let LikelyhoodOrdered := [ count: Num, probability: Float ]
 
-<span class="boring">}
-</span></code></pre></pre>
-<pre><code class="language-haskell"># If you are used to haskell-based currying the first two definitions of `Complex` would be independently equivalent to the following two functions.
-Likelyhood_a : Num -&gt; Float -&gt; Type
-Likelyhood_b : Float -&gt; Num -&gt; Type
+<span class="boring">}</span></code></pre></pre>
+<pre><code class="language-haskell"># If you are used to haskell-based currying the first two definitions of `Likelyhood` would be similar to providing two constructors for the same object like the following:
+Likelyhood_a : Num -&gt; Float -&gt; Likelyhood
+Likelyhood_b : Float -&gt; Num -&gt; Likelyhood
 # But the 3rd definition would only be equivalent to Likelyhood_a
 </code></pre>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>// type constructors can be defined like this
-set Vector3 { A : Type } { A, A, A } -&gt; { A, A, A }
-// This definition has an implicit `[]` creating an ordering between `{A : Type} and `{A, A, A}`, in this case the ordering is required because {A, A, A} is dependent on {A : Type} being specified.
+</span>// type constructors can be defined like this, with an implicit `-&gt;` between `{A:Type}` and `{ x:A, ... }` for structure types.
+let Vector3 := { A : Type } { x : A, y : A, z : A } -&gt; { x, y, z }
+// or like this using the `Struct` constructor.
+let Vector3 := { A : Type } -&gt; Struct { x : A, y : A, z : A }
 
-// Types can also be unnamed and referred to by a name in some context (i.e. like how functions in rust traits don't name the type of the function, just the name of the function implementation)
+// type constructors may also be defined for enum types.
+let Option := { A : Type } -&gt; Type;
+let Some : {A : Type} { a : A } -&gt; Option(A);
+let None : {A : Type} -&gt; Option(A);
+// or like this using the `Enum` constructor.
+let Option := { A : Type } -&gt; Enum {
+	Some { a : A },
+	None,
+}
+
+// Terms can also be named and typed, but left undefined (like how functions in rust traits don't need to be defined immediately)
 type add_one : Num -&gt; Num
 
-// This is defining add_one in accordance with its previous defined type. It would be an error to define add_one twice with different implementations in the same context.
-set add_one { a } -&gt; a + 1 
-<span class="boring">}
-</span></code></pre></pre>
+// This is defining add_one in accordance with its previous defined type. It would be an error to define add_one twice with different implementations in the same context, or for the definition to fail to typecheck with the defined type.
+let add_one { a } -&gt; a + 1 
+<span class="boring">}</span></code></pre></pre>
 </blockquote>
 <p>Okay now that we have pseudocode out of the way, we can get to defining an endofunctor :D</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<p>In this language, Endofunctors can be defined as a dependent collection of two functions: <code>obj_map: A -&gt; F&lt;A&gt;</code> which maps the object of the category, and a function <code>func_map</code> that takes an arbitrary function <code>A -&gt; B</code> where <code>B</code> can be anything and returns a function <code>F&lt;A&gt;</code> -&gt; <code>F&lt;B&gt;</code>, mapping the morphisms from the initial object. When this definition is used as a &quot;type class&quot; (think <code>trait</code> or <code>interface</code>), it allows the user to abstract over a specific endofunctor definition and refer to all endofunctors as a collective.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>// An Endofunctor is a function that takes a value F of type `Type -&gt; Type` (i.e. a type constructor) and returns a set containing one type and a bound value-name (i.e. map).
-set Endofunctor { F : { A : Type } -&gt; Type } -&gt; {
-	// Specifies the type of a function that is bound to the name `map`. Is a function that takes 1. an ordered set of arbitrary type B and morphism from A -&gt; B and 2. some value of type F(A).
-	// Returns F(B). Can be partially applied by passing either the ordered set or F(A) first. 
-	// If passing the ordered set first, the function resolves to F(A) -&gt; F(B).
-	// If passing F(A), the function resolves to some kind of generic constant parameterized by a type and a function. [B : Type, m : A -&gt; B] -&gt; F(B).
-	map : { [ B : Type, morphism : A -&gt; B ], a : F(A) } -&gt; F(B);
+</span>// An Endofunctor is a class of type functions that takes a type constructor F of type `Type -&gt; Type` (i.e. a type constructor / wrapper). Classes are essentially partially defined functions where the return value (implementation) is only valid if it has been implemented. 
+let Endofunctor := { F : Type -&gt; Type } -&gt; {
+	// Specifies how the endofunctor maps objects of the category `Type` to other objects in `Type` using the type constructor `F`
+	type obj_map : { A: Type } -&gt; { obj : A } -&gt; F(A);
+	// Specifies how the endofunctor maps functions between objects in the category `Type` to other functions in the &quot;extended&quot; F(Type) category.
+	type func_map : { A : Type, B : Type} { func : A -&gt; B } -&gt; F(A) -&gt; F(B);
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>Examples of various type constructors and specifications (implementations) of the Endofunctor class.</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>// Maybe is a function of type `Type -&gt; Type`
-set Maybe { T : Type } -&gt; Enum {
-	Something [ t : T ],
+</span>// Option is a generic enum, i.e. a function of type `Type -&gt; Enum`
+let Option := { T : Type } -&gt; Enum {
+	Some[T],
 	None,
 }
 // Defines the Endofunctor &quot;function&quot; for a specific type constructor.
-set impl_maybe_endofunctor {
-	set map { [ B, morphism ], a } -&gt; match a {
-		Something[a] =&gt; Something(morphism(a))
-		None =&gt; None
-	}
-} : Endofunctor(Maybe)
-<span class="boring">}
-</span></code></pre></pre>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+let impl_option_endofunctor : Endofunctor(Option) := {
+	let obj_map := {A} Option{A}::Some
+	// Returns Option{A} -&gt; Option{B} from `func : A -&gt; B`
+	let func_map := {A, B} {func} -&gt; (
+		{ fa : F(A) } -&gt; match fa {
+			Some[t] =&gt; Some(func(t))
+			None =&gt; None
+		}
+	)
+}
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>// List is a List
-set List { T : Type } -&gt; Enum {
+</span>// List is a generic List, i.e. a function from Type -&gt; Enum.
+let List { T : Type } -&gt; Enum {
 	Cons { list : List T, value : T }, // Recursion defined implicitly
 	Nil,
 }
-// Specifies the Endofunctor for the List constructor.
-set impl_list_endofunctor {
-	set map { [ B, morphism ], a } -&gt; (match a {
-		Cons { list, value } =&gt; Cons(map{[B, morphism],list}, morphism(value)) // Recursion defined implicitly
+// Defines a term of type Endofunctor(List).
+let impl_list_endofunctor : Endofunctor(List) := {
+	// Creates a constructor that takes a `value : T` by partially applying the List::Cons variant.
+	let obj_map := {A} List{A}::Cons { list: List{A}::Nil }
+	let func_map := {A, B} {func} -&gt; ({fa : F(A)} -&gt; match fa {
+		Cons{list, value} =&gt; Cons(func_map{A,B}{func}{list}, func(value)) // func_map is recursively defined for list
 		Nil =&gt; Nil
 	})
-} : Endofunctor(List)
-<span class="boring">}
-</span></code></pre></pre>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+}
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// Generic Identity Function Constructor, we need this to define unit for the Monad.
-set identity [T, v] v : [T : Type] [T] T
-<span class="boring">}
-</span></code></pre></pre>
-<p>NOTICE: New Syntax / Convention, <code>identity</code> is the name assigned to the expression <code>[T, v] v</code>. But that expression has also been associated with a type.</p>
-<p>The name of the type of identity is ^Identity. identity : ^Identity. The names themselves also get translated from snake_case (identity), to PascalCase (^Identity).</p>
+let identity : [T : Type] [T] T := [T] [v] v
+<span class="boring">}</span></code></pre></pre>
+<p>NOTICE: New Syntax / Convention, <code>identity</code> is the name assigned to the expression <code>[T] [v] v</code>. But that expression has also been associated with a type (<code>[T : Type] [T] T</code>). The type of <code>identity</code> is automatically assigned the name (translated from snake_case to PascalCase): <code>^Identity</code>.</p>
 <p>There is analogous syntax for finding a value defined for a given type. This may not always resolve because multiple values could be defined for a given type. </p>
-<p>Example: to refer to impl_maybe_endofunctor, you can instead do _ : Endofunctor(Maybe).</p>
+<p>Example: to refer to impl_option_endofunctor, you can instead infer the definition via: <code>_ : Endofunctor(Option)</code>.</p>
 <p>This also works when defining &quot;implementations&quot;. You can use <code>_</code> to not define a name, and instead let type inference do its job.</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>set _ {
-	set map { [ B, morphism ], a } -&gt; Identity(morphism)
-} : Endofunctor(Identity)
+</span>let _ : Endofunctor(Identity) := {
+	// object map returns the identity function on `A` (i.e. A -&gt; A).
+	let obj_map := {A} identity(A)
+	// func_map returns the function as-is because identity does nothing.
+	let func_map := {A, B} {func} -&gt; func;
+}
 
-// The above is basically equivalent this in rust :)
+// The above is somewhat equivalent this in rust :)
 impl Endofunctor for Identity {
-	fn map&lt;B&gt;(morphism : impl Fn(A) -&gt; B, a : Identity) -&gt; identity(morphism(a))
+	fn obj_map&lt;A&gt;() -&gt; impl Fn(A) -&gt; A { |a| a }
+	fn map&lt;A, B&gt;(func : impl Fn(A) -&gt; B) -&gt; { func }
 }
-<span class="boring">}
-</span></code></pre></pre>
-<p>OKAY, Now we define the Monad! According to category theory, a monad in a category defined as a monoid in the category of endofunctors of some other category.</p>
-<p>But what exactly is a monoid? Wikipedia describes a monoid as a particular object <code>M</code> combined with two morphisms &quot;multiplication&quot; and &quot;unit&quot;.</p>
-<p>Lets define a Monoid first... We will define a monoid as a type constructor that takes any object constructs a set of two morphisms, unit and multiplication.</p>
-<p>We also need to ensure that the two monoid laws of associativity and identity hold. i.e. (a * b) * c = a * (b * c), and a * identity = identity * a</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<span class="boring">}</span></code></pre></pre>
+<p>OKAY, Now we can get back to defining the Monad! According to category theory, a monad in a category is a monoid in the category of endofunctors of some other category. We know what endofunctors are, what what is a Monoid?</p>
+<p><a href="https://en.wikipedia.org/wiki/Monoid">Wikipedia</a> describes a monoid (the algebraic version) as an set (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>) equipped with a binary operation we will call &quot;multiplication&quot; (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord">∗</span></span></span></span>) and particular member of the set <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> called the &quot;unit&quot;.</p>
+<p>To translate this into a typed programming language, we will define a monoid as a type class (a.k.a. trait / interface) that can be implemented for objects. The definition of the type class is parameterized on the set <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> and includes a set of two morphisms, unit and multiplication as well as the two monoid laws of associativity and identity: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">∀</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">c</span><span class="mclose">)</span></span></span></span>, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∀</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">u</span><span class="mord mathnormal">ni</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">u</span><span class="mord mathnormal">ni</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span></p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>set Monoid [ M : Type ] {
-	unit : M,
-	multiplication : [a : M, b : M] -&gt; M
-	associativity_proof : { a : M, b : M, c : M } multiplication[multiplication[a, b], c] = multiplication[a, multiplication[b, c]]
-	identity_proof : { a : M } multiplication(a, unit) = multiplication(unit, a)
+</span>let Monoid := [ M : Type ] {
+	type unit : M,
+	type multiplication : [a : M, b : M] -&gt; M
+	type associativity_proof : { a : M, b : M, c : M } multiplication[multiplication[a, b], c] = multiplication[a, multiplication[b, c]]
+	type identity_proof : { a : M } multiplication(a, unit) = multiplication(unit, a)
 }
-<span class="boring">}
-</span></code></pre></pre>
-<p>But what can we do with this monoid?
-We can descibe types coupled with operations that resemble a monoid! (Assume <code>Nat</code> is the type of natural numbers)</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<span class="boring">}</span></code></pre></pre>
+<p>Now that we have a monoid, we can talk about types that are monoids! (Assume <code>Nat</code> is the type of natural numbers)</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>set naturals_addition_monoid {
-	set unit 0,
-	set multiplication addition,
-	set associativity_proof { a, b, c } &lt;proof of associativity&gt; // These are left out because writing proofs are really complicated
-	set identity_proof { a } &lt;proof of identity&gt;
-} : Monoid(Nat)
-<span class="boring">}
-</span></code></pre></pre>
+</span>// The natural numbers under addition form a monoid
+let naturals_addition_monoid : Monoid(Nat) := {
+	let unit := 0,
+	let multiplication := add,
+	// The actual type theory proofs will be left because I haven't figured out how they work yet lol.
+	// addition is associative
+	let associativity_proof := { a, b, c } &lt;proof of associativity&gt; 
+	// 0 + anything = anything + 0
+	let identity_proof := { a } &lt;proof of identity&gt;
+}
+<span class="boring">}</span></code></pre></pre>
 <p>Alright lets do another one! This time on a type we've actually seen before (I'll add type annotations for unit and multiplication so its more clear what is going on here)</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>set maybe_flat_map_monoid {
-	set unit [A] -&gt; Maybe::Something : { A : Type } -&gt; Enum // This type is equivalent to `Maybe`
-	set multiplication [a, b] -&gt; match a {
-		Something(a) =&gt; b(a),
-		Nothing =&gt; Nothing
-	} : ({ A : Type } -&gt; Enum) ({ B : Type} -&gt; Enum) -&gt; Maybe // This is equivalent to `[Maybe Maybe] -&gt; Maybe`
-	set associativity_proof { a , b , c } &lt;proof of associativity&gt;
-	set identity_proof { a } &lt;proof of identity&gt;
-} : Monoid(Maybe) // This is a monoid defined for the *type constructor itself* `Maybe`, *not* impl&lt;A&gt; Monoid for Maybe&lt;A&gt;, impl Monoid for Maybe.
-<span class="boring">}
-</span></code></pre></pre>
-<p>Oh wait, since <code>Maybe</code> is a endofunctor, isn't this just a Monad? (A monad is a monoid defined on an endofunctor after all) Lets try and pinpoint a more exact definition of a Monad :)</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+</span>// This is a generic monoid definition for all possible Option types. i.e. `impl&lt;A&gt; Monoid for Option&lt;A&gt;`.
+let impl_option_monoid : {A : Type} Monoid(Option(A)) {
+	// The `unit` must satisfy the identity law with respect to `multiplication`
+	let unit : Option(A) := Option(A)::None
+	// The combination is essentially `Option::or`, it combines two Options together and returns the first if it contains a value, or the second.
+	let multiplication := [a, b] -&gt; match a {
+		Some(a) =&gt; Some(a),
+		None =&gt; b
+	} : [Option(A), Option(A)] -&gt; Option(A)
+	let associativity_proof := { a , b , c } &lt;proof of associativity&gt;
+	let identity_proof := { a } &lt;proof of identity&gt;
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Oh wait, since <code>Option</code> is a endofunctor, isn't this just a Monad? (A monad is a monoid defined on an endofunctor after all) Lets try and pinpoint a more exact definition of a Monad :)</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>set Monad [ M : Type -&gt; Type, M_is_functor : Endofunctor(A) ] {
+</span>let Monad [ M : Type -&gt; Type, M_is_functor : Endofunctor(A) ] {
 	unit : M,
 	multiplication : [a : M, b : M] -&gt; M
 	associativity_proof : { a : M, b : M, c : M } multiplication[multiplication[a, b], c] = multiplication[a, multiplication[b, c]]
 	identity_proof : { a : M } multiplication(a, unit) = multiplication(unit, a)
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>If you followed all that, You should now have a good understanding of what a Monad is!
 (Specifying it is essentially the same as a monoid above)</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="how-to-do-node-discovery-while-limiting-structural-data-leakage"><a class="header" href="#how-to-do-node-discovery-while-limiting-structural-data-leakage">How to do Node Discovery while Limiting Structural Data Leakage?</a></h1>
 <p>Debate: When requesting for peers from a connected node, should the node send back a list of publically available IPs? Or should the node forward the request to the peers in question for them to initiate the connection?</p>
 <ul>
@@ -1489,9 +1587,7 @@ We can descibe types coupled with operations that resemble a monoid! (Assume <co
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
 
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -1499,49 +1595,35 @@ We can descibe types coupled with operations that resemble a monoid! (Assume <co
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
 
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
-        
-        <script type="text/javascript">
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-        
-        
 
+    </div>
     </body>
 </html>

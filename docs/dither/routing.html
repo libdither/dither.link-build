@@ -4,37 +4,24 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Anonymous Routing - Dither Ideas</title>
-        
-        
 
 
         <!-- Custom HTML head -->
         
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="../favicon.svg">
-        
-        
         <link rel="shortcut icon" href="../favicon.png">
-        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
-        
         <link rel="stylesheet" href="../css/print.css" media="print">
-        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="../fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -42,19 +29,19 @@
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
+        <link rel="stylesheet" href="../custom.css">
 
-        
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -70,7 +57,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -82,12 +69,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -95,17 +84,38 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="../dither/routing.html" class="active"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="../dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="../dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.5.</strong> User Management - WIP</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.6.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="../disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/type-system.html"><strong aria-hidden="true">2.1.1.</strong> Standard Type System</a></li></ol></li><li class="chapter-item expanded "><a href="../disp/syntax-agnosticism.html"><strong aria-hidden="true">2.2.</strong> Syntax Agnosticism</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/syntax.html"><strong aria-hidden="true">2.2.1.</strong> Standard Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="../disp/names.html"><strong aria-hidden="true">2.3.</strong> Naming with Knowledge Graphs</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> Modular Parsing</div></li><li class="chapter-item expanded "><a href="../disp/hardware-modeling.html"><strong aria-hidden="true">2.5.</strong> Hardware Modeling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.6.</strong> Self-Defined Types</div></li><li class="chapter-item expanded "><a href="../disp/implementation.html"><strong aria-hidden="true">2.7.</strong> Specification</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/bind-trees.html"><strong aria-hidden="true">2.7.1.</strong> Bind Trees</a></li></ol></li><li class="chapter-item expanded "><a href="../disp/gpt4-spec.html"><strong aria-hidden="true">2.8.</strong> GPT4-Spec</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.9.</strong> Examples</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/examples/category_theory.html"><strong aria-hidden="true">2.9.1.</strong> Category Theory Definitions</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="../applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/application-design-philosophy.html"><strong aria-hidden="true">4.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="../copyright-is-cancer.html"><strong aria-hidden="true">4.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../what-is-a-monad.html"><strong aria-hidden="true">5.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="../node_discovery_ideas.html"><strong aria-hidden="true">5.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="../dither/routing.html" class="active"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="../dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="../dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="../dither/user-management.html"><strong aria-hidden="true">1.5.</strong> Account Management</a></li><li class="chapter-item expanded "><a href="../dither/identity.html"><strong aria-hidden="true">1.6.</strong> Identity Management</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="../disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/type-system.html"><strong aria-hidden="true">2.1.1.</strong> Standard Type System</a></li></ol></li><li class="chapter-item expanded "><a href="../disp/syntax-agnosticism.html"><strong aria-hidden="true">2.2.</strong> Syntax Agnosticism</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/syntax.html"><strong aria-hidden="true">2.2.1.</strong> Standard Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="../disp/names.html"><strong aria-hidden="true">2.3.</strong> Naming with Knowledge Graphs</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> Modular Parsing</div></li><li class="chapter-item expanded "><a href="../disp/hardware-modeling.html"><strong aria-hidden="true">2.5.</strong> Hardware Modeling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.6.</strong> Self-Defined Types</div></li><li class="chapter-item expanded "><a href="../disp/implementation.html"><strong aria-hidden="true">2.7.</strong> Specification</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/bind-trees.html"><strong aria-hidden="true">2.7.1.</strong> Bind Trees</a></li></ol></li><li class="chapter-item expanded "><a href="../disp/gpt4-spec.html"><strong aria-hidden="true">2.8.</strong> GPT4-Spec</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.9.</strong> Examples</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/examples/category_theory.html"><strong aria-hidden="true">2.9.1.</strong> Category Theory Definitions</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="../applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/application-design-philosophy.html"><strong aria-hidden="true">4.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="../copyright-is-cancer.html"><strong aria-hidden="true">4.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../what-is-a-monad.html"><strong aria-hidden="true">5.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="../node_discovery_ideas.html"><strong aria-hidden="true">5.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -114,35 +124,30 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">Dither Ideas</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
+
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -150,10 +155,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -163,48 +167,65 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="dither-anonymous-routing"><a class="header" href="#dither-anonymous-routing">Dither Anonymous Routing</a></h1>
-<p>Dither Anonymous Routing (DAR) is a protocol for efficiently obfuscating connections between computers.</p>
-<p>It improves on speed and flexibility over existing solutions (I2P and TOR) by taking into account the latency between nodes on the network. Instead of having to randomly choose nodes from a global list to route through, by knowing the relative latencies of nodes, routing paths between nodes can be chosen to optimize for low-latency or anonymity, or a balance of both.</p>
-<h2 id="distance-based-routing-dbr"><a class="header" href="#distance-based-routing-dbr">Distance-Based Routing (DBR)</a></h2>
-<p>To figure out the relative latencies between nodes so as to establish low-latency paths to a destination, DBR makes the observation that the <strong>latency between nodes roughly correlates with the physical distance between them</strong>. This means coordinates can be assigned to nodes such that the communication latency between nodes can be estimated as the euclidian distance between coordinates. These coordinates will be referred to as &quot;routing coordinates&quot;.</p>
-<p>While the goal of distancce-based routing could be achieved by assigning a routing coordinate to each node in the network, This has two major problems: </p>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="dither-anonymous-routing"><a class="header" href="#dither-anonymous-routing">Dither Anonymous Routing</a></h1>
+<p>Dither Anonymous Routing (DAR) is a peer-to-peer protocol for efficiently and flexibly obfuscating connections between computers.</p>
+<p>It improves on speed and versatility over existing solutions (i.e. I2P and TOR) by incorporating latency and bandwidth estimation techniques so that intermediate relays may be (optionally) optimally chosen. It exposes this option to applications built on DAR, allowing the developers and users to explicitly dictate the trade-off they prefer between speed and anonymity for each networked application they use.</p>
+<p>In addition, to align itself with the philosophy of Dither, DAR aims to be as generic as possible, so that different encryption schemes and transport types may be used for different connections to hedge against the risk of one of them breaking, as well as easily allowing for novel schemes that may not be rigorously tested, but have desirable properties such as the stateless encryption protocol described in <a href="https://arxiv.org/pdf/1507.05724v3.pdf">HORNET</a>.</p>
+<h2 id="route-properties-prediction-rpp"><a class="header" href="#route-properties-prediction-rpp">Route Properties Prediction (RPP)</a></h2>
+<p>In order to optimally select relays to establish onion routes through, it would be desirable to select nodes that have high-bandwidth connections and are located “en-route” between the sender and receiver. In small networks, this could be accomplished by every node measuring latency and bandwidth to every other node periodically, and then compiling a two separate shared <code>N*N</code> matrices representing the pairwise measurements of latency and bandwidth respectively. Then, when a path of relays needs to be selected, the requesting node would test all possible paths through the network to find the shortest ones and then send requests to nodes on those paths to be relays. This would (probably) work but exposes lots of information about the network publically and even in relatively small networks of even 20+ nodes, computational, communication, and storage costs make this solution completely infeasible.</p>
+<p>There are still some methods to solve this problem, albeit less accurately. An individual without much experience in linear algebra might be able to think up a solution to solve the latency part of the problem, simply by observing that <em>latency between nodes seems to roughly correlate with physical distance between nodes</em>. To see if this correlation is modle-able in practice, one could assign 3-dimensional coordinates (because we live in a 3D world) to each node and have each node progressively update that coordinate such as to minimize the latency prediction error with its peers, functionally “embedding” the latency metric into a 3D space. In this scenario, real-world latency is predicted via the “Euclidean Distance” function and this is roughly what the <a href="https://pdos.csail.mit.edu/papers/vivaldi:sigcomm/paper.pdf">Vivaldi</a> paper does, and it does predict latency. This method is considerably inaccurate because while Latency <em>does</em> correlate with physical distance, is not a direct causal relationship. Anything from internal processing latency, dynamic packet switching, or just a cable that doesn’t go directly from the source to destination will lengthen distances, which will then distort the space that we are trying to use to predict latencies.</p>
+<p>For the math people: There are two properties that Euclidean physical space must have, but latency does not: Symmetry, and The Triangle Inequality. In physical space, the distance from point A to point B must be equivalent no matter from which you are measuring. This is not the case for computers on the internet as ISPs may delay connections initiated by certain nodes but not others. Symmetry violations are rare and typically non-consequential, but Triangle Inequality violations are <em>everywhere</em> when measuring latency. The Triangle Inequality says that given a measurement from point A to point B, a measurement from point A to B to C must always be greater than from A to B. (assuming C is not A or B). This inequality is frequently violated on the internet due to the tree-like way it is organized and the fact that routing tables may not always route packets along the most optimal paths (due to misconfiguration, or congestion management).</p>
+<p>For those who know linear algebra, the better way to solve this problem is to imagine a large, partially filled <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> matrix, where the ith row and jth column represent a latency or bandwidth measurement from node i to node j. When constructed on real networks, various papers have discovered that this matrix has a <a href="https://en.wikipedia.org/wiki/Rank_(linear_algebra)">low rank</a>. Rank is a metric measuring how <em>linearly independent</em> rows and columns of a matrix is, and matrices that are low-rank can be approximated by two matrices <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> is the approximate rank of a large <code>N*N</code> matrix. Given a vector from column i from the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> matrix and vector from row j from the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> matrix factor, the dot product between the two vectors is the predicted latency from node i to node j. Note that unlike Vivaldi, this measurement is directional and you could swap rows/column indices where the vectors are chosen from to get a measurement from node j to node i instead.
+The “factorization” algorithm can be done on a single computer, but it can also be modified to work across a distributed peer-to-peer network similar to Vivaldi by simply doing running an optimization algorithm on each node to find a pair of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>-size vectors that minimizes the difference between measured latency/bandwidth to directly connected nodes and predicted latency/bandwidth. I call this set of vectors “Routing Coordinates”.</p>
+<h3 id="modeling-fluctuating-connections"><a class="header" href="#modeling-fluctuating-connections">Modeling Fluctuating Connections</a></h3>
+<p>While the goal of distance-based routing could be achieved by calculating a routing coordinate to each node in the network, This has two major problems: </p>
 <ol>
 <li>
-<p>Individual nodes or even whole parts of the network may be moving in relation to other parts of the network. (i.e. an airplane, or interplanetary communication). Thus requiring continuous recalculation of routing coordinates for all moving parties involved (which may include an entire planet, if used for inter-planetary routing).</p>
+<p>Individual nodes or even whole parts of the network may be moving in relation to other parts of the network, and thus fluctuating in terms of  (i.e. an airplane, or interplanetary communication). Thus requiring continuous recalculation of routing coordinates for all moving parties involved (which may include an entire planet, if used for inter-planetary routing).</p>
 </li>
 <li>
-<p>Multiple networks may form independently and thus may have incompatible coordinate systems when communicating, requiring expansive re-syncronization or some kind of coordinate translation.</p>
+<p>Multiple networks may form independently and thus may form incompatible coordinate systems when communicating, requiring resynchronization or some kind of coordinate translation.</p>
 </li>
 </ol>
-<p>The simple solution to this issue is to do what we humans do, <em>allow for different frames of reference</em>. Instead of each node calculating its own coordinates based on the coordinates of other nodes, each node is the center of its own universe and all other nodes are simply offset from itself. I will call these offsets &quot;relative routing coordinates&quot; (RRCs). When two nodes want to communicate with each other, they must figure out where they are relative to some shared frame of reference.</p>
+<p>The solution to this issue that would work with a Vivaldi-type prediction scheme reflects something that humans do: <em>allow for different frames of reference</em>. Instead of each node calculating its own coordinates based on the global coordinates of other nodes, each node is the center of its own universe and it simply represents other nodes are simply offset from itself. I will call these offsets “relative routing coordinates” (RRCs). When two nodes want to communicate with each other, they must agree on some shared known point of reference, and then exchange their relative routing coordinates to that reference to be able to route through the network. This would formalize the idea that groups of computers may be changing relative to other groups of computers and would allow for more granular changes of relative coordinates rather than constant changes of global coordinates.</p>
+<p>Unfortunately, this strategy doesn’t work for matrix-factorization-based latency prediction, because translation is not a transformation that preserves the dot product between two vectors. Only rotations and reflections do. The problem here is still open, but I suspect the solution will entail some form of <a href="https://sci-hub.st/https://dl.acm.org/doi/10.1109/TNET.2020.3022757">tensor factorization</a> or perhaps an even more advanced machine learning model. A somewhat general form of the problem is formalized as follows:</p>
+<p>The metric is predicted at some time via some black box function using the local coordinates and remote coordinates:
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.244em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9579em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span></span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0833em;"><span class="mord">ˆ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></p>
+<p>Metrics are occasionally measured at some time t: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>We must minimize the difference between the predicted and measured metric at any given time and update our current coordinates.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.7333em;vertical-align:-1.0389em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6679em;"><span style="top:-2.1612em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mrel mtight">∈</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5935em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop"><span class="mop"><span class="mop"><span class="mord mathrm" style="margin-right:0.01389em;">arg</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathrm">min</span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.0389em;"><span></span></span></span></span></span></span><span class="mspace"> </span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></span></p>
+<h3 id="other-concerns-and-assumptions"><a class="header" href="#other-concerns-and-assumptions">Other Concerns and Assumptions</a></h3>
+<p>An assumption of this scheme is that intermediate routes will be directly connected to each other, but this will often not be the case, especially in the case where intermediate nodes are far away from each other. In this case, the current vision for the protocol states that packets will traverse through nodes in-between relays on the network. This will probably cause unnecessary congestion, but hopefully the discovery and peer-to-peer karma system will route the majority of traffic along high-connected nodes.</p>
 <h2 id="peer-discovery"><a class="header" href="#peer-discovery">Peer Discovery</a></h2>
-<p>To assign relative coordinates to nodes, there is a process of peer-discovery that functions as follows. This process happens whenever a new node joins the network.</p>
+<p>To form a network, there needs to be a process for new nodes to connect to existing nodes. Dither Anonymous Routing aims to allow peers to be as anonymous as possible, and thus the peer discovery method aims to expose as little as possible about nodes on the network. Specifically, as little information as possible about nodes that don’t want to be discovered, and nodes far away (latency-wise) from the new node.</p>
+<p>TLDR: Peer Discovery must expose information about <em>some</em> nodes, but should only expose information about nodes that are nearby and want to be known.</p>
+<p>For more information, check out the <a href="./discovery.html">Discovery</a> section.</p>
+<p>To assign routing coordinates to nodes, there is a process of peer-discovery that functions as follows. This process happens whenever a new node joins the network.</p>
 <ol>
 <li>New node bootstraps onto the network by initiating connection to one or more existing nodes.</li>
 <li>New node tests response times (latency) to connected nodes (peers). </li>
-<li>New node requests from some subset of lowest-latency peers that it would like more peers.</li>
-<li>New node's peers notify some slice of their peers that a new node would like more connections.</li>
-<li>Notified nodes initiate connection with new node and new node measures latency to new peers.</li>
+<li>New node requests from some subset of lowest-latency (closest) peers that it would like more peers.</li>
+<li>New node’s peers notify some slice of their peers that a new node would like more connections.</li>
+<li>Notified nodes initiate connection if they are configured to do so and measure latency to new peers.</li>
+<li>Notified nodes initiate connection with new nodes and new nodes measure latency to new peers.</li>
 <li>New node takes note of the smallest latencies of its peers and goes back to step 3 until there are no closer nodes who want to peer.</li>
-<li>After a certain number of closest nodes are found whose latency measurements are stable, the new node then calculates relative routing coordinates for all of its active peers via <a href="https://en.wikipedia.org/wiki/True-range_multilateration">multilateration</a> and broadcasts them to all the nodes used in the calculation.</li>
+<li>After a certain number of closest nodes are found whose latency measurements are stable, the new node then calculates routing coordinates and is records its currently connected nodes so that it may reconnect when if went offline.</li>
 </ol>
-<p>Through this process, a distributed small-world network is formed that reflects the physical topology of the relative orientations of the nodes.</p>
-<h2 id="relative-routing-coordinates"><a class="header" href="#relative-routing-coordinates">Relative Routing Coordinates</a></h2>
-<p>Relative Routing coordinates (RRC) in this system acts as a replacement for IP addresses in conventional routing.</p>
+<p>Through this process, a distributed network is formed that reflects the physical topology of the relative orientations of the nodes.</p>
 <h3 id="process"><a class="header" href="#process">Process</a></h3>
 <p>A packet with an RRC can be routed to its destination via the following process:</p>
 <ol>
 <li>Node chooses the peer that will receive the packet next by comparing RRC directions</li>
-<li>Node subtracts next peer's RRC from packet's RRC</li>
+<li>Node subtracts next peer’s RRC from packet’s RRC</li>
 <li>Node forwards modified packet to next peer</li>
 </ol>
-<p>The process continues until the packet's RRC is all zeroes and the last node it reaches either is the destination node, knows the destination node, or is the wrong node in which case the packet is dropped or sent back depending on the packet type.</p>
+<p>The process continues until the packet’s RRC is all zeroes and the last node it reaches either is the destination node, knows the destination node, or is the wrong node in which case the packet is dropped or sent back depending on the packet type.</p>
 <h3 id="usage"><a class="header" href="#usage">Usage</a></h3>
-<p>Compared to the global routing tables and complicated peering and address space allocation protocols that the existing internet uses. RRCs are much better for peer-to-peer applications because they are pretty much infinitely scalable. </p>
-<p>That said, RRCs in some ways give away <em>more</em> information than traditional IP addresses do. Since the self-organized networks that use RRCs reflect real-world network topologies, just knowing someone's routing coordinate relative to you could be akin to knowing roughly where they live. This is an acceptable risk because it is much easier to do efficient onion routing on networks with RRCs than those without meaning that there is no reason not to have all connections onion-routed to some degree, providing better privacy overall.</p>
-<p>Other benefits of routing coordinates are that they have the potential to almost completely prevent denial-of-service attacks. To even attempt such an attack, the attacker must find the routing coordinate of their target. Disregarding user error, this kind of attack is essentially impossible since everything is onion-routed by default. Even if the attacker does have the target's routing coordinate, trying to DOS a routing coordinate is like trying to DOS the entire expanse of network between the attacker and the target, the attacker(s) will be ineffective or blocked by other nodes automatically for overuse of the network. Even distributed denial of service attacks can be mitigated with additions to the protocol allowing the victim to notify the network that they are being attacked and to rate limit the attackers.</p>
-<h2 id="anonymous-routing-onions-garlic-and-all-the-others"><a class="header" href="#anonymous-routing-onions-garlic-and-all-the-others">Anonymous Routing (Onions, Garlic, and all the others...)</a></h2>
+<p>Compared to the global routing tables and complicated peering and address space allocation protocols that the existing internet uses. Routing Coordinates are much better for peer-to-peer applications because they are pretty much infinitely scalable. </p>
+<p>That said, RC in some ways give away <em>more</em> information than traditional IP addresses do. Since the self-organized networks that use RCs reflect real-world network topologies, just knowing someone’s routing coordinate relative to you could be akin to knowing roughly where they live. This is an acceptable risk because it is much easier to do efficient onion routing on networks with RCs than those without meaning that there is no reason not to have all connections onion-routed to some degree, providing better privacy overall.</p>
+<p>Other benefits of routing coordinates are that they have the potential to almost completely prevent denial-of-service attacks. To even attempt such an attack, the attacker must find the routing coordinate of their target. Disregarding user error, this kind of attack is essentially impossible since everything is onion-routed by default. Even if the attacker does have the target’s routing coordinate, trying to DOS a routing coordinate is like trying to DOS the entire expanse of network between the attacker and the target, the attacker(s) will be ineffective or blocked by other nodes automatically for overuse of the network. Even distributed denial of service attacks can be mitigated with additions to the protocol allowing the victim to notify the network that they are being attacked and to rate limit the attackers.</p>
+<h2 id="anonymous-routing-onions-garlic-and-all-the-others"><a class="header" href="#anonymous-routing-onions-garlic-and-all-the-others">Anonymous Routing (Onions, Garlic, and all the others…)</a></h2>
 <p>Conventionally, anonymous routing is an incredibly slow ordeal because of how intermediate peers are selected from the network. Due to this inefficiency, onion routing protocols have been somewhat limited in what kind of privacy they can provide because low data rates and high latency was a concern. This is no longer the case with DBR, which may support all kinds of anonymous routing schemes:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Onion_routing">Onion Routing</a>
@@ -231,7 +252,7 @@
 <p>DBR plans to use a modification of the <a href="https://arxiv.org/abs/1507.05724v3">HORNET</a> protocol for setting up fast onion-routed links.</p>
 <h2 id="preventing-network-abuse"><a class="header" href="#preventing-network-abuse">Preventing Network Abuse</a></h2>
 <p>Routing protocols that rely solely on people voluntarily hosting nodes typically only have a relatively small number of peers willing to route packets through themselves (i.e. TOR). This is why protocols like BitTorrent, I2P and IPFS have systems in place that incentivize peers who use the network to contribute back for the benefit of all.</p>
-<p>To accomplish this behavior for DBR there must to be some way to limit packets going through nodes that either don't use the network that much or don't have a lot of bandwidth capacity and speed up packets through nodes that contribute greatly to the network. Also to take into consideration are the management of nodes that have inconsistent uptime or inconsistent routing.</p>
+<p>To accomplish this behavior for DBR there must be some way to limit packets going through nodes that either don’t use the network that much or don’t have a lot of bandwidth capacity and speed up packets through nodes that contribute greatly to the network. Also, to take into consideration are the management of nodes that have inconsistent uptime or inconsistent routing.</p>
 <p>When talking about incentives, we are talking about game theory. So lets analyze the game theoretical situation at the level of an individual node.</p>
 <p>Constraints:</p>
 <ul>
@@ -267,19 +288,19 @@
 <ul>
 <li>Applying Vivaldi to Anonymous Routing</li>
 </ul>
-<p>[4] <a href="https://user.informatik.uni-goettingen.de/%7Eychen/papers/Phoenix_TNSM.pdf">Phoenix: A Weight-Based Network Coordinate
+<p>[4] <a href="https://user.informatik.uni-goettingen.de/~ychen/papers/Phoenix_TNSM.pdf">Phoenix: A Weight-Based Network Coordinate
 System Using Matrix Factorization</a></p>
 <ul>
 <li>Improvements on Vivaldi, uses Matrix Factorization instead of Euclidian Embedding</li>
 </ul>
-<p>[5] <a href="https://ix.cs.uoregon.edu/%7Elijun/pubs/pdfs/chen15ncshield.pdf">NCShield: Protecting Decentralized, Matrix
+<p>[5] <a href="https://ix.cs.uoregon.edu/~lijun/pubs/pdfs/chen15ncshield.pdf">NCShield: Protecting Decentralized, Matrix
 Factorization-Based Network Coordinate Systems</a></p>
 <ul>
 <li>Threat modeling on Network Coordinate Systems. Prevents Frog-Boiling attacks.</li>
 </ul>
 <p>[6] <a href="https://arxiv.org/pdf/1201.1174.pdf">DMFSGD: A Decentralized Matrix Factorization Algorithm for Network Distance Prediction</a></p>
 <ul>
-<li>Improvements on Phoenix paper's algorithm.</li>
+<li>Improvements on Phoenix paper’s algorithm.</li>
 </ul>
 <p>[7] <a href="https://netdb.cis.upenn.edu/papers/a3-ndss.pdf">Application-Aware Anonymity, Sherr et al.</a></p>
 <ul>
@@ -290,17 +311,13 @@ Factorization-Based Network Coordinate Systems</a></p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../dither/structure.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
                             <a rel="next" href="../dither/directional-trail-search.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -308,49 +325,36 @@ Factorization-Based Network Coordinate Systems</a></p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
                     <a rel="prev" href="../dither/structure.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
                     <a rel="next" href="../dither/directional-trail-search.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
+    </div>
     </body>
 </html>
