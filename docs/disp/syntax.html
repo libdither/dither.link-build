@@ -171,6 +171,65 @@
 <h1 id="syntax"><a class="header" href="#syntax">Syntax</a></h1>
 <p>Since Disp has <a href="syntax-agnosticism.html">Syntax Agnosticism</a>, it does not require one set syntax. For consistency and branding purposes however, Disp will have its own succinct and readable default syntax. This </p>
 <p>Disp's default syntax is still a work-in-progress, however I think I want something similar to lisp with various Rust conventions sprinkled in.</p>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// Define things with `let` and `:=`
+let thing := 3
+
+/// Qualify the type of your definitions with `:`
+let pi := 3.141592653589798283 : Real
+
+/// Define unordered sets
+let set := {pi, thing} : {Real, Nat}
+/assert_eq Set::get(set, pi) pi
+/assert_typ Set::get(set, pi) Real
+/// Define ordered sets
+let list := [pi, thing, 2] : [Real, Nat, Nat]
+/assert_eq list.0 pi
+
+type resolve : Ident -&gt; Type
+type resolve_elem : {Set, Ident} -&gt; Type
+type resolve_list : {List, Nat} -&gt; Type
+
+type parse_nat : String -&gt; Nat
+
+type Nat : Type;
+type Z : Nat;
+type S : Nat -&gt; Nat;
+
+let NatDef := {
+	type zero : Nat,
+	type succ : Nat -&gt; Nat, 
+} : Type
+
+let TypeParsing := { T : Type, Error : Type } -&gt; {
+	type parse : String -&gt; Result&lt;T, Error&gt;
+}
+type Bool : Type;
+type true : Bool;
+type false : bool;
+
+let _ : TypeParsing(Bool) := {
+	let parse := (string) -&gt; (
+		match string {
+			&quot;true&quot; =&gt; true,
+			&quot;false&quot; =&gt; false,
+		}
+	)
+}
+
+/// The type
+let TypeConstructor := Type -&gt; Type;
+
+type round : Real -&gt; Nat
+round(pie) := thing
+
+type Nat : Type
+type Real : Type
+type Type : Type // Warning: Type is already a member of Type because it is the Type of all Types, including itself.
+
+<span class="boring">}</span></code></pre></pre>
 <h2 id="note-this-syntax-is-just-an-idea-and-subject-to-lots-of-change"><a class="header" href="#note-this-syntax-is-just-an-idea-and-subject-to-lots-of-change">Note: This Syntax is just an idea and subject to lots of change</a></h2>
 <pre><code>// By itself, this is a comment
 // It doubles as documentation when paired with an object
@@ -200,7 +259,7 @@ set Bool Π[A: Type] A -&gt; A -&gt; A {
 
 
 </code></pre>
-<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<h2 id="examples-1"><a class="header" href="#examples-1">Examples</a></h2>
 <pre><code>// This is a comment, it also doubles as documentation
 
 // Variables

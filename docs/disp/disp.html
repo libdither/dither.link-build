@@ -168,17 +168,14 @@
                 <div id="content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<h1 id="disp-decentralized-lisp"><a class="header" href="#disp-decentralized-lisp">Disp (Decentralized Lisp)</a></h1>
+<h1 id="disp"><a class="header" href="#disp">Disp</a></h1>
 <p><em>What is a program? What is data? Why, they are one of the same.</em></p>
-<p>Inspired by:</p>
-<ul>
-<li>Lisp for treating programs-as-data.</li>
-<li>Idris &amp; Coq for the infinite expressiveness of dependent types</li>
-<li>Rust for its safe &amp; fast zero-cost abstractions.</li>
-<li>IPFS for deduplication of shared code</li>
-</ul>
+<p>Disp is a Decentralized Programming Language for the Decentralized Internet. The ultimate goal of Disp is (much like Dither) to allow for the replacement of all existing programming languages by creating a flexible, modular, and <em>decentralized</em> language.</p>
+<h4 id="what-does-it-mean-for-a-programming-language-to-be-decentralized"><a class="header" href="#what-does-it-mean-for-a-programming-language-to-be-decentralized">What does it mean for a Programming Language to be Decentralized?</a></h4>
+<p>Modern programming languages are centraly-defined. Their parsers, type-checkers, interpreters, and specification are stored in a central repository, with complex systems of consensus creating a single evolving specification. Disp will attempt to do the opposite. It will provide a core set of tools for <em>building</em> languages that can be used however the user desires, and then use concepts from Category Theory (and semantic graph structures) to relate these &quot;separate&quot; languages together and allow them to translate seamlessly into each other.</p>
+<p>What might this look like? Imagine having an untyped lambda calculus evaluator (i.e. a simple model of computation) and allowing users to define various type systems for this model, from untyped, duck-typed, structurally-typed, simply typed, Martin-Loef Typed, or even the Calculus of Constructions, Cubical Type Theory and beyond. All these various type systems semantics can be related using Category Theory so that types in a simpler type system can be translated to types in a more complex type system. Then, on top of this, the syntax used to display (whether that be textual or using a <a href="https://github.com/yairchu/awesome-structure-editors">projectional/structured language editor</a>).</p>
 <h2 id="goals"><a class="header" href="#goals">Goals</a></h2>
-<p>A general outline of the (very lofty) goals of Disp.</p>
+<p>Create a general-purpose programming language that:</p>
 <ul>
 <li>Absolute flexibility &amp; configurability</li>
 <li>Most efficient language to run</li>
@@ -242,6 +239,14 @@
 <li>
 <p>The language files are not stored as text files, they are instead stored as self-defining structures of groups of commands.</p>
 </li>
+</ul>
+<h2 id="inspirations"><a class="header" href="#inspirations">Inspirations</a></h2>
+<ul>
+<li>Lisp for treating programs-as-data.</li>
+<li>Idris, Coq, Agda, Lean &amp; Friends for dependent types.</li>
+<li>Rust for its safe &amp; fast zero-cost abstractions.</li>
+<li>IPFS for deduplication of shared code</li>
+<li>IPLD for self-defining structures</li>
 </ul>
 
                     </main>

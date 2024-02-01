@@ -274,6 +274,46 @@ The “factorization” algorithm can be done on a single computer, but it can a
 <li>Each node only sends traffic through direct nodes it knows it has received traffic from.</li>
 <li>There is more to theorize about here for future research :)</li>
 </ul>
+<h3 id="conflicts-with-isp-load-balancing"><a class="header" href="#conflicts-with-isp-load-balancing">Conflicts with ISP Load Balancing</a></h3>
+<p>(This section is WIP)</p>
+<p>Implementing an alternative routing protocol on top of regular IP routing may pose issues for ISP routing (i.e. forcing utilising of certain links too much, causing major slowdowns). ISPs don't optimize for latency or bandwidth, they optimize for load balancing to prevent too much link utilisation. TODO: Dither should take this into account by implementing its own second-layer load balancing system that makes sure ISP links aren't overloaded.</p>
+<p>Questions for this problem:</p>
+<ul>
+<li>How might peer-to-peer overlay networks (of various kinds) effect an ISP’s ability to do load balancing well?
+<ul>
+<li>ISP simply have to do more buffering, slowing queue times for specific links, making those links become unattractive, shifting the route prioritization to ones that are less desirable -&gt; problem is this makes those routes unusable for regular (nearby) people and are instead hijacked by through-traffic.</li>
+</ul>
+</li>
+</ul>
+<p>Research</p>
+<ul>
+<li>
+<p>Dawn - Selfish overlay compensate for careless underlay</p>
+</li>
+<li>
+<p>If overlay networks can or do conflict with ISP load balancing effort, how can that conflict be reduced via design of the protocol?</p>
+<ul>
+<li>Maybe reimplement load balancing into the network protocol?
+<ul>
+<li>What might this look like in a peer-to-peer setting?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Some set of nodes in the network:</p>
+<ul>
+<li>Sending along certain local paths (need to be careful to not overwhelm bandwidth along local link: not likely)</li>
+<li>Sending along mid-range path, some room for path diversity, but if everyone is doing it, it may create hotspot: need </li>
+</ul>
+<p>Main issue: A is sending large file to B, anonymously. If they route through one path, this will be a problem, if they route along multiple paths, ISPs have more ability to distribute the load. </p>
+<ul>
+<li>More paths = more chance for paths to be surveiled: is it obvious who is chatting with who? -&gt; More obvious than just one path
+<ul>
+<li>Mixnets ? -&gt; How fast would these be for large data transfers?</li>
+</ul>
+</li>
+</ul>
 <h2 id="research-inspirations--similar-work"><a class="header" href="#research-inspirations--similar-work">Research, Inspirations &amp; Similar Work</a></h2>
 <p>(List in rough order of reading of notable articles I am using to implement Dither Routing. If anyone knows of any similar work not listed here, please let me know on Matrix!)</p>
 <p>[1] <a href="https://arxiv.org/pdf/1507.05724v3.pdf">HORNET: High-speed Onion Routing at the Network Layer</a></p>

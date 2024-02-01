@@ -174,10 +174,9 @@
 <li><a href="dither.html#the-dither-project">The Dither Project</a>
 <ul>
 <li><a href="dither.html#what-is-it">What is it?</a></li>
-<li><a href="dither.html#a-plan-for-the-future-of-the-internet">A Plan for the Future of the Internet</a></li>
 </ul>
 </li>
-<li><a href="dither.html#core-tenets">Core Tenets</a></li>
+<li><a href="dither.html#core-design-tenets">Core Design Tenets</a></li>
 <li><a href="dither.html#structure">Structure</a>
 <ul>
 <li><a href="dither.html#core-process">Core Process</a></li>
@@ -193,34 +192,32 @@
 </li>
 </ul>
 <h2 id="what-is-it"><a class="header" href="#what-is-it">What is it?</a></h2>
-<p>Dither is a project with the goal of decentralizing the internet. It is a toolbox of various tools application developers can use to communicate privately, host data, manage accounts much more. It is currently being developed by <a href="https://github.com/zyansheep">@Zyansheep</a> and temporarily hosted via GitHub under the <a href="https://github.com/libdither">libdither</a> organization.</p>
-<h2 id="a-plan-for-the-future-of-the-internet"><a class="header" href="#a-plan-for-the-future-of-the-internet">A Plan for the Future of the Internet</a></h2>
-<p>The plan behind Dither is to create an modern internet unencumbered by any kind of central control. To accomplish this, Dither must somehow replace existing apps and services <em>by outcompeting them</em>. This is an incredibly monumental task, but there are some things that may help in Dither's favor.</p>
-<ul>
-<li><strong>No Hosting Costs</strong> — Being decentralized means the users host everything. If we can create a system to make it as painless as possible to host data, that would be ideal.</li>
-<li><strong>Redesigning Everything is Sometimes Good</strong> — If applications using Dither are fundamentally better designed than the alternative and it is easy to switch, users will be more likely to use them.</li>
-<li><strong>No Intellectual Property</strong> — Intellectual property protections do not apply to the core of Dither since it is a peer-to-peer network. This means that new platforms can be immediately populated with any existing content people might want to watch. Note: Precautions should be taken to make sure creators have a say in if they want their content to be shown on mainstream applications using the protocol to prevent public backlash.</li>
-<li><strong>Standardization</strong> — Dither's ecosystem of APIs will all be compatible with each other which will infinitely improve the experience of the user. (Imagine being able to use a Discord-like chat room or a Reddit-like comment system underneath a YouTube video, or really any kind of system you want. It's all modular!).</li>
-<li><strong>Natural Incentives</strong> — Similar to Brave browser's tipping system, If applications built on Dither have good incentive systems for content creation that extends to existing content, then creators whose content is uploaded to the network will automatically accrue income that will then be an incentive for them to claim their money and create an account. Unlike Brave, there won't be any KYC requirements :).</li>
-</ul>
+<p>Dither is a project with the ultimate goal of creating a decentralized and privacy-respecting Internet. It is a repository of libraries, tools, ideas, and applications that allow people to communicate privately, distribute data, manage accounts, much more. It is currently being developed by <a href="https://github.com/zyansheep">@Zyansheep</a> and (for the time being) hosted via GitHub under the <a href="https://github.com/libdither">libdither</a> organization.</p>
 <p><em>The aim for Dither is to replace existing centralized applications with decentralized alternatives that are unified through their use of a singular, modular protocol.</em></p>
 <p>See the <a href="applications.html">application document</a> for outlines of various applications that could be built using Dither.</p>
-<h1 id="core-tenets"><a class="header" href="#core-tenets">Core Tenets</a></h1>
-<p>It seems necessary for projects to have guidelines so that everyone may be on the same page. These are the ones I've chosen for now, as with everything, they are subject to change.</p>
-<p><strong>Dither should be as modular as possible.</strong></p>
+<h1 id="core-design-tenets"><a class="header" href="#core-design-tenets">Core Design Tenets</a></h1>
+<p>It seems helpful for projects to have guidelines to help aid design and collaboration. These are the ones I've chosen for now, as with everything, they are subject to change.</p>
+<p><strong>Dither should be useful</strong></p>
 <ul>
-<li>Reasoning: There should be no part of Dither that is difficult to replace with a different implementation and people should be able to pick and choose which parts they want.</li>
+<li>Dither is a project. Projects should be useful.</li>
+<li>This one probably doesn't even need to be said, but it is always important while thinking about design, to keep in mind that you eventually want to create something useful.</li>
 </ul>
-<p><strong>Dither protocols, formats, and communities should be as interoperable as possible with existing protocols, formats, and communities</strong></p>
+<p><strong>Dither should be modular and modelable</strong></p>
 <ul>
-<li>Reasoning: To grow Dither's userbase, It should be as easy as possible to transition to Dither from other services.</li>
-<li>One example of this would be allowing someone to pull comments from Reddit / Youtube into <a href="applications/dithca.html">Dithca</a> and hosting them in a decentralized manner.</li>
-<li>Another example might be <a href="applications/dithca.html">Dithca</a> storing Reddit credentials and being able to optionally interact with comment threads pulled from centralized websites.</li>
+<li>Once you build something, it often gets harder and harder to add features to it unless it is clear how the parts of the system connect and you can separate your concerns. To ensure extensibility and comprehensibility for future Dither developers, modularity and modelability are key.</li>
 </ul>
-<p><strong>Dither should rely on itself as much as possible for every aspect of development and usage.</strong></p>
+<p><strong>Dither should be interoperable</strong></p>
 <ul>
-<li>Reasoning: It feels natural for a program to use itself if possible. Rust is written in itself, GitLabs is hosted using GitLabs, etc.</li>
-<li>Code Versioning, Storage, Building, Distribution, and Social communication should all run through Dither applications if it won't compromise development too much.</li>
+<li>The goal of Dither is to replace existing services and standards. This is very hard to do (see: <a href="https://xkcd.com/927/">xkcd #927</a>). To try to avoid this fate and make transition as easy as possible, Dither should do anything necessary to make the experience the same, or better, than existing platforms and services.
+<ul>
+<li>A real-world example of this working is PipeWire acting as a single program unifying nearly all existing audio APIs on linux. (and being backwards compatible with programs that use those other audio APIs).</li>
+</ul>
+</li>
+<li>See <a href="./dither-interoperability.html">Dither Interoperability</a> for more details.</li>
+</ul>
+<p><strong>Dither should rely on itself</strong></p>
+<ul>
+<li>This tenet is simply a reminder of the end-goal of Dither: to replace the centralized internet. So long as the other tenets are satisfied, this is the ultimate goal. (Because who doesn't want to reinvent the wheel!)</li>
 </ul>
 <h1 id="structure"><a class="header" href="#structure">Structure</a></h1>
 <p>Following the first tenet of Dither, in the future the lines between these layers will blur and everything will be a module. However, the design of current operating systems don't easily allow for shared code and data, requiring a more formal structure. In the future this layered structure will be replaced with a more <a href="dither/structure.html">flexible system</a>.</p>
@@ -241,7 +238,7 @@ Currenly in the dither-sim program, this is implemented via a simple TCP stream.
 <p>These interfaces can be implemented however, but it is recommended for them to follow Dither's <a href="dither/application-design-philosophy.html">application design philosophy</a> for some level of standardization.</p>
 <h1 id="other-links"><a class="header" href="#other-links">Other Links</a></h1>
 <h3 id="inspirations-for-dither"><a class="header" href="#inspirations-for-dither"><a href="dither/inspirations.html">Inspirations for Dither</a></a></h3>
-<p>Dither as with any creative endeavor takes inspiration from many other projects. This is a list of what parts of Dither have been inspired from other projects.</p>
+<p>As with any creative endeavor, Dither takes inspiration from many other projects. This is a list of what parts of Dither have been inspired from other projects.</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="structure-1"><a class="header" href="#structure-1">Structure</a></h1>
 <p>This document outlines the major structure of Dither.</p>
@@ -392,6 +389,46 @@ The “factorization” algorithm can be done on a single computer, but it can a
 <li>Each node keeps track of the amount of traffic (bytes) flowing through its itself from directly connected nodes.</li>
 <li>Each node only sends traffic through direct nodes it knows it has received traffic from.</li>
 <li>There is more to theorize about here for future research :)</li>
+</ul>
+<h3 id="conflicts-with-isp-load-balancing"><a class="header" href="#conflicts-with-isp-load-balancing">Conflicts with ISP Load Balancing</a></h3>
+<p>(This section is WIP)</p>
+<p>Implementing an alternative routing protocol on top of regular IP routing may pose issues for ISP routing (i.e. forcing utilising of certain links too much, causing major slowdowns). ISPs don't optimize for latency or bandwidth, they optimize for load balancing to prevent too much link utilisation. TODO: Dither should take this into account by implementing its own second-layer load balancing system that makes sure ISP links aren't overloaded.</p>
+<p>Questions for this problem:</p>
+<ul>
+<li>How might peer-to-peer overlay networks (of various kinds) effect an ISP’s ability to do load balancing well?
+<ul>
+<li>ISP simply have to do more buffering, slowing queue times for specific links, making those links become unattractive, shifting the route prioritization to ones that are less desirable -&gt; problem is this makes those routes unusable for regular (nearby) people and are instead hijacked by through-traffic.</li>
+</ul>
+</li>
+</ul>
+<p>Research</p>
+<ul>
+<li>
+<p>Dawn - Selfish overlay compensate for careless underlay</p>
+</li>
+<li>
+<p>If overlay networks can or do conflict with ISP load balancing effort, how can that conflict be reduced via design of the protocol?</p>
+<ul>
+<li>Maybe reimplement load balancing into the network protocol?
+<ul>
+<li>What might this look like in a peer-to-peer setting?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Some set of nodes in the network:</p>
+<ul>
+<li>Sending along certain local paths (need to be careful to not overwhelm bandwidth along local link: not likely)</li>
+<li>Sending along mid-range path, some room for path diversity, but if everyone is doing it, it may create hotspot: need </li>
+</ul>
+<p>Main issue: A is sending large file to B, anonymously. If they route through one path, this will be a problem, if they route along multiple paths, ISPs have more ability to distribute the load. </p>
+<ul>
+<li>More paths = more chance for paths to be surveiled: is it obvious who is chatting with who? -&gt; More obvious than just one path
+<ul>
+<li>Mixnets ? -&gt; How fast would these be for large data transfers?</li>
+</ul>
+</li>
 </ul>
 <h2 id="research-inspirations--similar-work"><a class="header" href="#research-inspirations--similar-work">Research, Inspirations &amp; Similar Work</a></h2>
 <p>(List in rough order of reading of notable articles I am using to implement Dither Routing. If anyone knows of any similar work not listed here, please let me know on Matrix!)</p>
@@ -584,17 +621,14 @@ Factorization-Based Network Coordinate Systems</a></p>
 <p>Cryptographic identification will occur for when one needs to identify an party on other other end of a specific communication channel.</p>
 <p>Characteristic-based identification will occur when one needs to find publically-declared associated data (i.e. public keys) of another party given only knowing certain characteristics of the other party.</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<h1 id="disp-decentralized-lisp"><a class="header" href="#disp-decentralized-lisp">Disp (Decentralized Lisp)</a></h1>
+<h1 id="disp"><a class="header" href="#disp">Disp</a></h1>
 <p><em>What is a program? What is data? Why, they are one of the same.</em></p>
-<p>Inspired by:</p>
-<ul>
-<li>Lisp for treating programs-as-data.</li>
-<li>Idris &amp; Coq for the infinite expressiveness of dependent types</li>
-<li>Rust for its safe &amp; fast zero-cost abstractions.</li>
-<li>IPFS for deduplication of shared code</li>
-</ul>
+<p>Disp is a Decentralized Programming Language for the Decentralized Internet. The ultimate goal of Disp is (much like Dither) to allow for the replacement of all existing programming languages by creating a flexible, modular, and <em>decentralized</em> language.</p>
+<h4 id="what-does-it-mean-for-a-programming-language-to-be-decentralized"><a class="header" href="#what-does-it-mean-for-a-programming-language-to-be-decentralized">What does it mean for a Programming Language to be Decentralized?</a></h4>
+<p>Modern programming languages are centraly-defined. Their parsers, type-checkers, interpreters, and specification are stored in a central repository, with complex systems of consensus creating a single evolving specification. Disp will attempt to do the opposite. It will provide a core set of tools for <em>building</em> languages that can be used however the user desires, and then use concepts from Category Theory (and semantic graph structures) to relate these &quot;separate&quot; languages together and allow them to translate seamlessly into each other.</p>
+<p>What might this look like? Imagine having an untyped lambda calculus evaluator (i.e. a simple model of computation) and allowing users to define various type systems for this model, from untyped, duck-typed, structurally-typed, simply typed, Martin-Loef Typed, or even the Calculus of Constructions, Cubical Type Theory and beyond. All these various type systems semantics can be related using Category Theory so that types in a simpler type system can be translated to types in a more complex type system. Then, on top of this, the syntax used to display (whether that be textual or using a <a href="https://github.com/yairchu/awesome-structure-editors">projectional/structured language editor</a>).</p>
 <h2 id="goals"><a class="header" href="#goals">Goals</a></h2>
-<p>A general outline of the (very lofty) goals of Disp.</p>
+<p>Create a general-purpose programming language that:</p>
 <ul>
 <li>Absolute flexibility &amp; configurability</li>
 <li>Most efficient language to run</li>
@@ -658,6 +692,14 @@ Factorization-Based Network Coordinate Systems</a></p>
 <li>
 <p>The language files are not stored as text files, they are instead stored as self-defining structures of groups of commands.</p>
 </li>
+</ul>
+<h2 id="inspirations"><a class="header" href="#inspirations">Inspirations</a></h2>
+<ul>
+<li>Lisp for treating programs-as-data.</li>
+<li>Idris, Coq, Agda, Lean &amp; Friends for dependent types.</li>
+<li>Rust for its safe &amp; fast zero-cost abstractions.</li>
+<li>IPFS for deduplication of shared code</li>
+<li>IPLD for self-defining structures</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="universal-system-of-types"><a class="header" href="#universal-system-of-types">Universal System of Types</a></h1>
@@ -751,6 +793,65 @@ Factorization-Based Network Coordinate Systems</a></p>
 <h1 id="syntax"><a class="header" href="#syntax">Syntax</a></h1>
 <p>Since Disp has <a href="disp/syntax-agnosticism.html">Syntax Agnosticism</a>, it does not require one set syntax. For consistency and branding purposes however, Disp will have its own succinct and readable default syntax. This </p>
 <p>Disp's default syntax is still a work-in-progress, however I think I want something similar to lisp with various Rust conventions sprinkled in.</p>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// Define things with `let` and `:=`
+let thing := 3
+
+/// Qualify the type of your definitions with `:`
+let pi := 3.141592653589798283 : Real
+
+/// Define unordered sets
+let set := {pi, thing} : {Real, Nat}
+/assert_eq Set::get(set, pi) pi
+/assert_typ Set::get(set, pi) Real
+/// Define ordered sets
+let list := [pi, thing, 2] : [Real, Nat, Nat]
+/assert_eq list.0 pi
+
+type resolve : Ident -&gt; Type
+type resolve_elem : {Set, Ident} -&gt; Type
+type resolve_list : {List, Nat} -&gt; Type
+
+type parse_nat : String -&gt; Nat
+
+type Nat : Type;
+type Z : Nat;
+type S : Nat -&gt; Nat;
+
+let NatDef := {
+	type zero : Nat,
+	type succ : Nat -&gt; Nat, 
+} : Type
+
+let TypeParsing := { T : Type, Error : Type } -&gt; {
+	type parse : String -&gt; Result&lt;T, Error&gt;
+}
+type Bool : Type;
+type true : Bool;
+type false : bool;
+
+let _ : TypeParsing(Bool) := {
+	let parse := (string) -&gt; (
+		match string {
+			&quot;true&quot; =&gt; true,
+			&quot;false&quot; =&gt; false,
+		}
+	)
+}
+
+/// The type
+let TypeConstructor := Type -&gt; Type;
+
+type round : Real -&gt; Nat
+round(pie) := thing
+
+type Nat : Type
+type Real : Type
+type Type : Type // Warning: Type is already a member of Type because it is the Type of all Types, including itself.
+
+<span class="boring">}</span></code></pre></pre>
 <h2 id="note-this-syntax-is-just-an-idea-and-subject-to-lots-of-change"><a class="header" href="#note-this-syntax-is-just-an-idea-and-subject-to-lots-of-change">Note: This Syntax is just an idea and subject to lots of change</a></h2>
 <pre><code>// By itself, this is a comment
 // It doubles as documentation when paired with an object
@@ -780,7 +881,7 @@ set Bool Π[A: Type] A -&gt; A -&gt; A {
 
 
 </code></pre>
-<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<h2 id="examples-1"><a class="header" href="#examples-1">Examples</a></h2>
 <pre><code>// This is a comment, it also doubles as documentation
 
 // Variables
