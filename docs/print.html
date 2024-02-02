@@ -628,32 +628,30 @@ Factorization-Based Network Coordinate Systems</a></p>
 <p>Modern programming languages are centraly-defined. Their parsers, type-checkers, interpreters, and specification are stored in a central repository, with complex systems of consensus creating a single evolving specification. Disp will attempt to do the opposite. It will provide a core set of tools for <em>building</em> languages that can be used however the user desires, and then use concepts from Category Theory (and semantic graph structures) to relate these &quot;separate&quot; languages together and allow them to translate seamlessly into each other.</p>
 <p>What might this look like? Imagine having an untyped lambda calculus evaluator (i.e. a simple model of computation) and allowing users to define various type systems for this model, from untyped, duck-typed, structurally-typed, simply typed, Martin-Loef Typed, or even the Calculus of Constructions, Cubical Type Theory and beyond. All these various type systems semantics can be related using Category Theory so that types in a simpler type system can be translated to types in a more complex type system. Then, on top of this, the syntax used to display (whether that be textual or using a <a href="https://github.com/yairchu/awesome-structure-editors">projectional/structured language editor</a>).</p>
 <h2 id="goals"><a class="header" href="#goals">Goals</a></h2>
-<p>Create a general-purpose programming language that:</p>
+<p>Create a general-purpose programming language that has the following main properties:</p>
 <ul>
-<li>Absolute flexibility &amp; configurability</li>
-<li>Most efficient language to run</li>
+<li>Absolute flexibility &amp; configurability (customizable syntax &amp; type system).
+<ul>
+<li><a href="disp/syntax-agnosticism.html">Syntax Agnosticism</a>
+<ul>
+<li><a href="disp/no-more-bikeshedding.html">No More Bikeshedding</a></li>
+<li>Projectional Editing</li>
+<li>Easy Localization</li>
+</ul>
+</li>
+<li><a href="disp/universal-system-of-types.html">Universal System of Types</a></li>
+<li><a href="disp/ontologies.html">Ontologies and Semantic Graphs</a></li>
+</ul>
+</li>
+<li>Most efficient language to run (Combined interpreter, JIT and AOT, provably equivalent in terms of behavior)
+<ul>
+<li>Solve the dependency problem via content-addressed &quot;deduplicated&quot; AST structures &amp; machinecode, and provable backwards-compatability.</li>
 <li>Support for compilation to any cpu / interpreter</li>
-<li>Most efficient language to write
-<ul>
-<li>Projectional Editing
-<ul>
-<li>Localization-agnostic naming</li>
-</ul>
-</li>
-<li>Mixable syntax
-<ul>
-<li>Transpilation from any other language</li>
-</ul>
-</li>
+<li><a href="disp/provable-zero-cost-abstraction.html">Provable Zero-Cost Abstraction</a></li>
+<li><a href="disp/hardware-modeling.html">Hardware Modeling</a></li>
 </ul>
 </li>
 <li>Seamless integration into Dither</li>
-</ul>
-<h2 id="core-ideas"><a class="header" href="#core-ideas">Core Ideas</a></h2>
-<ul>
-<li><a href="disp/syntax-agnosticism.html">Agnostic Syntax</a></li>
-<li><a href="disp/universal-system-of-types.html">Universal System of Types</a></li>
-<li><a href="disp/hardware-modeling.html">Hardware Modeling</a></li>
 </ul>
 <h2 id="ideas"><a class="header" href="#ideas">Ideas</a></h2>
 <ul>
