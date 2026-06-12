@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Programs from Specifications - Dither Ideas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="../dither/02-routing.html"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="../dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="../dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="../dither/user-management.html"><strong aria-hidden="true">1.5.</strong> Account Management</a></li><li class="chapter-item expanded "><a href="../dither/identity.html"><strong aria-hidden="true">1.6.</strong> Identity Management</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="../disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li class="chapter-item expanded "><a href="../disp/syntax.html"><strong aria-hidden="true">2.2.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="../disp/names.html"><strong aria-hidden="true">2.3.</strong> Names</a></li><li class="chapter-item expanded "><a href="../disp/program-synthesis.html" class="active"><strong aria-hidden="true">2.4.</strong> Programs from Specifications</a></li><li class="chapter-item expanded "><a href="../disp/implementation.html"><strong aria-hidden="true">2.5.</strong> Implementation</a></li></ol></li><li class="chapter-item expanded "><a href="../applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="../applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li><li class="chapter-item expanded "><a href="../applications/fractional-funding.html"><strong aria-hidden="true">3.6.</strong> Fractional Funding</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/application-design-philosophy.html"><strong aria-hidden="true">4.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="../copyright-is-cancer.html"><strong aria-hidden="true">4.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../what-is-a-monad.html"><strong aria-hidden="true">5.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="../node_discovery_ideas.html"><strong aria-hidden="true">5.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dither Ideas</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="programs-from-specifications"><a class="header" href="#programs-from-specifications">Programs from Specifications</a></h1>
+<p>The long-term goal behind Disp: I want to be able to synthesize the best possible program given a specification.</p>
+<p>Unpacking that sentence: a specification is a type, and in Disp <a href="universal-system-of-types.html">a type is a program</a> that checks other programs. So the type checker can be turned into a function that takes a candidate program and returns 1 or 0. Combine that with functions that measure other things you care about (speed, memory usage, code size) and you have a <em>scoring function</em>: a single program that looks at another program and tells you how good it is.</p>
+<p>Once &quot;how good is this program?&quot; is itself a program, writing software can be turned inside out. Instead of writing the program, you write the scorer, and an optimizer searches for a program that scores well: one that is formally correct (the type checker accepts it) and efficient along whatever axes you measured.</p>
+<p>For this to work, a few things have to hold:</p>
+<ul>
+<li><strong>Programs must be data</strong>, so that the scorer can inspect candidates and the optimizer can build them. This is what tree calculus gives Disp.</li>
+<li><strong>The specification language must be strong enough</strong> to say what you actually mean. That is what the dependent type system is for: &quot;a sorting function&quot; can be specified precisely, not just &quot;a function from lists to lists&quot;.</li>
+<li><strong>Performance must be measurable without guesswork</strong>, which is what the rest of this page is about.</li>
+</ul>
+<h2 id="provable-optimization"><a class="header" href="#provable-optimization">Provable Optimization</a></h2>
+<p>The whole business of computing faster in general comes down to finding new structures and algorithms that contain the same information as the old ones, but can do certain computations faster.</p>
+<p>For example: multiplying by 2 can be done two ways on a CPU, through the multiplication instruction (slow) or bitshifting (very fast!). Same answer, different cost. A bigger example might be swapping one data structure for an equivalent one with better O(n) behavior, which only pays off past a certain dataset size. Real programs are towers of choices like these.</p>
+<p>Today, these substitutions happen in two ways. Compilers apply a fixed bag of rewrites that their authors hand-picked and trust. Programmers do the rest incrementally by hand, using benchmarks as a form of proof. Ideally all optimization could be done by the compiler, but that compiler would have to have knowledge of every possible implementation of every algorithm and when each one wins.</p>
+<p>Disp aims to solve this by making optimization a <em>library</em> instead of a compiler internal. Since Disp programs are data, and equality between programs is something the type system can state and check, an optimization can be packaged up as: here are two programs, here is a proof that they always produce the same result, and here is the evidence about when one is faster. Such a package can be:</p>
+<ul>
+<li>applied manually, like importing any other dependency,</li>
+<li>found automatically, by a compiler searching the library for rewrites that apply to your code (with results recorded for subsequent runs),</li>
+<li>shared safely, because the equivalence proof is checked on arrival. You don't have to trust whoever sent it.</li>
+</ul>
+<p>The &quot;when is it faster&quot; half is the harder part, since benchmarks are noisy and machine-specific. That is what hardware modeling is for.</p>
+<h2 id="hardware-modeling"><a class="header" href="#hardware-modeling">Hardware Modeling</a></h2>
+<h4 id="how-do-we-generate-fast-code"><a class="header" href="#how-do-we-generate-fast-code">How do we generate fast code?</a></h4>
+<p>Optimizing compilers generate fast code through intermediate representations and <a href="https://www.lihaoyi.com/post/HowanOptimizingCompilerWorks.html">various techniques</a> for figuring out what code is needed and what code is not. These strategies are mostly arbitrary and not easily improvable: a programmer has to go through and figure out which optimizations are worth the compiler computation cost and which aren't, and there are an immeasurable number of trade-offs and potential improvements for any given piece of hardware.</p>
+<h4 id="how-do-we-create-fast-algorithms"><a class="header" href="#how-do-we-create-fast-algorithms">How do we create fast algorithms?</a></h4>
+<p>We typically write algorithms we think will run fast and then compare them to other algorithms using benchmarks. However, benchmarks have so many confounding factors that it is difficult to compare two of them and make definitive conclusions. The same algorithm may run faster or slower depending on a bazillion different factors, down to the <a href="https://www.youtube.com/watch?v=r-TLSBdHe1A">memory layout</a> the compiler happened to pick.</p>
+<p>To create efficient code, we must have a model of how that code is run. Typically this model is held in the programmer's mind and expressed through compiler and algorithm design. Instead of holding it in our forgetful, biased brains, it might be a good idea to have a software-defined model of our hardware, so that we can <em>prove</em> (or at least have really good heuristics that check whether) our optimizations and algorithms are actually faster.</p>
+<p>What such a model should account for:</p>
+<ul>
+<li>Modern CPU features: pipelining, superscalar and out-of-order execution, branch prediction.</li>
+<li>Differences between generations of the same architecture.</li>
+<li>Everything else that moves the needle: RAM latency, cache behavior, GPU parallelism.</li>
+</ul>
+<p>Simple models could be hand-built from published data like Agner Fog's <a href="https://www.agner.org/optimize/#manual_instr_tab">instruction tables</a>. For open hardware (RISC-V, say), more sophisticated models could be derived from the actual logic design.</p>
+<p>Benefits of this approach:</p>
+<ul>
+<li><strong>No more annoying benchmarks.</strong> A faster algorithm can be provably faster for a given model. (Benchmarks still get used to compare different models of a hardware system, but those benchmarks can be much more sophisticated and account for more confounding factors.)</li>
+<li><strong>Faster optimization adoption.</strong> With models and equivalence proofs, optimizations can spread through a public database without a compiler release in between:
+<ul>
+<li>Bob finds a new optimization for a certain pattern of expressions.</li>
+<li>Bob proves it is faster for a well-trusted model of x86_64 CPUs.</li>
+<li>Bob broadcasts the optimization to everyone.</li>
+<li>Everyone's computers check the proof.</li>
+<li>Everyone's programs get faster.</li>
+</ul>
+</li>
+</ul>
+<h2 id="closing-the-loop"><a class="header" href="#closing-the-loop">Closing the Loop</a></h2>
+<p>The really interesting part is what happens once all of this feeds back into itself. The type checker is a Disp program, so it too can be scored and optimized. The optimizer can be pointed at its own components. The hardware models can be refined by the very search they accelerate. And a large enough library of proven-equivalent programs is a perfect dataset for training an AI to find new equivalences. Every piece of the system is a candidate for the system to improve, which is why so much of Disp's design is about keeping everything (checker included) inside the language rather than bolted onto it.</p>
+<p>This is all a long way off, to be sure. What exists today is the foundation it requires: a calculus where programs are data, and a self-hosted type checker on top of it. The optimizer is future work, and an external search process (combinatorial, neural-guided, or both) will probably have to bootstrap it before it can take over its own improvement.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../disp/names.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../disp/implementation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../disp/names.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../disp/implementation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

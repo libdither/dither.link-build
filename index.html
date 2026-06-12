@@ -56,60 +56,44 @@
 </h2>
 <p>These are some work-in-progress principles for how Dither and its communities should be designed:</p>
 <p><em>Dither should be as modular as possible.</em></p>
-<p><em>Dither protocols, formats, and communities should be as interoperable as possible with existing protocols, formats, and communities</em></p>
+<p><em>Dither protocols, formats, and communities should be as interoperable as possible with existing protocols, formats, and communities.</em></p>
 <p><em>Dither should rely on itself as much as possible.</em></p>
 <p>More details on Dither&rsquo;s Core Tenets can be found 
-  <a href="docs/dither.html#core-design-tenants">here</a></p>
+  <a href="docs/dither.html#core-design-tenets">here</a>.</p>
 <h2 id="the-core-services-of-dither">
   The Core Services of Dither
   <a class="anchor" href="#the-core-services-of-dither">#</a>
 </h2>
-<p>Dither is at its core a piece of software that allows applications built on top of it to do a few funamdental things:</p>
+<p>Dither is at its core a piece of software that allows applications built on top of it to do a few fundamental things:</p>
 <ul>
 <li>Send data to other computers in a flexibly private manner, where the user can choose how untraceable they want their connection to be (improves on TOR, I2P, and others). 
-  <a href="docs/dither/routing.html">See more</a></li>
-<li>Host public data in such a way to distribute to burden of hosting over all parties interested in the data, while hiding information about the individual hosts and users of the data. (improves on IPFS, Bittorrent, and others) 
-  <a href="docs/dither/directional-trail-search.html">See More</a></li>
+  <a href="docs/dither/02-routing.html">See more</a></li>
+<li>Host public data in such a way that the burden of hosting is distributed over all parties interested in the data, while hiding information about the individual hosts and users of the data (improves on IPFS, BitTorrent, and others). 
+  <a href="docs/dither/directional-trail-search.html">See more</a></li>
 </ul>
-<p>In addition to these two primary services, applications can use various other services to create a cohesive decentralized, private, and trustless internet.</p>
+<p>In addition to these two primary services, applications can use various other services (identity, consensus, storage) to create a cohesive decentralized, private, and trustless internet.</p>
+<h2 id="the-language-disp">
+  The Language: Disp
+  <a class="anchor" href="#the-language-disp">#</a>
+</h2>
+<p>A decentralized internet needs more than a way to move data around, it needs a way to share <em>programs</em>: to send someone code and have their computer verify what it does before running it, without having to trust whoever wrote it. No existing language is really designed for this, so Dither is getting its own.</p>
+<p>
+  <a href="docs/disp/disp.html">Disp</a> is a programming language where programs are stored as data structures instead of text, identified by hash instead of name, and checked by a type system that is itself a program written in the language. This is where most of my work is going at the moment. There is a 
+  <a href="https://github.com/libdither/disp">working prototype</a>.</p>
 <h2 id="general-structure">
   General Structure
   <a class="anchor" href="#general-structure">#</a>
 </h2>
-<p>In accordance with the first tenant of Dither, Dither&rsquo;s core is built in small, interdependent modules. However, to make these modules as sandboxed as possible, interactions with the system and the user will not be run as Dither modules for the time being.</p>
-<ul>
-<li>The main part of Dither is the 
-  <a href="docs/dither.html#core-process">Core Process</a>
-<ul>
-<li>This is what you need to download to use Dither on any device and it has two functions: It manages all the other services running under Dither, and it manages communication with other computers using whatever installed network device it can find on the computer it is installed on.</li>
-<li>For the communication part, it provides an API for other services to create 
-  <a href="https://en.wikipedia.org/wiki/Reliability_%28computer_networking%29">reliable</a> (or optionally unreliable) unencrypted connections between Dither nodes to facilitate peer-to-peer communication. Existing libraries like 
-  <a href="https://libp2p.io">libp2p</a> or 
-  <a href="https://www.pluggabletransports.info/">Pluggable Transports</a> will most likely be used here.</li>
-<li>There is also an API for registering a new service with the Core Process and for establishing API connections between them.</li>
-</ul>
-</li>
-<li>The second part is the 
-  <a href="docs/dither.html#service-swarm">Service Swarm</a>
-<ul>
-<li>This part contains the various core services such as those providing encryption, anonymous routing, data fetching, account management and others as well as those providing specific application APIs for specific UI applications on the system.</li>
-</ul>
-</li>
-<li>The third part is the 
-  <a href="docs/dither.html#user-interface">User Interface</a>
-<ul>
-<li>This part manages creating a user interface as a &ldquo;frontend&rdquo; for a service running in the Service Swarm. An interface could be anything from a fancy UI using web technology or a simple command-line interface. Ideally, these frontend programs should be very small because all the complicated computing is done by the backend.</li>
-</ul>
-</li>
-</ul>
+<p>In accordance with the first tenet of Dither, Dither is built in small, interdependent modules: a core process that manages networking and sandboxing, a swarm of services providing things like routing, storage, and identity, and lightweight user interfaces on top. More details can be found in the 
+  <a href="docs/dither.html#structure">docs</a>.</p>
 <h2 id="roadmap">
   Roadmap
   <a class="anchor" href="#roadmap">#</a>
 </h2>
-<p>Currently, Dither is in the simulation phase. Creating decentralized protocols is difficult, and much testing needs to be done to make sure everything works. Simulations of dither will done in the 
-  <a href="https://github.com/libdither/libdither">libdither</a> repository using the 
-  <a href="https://shadow.github.io/">shadow network simulator</a> for its ability to do reproducible tests on production binaries.</p>
-<p>Once Dither moves out of the simulation phase, the first proof-of-concept application will be a chat app as outlined in the 
+<p>Creating decentralized protocols is difficult, and most of Dither currently lives in 
+  <a href="docs/dither.html">design documents</a> that are slowly being refined. Most active work right now is on Disp, since much of the rest of the system wants to be built with it. The networking protocols (like 
+  <a href="docs/dither/02-routing.html">anonymous routing</a>) will be tested in simulation before being let loose on real networks.</p>
+<p>Once the core parts are usable, the first proof-of-concept application will be a chat app as outlined in the 
   <a href="docs/applications/dither-chat.html">Dither Chat application spec</a>.</p>
 <h2 id="community">
   Community
