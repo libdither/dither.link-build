@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Futarchy and Causality - Dither Ideas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="../dither/02-routing.html"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="../dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="../dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="../dither/user-management.html"><strong aria-hidden="true">1.5.</strong> Account Management</a></li><li class="chapter-item expanded "><a href="../dither/identity.html"><strong aria-hidden="true">1.6.</strong> Identity Management</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="../disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li class="chapter-item expanded "><a href="../disp/syntax.html"><strong aria-hidden="true">2.2.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="../disp/names.html"><strong aria-hidden="true">2.3.</strong> Names</a></li><li class="chapter-item expanded "><a href="../disp/program-synthesis.html"><strong aria-hidden="true">2.4.</strong> Programs from Specifications</a></li><li class="chapter-item expanded "><a href="../disp/implementation.html"><strong aria-hidden="true">2.5.</strong> Implementation</a></li></ol></li><li class="chapter-item expanded "><a href="../applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="../applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li><li class="chapter-item expanded "><a href="../applications/fractional-funding.html"><strong aria-hidden="true">3.6.</strong> Fractional Funding</a></li></ol></li><li class="chapter-item expanded "><a href="../stack/overview.html"><strong aria-hidden="true">4.</strong> The Decentralization Stack</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Part A · Core Ideas — draft</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/core/identity.html"><strong aria-hidden="true">4.1.1.</strong> 1 · Boundary & Identity</a></li><li class="chapter-item expanded "><a href="../stack/core/ordering.html"><strong aria-hidden="true">4.1.2.</strong> 2 · Ordering & Timestamps</a></li><li class="chapter-item expanded "><a href="../stack/core/substrate.html"><strong aria-hidden="true">4.1.3.</strong> 3 · A Verifiable Substrate</a></li><li class="chapter-item expanded "><a href="../stack/core/routing.html"><strong aria-hidden="true">4.1.4.</strong> 4 · Anonymous Routing & Retrieval</a></li><li class="chapter-item expanded "><a href="../stack/core/resource-market.html"><strong aria-hidden="true">4.1.5.</strong> 5 · One Resource Market</a></li><li class="chapter-item expanded "><a href="../stack/core/money.html"><strong aria-hidden="true">4.1.6.</strong> 6 · Non-Concentrating Money</a></li><li class="chapter-item expanded "><a href="../stack/core/truth.html"><strong aria-hidden="true">4.1.7.</strong> 7 · Aggregating Truth</a></li><li class="chapter-item expanded "><a href="../stack/core/governance.html"><strong aria-hidden="true">4.1.8.</strong> 8 · Deciding Together</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> Part B · In Depth — existing drafts, to rework</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/independence.html"><strong aria-hidden="true">4.2.1.</strong> Boundary & Identity</a></li><li class="chapter-item expanded "><a href="../stack/substrate.html"><strong aria-hidden="true">4.2.2.</strong> One Resource Market</a></li><li class="chapter-item expanded "><a href="../stack/value-as-flow.html"><strong aria-hidden="true">4.2.3.</strong> Non-Concentrating Money</a></li><li class="chapter-item expanded "><a href="../stack/mechanism.html"><strong aria-hidden="true">4.2.4.</strong> Aggregating Truth</a></li><li class="chapter-item expanded "><a href="../stack/the-problem.html"><strong aria-hidden="true">4.2.5.</strong> — the problem it solves</a></li><li class="chapter-item expanded "><a href="../stack/worked-example.html"><strong aria-hidden="true">4.2.6.</strong> — worked example</a></li><li class="chapter-item expanded "><a href="../stack/assumptions.html"><strong aria-hidden="true">4.2.7.</strong> — its assumptions</a></li><li class="chapter-item expanded "><a href="../stack/reflexivity.html"><strong aria-hidden="true">4.2.8.</strong> — reflexivity</a></li><li class="chapter-item expanded "><a href="../stack/pay-for-prediction.html"><strong aria-hidden="true">4.2.9.</strong> Prediction as a recurring principle</a></li><li class="chapter-item expanded "><a href="../stack/living-system.html"><strong aria-hidden="true">4.2.10.</strong> Composition — One Living System</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/mathematical-core.html"><strong aria-hidden="true">4.3.1.</strong> The Mathematical Core</a></li><li class="chapter-item expanded "><a href="../stack/futarchy-causality.html" class="active"><strong aria-hidden="true">4.3.2.</strong> Futarchy and Causality</a></li><li class="chapter-item expanded "><a href="../stack/glossary.html"><strong aria-hidden="true">4.3.3.</strong> Notation & Glossary</a></li><li class="chapter-item expanded "><a href="../stack/roadmap.html"><strong aria-hidden="true">4.3.4.</strong> Engineering Roadmap</a></li><li class="chapter-item expanded "><a href="../stack/open-questions.html"><strong aria-hidden="true">4.3.5.</strong> Open Questions</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/application-design-philosophy.html"><strong aria-hidden="true">5.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="../copyright-is-cancer.html"><strong aria-hidden="true">5.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../what-is-a-monad.html"><strong aria-hidden="true">6.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="../node_discovery_ideas.html"><strong aria-hidden="true">6.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dither Ideas</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="futarchy-and-causality"><a class="header" href="#futarchy-and-causality">Futarchy and Causality</a></h1>
+<blockquote>
+<p><em>Part III · The Synthesis — Chapter 12. A deep dive on the deepest objection.</em></p>
+</blockquote>
+<p><em>Evaluates the <a href="mechanism.html">retroactive consensus market</a> (and its formal core, <a href="mathematical-core.html">The Mathematical Core</a>) against Dynomight's &quot;Futarchy's fundamental flaw&quot; (dynomight.net/futarchy). Question: does the conditional-vs-causal critique of futarchy sink our design, and if not, exactly which parts survive? This is the causal twin of the <a href="reflexivity.html">reflexivity</a> problem.</em></p>
+<hr />
+<h2 id="1-dynomights-flaw-stated-precisely"><a class="header" href="#1-dynomights-flaw-stated-precisely">1. Dynomight's flaw, stated precisely</a></h2>
+<p>Futarchy = make decisions with <strong>conditional</strong> prediction markets: run P(value | do action A) and P(value | do action B), take the action with the better conditional. The flaw:</p>
+<blockquote>
+<p>Conditional markets reveal <strong>probabilistic</strong> relationships P(Y | X=x), but decisions need <strong>causal</strong> ones P(Y | do(X=x)). These differ whenever there is reverse causality or confounding.</p>
+</blockquote>
+<p>Five objections, in increasing depth:</p>
+<ol>
+<li><strong>Reverse causality</strong> — the conditioning event may be an effect, not a cause (a falling stock <em>causes</em> the firing).</li>
+<li><strong>Confounding via revelation</strong> — taking action A reveals information about the decision-maker (the board that fires Musk reveals hostility → predicts <em>other</em> value-destroying acts), so the conditional price reflects the action's <em>signal</em>, not its <em>effect</em>.</li>
+<li><strong>Real-policy confounding</strong> — same structure for policy (a no-fly-zone declaration prices in what it reveals about the leader's temperament, not just the policy's direct effect).</li>
+<li><strong>Pre-commitment doesn't save you</strong> — when a market <em>activates conditionally</em> on the decision, bidders condition on activation and order is not preserved (the trick-coin example: you bid more on the branch that cancels-and-refunds when unfavorable, because you're insured).</li>
+<li><strong>Impossibility theorem</strong> — no payout function of (bid, final price, outcome) can both force truthful bids <em>and</em> preserve causal information, given conditional cancellation.</li>
+</ol>
+<p>Dynomight's own prescription: conditional markets are <strong>not worthless</strong> — treat them &quot;like observational statistics: one piece of evidence, considered skeptically,&quot; never a standalone causal decision rule. The flaw <em>can</em> be fixed with causal-inference machinery, but &quot;none are free.&quot;</p>
+<hr />
+<h2 id="2-why-our-base-mechanism-is-not-the-object-the-theorem-is-about"><a class="header" href="#2-why-our-base-mechanism-is-not-the-object-the-theorem-is-about">2. Why our base mechanism is not the object the theorem is about</a></h2>
+<p>The impossibility theorem (objections 4–5) is a theorem about <strong>decision markets with conditional cancellation</strong>: one branch is taken, the other is refunded, and the selection-on-activation distorts bids. Three features of our design break that frame at the base layer:</p>
+<ul>
+<li><strong>Decoupling.</strong> Forecasters publish timestamped distributions and are scored by a proper rule against resolver verdicts. They do <strong>not</strong> bet in a pool with refunds. There is no zero-sum activation branch to be insured against. For any <strong>unconditional</strong> question (&quot;will Health be high in 2030?&quot;) this is pure forecasting; proper scoring is truthful; the theorem is simply irrelevant.</li>
+<li><strong>Retroactive, optional, per-resolver resolution.</strong> There is no single point-in-time mechanical resolution. Resolution happens later, by a human, who may decline.</li>
+<li><strong>The target is resolver consensus, not an observed outcome.</strong> The market predicts <em>what thoughtful resolvers will eventually judge</em>, not a mechanical readout of a price or statistic.</li>
+</ul>
+<p>So the base layer (elicitation + aggregation) is <strong>not</strong> a decision market and does <strong>not</strong> inherit the impossibility result. What it produces is exactly the object Dynomight <em>endorses</em>: an aggregated observational/expert-judgment instrument. The flaw can only re-enter where we <strong>close the loop</strong> — wire a conditional forecast mechanically into a decision. That is the governance application, §4.</p>
+<hr />
+<h2 id="3-the-key-move-retroactivity-converts-an-impossibility-into-a-competence-requirement"><a class="header" href="#3-the-key-move-retroactivity-converts-an-impossibility-into-a-competence-requirement">3. The key move: retroactivity converts an <em>impossibility</em> into a <em>competence requirement</em></a></h2>
+<p>Dynomight assumes resolution is <strong>mechanical and ex ante</strong>: the market resolves on an observed outcome (the realized stock price, the realized death rate), and that observed outcome is confounded. Against mechanical resolution, the flaw is a <em>theorem</em> — provably unfixable by any payout function.</p>
+<p>Our resolution is <strong>judgmental and ex post</strong>: a resolver, with hindsight and data, declares a verdict. The decisive consequence:</p>
+<blockquote>
+<p>The causal question is relocated from <strong>ex-ante market pricing</strong> (where Dynomight proves it cannot be solved) to <strong>ex-post human judgment</strong> (where it is merely hard — and where causal inference tools actually work: RCTs, natural experiments, synthetic controls, difference-in-differences all operate ex post).</p>
+</blockquote>
+<p>Concretely, the resolver is asked a <strong>counterfactual contrast</strong>, not a raw conditional: not &quot;was Health high after X?&quot; but &quot;relative to the no-X counterfactual, did X advance Health?&quot; A resolver in 2030, with five years of data and comparison jurisdictions, can attempt P(Health | do(X)). A forward market pricing P(Health | X) in 2025 cannot. <strong>Retroactivity is not incidental to the mechanism; it is the structural feature that sidesteps the impossibility result</strong>, by deferring the causal question to the time and the agent where evidence exists.</p>
+<p>The price of this move is honest and specific: we trade a <em>provable impossibility</em> for a <em>load-bearing assumption</em> — that resolvers judge counterfactually and competently. Impossible becomes hard. That is a good trade, but it must be named as a soundness condition (§6).</p>
+<hr />
+<h2 id="4-where-the-flaw-fully-survives-the-governance-coupling"><a class="header" href="#4-where-the-flaw-fully-survives-the-governance-coupling">4. Where the flaw fully survives: the governance coupling</a></h2>
+<p>The Ultimate Governance application says voters back &quot;policies that require sub-policies to be <strong>structured around</strong> the market's estimates&quot; — e.g. &quot;to what degree does policy X advance goal Health?&quot; Read mechanically — <em>fund X iff the conditional market says X advances Health</em> — this <strong>is</strong> futarchy and inherits objections 1–5 in full, including the impossibility theorem, because:</p>
+<ul>
+<li>It is a conditional question (Health <strong>given</strong> X).</li>
+<li>For the <strong>untaken</strong> branch (Health given ¬X, when X is enacted) the counterfactual world is never observed, so that branch is structurally unresolvable-by-observation — exactly the cancellation asymmetry the theorem formalizes. Our design does not <em>refund</em> it (so the trick-coin insurance distortion is removed), but it must resolve it by <strong>resolver best-guess</strong>, importing resolver judgment error in place of a clean order-violation.</li>
+</ul>
+<p>The remedy is a hard design rule, and it is Dynomight's own prescription:</p>
+<blockquote>
+<p><strong>The market output is an observational instrument feeding human causal judgment, never a mechanical decision rule.</strong> Voters set preferences (QV over goals) and use market estimates as <em>skeptically-weighted evidence</em>; the human preference/judgment loop stays open. The moment governance hard-wires &quot;allocate ∝ conditional estimate,&quot; we recreate the flaw.</p>
+</blockquote>
+<p>This is the same loop-closure danger as reflexivity (§5), and the same fix: keep perception (market) and action (allocation) coupled through human judgment, not through a mechanical identity.</p>
+<hr />
+<h2 id="5-dynomights-flaw-and-our-reflexivity-condition-are-the-same-shape"><a class="header" href="#5-dynomights-flaw-and-our-reflexivity-condition-are-the-same-shape">5. Dynomight's flaw and our reflexivity condition are the same shape</a></h2>
+<p>Both critiques say: <strong>a market measures what it is scored against, which need not be what you want.</strong></p>
+<ul>
+<li>Dynomight (against observed outcomes): you get P(Y|X), you wanted P(Y|do X).</li>
+<li>Ours (against resolver verdicts, <a href="mathematical-core.html">mathematical-core.md</a> §2): you get <em>predicted resolver consensus</em>, you wanted <em>truth</em> — and if resolvers defer to the market (deference slope L→1), the loop self-fulfills.</li>
+</ul>
+<p>They compound. Our causal validity is <strong>upper-bounded by resolver causal competence</strong> and <strong>degraded below it by reflexivity</strong>:</p>
+<pre><code>causal validity  ≤  (resolver counterfactual competence)  −  (reflexivity loss, growing in L)
+</code></pre>
+<p>The system can faithfully aggregate and forecast expert causal judgment (valuable — a continuous, incentivized, n_eff-weighted panel of careful retrospective evaluators); it <strong>cannot exceed</strong> the causal quality of those evaluators, and it can fall short of it if the deference loop closes. It is not a causal oracle, and we should never market it as one.</p>
+<hr />
+<h2 id="6-new-soundness-condition-causal-resolution-v5"><a class="header" href="#6-new-soundness-condition-causal-resolution-v5">6. New soundness condition: causal resolution (V5)</a></h2>
+<p>The viability envelope (<a href="mathematical-core.html">mathematical-core.md</a> §7) gains a fifth inequality, dual to V1:</p>
+<pre><code>(V5) Causal resolution:  verdicts are counterfactual contrasts judged ex post with evidence,
+                          not raw conditional outcomes.
+     Failure mode: the rule perfectly incentivizes predicting a CONFOUNDED judgment,
+     lending false proper-scoring authority to a correlation. Worse than no system.
+</code></pre>
+<p>V5 has concrete, testable mechanisms — and several fall out of features the design <em>already has</em>:</p>
+<ol>
+<li><strong>Counterfactual question framing.</strong> Resolution prompts ask &quot;effect relative to the counterfactual,&quot; and the resolution UI supplies the counterfactual scaffolding (comparison units, pre-trends).</li>
+<li><strong>Optionality as causal hygiene</strong> <em>(already in the mechanism)</em>. Resolvers may <strong>discard</strong> questions they judge hopelessly confounded (<a href="mechanism.html#the-primitives">truth-markets §3.1</a>). Forecasters won't be paid for predicting confounded conditionals because thoughtful resolvers won't resolve them → causally-hopeless questions are <strong>endogenously deprioritized</strong>. Double-edged: the system goes quiet exactly on the hardest causal questions, which may be the most decision-relevant.</li>
+<li><strong>Per-resolver independence as robustness</strong> <em>(already in the mechanism)</em>. No single confounded resolution; you predict a <em>distribution</em> of independent counterfactual judgments, n_eff-weighted (§3 of the math core). Independent errors wash out; <em>shared</em> confounders (every resolver fooled the same way) do not — so V5 failures are correlated-error failures, and the n_eff immune machinery partially detects them (a confounded consensus looks like a low-independence bloc).</li>
+<li><strong>Slow payout buys causal evidence</strong> <em>(the user's &quot;distributed slowly over time&quot;)</em>. Because resolution is not pinned to an instant, the resolver can <strong>wait for causal evidence to arrive</strong> — the natural experiment to mature, the RCT to publish — before declaring. Slow distribution does not fix confounding at the mechanism level; it grants the time and removes the single attackable resolution instant that makes ex-ante markets fragile.</li>
+</ol>
+<hr />
+<h2 id="7-scorecard-each-objection-against-our-design"><a class="header" href="#7-scorecard-each-objection-against-our-design">7. Scorecard: each objection against our design</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>#</th><th>Objection</th><th>Verdict on our design</th></tr></thead><tbody>
+<tr><td>1</td><td>Reverse causality</td><td><strong>Relocated, not eliminated.</strong> Bites the resolver's judgment, not the mechanism. Mitigated by ex-post counterfactual framing (V5); resolver in hindsight can see which way causation ran.</td></tr>
+<tr><td>2</td><td>Confounding via revelation (decision-maker signal)</td><td><strong>Relocated to resolver.</strong> Resolver can be asked to isolate X's own effect (&quot;ignoring what else the administration did&quot;). Whether they <em>can</em> is the V5 competence assumption — honestly hard.</td></tr>
+<tr><td>3</td><td>Real-policy confounding</td><td>Same as 2.</td></tr>
+<tr><td>4</td><td>Activation-selection distortion (trick coin)</td><td><strong>Base layer: does not apply</strong> (no conditional refund; decoupled proper scoring). <strong>Governance layer: structurally present</strong> for counterfactual branches, but handled by resolver best-guess rather than refund — removes the <em>insurance</em> distortion, imports <em>judgment</em> error.</td></tr>
+<tr><td>5</td><td>Impossibility theorem</td><td><strong>Base layer: out of scope</strong> (not a decision market). <strong>Governance layer: converted from impossibility to V5 competence requirement</strong> by ex-post human resolution (§3). The mechanical version remains impossible; we don't run the mechanical version.</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="8-bottom-line"><a class="header" href="#8-bottom-line">8. Bottom line</a></h2>
+<p>Dynomight is right, and the critique improves our design rather than refuting it:</p>
+<ul>
+<li><strong>Vanilla futarchy resolves mechanically and closes the loop → it hits the impossibility wall.</strong> Our design <strong>resolves judgmentally ex post and keeps the loop open → it lands, by construction, in the &quot;useful observational instrument, considered skeptically&quot; regime that Dynomight explicitly endorses.</strong> In a real sense the retroactive consensus market is <em>futarchy built the only way Dynomight says it could work</em>.</li>
+<li><strong>The single most important design rule that follows:</strong> never let governance convert a conditional market estimate into a mechanical allocation. Market = perception (evidence); humans = action (preference + final causal judgment). This is identical to the V1 anti-reflexivity rule and should be enforced as one principle.</li>
+<li><strong>The single new soundness condition (V5):</strong> the system's causal validity is capped by resolver counterfactual competence. The proper-scoring machinery is dangerous precisely because it can lend rigorous-looking authority to a perfectly-predicted <em>confounded</em> judgment. Resolution methodology (counterfactual framing, discard rights, waiting for evidence, independence weighting) is therefore not a detail — it is a first-class soundness layer, co-equal with the scoring rule.</li>
+</ul>
+<p>What we cannot claim: that the market <em>produces</em> causal knowledge. What we can claim: that it <strong>incentivizes, aggregates, and forecasts the counterfactual judgments of an independent panel of careful ex-post evaluators</strong>, at scale, with no single attackable resolution instant — and that this is the best a market can do, given that Dynomight proved the mechanical alternative impossible.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../stack/mathematical-core.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../stack/glossary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../stack/mathematical-core.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../stack/glossary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

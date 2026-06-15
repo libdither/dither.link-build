@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Engineering Roadmap - Dither Ideas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="../dither/02-routing.html"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="../dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="../dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="../dither/user-management.html"><strong aria-hidden="true">1.5.</strong> Account Management</a></li><li class="chapter-item expanded "><a href="../dither/identity.html"><strong aria-hidden="true">1.6.</strong> Identity Management</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="../disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li class="chapter-item expanded "><a href="../disp/syntax.html"><strong aria-hidden="true">2.2.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="../disp/names.html"><strong aria-hidden="true">2.3.</strong> Names</a></li><li class="chapter-item expanded "><a href="../disp/program-synthesis.html"><strong aria-hidden="true">2.4.</strong> Programs from Specifications</a></li><li class="chapter-item expanded "><a href="../disp/implementation.html"><strong aria-hidden="true">2.5.</strong> Implementation</a></li></ol></li><li class="chapter-item expanded "><a href="../applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="../applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li><li class="chapter-item expanded "><a href="../applications/fractional-funding.html"><strong aria-hidden="true">3.6.</strong> Fractional Funding</a></li></ol></li><li class="chapter-item expanded "><a href="../stack/overview.html"><strong aria-hidden="true">4.</strong> The Decentralization Stack</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Part A · Core Ideas — draft</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/core/identity.html"><strong aria-hidden="true">4.1.1.</strong> 1 · Boundary & Identity</a></li><li class="chapter-item expanded "><a href="../stack/core/ordering.html"><strong aria-hidden="true">4.1.2.</strong> 2 · Ordering & Timestamps</a></li><li class="chapter-item expanded "><a href="../stack/core/substrate.html"><strong aria-hidden="true">4.1.3.</strong> 3 · A Verifiable Substrate</a></li><li class="chapter-item expanded "><a href="../stack/core/routing.html"><strong aria-hidden="true">4.1.4.</strong> 4 · Anonymous Routing & Retrieval</a></li><li class="chapter-item expanded "><a href="../stack/core/resource-market.html"><strong aria-hidden="true">4.1.5.</strong> 5 · One Resource Market</a></li><li class="chapter-item expanded "><a href="../stack/core/money.html"><strong aria-hidden="true">4.1.6.</strong> 6 · Non-Concentrating Money</a></li><li class="chapter-item expanded "><a href="../stack/core/truth.html"><strong aria-hidden="true">4.1.7.</strong> 7 · Aggregating Truth</a></li><li class="chapter-item expanded "><a href="../stack/core/governance.html"><strong aria-hidden="true">4.1.8.</strong> 8 · Deciding Together</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> Part B · In Depth — existing drafts, to rework</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/independence.html"><strong aria-hidden="true">4.2.1.</strong> Boundary & Identity</a></li><li class="chapter-item expanded "><a href="../stack/substrate.html"><strong aria-hidden="true">4.2.2.</strong> One Resource Market</a></li><li class="chapter-item expanded "><a href="../stack/value-as-flow.html"><strong aria-hidden="true">4.2.3.</strong> Non-Concentrating Money</a></li><li class="chapter-item expanded "><a href="../stack/mechanism.html"><strong aria-hidden="true">4.2.4.</strong> Aggregating Truth</a></li><li class="chapter-item expanded "><a href="../stack/the-problem.html"><strong aria-hidden="true">4.2.5.</strong> — the problem it solves</a></li><li class="chapter-item expanded "><a href="../stack/worked-example.html"><strong aria-hidden="true">4.2.6.</strong> — worked example</a></li><li class="chapter-item expanded "><a href="../stack/assumptions.html"><strong aria-hidden="true">4.2.7.</strong> — its assumptions</a></li><li class="chapter-item expanded "><a href="../stack/reflexivity.html"><strong aria-hidden="true">4.2.8.</strong> — reflexivity</a></li><li class="chapter-item expanded "><a href="../stack/pay-for-prediction.html"><strong aria-hidden="true">4.2.9.</strong> Prediction as a recurring principle</a></li><li class="chapter-item expanded "><a href="../stack/living-system.html"><strong aria-hidden="true">4.2.10.</strong> Composition — One Living System</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/mathematical-core.html"><strong aria-hidden="true">4.3.1.</strong> The Mathematical Core</a></li><li class="chapter-item expanded "><a href="../stack/futarchy-causality.html"><strong aria-hidden="true">4.3.2.</strong> Futarchy and Causality</a></li><li class="chapter-item expanded "><a href="../stack/glossary.html"><strong aria-hidden="true">4.3.3.</strong> Notation & Glossary</a></li><li class="chapter-item expanded "><a href="../stack/roadmap.html" class="active"><strong aria-hidden="true">4.3.4.</strong> Engineering Roadmap</a></li><li class="chapter-item expanded "><a href="../stack/open-questions.html"><strong aria-hidden="true">4.3.5.</strong> Open Questions</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/application-design-philosophy.html"><strong aria-hidden="true">5.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="../copyright-is-cancer.html"><strong aria-hidden="true">5.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../what-is-a-monad.html"><strong aria-hidden="true">6.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="../node_discovery_ideas.html"><strong aria-hidden="true">6.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dither Ideas</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="roadmap-the-decentralization-stack-draft"><a class="header" href="#roadmap-the-decentralization-stack-draft">Roadmap: The Decentralization Stack (DRAFT)</a></h1>
+<blockquote>
+<p><em>Appendix B. The engineering / build-plan view. For the conceptual development, read the chapters in order starting from <a href="overview.html">the overview</a>.</em></p>
+</blockquote>
+<p><em>Working draft. The goal: map the path from programming language → routing → currency/incentives → data &amp; compute trading → governance, identify how the layers depend on each other, and call out what's missing at each step.</em></p>
+<h2 id="the-stack-at-a-glance"><a class="header" href="#the-stack-at-a-glance">The stack at a glance</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>#</th><th>Layer</th><th>Project / doc</th><th>Maturity</th></tr></thead><tbody>
+<tr><td>1</td><td>Language &amp; verification</td><td>disp (<a href="../disp/disp.html">disp/disp.md</a>, <code>libdither/disp</code>)</td><td><strong>Working prototype.</strong> Kernel + elaboration stages 0–3 self-hosted; effects, erasure, optimizer pending.</td></tr>
+<tr><td>2</td><td>Routing &amp; data</td><td>Dither: DAR (<a href="../dither/02-routing.html">dither/02-routing.md</a>), DTS, RHL, identity</td><td><strong>Detailed design (DAR) → sketches (DTS/RHL/identity).</strong> No implementation; simulator work exists (<code>dither-sim</code>).</td></tr>
+<tr><td>3</td><td>Currency &amp; incentives</td><td><a href="../applications/dither-currency.html">applications/dither-currency.md</a>, routing incentives, <a href="../applications/fractional-funding.html">applications/fractional-funding.md</a></td><td><strong>Sketch.</strong> Economics ideas, no consensus design, no threat model.</td></tr>
+<tr><td>4</td><td>Data &amp; compute trading</td><td><a href="../dither/decentralized-data-ideas.html">dither/decentralized-data-ideas.md</a></td><td><strong>Research agenda only.</strong> No protocol design.</td></tr>
+<tr><td>5</td><td>Governance / truth machine</td><td>Retroactive consensus markets + hierarchical liquid quadratic voting (<a href="mechanism.html">Retroactive Consensus Markets</a>); <a href="../applications/protocol-of-truth/protocol-of-truth.html">applications/protocol-of-truth</a></td><td><strong>Rigorous mechanism synthesis now in repo</strong>; central theory gap (reflexivity) reduced to a measurable threshold (<a href="mathematical-core.html">mathematical-core.md</a> §2).</td></tr>
+</tbody></table>
+</div>
+<p>The truth machine in one line: forecasters publish timestamped probability distributions; capital-holding <em>resolvers</em> privately and retroactively declare what they believe happened; a reference-relative proper scoring rule pays forecasters for moving belief toward eventual resolver consensus. Output: a live world-model <em>and</em> a skill ranking, with no exploitable point-in-time oracle. Governance bolts this onto liquid quadratic voting: voters set goals, the market estimates which policies advance them, skill rankings can weight estimates.</p>
+<h2 id="how-the-layers-interact"><a class="header" href="#how-the-layers-interact">How the layers interact</a></h2>
+<p>These interactions are the actual argument for building this as <em>one</em> stack rather than five projects:</p>
+<ol>
+<li>
+<p><strong>The truth machine fills the currency's biggest hole.</strong> dither-currency.md proposes a periodic redistribution from all wallets into a pot managed by an &quot;intelligent democratic mechanism&quot; — left undefined. Liquid QV + retroactive consensus markets <em>is</em> that mechanism. Conversely, the governance layer needs a native unit for resolver budgets <code>B_j</code>, QV credits, and forecaster payouts.</p>
+</li>
+<li>
+<p><strong>The currency's anti-hoarding mechanic supports the market's key assumption.</strong> The mechanism's aggregation quality degrades as capital concentrates (assumption A2, dispersed capital). A demurrage/redistribution currency structurally pushes against concentration. These two designs reinforce each other and should be co-designed, not bolted together.</p>
+</li>
+<li>
+<p><strong>Identity is upstream of everything quadratic.</strong> QV is meaningless without Sybil resistance; the prediction market's reference-subtraction can be farmed by Sybil forecasters; routing incentives and data markets need persistent pseudonyms for reputation. Dither's web-of-trust identity layer (<a href="../dither/user-management.html">dither/user-management.md</a>) is currently an idea sketch but is a <em>hard dependency</em> of layers 3–5. It deserves promotion from &quot;application concern&quot; to core protocol.</p>
+</li>
+<li>
+<p><strong>Tamper-evident timestamps are a shared primitive.</strong> Forecasts must not be backdatable (assumption A4); the currency needs transaction ordering; RHL needs some consensus on link sets. One minimal ordering/timestamping/data-availability primitive serves all three — likely the <em>only</em> global consensus the stack needs. This reframes the consensus question (old_ideas/consensus/): we don't need general smart-contract consensus, we need cheap verifiable timestamping plus a payments ledger.</p>
+</li>
+<li>
+<p><strong>disp is the verification substrate for compute trading.</strong> Selling computation requires the buyer to trust the result. disp's program-as-data + types-as-predicates + provable-equivalence story is exactly a verifiable-compute story: a compute offer is a content-addressed program plus a disp predicate the result must satisfy; disputes resolve by re-execution or proof checking. No design for this exists yet — it's the main missing bridge between layers 1 and 4.</p>
+</li>
+<li>
+<p><strong>disp can make markets machine-resolvable.</strong> A question's outcome space and resolution criterion can be a disp predicate over published data. Resolvers can then delegate verdicts to programs for the objective subset of questions, reserving human judgment for ambiguous ones. This also unifies the quantitative truth machine with the qualitative <a href="../applications/protocol-of-truth/protocol-of-truth.html">Protocol of Truth</a> assertion graphs: assertions become market questions; debate structure becomes evidence attached to them.</p>
+</li>
+<li>
+<p><strong>Per-resolver subjectivity matches Dither's polycentric philosophy.</strong> Reputation <code>R_{i,j}</code> is relative to each resolver's worldview — no global truth oracle, just per-perspective rankings. Same shape as web-of-trust identity and the polycentric model. The stack is philosophically coherent: <em>subjective-but-aggregable</em> all the way down.</p>
+</li>
+<li>
+<p><strong>&quot;Pay for predictive accuracy&quot; recurs at every layer.</strong> DAR's network world-models reward predicting latency/bandwidth; data markets reward predicting demand for caching; the truth machine rewards predicting consensus. A shared scoring/staking framework could serve all three.</p>
+</li>
+</ol>
+<h2 id="whats-missing--per-layer"><a class="header" href="#whats-missing--per-layer">What's missing — per layer</a></h2>
+<h3 id="layer-1--disp"><a class="header" href="#layer-1--disp">Layer 1 — disp</a></h3>
+<ul>
+<li>Effects (<code>Eff</code> monad) and the erasure (<code>strip</code>) pass — needed before disp programs can do real I/O efficiently.</li>
+<li>Self-hosted parser + module resolution (elaborator stages 4–5) — last host-trusted pieces.</li>
+<li>Optimizer / synthesis engine (the long-term payoff; not on the critical path for the stack).</li>
+<li><strong>Stack-specific gap:</strong> serialization + content-addressed code distribution format, and any networking story at all. Nothing connects disp to Dither today beyond intent.</li>
+</ul>
+<h3 id="layer-2--routing--data"><a class="header" href="#layer-2--routing--data">Layer 2 — routing &amp; data</a></h3>
+<ul>
+<li>DAR implementation; incentive game theory unresolved (pricing/bargaining for relays).</li>
+<li>DTS rare-data problem; RHL is three sentences of architecture.</li>
+<li><strong>Validation gap:</strong> no simulation results backing the routing-coordinate + HORNET design. Reviving <code>dither-sim</code> against the current spec is the cheapest de-risking step.</li>
+</ul>
+<h3 id="layer-3--currency"><a class="header" href="#layer-3--currency">Layer 3 — currency</a></h3>
+<ul>
+<li>No concrete consensus/ledger design (Stellar+IOTA hybrid is a preference, not a spec).</li>
+<li>Demurrage/redistribution mechanics, zone design, and the proof-of-external-destruction USD peg all need real economic analysis — the peg in particular is likely unsound and should be re-examined.</li>
+<li>No threat model (eclipse attacks, zone capture, fee-less spam).</li>
+</ul>
+<h3 id="layer-4--data--compute-trading"><a class="header" href="#layer-4--data--compute-trading">Layer 4 — data &amp; compute trading</a></h3>
+<ul>
+<li>Essentially everything: storage market protocol, bandwidth settlement (micropayments per relayed byte?), verifiable compute protocol (see interaction 5), pricing discovery, comparison against Filecoin/Arweave/Golem to know what to copy vs. reject.</li>
+</ul>
+<h3 id="layer-5--governance--truth-machine"><a class="header" href="#layer-5--governance--truth-machine">Layer 5 — governance / truth machine</a></h3>
+<ul>
+<li><strong>Reflexivity (A5) is the central theoretical gap:</strong> when skill rankings feed back into the votes that constrain resolvers, does the loop converge to truth or to a stable fiction? Needs agent-based simulation and/or a formal treatment before any high-stakes deployment.</li>
+<li>Resolver honesty is unmodeled once verdicts gate public money.</li>
+<li>&quot;Retroactive reward by extrapolated intention/utility&quot; is a desideratum, not a defined operator.</li>
+<li>Hierarchical/liquid structure of the QV layer is a TLDR, not a design (delegation mechanics, credit issuance, collusion resistance).</li>
+<li><del>The truth-markets notes live outside this repo and should be merged as a spec chapter.</del> <strong>Done</strong> — merged as <a href="mechanism.html">Retroactive Consensus Markets</a> (mechanism, assumptions A1–A5, open problems §8).</li>
+</ul>
+<h3 id="cross-cutting"><a class="header" href="#cross-cutting">Cross-cutting</a></h3>
+<ul>
+<li><strong>Identity/Sybil-resistance primitive</strong> (blocks 3, 4, 5).</li>
+<li><strong>Timestamping/ordering primitive</strong> (blocks 3, 5, RHL).</li>
+<li>A stack-wide <strong>threat model</strong> document.</li>
+<li>A <strong>dependency-ordered build plan</strong> — which this document attempts below.</li>
+</ul>
+<h2 id="sequencing-principle"><a class="header" href="#sequencing-principle">Sequencing principle</a></h2>
+<p>Two observations drive the ordering:</p>
+<ol>
+<li><strong>The truth machine does not need the rest of the stack to be tested.</strong> A centralized pilot (a web service with signed, timestamped forecasts and a handful of resolvers) tests the mechanism, the scoring rule, and empirically probes reflexivity — long before Dither routing or currency exist. The science impact-market is the natural pilot (low stakes, measurable outcomes, motivated forecasters).</li>
+<li><strong>Each layer should ship something independently useful</strong> (the &quot;Useful&quot; tenet), while producing the primitive the next layer needs.</li>
+</ol>
+<h2 id="phased-roadmap-draft"><a class="header" href="#phased-roadmap-draft">Phased roadmap (draft)</a></h2>
+<h3 id="phase-0--consolidation-weeks"><a class="header" href="#phase-0--consolidation-weeks">Phase 0 — Consolidation (weeks)</a></h3>
+<ul>
+<li>✅ Merge truth-markets notes into this spec (<code>governance/</code> chapter): mechanism, assumptions A1–A5, open problems — see <a href="mechanism.html">Retroactive Consensus Markets</a>.</li>
+<li>Write the cross-layer dependency map (this doc) and a first threat-model outline.</li>
+<li>Decide the identity and timestamping primitives' requirements (consumers: currency, markets, governance).</li>
+</ul>
+<h3 id="phase-1--independent-kernels-months-parallelizable"><a class="header" href="#phase-1--independent-kernels-months-parallelizable">Phase 1 — Independent kernels (months, parallelizable)</a></h3>
+<ul>
+<li><strong>disp:</strong> land effects + erasure + stages 4–5 → a language someone can actually write a tool in. Then: content-addressed module distribution format.</li>
+<li><strong>Routing:</strong> revive <code>dither-sim</code>; validate routing coordinates + DAR relay selection in simulation; publish results. Implementation only after simulation says the design works.</li>
+<li><strong>Truth machine:</strong> build the centralized MVP (forecast publication, per-resolver retroactive scoring, skill rankings). Run the science impact-market pilot. Instrument it to study reflexivity and reference-belief gaming.</li>
+<li><strong>Theory:</strong> agent-based simulation of the reflexive governance loop; formalize or refute convergence.</li>
+</ul>
+<h3 id="phase-2--shared-primitives-after-phase-1-signals"><a class="header" href="#phase-2--shared-primitives-after-phase-1-signals">Phase 2 — Shared primitives (after Phase 1 signals)</a></h3>
+<ul>
+<li>Web-of-trust identity protocol (design + prototype) — promoted to core.</li>
+<li>Minimal timestamping/data-availability layer (this is &quot;the consensus decision,&quot; scoped down).</li>
+<li>Currency testnet on top of both; routing incentives denominated in it (first real economic loop: pay relays).</li>
+<li>Truth machine v2: forecasts anchored to the timestamping layer; identity-backed forecaster accounts (Sybil-resistant reputation).</li>
+</ul>
+<h3 id="phase-3--markets"><a class="header" href="#phase-3--markets">Phase 3 — Markets</a></h3>
+<ul>
+<li>Storage/bandwidth trading over DAR + currency (DTS trail hosting becomes a paid service).</li>
+<li>Verifiable compute protocol: disp predicates as result contracts; dispute resolution by re-execution.</li>
+<li>Machine-resolvable market questions (disp predicates as resolution criteria) feeding the truth machine.</li>
+</ul>
+<h3 id="phase-4--governance"><a class="header" href="#phase-4--governance">Phase 4 — Governance</a></h3>
+<ul>
+<li>Liquid QV pilot in a small, real community — the obvious candidate is <strong>the Dither project itself</strong>: fractional-funding contributions allocated by QV, informed by truth-machine estimates of &quot;which roadmap item most advances goal X.&quot; Recursive self-governance satisfies the &quot;Self-reliant&quot; tenet and is the cheapest honest test.</li>
+<li>Scale outward (open-source funding, DAO treasuries, scientific funding bodies) only after the reflexivity question has empirical answers.</li>
+</ul>
+<h2 id="open-questions-to-resolve-before-phase-2"><a class="header" href="#open-questions-to-resolve-before-phase-2">Open questions to resolve before Phase 2</a></h2>
+<p><em>Status update: all five are dispositioned — answered, reduced to measurable quantities, or precisely scoped — in <a href="mathematical-core.html">mathematical-core.md</a> (see its §8 scorecard).</em></p>
+<ol>
+<li>Does the reflexive loop converge? → <strong>Answered in principle</strong> (math core §2): linear influence is harmless; danger is a bifurcation at deference slope <code>L = 1</code>; <code>L</code> is measurable and controllable (blind resolution, reality-coupling).</li>
+<li>Minimal identity primitive for Sybil-resistant QV + anonymity? → <strong>Reframed</strong> (math core §3): weight ∝ effective independence <code>n_eff = 1ᵀΣ⁻¹1</code> over pseudonymous behavioral residuals; no personhood classifier needed.</li>
+<li>Is global consensus avoidable? → <strong>Yes</strong> (math core §4.4): payments are consensus-number-1; demurrage is local arithmetic; timestamps by causal entanglement; only contested allocation needs zonal BFT.</li>
+<li>disp ↔ network boundary? → <strong>Answered</strong> (math core §1.5): the network API <em>is</em> disp's effect algebra (<code>store/send/eval/price</code> = the three MATERIALIZE edges + price field).</li>
+<li>Smallest meaningful pilot? → <strong>Specified</strong> (math core §6): estimands <code>L̂</code>, <code>Σ̂</code>, calibration, VOI-routing; ~30–100 resolvers, ~100–300 questions.</li>
+</ol>
+<p>The remaining genuinely-open list (arms-race floor, deference-curve empirics, preference-delegation semantics, open-economy monetary dynamics, non-convex market design, and the coupled stability proof) is in math core §8.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../stack/glossary.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../stack/open-questions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../stack/glossary.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../stack/open-questions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

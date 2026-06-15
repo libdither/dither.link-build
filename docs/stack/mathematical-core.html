@@ -1,0 +1,460 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Mathematical Core - Dither Ideas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="../dither/02-routing.html"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="../dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="../dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="../dither/user-management.html"><strong aria-hidden="true">1.5.</strong> Account Management</a></li><li class="chapter-item expanded "><a href="../dither/identity.html"><strong aria-hidden="true">1.6.</strong> Identity Management</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="../disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li class="chapter-item expanded "><a href="../disp/syntax.html"><strong aria-hidden="true">2.2.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="../disp/names.html"><strong aria-hidden="true">2.3.</strong> Names</a></li><li class="chapter-item expanded "><a href="../disp/program-synthesis.html"><strong aria-hidden="true">2.4.</strong> Programs from Specifications</a></li><li class="chapter-item expanded "><a href="../disp/implementation.html"><strong aria-hidden="true">2.5.</strong> Implementation</a></li></ol></li><li class="chapter-item expanded "><a href="../applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="../applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li><li class="chapter-item expanded "><a href="../applications/fractional-funding.html"><strong aria-hidden="true">3.6.</strong> Fractional Funding</a></li></ol></li><li class="chapter-item expanded "><a href="../stack/overview.html"><strong aria-hidden="true">4.</strong> The Decentralization Stack</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Part A · Core Ideas — draft</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/core/identity.html"><strong aria-hidden="true">4.1.1.</strong> 1 · Boundary & Identity</a></li><li class="chapter-item expanded "><a href="../stack/core/ordering.html"><strong aria-hidden="true">4.1.2.</strong> 2 · Ordering & Timestamps</a></li><li class="chapter-item expanded "><a href="../stack/core/substrate.html"><strong aria-hidden="true">4.1.3.</strong> 3 · A Verifiable Substrate</a></li><li class="chapter-item expanded "><a href="../stack/core/routing.html"><strong aria-hidden="true">4.1.4.</strong> 4 · Anonymous Routing & Retrieval</a></li><li class="chapter-item expanded "><a href="../stack/core/resource-market.html"><strong aria-hidden="true">4.1.5.</strong> 5 · One Resource Market</a></li><li class="chapter-item expanded "><a href="../stack/core/money.html"><strong aria-hidden="true">4.1.6.</strong> 6 · Non-Concentrating Money</a></li><li class="chapter-item expanded "><a href="../stack/core/truth.html"><strong aria-hidden="true">4.1.7.</strong> 7 · Aggregating Truth</a></li><li class="chapter-item expanded "><a href="../stack/core/governance.html"><strong aria-hidden="true">4.1.8.</strong> 8 · Deciding Together</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> Part B · In Depth — existing drafts, to rework</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/independence.html"><strong aria-hidden="true">4.2.1.</strong> Boundary & Identity</a></li><li class="chapter-item expanded "><a href="../stack/substrate.html"><strong aria-hidden="true">4.2.2.</strong> One Resource Market</a></li><li class="chapter-item expanded "><a href="../stack/value-as-flow.html"><strong aria-hidden="true">4.2.3.</strong> Non-Concentrating Money</a></li><li class="chapter-item expanded "><a href="../stack/mechanism.html"><strong aria-hidden="true">4.2.4.</strong> Aggregating Truth</a></li><li class="chapter-item expanded "><a href="../stack/the-problem.html"><strong aria-hidden="true">4.2.5.</strong> — the problem it solves</a></li><li class="chapter-item expanded "><a href="../stack/worked-example.html"><strong aria-hidden="true">4.2.6.</strong> — worked example</a></li><li class="chapter-item expanded "><a href="../stack/assumptions.html"><strong aria-hidden="true">4.2.7.</strong> — its assumptions</a></li><li class="chapter-item expanded "><a href="../stack/reflexivity.html"><strong aria-hidden="true">4.2.8.</strong> — reflexivity</a></li><li class="chapter-item expanded "><a href="../stack/pay-for-prediction.html"><strong aria-hidden="true">4.2.9.</strong> Prediction as a recurring principle</a></li><li class="chapter-item expanded "><a href="../stack/living-system.html"><strong aria-hidden="true">4.2.10.</strong> Composition — One Living System</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/mathematical-core.html" class="active"><strong aria-hidden="true">4.3.1.</strong> The Mathematical Core</a></li><li class="chapter-item expanded "><a href="../stack/futarchy-causality.html"><strong aria-hidden="true">4.3.2.</strong> Futarchy and Causality</a></li><li class="chapter-item expanded "><a href="../stack/glossary.html"><strong aria-hidden="true">4.3.3.</strong> Notation & Glossary</a></li><li class="chapter-item expanded "><a href="../stack/roadmap.html"><strong aria-hidden="true">4.3.4.</strong> Engineering Roadmap</a></li><li class="chapter-item expanded "><a href="../stack/open-questions.html"><strong aria-hidden="true">4.3.5.</strong> Open Questions</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/application-design-philosophy.html"><strong aria-hidden="true">5.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="../copyright-is-cancer.html"><strong aria-hidden="true">5.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../what-is-a-monad.html"><strong aria-hidden="true">6.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="../node_discovery_ideas.html"><strong aria-hidden="true">6.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dither Ideas</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="the-mathematical-core"><a class="header" href="#the-mathematical-core">The Mathematical Core</a></h1>
+<blockquote>
+<p><em>Part III · The Synthesis — Chapter 11. The formal reference for the whole stack.</em></p>
+</blockquote>
+<p><em>This is the rigorous counterpart to the intuitive chapters of <a href="substrate.html">Part II</a> and the synthesis of <a href="living-system.html">The Living System</a>. Goal: take every open question raised earlier in the book and either answer it, reduce it to a measurable quantity, or state precisely why it is open. The intuitive chapters forward-link here; each section below is the formal version of one of them. Notation follows the <a href="mechanism.html">mechanism</a>; every symbol is in the <a href="glossary.html">glossary</a>.</em></p>
+<hr />
+<h2 id="0-the-object-defined"><a class="header" href="#0-the-object-defined">0. The object, defined</a></h2>
+<p>A <strong>Dither organism</strong> is a tree of agents (node ⊂ zone ⊂ network), where each agent <code>a</code> maintains a boundary and solves one control problem:</p>
+<pre><code>minimize  F_a  =  E[ priced unmet demand inside a's boundary
+                     + maintenance cost of a's internal states
+                     − revenue from serving demand across a's boundary ]
+</code></pre>
+<p>Agents are coupled by exactly <strong>three operators</strong>, and the entire stack is these three operators applied at every scale:</p>
+<div class="table-wrapper"><table><thead><tr><th>Operator</th><th>Couples across</th><th>Implements</th><th>Layer name</th></tr></thead><tbody>
+<tr><td><strong>Price field</strong> <code>p(v, x, t)</code></td><td>space (within a scale)</td><td>the substrate market</td><td>storage/compute/routing</td></tr>
+<tr><td><strong>Scoring rule</strong> <code>ρ</code></td><td>time (present ↔ future verdicts)</td><td>the epistemic engine</td><td>truth machine</td></tr>
+<tr><td><strong>Independence weight</strong> <code>n_eff</code></td><td>identity (who counts, how much)</td><td>the immune system</td><td>Sybil/identity/voting</td></tr>
+</tbody></table>
+</div>
+<p>plus one <strong>vertical flow</strong>: weight issuance downward (credits, UBI, witness power, all gated by <code>n_eff</code>) and aggregation upward (world-models, preference tallies, all weighted by <code>n_eff</code>).</p>
+<p>The claim made precise in this document: <strong>the organism is viable iff four inequalities hold</strong> (§7), and each of the four corresponds to one of the load-bearing open problems from <a href="living-system.html">The Living System</a> §8.</p>
+<hr />
+<h2 id="1-the-substrate-materialize-as-priced-flow"><a class="header" href="#1-the-substrate-materialize-as-priced-flow">1. The substrate: MATERIALIZE as priced flow</a></h2>
+<h3 id="11-the-optimization-problem"><a class="header" href="#11-the-optimization-problem">1.1 The optimization problem</a></h3>
+<p>Demand is a field <code>D(v, x, t)</code> — intensity of requests for value <code>v</code> at location <code>x</code> (locations = points in the latency coordinate space). The network chooses a flow over three edge types:</p>
+<pre><code>TRANSPORT-TIME(v, x, [t,t']):   cost = c_s(x) · |v| · (t'−t)        (storage)
+TRANSPORT-SPACE(v, x→y, t):     cost = c_b(x,y) · |v|               (routing)
+TRANSFORM({vᵢ} ↦ f({vᵢ}), x):   cost = c_c(x) · work(f)             (compute)
+</code></pre>
+<p>subject to: every demanded <code>(v, x, t)</code> is satisfied by some DAG of edges terminating in a materialization of <code>v</code> at <code>(x, t)</code> within its latency bound. This is a min-cost multicommodity flow problem in a spacetime-value graph; &quot;fetch vs. recompute&quot; is route choice within one graph.</p>
+<p><strong><code>work(f)</code> has a canonical unit.</strong> Tree calculus is deterministic and confluent, so &quot;number of kernel reduction steps&quot; is a machine-independent work measure — the natural gas metric. disp gives the substrate market its metering for free.</p>
+<h3 id="12-the-local-decision-rule-caching--replication--memoization"><a class="header" href="#12-the-local-decision-rule-caching--replication--memoization">1.2 The local decision rule (caching = replication = memoization)</a></h3>
+<p>For a price-taking node at <code>x</code>, holding value <code>v</code> is profitable iff</p>
+<pre><code>λ_v(x) · p(v, x)   &gt;   c_s(x) · |v|
+</code></pre>
+<p>where <code>λ_v(x)</code> is local demand intensity and <code>p(v,x)</code> the posted price of delivering <code>v</code> at <code>x</code>. One inequality; instantiated with <code>v</code> = a file it is a CDN/replication rule, with <code>v</code> = a function result it is memoization, with <code>v</code> = a hot route's session state it is caching. This is the formal content of &quot;storage, compute, routing are one thing&quot;: <strong>one flow problem, one threshold rule.</strong></p>
+<h3 id="13-prices-are-prediction-errors-de-metaphorizing-the-fep"><a class="header" href="#13-prices-are-prediction-errors-de-metaphorizing-the-fep">1.3 Prices are prediction errors (de-metaphorizing the FEP)</a></h3>
+<p>Define network free energy as total expected priced shortfall plus maintenance:</p>
+<pre><code>F  =  Σ_{v,x}  D(v,x) · shortfall_cost(v,x)  +  Σ_nodes maintenance
+</code></pre>
+<p><strong>Proposition 1 (alignment).</strong> If delivery is priced at marginal shortfall cost and nodes are price-takers, then a node's profit from any local action equals the decrease in <code>F</code> that the action causes. Individual profit-seeking is distributed gradient descent on <code>F</code>.</p>
+<p><em>Sketch.</em> Marginal-cost pricing makes each served request transfer exactly its social shortfall-saving to the server; maintenance is borne locally; sum over actions. This is the first welfare theorem specialized to a convex flow problem. ∎</p>
+<p>This answers the &quot;FEP is slippery&quot; objection from <a href="living-system.html">The Living System</a> §8 by <em>choosing</em> the free-energy functional and <em>deriving</em> the alignment, rather than asserting it: the price field <strong>is</strong> the prediction-error field. (Honest scope: Proposition 1 needs convex costs and no market power; lumpy storage and monopoly relays break it — see §8, Open-5.)</p>
+<h3 id="14-verification-the-layer-1--layer-4-bridge-made-exact"><a class="header" href="#14-verification-the-layer-1--layer-4-bridge-made-exact">1.4 Verification (the layer-1 ↔ layer-4 bridge, made exact)</a></h3>
+<p>Because tree-calculus reduction is deterministic and confluent, two honest executors of <code>f(x)</code> agree <strong>bit-for-bit</strong>. Hence:</p>
+<ul>
+<li><strong>k-replication:</strong> sample <code>k</code> executors from a pool with honest fraction <code>h</code>; undetected fraud requires all <code>k</code> sampled to collude on the same wrong hash: <code>P[fraud] ≤ (1−h)^k</code>. Exponential security for linear cost.</li>
+<li><strong>Bisection disputes:</strong> hash-consed reduction traces are Merklizable; a referee resolves a disputed run by binary search over the trace in <code>O(log T)</code> checked steps (Truebit-style), so the <em>expensive</em> path is only taken on disagreement.</li>
+<li><strong>Predicate checking:</strong> when the disp result-contract <code>P</code> is cheaper than <code>f</code> (NP-style asymmetry), the buyer verifies directly and no replication is needed.</li>
+</ul>
+<h3 id="15-the-disp--network-boundary-roadmap-q4--answered"><a class="header" href="#15-the-disp--network-boundary-roadmap-q4--answered">1.5 The disp ↔ network boundary (roadmap Q4 — answered)</a></h3>
+<p>The language's effect signature and the network's service API are <strong>the same three-operation algebra</strong>:</p>
+<pre><code>Eff_net  ::=  store : Tree → Duration → Eff Receipt        (TRANSPORT-TIME)
+           |  send  : Tree → Coord    → Eff Receipt        (TRANSPORT-SPACE)
+           |  eval  : Tree → Tree     → Eff Tree           (TRANSFORM)
+           |  price : Query           → Eff PriceQuote     (read the field)
+</code></pre>
+<p>Serialization is canonical: hash-consed subtree encoding with content-addressed chunking (dedup is free, since equal subtrees are pointer-equal already). The &quot;TC-Net backend&quot; in disp's EVALUATOR_PLAN is precisely an implementation of this algebra. <strong>There is no separate &quot;integration layer&quot; to design; the substrate market is disp's evaluator.</strong></p>
+<hr />
+<h2 id="2-the-epistemic-engine-reflexivity-solved-in-principle"><a class="header" href="#2-the-epistemic-engine-reflexivity-solved-in-principle">2. The epistemic engine: reflexivity solved-in-principle</a></h2>
+<p>This section addresses the gating question (roadmap Q1, truth-markets §8.1): does the perception↔action loop converge to truth or fiction?</p>
+<h3 id="21-the-model"><a class="header" href="#21-the-model">2.1 The model</a></h3>
+<p>One binary question, true state <code>θ</code>. Forecaster's honest posterior given evidence: <code>π</code>. Resolvers see private signals of quality <code>q</code> and may also <em>defer</em> to the published consensus forecast <code>p</code>. Model resolver verdicts as</p>
+<pre><code>r  =  λ · g(p)  +  (1−λ) · σ(θ)
+</code></pre>
+<p>where <code>σ(θ)</code> is the signal-driven verdict probability, <code>g(p)</code> the deference response, and <code>λ ∈ [0,1]</code> the <strong>deference weight</strong> — the fraction of resolution behavior driven by the forecast itself rather than by independent perception. Forecasters paid by proper scoring against <code>r</code> will publish the fixed point</p>
+<pre><code>p*  =  λ·g(p*) + (1−λ)·π
+</code></pre>
+<h3 id="22-the-convergence-results"><a class="header" href="#22-the-convergence-results">2.2 The convergence results</a></h3>
+<p><strong>Proposition 2 (linear herding is harmless).</strong> If <code>g(p) = p</code> (resolvers defer linearly) and <code>λ &lt; 1</code>, the unique fixed point is <code>p* = π</code>. The forecast remains exactly the honest posterior; properness is preserved.</p>
+<p><em>Proof.</em> <code>p* = λp* + (1−λ)π ⟹ (1−λ)p* = (1−λ)π ⟹ p* = π</code>. ∎</p>
+<p>This is genuinely surprising and important: <strong>reflexivity does not bias the forecast at all in the linear regime</strong> — the influence passes through and cancels. The beauty-contest pathology requires nonlinearity, not mere influence.</p>
+<p><strong>Proposition 3 (bifurcation threshold).</strong> The fixed point is unique for any <code>g</code> with <code>λ · sup|g′| &lt; 1</code>. If <code>λ · sup|g′| &gt; 1</code> (e.g. conformity response <code>g(p) = sigmoid(κ(p−½))</code> with <code>λκ/4 &gt; 1</code>), multiple stable fixed points exist — including <strong>fiction equilibria</strong> where <code>p*</code> is near certainty while <code>π</code> is not. This is the dark room, as a bifurcation.</p>
+<p><em>Sketch.</em> Banach contraction for uniqueness; for the sigmoid case, plot <code>p ↦ λg(p)+(1−λ)π</code>: slope &gt; 1 at the crossing creates the classic S-curve with three intersections, outer two stable. ∎</p>
+<p><strong>Proposition 4 (continuous degradation below threshold).</strong> Even when unique, the verdict's information about <code>θ</code> degrades: verdict precision scales as <code>(1−λ)²</code>, and deference correlates resolvers through the common channel, so <code>m</code> resolvers are worth only</p>
+<pre><code>m_eff  =  m / (1 + (m−1)·ρ_λ)
+</code></pre>
+<p>independent ones, where <code>ρ_λ</code> is the deference-induced verdict correlation. Aggregation quality decays smoothly in <code>λ</code> long before the bifurcation.</p>
+<h3 id="23-the-design-consequences-now-concrete-mechanisms"><a class="header" href="#23-the-design-consequences-now-concrete-mechanisms">2.3 The design consequences (now concrete mechanisms)</a></h3>
+<p>The whole reflexivity question reduces to <strong>one measurable scalar: the deference slope <code>L = λ·sup|g′|</code></strong>, with safety condition <code>L &lt; 1</code>. Three mechanisms control it:</p>
+<ol>
+<li><strong>Blind resolution (information design).</strong> The resolution interface does not display the current consensus <code>p</code> when a resolver records a verdict. You cannot make <code>λ = 0</code> (public knowledge leaks), but you remove the highest-bandwidth channel from <code>p</code> to <code>r</code>. This is a UI decision with a theorem behind it.</li>
+<li><strong>Reality coupling (incentive design).</strong> Pay resolvers a small properness bonus on their <em>own verdicts</em> scored against later-arriving information; this rewards using the private signal, directly lowering <code>λ</code>.</li>
+<li><strong>Perturbation audits (measurement).</strong> On a random subset of questions, randomize what consensus value is displayed to resolvers (or randomize blind vs. shown). The regression of verdicts on displayed consensus estimates <code>λ·g′</code> directly. <strong>The pilot's primary measurement target is <code>L̂</code></strong> — the system's distance from the bifurcation.</li>
+</ol>
+<p><strong>Proposition 5 (effort routing preserves properness).</strong> Modifying the <em>score</em> with an uncertainty bonus breaks properness (it pays for confidence per se). But scaling each question's reward budget by any forecast-independent factor <code>u_q</code> preserves per-question properness. Choosing <code>u_q ∝</code> expected <strong>value of information</strong> (decision-relevance × current entropy under a <em>lagged</em> consensus model) routes optimization power toward uncertainty that matters — the &quot;epistemic value&quot; requirement from the living-network essay, implemented without touching the scoring rule. (Lagged/frozen <code>u_q</code> so no individual forecast can move its own question's budget.)</p>
+<h3 id="24-resolver-honesty-truth-markets-82--reduced-to-an-inequality"><a class="header" href="#24-resolver-honesty-truth-markets-82--reduced-to-an-inequality">2.4 Resolver honesty (truth-markets §8.2 — reduced to an inequality)</a></h3>
+<p>Per-resolver scoring <strong>contains</strong> corruption: resolver <code>j</code> lying corrupts only <code>R_{i,j}</code>, no one else's channel (unlike a global oracle, where one corruption poisons everything). The remaining question is whether <code>j</code> lies in their own channel. But <code>j</code> <em>consumes</em> their own rankings: their allocations are guided by forecasters selected via <code>R_{i,j}</code>. Mis-resolving toward a lie <code>r̃</code> selects forecasters skilled at predicting <code>r̃</code>-shaped verdicts rather than <code>θ</code>, degrading <code>j</code>'s own future allocation utility. Honesty is dominant when</p>
+<pre><code>∂U_j/∂(ranking fidelity)  &gt;  side-payment available for lying
+</code></pre>
+<p>— a skin-in-the-game inequality satisfied for resolvers who actually allocate the budgets they score with (and <em>not</em> for pure influence-buyers, who should be down-weighted in the public aggregate exactly as §3 prescribes — the same independence machinery applies to the resolver side: correlated resolver blocs get GLS-down-weighted in <code>p*</code>).</p>
+<h3 id="25-the-extrapolated-intentionutility-operator-truth-markets-85--defined"><a class="header" href="#25-the-extrapolated-intentionutility-operator-truth-markets-85--defined">2.5 The &quot;extrapolated intention/utility&quot; operator (truth-markets §8.5 — defined)</a></h3>
+<p>Define the retroactive value of forecaster <code>i</code>'s information to resolver <code>j</code> as decision value:</p>
+<pre><code>EU(i→j)  =  E_j[ U_j(allocation with p_i) − U_j(allocation without p_i) ]
+</code></pre>
+<p>evaluated under <code>j</code>'s own posterior world-model. This is implementable <strong>by self-application of the engine</strong>: &quot;will <code>j</code>, in hindsight, judge that <code>i</code>'s forecast improved <code>j</code>'s allocation?&quot; is itself a question with a per-resolver retroactive verdict. The regress terminates because its base case — <code>j</code>'s realized allocation outcomes — is directly observed by <code>j</code>. The previously-undefined desideratum is thus an ordinary question type inside the same market.</p>
+<hr />
+<h2 id="3-the-immune-system-independence-accounting"><a class="header" href="#3-the-immune-system-independence-accounting">3. The immune system: independence accounting</a></h2>
+<p>This section addresses Sybil resistance, collusion, the autoimmune dilemma, and the QV attack at once (roadmap Q2, truth-markets §8.4, living-network §4 &amp; §8).</p>
+<h3 id="31-the-reframe-from-personhood-to-precision"><a class="header" href="#31-the-reframe-from-personhood-to-precision">3.1 The reframe: from personhood to precision</a></h3>
+<p>Stop asking &quot;is this a distinct person?&quot; Ask: <strong>how much independent information does this constituent contribute?</strong> Let <code>x_i</code> be agent <code>i</code>'s behavioral residual stream — forecast errors, transaction timing, verdicts — <strong>after conditioning on public information</strong> <code>c</code>. For honest distinct agents, residuals are (approximately) independent; for puppets of one controller, they remain coupled given <code>c</code>, because they share <em>private</em> state.</p>
+<p>Let <code>Σ</code> be the residual correlation matrix. Define the <strong>effective population</strong>:</p>
+<pre><code>n_eff  =  1ᵀ Σ⁻¹ 1
+</code></pre>
+<p>— the precision of the optimally-weighted (GLS) average of the streams. For an equicorrelated cluster of <code>k</code> accounts with correlation <code>ρ</code>: <code>n_eff = k/(1+(k−1)ρ)</code>. Perfect Sybils (<code>ρ→1</code>) collapse to <code>n_eff = 1</code> no matter how many accounts; genuine independents (<code>ρ→0</code>) count fully.</p>
+<p><strong>All weight in the system is issued per unit <code>n_eff</code>, not per account:</strong></p>
+<ul>
+<li><strong>Aggregation</strong> (world-model, resolver consensus): GLS weights <code>w = Σ⁻¹1 / 1ᵀΣ⁻¹1</code> — correlated blocs automatically discounted.</li>
+<li><strong>Voting credits:</strong> QV is <code>√k</code>-vulnerable to Sybils (split budget <code>c</code> across <code>k</code> accounts: votes go from <code>√c</code> to <code>√(kc)</code>). Issue credits proportional to each agent's <em>marginal</em> <code>n_eff</code> contribution and the attack yields <strong>zero</strong>: a fully-correlated cluster receives one agent's credits regardless of account count.</li>
+<li><strong>UBI / perfusion:</strong> newcomer drip ramps with established marginal <code>n_eff</code> (a farm of fresh accounts shares ≈ one UBI until the accounts behaviorally diverge — §4.3).</li>
+<li><strong>Witness power</strong> (timestamping, §5): attestations weighted by <code>n_eff</code>, so &quot;many witnesses&quot; means many <em>independent</em> witnesses.</li>
+</ul>
+<blockquote>
+<p><strong><code>n_eff</code> is the single security parameter of the entire stack.</strong> Votes, aggregation quality, UBI farming, witness security, and resolver-bloc resistance are all the same number. &quot;Boundary integrity,&quot; quantified.</p>
+</blockquote>
+<h3 id="32-the-autoimmune-dilemma--dissolved-not-solved"><a class="header" href="#32-the-autoimmune-dilemma--dissolved-not-solved">3.2 The autoimmune dilemma — dissolved, not solved</a></h3>
+<p>The feared false positive — &quot;an honest local community that genuinely agrees gets punished as colluders&quot; — is not an error under this accounting. Agents correlated through a <em>private</em> shared channel genuinely contribute less independent information; weighting them as <code>n_eff &lt; k</code> is <strong>accurate inference, not injustice</strong>. There is no binary verdict to get wrong: weight is graduated, continuous, and recoverable (diverge behaviorally and your weight grows). The autoimmune problem was an artifact of demanding a yes/no Sybil classifier; precision accounting never asks the unanswerable question.</p>
+<p>What <em>remains</em> open is estimation, not semantics: <code>Σ</code> is <code>n×n</code> and needs regularization. <strong>The geographic/vouching graph is the prior on <code>Σ</code>'s sparsity structure</strong> — locality's fourth job (after latency, birth-vouching, currency zones) is statistical: it tells the estimator where correlation is <em>expected</em>, so deviations are informative. (Privacy: residual correlations are computable over pseudonymous streams via secure aggregation; no real-world identity required — the trilemma's privacy corner holds.)</p>
+<h3 id="33-the-mimicry-bound-why-this-composes-with-metabolic-identity"><a class="header" href="#33-the-mimicry-bound-why-this-composes-with-metabolic-identity">3.3 The mimicry bound (why this composes with metabolic identity)</a></h3>
+<p>The remaining attack is <strong>adversarial decorrelation</strong>: a puppeteer runs <code>k</code> accounts that <em>simulate</em> independence on every monitored dimension while coordinating on the payload.</p>
+<p><strong>Proposition 6 (mimicry cost).</strong> As the monitored behavioral dimensions approach the dimensions in which the system pays for work (forecast accuracy on diverse questions, storage/relay/compute service, transaction patterns), maintaining <code>k</code> streams that pass conditional-independence tests requires <code>≈ k</code> independent streams of real predictive/metabolic work. In that limit, the cheapest way to fake <code>k</code> agents is to <em>be</em> <code>k</code> agents — at which point, from the network's perspective, they are <code>k</code> agents.</p>
+<p><em>Sketch.</em> Passing independence tests on paid dimensions means producing <code>k</code> decorrelated, individually-rewarded performances; decorrelated competent forecasting requires <code>k</code> separately-maintained information positions; decorrelated service requires <code>k</code> resource commitments. The controller's <em>preference</em> correlation can survive — but preferences are exactly where weight is <code>√</code>-dampened (QV) and capped by credits ∝ <code>n_eff</code> earned on the paid dimensions. ∎</p>
+<p>This is the formal content of &quot;identity = metabolic signature&quot;: <strong>deterrence = making mimicry-cost ≥ honest-cost</strong>, and the inequality tightens as more of the economy's real work feeds the monitor. Honest scope: this is an asymptotic/arms-race bound, not a closed-form guarantee at any finite monitoring richness (§8, Open-1).</p>
+<hr />
+<h2 id="4-money-demurrage-as-a-control-law"><a class="header" href="#4-money-demurrage-as-a-control-law">4. Money: demurrage as a control law</a></h2>
+<h3 id="41-the-wealth-dynamics"><a class="header" href="#41-the-wealth-dynamics">4.1 The wealth dynamics</a></h3>
+<p>Money supply <code>M</code>, population <code>N</code> (measured in <code>n_eff</code>!), demurrage rate <code>δ</code>. Each wallet decays continuously; the entire decay flow is recycled as the UBI drip <code>δM/N</code> per capita. Agent <code>i</code> earns <code>e_i</code> and spends <code>s_i</code> per unit time:</p>
+<pre><code>ẇ_i  =  −δ·w_i  +  δM/N  +  e_i − s_i
+</code></pre>
+<p><strong>Proposition 7 (egalitarian attractor).</strong> The steady state is</p>
+<pre><code>w_i*  =  M/N  +  (e_i − s_i)/δ
+</code></pre>
+<p>with relaxation time <code>1/δ</code>. Wealth converges to <em>equal</em> plus <em>net-contribution-flow scaled by <code>1/δ</code></em>. Demurrage converts unbounded <strong>stock</strong> inequality into bounded <strong>flow</strong> inequality: you can only be richer than baseline by <code>(your sustained net flow)/δ</code>.</p>
+<h3 id="42-the-δ-dial-assumption-a2-becomes-a-theorem"><a class="header" href="#42-the-δ-dial-assumption-a2-becomes-a-theorem">4.2 The δ-dial: assumption A2 becomes a theorem</a></h3>
+<p>The truth machine's aggregation quality requires dispersed resolver budgets (assumption A2). If budgets are proportional to wealth and net earning advantages are bounded by <code>ē</code>, then the largest steady-state budget share is</p>
+<pre><code>max_j B_j/ΣB  ≤  1/N + ē/(δM)
+</code></pre>
+<p><strong>To enforce a target concentration bound <code>β</code>, set <code>δ ≥ ē / (M·(β − 1/N))</code>.</strong> The demurrage rate is the knob that <em>enforces the epistemic layer's soundness condition</em>. This is the deepest cross-layer coupling in the stack, now an equation: monetary policy ⇄ truth-machine validity. (Caveat: this bounds steady-state stock, not instantaneous flow-through; a high-flow actor can still spend heavily in bursts — burst-spend caps on resolver budgets close that gap.)</p>
+<h3 id="43-perfusion-new-user-bootstrapping-quantified"><a class="header" href="#43-perfusion-new-user-bootstrapping-quantified">4.3 Perfusion (new-user bootstrapping, quantified)</a></h3>
+<p>UBI to account <code>i</code> is <code>δM/N · ν_i</code> where <code>ν_i</code> is <code>i</code>'s marginal <code>n_eff</code> (§3.1), with the geographic vouching graph supplying the newcomer's prior <code>ν</code>. Consequences:</p>
+<ul>
+<li>A genuine newcomer, locally vouched, starts with modest nonzero perfusion and ramps to full share as their behavioral signature individuates. Saturates at 1 — a ramp, not rich-get-richer.</li>
+<li>A <code>k</code>-account farm shares ≈ one UBI until (per Prop. 6) it performs <code>k</code> agents' worth of real independent work.</li>
+<li>Zones run their own <code>(M_z, δ_z)</code> with exchange at boundaries: local cost-of-living tracking, organ-level metabolic autonomy.</li>
+</ul>
+<h3 id="44-what-needs-consensus-roadmap-q3--answered-with-citations"><a class="header" href="#44-what-needs-consensus-roadmap-q3--answered-with-citations">4.4 What needs consensus (roadmap Q3 — answered, with citations)</a></h3>
+<ul>
+<li><strong>Payments need no consensus.</strong> Asset transfer with single-owner accounts has <strong>consensus number 1</strong> (Guerraoui, Kuznetsov, Monti, Pavlović, Seredinschi, <em>The Consensus Number of a Cryptocurrency</em>, PODC 2019): only the <em>sender's</em> own transaction order matters, and the sender provides it. Byzantine consistent broadcast suffices (implemented in FastPay et al.). Shared <code>k</code>-owner accounts need consensus only among the <code>k</code> owners.</li>
+<li><strong>Demurrage needs no consensus at all.</strong> <code>w(t) = w(t₀)·e^{−δ(t−t₀)} + flows</code> is locally verifiable arithmetic.</li>
+<li><strong>Timestamps need only causal entanglement.</strong> A forecast hash <code>h</code>, once referenced inside other agents' signed messages, is sandwiched: <code>h</code> existed before everything that cites it and after everything it cites. Backdating requires rewriting the signed causal cone of independent witnesses — and witness independence is, again, <code>n_eff</code>. Gossip rate sets timestamp precision; minutes-level precision is ample for scoring weights <code>w_t</code>. No total order required.</li>
+<li><strong>Only contested allocation needs ordering</strong> — auctions for the same scarce item, name registries, zone-level governance execution. These run on small zonal BFT quorums (or, for slow decisions, on the truth machine itself). <strong>The stack needs a blockchain nowhere; it needs zonal BFT in one narrow place.</strong></li>
+</ul>
+<hr />
+<h2 id="5-architecture-theorem-perception-global-action-zonal"><a class="header" href="#5-architecture-theorem-perception-global-action-zonal">5. Architecture theorem: perception global, action zonal</a></h2>
+<p><strong>Proposition 8 (reputation is intrinsically portable).</strong> <code>R_{i,j}</code> is a pure deterministic function of two public, self-certifying logs: <code>i</code>'s signed timestamped forecast stream and <code>j</code>'s signed verdict stream. Therefore <em>any</em> network, zone, or fork can recompute any reputation from portable data. No platform can custody reputation; epistemic switching cost ≈ 0 by construction.</p>
+<p>This resolves the shared-reality vs. exit-discipline tension of <a href="living-system.html">The Living System</a> §6 with an architectural rule:</p>
+<blockquote>
+<p><strong>The perception layer (signed forecast/verdict logs, the world-model) is global, content-addressed, and portable. The action layers (currency, governance, resource allocation) are zonal and exitable.</strong> Reality stays shared at the top (assumption A1 gets its large population); discipline and exit operate at the bottom (between-zone and between-network selection stays live); demurrage already makes currency stock a weak lock-in (wealth melts; what persists is flow and portable reputation).</p>
+</blockquote>
+<p>Exit cost is then dominated by <em>social</em> re-coupling, which the portable logs minimize. This is &quot;make exit cheap&quot; as a design invariant rather than an aspiration.</p>
+<hr />
+<h2 id="6-what-the-centralized-pilot-must-measure-roadmap-q5--specified"><a class="header" href="#6-what-the-centralized-pilot-must-measure-roadmap-q5--specified">6. What the centralized pilot must measure (roadmap Q5 — specified)</a></h2>
+<p>The pilot is now an <em>experiment with defined estimands</em>, not a demo:</p>
+<ol>
+<li><strong><code>L̂</code> — the deference slope</strong> (the bifurcation distance, §2.3). Randomize, per question × resolver, whether current consensus is displayed at verdict time (blind vs. shown), and at what displayed value (within honest jitter). Regression of verdicts on display estimates <code>λ·g′</code>. <strong>Success criterion: <code>L̂</code> measurably <code>&lt; 1</code> under blind-resolution UI; dose-response visible when shown.</strong></li>
+<li><strong><code>Σ̂</code> — forecaster residual correlation structure</strong> — feasibility of independence accounting: do residuals (conditional on public info) actually separate known-distinct individuals from deliberately-planted sock-puppet pairs (plant some, pre-registered)?</li>
+<li><strong>Properness in practice</strong> — do participants report calibrated beliefs under the reference-relative log score (calibration curves, sharpness)?</li>
+<li><strong>VOI routing</strong> — A/B question-budget weighting <code>u_q</code> (flat vs. VOI-weighted, §2.5): does optimization power follow the subsidy without distorting calibration?</li>
+</ol>
+<p>Scale for signal: on the order of 30–100 resolvers, 100–300 questions with staggered horizons (science-impact claims fit: 6–24-month resolvability), every forecast and verdict signed and hash-entangled from day one so the timestamping layer (§4.4) is exercised by the same pilot.</p>
+<hr />
+<h2 id="7-the-viability-envelope"><a class="header" href="#7-the-viability-envelope">7. The viability envelope</a></h2>
+<p>The four load-bearing problems from <a href="living-system.html">The Living System</a> §8 are now four inequalities. <strong>The organism is viable iff:</strong></p>
+<pre><code>(V1) Contraction:    L = λ·sup|g′| &lt; 1            — perception dominates action
+                                                     (else: dark room / fiction equilibria)
+(V2) Immunity:       cost(mimic k agents) ≥ cost(be k agents)
+                                                     — boundary integrity; n_eff sound
+(V3) Dispersion:     δ ≥ ē/(M·(β−1/N))             — metabolic turnover enforces A2
+                                                     (else: whale capture of the epistemic layer)
+(V4) Exit:           switching cost &lt; tyranny premium
+                                                     — between-network selection stays live;
+                                                       held by Prop. 8 (portable perception layer)
+                                                       plus zonal action layers
+
+(V5) Causal resolution:  verdicts are ex-post counterfactual contrasts, not raw
+                         conditional outcomes  — else the rule lends proper-scoring
+                         authority to a confounded judgment (futarchy's flaw).
+                         See futarchy-causality.md. Dual to V1: both keep the
+                         market an evidence instrument, never a mechanical decision rule.
+</code></pre>
+<p>These are not independent: V2 (<code>n_eff</code>) is a parameter inside V1's resolver count, V3's population <code>N</code>, and V4's witness security. <strong>Boundary integrity is the load-bearing wall</strong>, exactly as the anatomy predicted.</p>
+<p><strong>The grand conjecture (the system's existence theorem, still open):</strong> the coupled dynamics — price field (§1), scoring fixed point (§2), weight estimation (§3), wealth flow (§4) — possess a stable joint fixed point whenever V1–V4 hold strictly, and lose it when any is violated. Each subsystem's result above is a lemma toward this; the coupled proof (or agent-based demonstration) is the centerpiece of the Phase-1 theory track.</p>
+<hr />
+<h2 id="8-scorecard-every-open-question-dispositioned"><a class="header" href="#8-scorecard-every-open-question-dispositioned">8. Scorecard: every open question, dispositioned</a></h2>
+<p>From <strong>roadmap.md</strong> &quot;Open questions before Phase 2&quot;:</p>
+<div class="table-wrapper"><table><thead><tr><th>#</th><th>Question</th><th>Status</th></tr></thead><tbody>
+<tr><td>Q1</td><td>Does the reflexive loop converge?</td><td><strong>Answered in principle</strong> (§2): linear influence is harmless (Prop. 2); danger is a bifurcation at deference slope <code>L = 1</code> (Prop. 3); <code>L</code> is measurable (perturbation audits) and controllable (blind resolution, reality-coupling). Remaining: empirical <code>g</code> shape, coupled-system proof (§7).</td></tr>
+<tr><td>Q2</td><td>Minimal identity primitive: Sybil-resistant + anonymous?</td><td><strong>Reframed and substantially answered</strong> (§3): no personhood classifier; weight ∝ marginal <code>n_eff</code> from pseudonymous behavioral residuals; geography = prior on <code>Σ</code>; mimicry-cost bound (Prop. 6). Remaining: <code>Σ</code> estimation at scale, monitoring-richness arms race.</td></tr>
+<tr><td>Q3</td><td>Is global consensus avoidable?</td><td><strong>Answered: yes</strong> (§4.4). Payments are consensus-number-1 (cited theorem); demurrage is local arithmetic; timestamps = causal entanglement with <code>n_eff</code>-weighted witnesses; only contested allocation needs zonal BFT.</td></tr>
+<tr><td>Q4</td><td>disp ↔ network boundary?</td><td><strong>Answered</strong> (§1.5): the network service API <em>is</em> disp's effect algebra — <code>store/send/eval/price</code> = the three MATERIALIZE edges + the price field; canonical hash-consed serialization.</td></tr>
+<tr><td>Q5</td><td>Smallest meaningful pilot?</td><td><strong>Specified</strong> (§6): estimands <code>L̂</code>, <code>Σ̂</code>, calibration, VOI-routing; blind/shown randomization; planted sock-puppets; ~30–100 resolvers, ~100–300 questions.</td></tr>
+</tbody></table>
+</div>
+<p>From the <strong><a href="mechanism.html#open-problems">truth-markets synthesis</a> §8</strong>:</p>
+<div class="table-wrapper"><table><thead><tr><th>#</th><th>Problem</th><th>Status</th></tr></thead><tbody>
+<tr><td>1</td><td>Reflexivity / beauty contest</td><td>→ Q1 above.</td></tr>
+<tr><td>2</td><td>Resolver honesty unmodeled</td><td><strong>Reduced to an inequality</strong> (§2.4): per-resolver containment + self-consumption of rankings; honest iff allocation stake &gt; bribe; influence-buyers handled by resolver-side GLS.</td></tr>
+<tr><td>3</td><td>Manufactured surprise / bad reference</td><td><strong>Mitigated by construction</strong>: reference = lagged consensus (the genuine frontier); budgets <code>u_q</code> frozen so they can't be self-moved (Prop. 5).</td></tr>
+<tr><td>4</td><td>Collusion / Sybil</td><td>→ Q2; one mechanism (§3) covers forecaster collusion, resolver blocs, Sybils, and QV's <code>√k</code> attack.</td></tr>
+<tr><td>5</td><td>&quot;Extrapolated intention/utility&quot; undefined</td><td><strong>Defined</strong> (§2.5): decision-value-of-information, computed by self-application of the engine; regress terminates at realized allocation outcomes.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Genuinely still open</strong> (the honest residue):</p>
+<ol>
+<li><strong>The arms race floor (V2 at finite richness).</strong> Prop. 6 is asymptotic; how much monitored behavioral diversity suffices in practice is empirical.</li>
+<li><strong>The shape of <code>g</code>.</strong> <code>L &lt; 1</code> is measurable, but we don't know human deference response curves in this setting until the pilot runs.</li>
+<li><strong>Preference-side depth.</strong> <code>n_eff</code>-gated QV fixes Sybil/collusion, and the fact/preference split (delegate <em>facts</em> to the market, keep <em>preferences</em> quadratic and personal) is justified — but full liquid <em>preference</em> delegation semantics under independence accounting (delegation <strong>is</strong> voluntary correlation) needs its own treatment. Current recommendation: delegation operates on the epistemic side only.</li>
+<li><strong>Open-economy monetary dynamics.</strong> Inter-zone exchange rates, speculative pressure on a demurrage currency, and the (dubious) external peg all need real macro analysis.</li>
+<li><strong>Substrate market under non-convexity.</strong> Prop. 1 assumes price-taking and convex costs; lumpy storage commitments and relay market power need mechanism design (posted-price vs. auction hybrids).</li>
+<li><strong>The grand conjecture</strong> (§7): the coupled fixed-point/stability proof — the actual &quot;does the organism live&quot; theorem. The Phase-1 agent-based simulation should target exactly the V1–V4 phase boundaries.</li>
+</ol>
+<hr />
+<h2 id="9-the-whole-design-in-five-equations"><a class="header" href="#9-the-whole-design-in-five-equations">9. The whole design in five equations</a></h2>
+<pre><code>(1) Substrate:    cache/replicate/memoize iff   λ_v(x)·p(v,x) &gt; c_s(x)·|v| ;
+                  profit = −∇F under marginal-cost prices.            (§1)
+
+(2) Perception:   p* = λ·g(p*) + (1−λ)·π ;  truth-tracking iff L &lt; 1. (§2)
+
+(3) Identity:     n_eff = 1ᵀΣ⁻¹1 ;  all weight (votes, UBI, witness,
+                  aggregation) issued per unit marginal n_eff.        (§3)
+
+(4) Metabolism:   ẇ = −δw + δM/N + e − s ;  w* = M/N + (e−s)/δ ;
+                  δ ≥ ē/(M(β−1/N)) enforces dispersion (A2).          (§4)
+
+(5) Architecture: perception global &amp; portable (R = pure fn of logs);
+                  action zonal &amp; exitable.                            (§5)
+</code></pre>
+<p>Five equations, four viability inequalities (V1–V4), one conjecture (§7). That is the mathematical core.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../stack/living-system.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../stack/futarchy-causality.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../stack/living-system.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../stack/futarchy-causality.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
