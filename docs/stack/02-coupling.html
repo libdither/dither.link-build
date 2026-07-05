@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>2 · Coupling - Dither Ideas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="../dither/02-routing.html"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="../dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="../dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="../dither/user-management.html"><strong aria-hidden="true">1.5.</strong> Account Management</a></li><li class="chapter-item expanded "><a href="../dither/identity.html"><strong aria-hidden="true">1.6.</strong> Identity Management</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="../disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li class="chapter-item expanded "><a href="../disp/syntax.html"><strong aria-hidden="true">2.2.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="../disp/names.html"><strong aria-hidden="true">2.3.</strong> Names</a></li><li class="chapter-item expanded "><a href="../disp/program-synthesis.html"><strong aria-hidden="true">2.4.</strong> Programs from Specifications</a></li><li class="chapter-item expanded "><a href="../disp/implementation.html"><strong aria-hidden="true">2.5.</strong> Implementation</a></li></ol></li><li class="chapter-item expanded "><a href="../applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="../applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li><li class="chapter-item expanded "><a href="../applications/fractional-funding.html"><strong aria-hidden="true">3.6.</strong> Fractional Funding</a></li></ol></li><li class="chapter-item expanded "><a href="../stack/overview.html"><strong aria-hidden="true">4.</strong> The Decentralization Stack</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/01-agent.html"><strong aria-hidden="true">4.1.</strong> 1 · The Agent</a></li><li class="chapter-item expanded "><a href="../stack/02-coupling.html" class="active"><strong aria-hidden="true">4.2.</strong> 2 · Coupling</a></li><li class="chapter-item expanded "><a href="../stack/03-market.html"><strong aria-hidden="true">4.3.</strong> 3 · The Market</a></li><li class="chapter-item expanded "><a href="../stack/04-money.html"><strong aria-hidden="true">4.4.</strong> 4 · Money</a></li><li class="chapter-item expanded "><a href="../stack/05-immune.html"><strong aria-hidden="true">4.5.</strong> 5 · The Immune System</a></li><li class="chapter-item expanded "><a href="../stack/06-governance.html"><strong aria-hidden="true">4.6.</strong> 6 · Governance</a></li><li class="chapter-item expanded "><a href="../stack/07-evolution.html"><strong aria-hidden="true">4.7.</strong> 7 · Evolution</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.8.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/mathematical-core.html"><strong aria-hidden="true">4.8.1.</strong> The Mathematical Core</a></li><li class="chapter-item expanded "><a href="../stack/futarchy-causality.html"><strong aria-hidden="true">4.8.2.</strong> Futarchy and Causality</a></li><li class="chapter-item expanded "><a href="../stack/glossary.html"><strong aria-hidden="true">4.8.3.</strong> Notation & Glossary</a></li><li class="chapter-item expanded "><a href="../stack/roadmap.html"><strong aria-hidden="true">4.8.4.</strong> Engineering Roadmap</a></li><li class="chapter-item expanded "><a href="../stack/open-questions.html"><strong aria-hidden="true">4.8.5.</strong> Open Questions</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.9.</strong> Working Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/notes/predictive-materialization.html"><strong aria-hidden="true">4.9.1.</strong> Predictive Materialization</a></li><li class="chapter-item expanded "><a href="../stack/notes/coupling-and-merging.html"><strong aria-hidden="true">4.9.2.</strong> Coupling and Merging</a></li><li class="chapter-item expanded "><a href="../stack/notes/protocols-as-priors.html"><strong aria-hidden="true">4.9.3.</strong> Protocols as Priors</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/application-design-philosophy.html"><strong aria-hidden="true">5.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="../copyright-is-cancer.html"><strong aria-hidden="true">5.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../what-is-a-monad.html"><strong aria-hidden="true">6.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="../node_discovery_ideas.html"><strong aria-hidden="true">6.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dither Ideas</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="2--coupling"><a class="header" href="#2--coupling">2 · Coupling</a></h1>
+<p>Your node meets a second one: a friend's machine across town. Nobody is in charge of the pair of you. Why would you cooperate at all, and what do you actually send each other?</p>
+<p>You cooperate because coupling has surplus: she backs up your residuals and you back up hers (redundancy); her node's models are good at maps and yours at code (specialization); her machine sits near data you keep fetching (latency). And the messages that realize the surplus come in exactly four kinds, each the seed of an institution this book grows later:</p>
+<ul>
+<li><strong>Capability advertisements</strong> — &quot;here is what I can predict, serve, and check, and roughly what it costs me.&quot; The seed of routing and the market.</li>
+<li><strong>Attestations</strong> — signed receipts: &quot;I saw the hash of your message at my clock time.&quot; The seed of ordering and timestamps.</li>
+<li><strong>Credit</strong> — a bilateral IOU ledger: you owe her three map-lookups' worth, she owes you a night of backup. The seed of money; the ratio you settle on is the first exchange rate, born as barter.</li>
+<li><strong>Fate</strong> — standing claims on each other: stakes, shared commitments. The seed of zones, pools, and everything in <a href="04-money.html">chapter 4</a>.</li>
+</ul>
+<p>Nothing here is forced. The design stance toward cooperation is <em>make it explicit, priced, and reversible</em>: cheap to enter where surplus exists, cheap to exit where it stops. Moloch is not defeated by mandate; he is starved by exit.</p>
+<h2 id="coupling-is-a-typed-object"><a class="header" href="#coupling-is-a-typed-object">Coupling is a typed object</a></h2>
+<p>&quot;Explicit&quot; can be made literal. A coupling between two nodes is a <strong>protocol both sides agree to in advance</strong>, and a protocol can be a <em>type</em>: a session type declaring who may send what, in what order, with what obligations. This is mature theory (multiparty session types; well-typed participants provably follow the protocol, never deadlock, always make progress), and <a href="../disp/disp.html">disp</a> is an unusually good host for it:</p>
+<ul>
+<li>A protocol spec is a content-addressed tree: protocols have hashes, versions diff, and no registry exists to capture.</li>
+<li>disp types are predicates, so a message slot can <em>require</em> things: &quot;a transfer signed by the sender whose balance covers it.&quot; Types check transcripts, not just values.</li>
+<li>Every exchanged message cites the hashes of what came before, so a protocol run's transcript is tamper-evident: an auditable object. Disputes over behavior are settled the way <a href="01-agent.html">chapter 1</a> settles disputes over computation: bisect the transcript to the first ill-typed step.</li>
+</ul>
+<p>A <strong>contract</strong>, then, is a session type plus collateral plus an arbitration clause, and &quot;our coupling&quot; is the set of live typed sessions between us. What makes a protocol <em>good</em> has a four-part answer: sound (well-typed), incentive-compatible (honest play is an equilibrium, and silence is punishable by timeout-with-collateral), self-measuring (it emits the statistics needed to tune it), and evolvable (new versions offer typed adapters to old ones). The <a href="notes/protocols-as-priors.html">protocols-as-priors note</a> develops all four; the one caveat to carry is that types give safety while <em>incentives</em> must supply liveness, because a counterparty can always go silent, and only stakes make silence expensive.</p>
+<h2 id="attestations-become-time"><a class="header" href="#attestations-become-time">Attestations become time</a></h2>
+<p>Your friend's receipts do more than confirm delivery. Once the hash of your record appears inside her signed messages, and hers inside third parties' messages, your record is sandwiched: it provably existed before everything that cites it and after everything it cites. Backdating anything means rewriting the signed histories of every independent witness in the web. That is the whole timestamping design: no blockchain, just causal entanglement, with precision set by gossip rate.</p>
+<p>Payments ride the same insight. A payment from a single-owner account needs only the <em>sender's</em> own ordering of their spends (that is what rules out double-spending), and the sender provides it; this is a theorem (consensus number 1, Guerraoui et al. 2019), not a hope. Reliable broadcast suffices. The only thing that ever needs genuine agreement among strangers is <strong>contested allocation</strong> (two buyers, one name), and that is rare, local, and handled by a small quorum drawn from the surrounding cluster.</p>
+<h2 id="from-pairs-to-clusters"><a class="header" href="#from-pairs-to-clusters">From pairs to clusters</a></h2>
+<p>Run the coupling move repeatedly and institutions appear on a schedule:</p>
+<ul>
+<li><strong>Four nodes.</strong> Your friend vouches for her cousin: the first <em>transitive</em> trust inference. The pairwise IOUs start netting multilaterally: the clearing function is born. Three nodes can witness for two: the first quorum.</li>
+<li><strong>Eight and beyond.</strong> The first true stranger arrives, and for the first time it matters whether &quot;three enthusiastic newcomers&quot; are three people or one — Sybil pressure begins, and with it the machinery of <a href="05-immune.html">chapter 5</a>. One node ends up in the middle of most trades because it is central: the hub is born, with its uses and its dangers. Unanimity stops scaling; voting appears.</li>
+</ul>
+<p>A <strong>cluster</strong> that couples densely (trading, witnessing, vouching, netting) becomes something with a name: a <em>zone</em>. Pool where coupling surplus is high; trade at arm's length where it is low; the boundary sits where the surplus drops. (<a href="04-money.html">Chapter 4</a> makes the boundary precise, because the boundary is where money changes.)</p>
+<p>Geometry helps everything at once. Nodes embed themselves in a <strong>latency coordinate space</strong> (near in the space = cheap to reach in the world), and this one map gets reused so often the book calls it the <em>body map</em>: it is where quorums are drawn, where currency zones live, where newcomers get vouched, and where the correlation machinery of chapter 5 gets its prior (correlation between neighbors is expected; correlation between strangers is a signal). Transport over the map is onion-wrapped, so relays learn only their neighbors and never source or destination. You can move and fetch without confessing what you want to whoever watches the wire. Retrieval routing composes with <a href="01-agent.html">chapter 1</a>'s memory: a request is a partial context, and each hop moves it toward nodes advertising lower expected loss on that kind of context — descent on an uncertainty gradient, with exact-bit fetches as the expensive tail.</p>
+<h2 id="identity-finally"><a class="header" href="#identity-finally">Identity, finally</a></h2>
+<p>Notice what this chapter never needed: a registry. At two nodes, identity is perception: you know your friend. The question &quot;who is real&quot; only grows teeth as strangers arrive, and the answer that scales is not a credential but a <strong>posterior</strong>. Each node (and each zone, for its own purposes) maintains its <em>own</em> estimate of how distinct and how trustworthy each counterparty is, fed by evidence streams that are cheap to combine and expensive to fake in bulk:</p>
+<ol>
+<li><strong>Locality</strong> — latency triangulation and physical presence: an attacker fakes nodes, not nodes <em>everywhere</em>.</li>
+<li><strong>Authorizers</strong> — the desk returns, demoted from root to evidence: a passport office, employer, or community notary is an attestor whose own track record is auditable, and whose word you weight accordingly.</li>
+<li><strong>Stake-backed vouching</strong> — a voucher loses stake if the vouched-for account proves to be a puppet.</li>
+<li><strong>Behavioral streams</strong> — the paid work of later chapters: service patterns, forecast records, transaction rhythms.</li>
+<li><strong>Continuity</strong> — hash-entangled history; aging an identity is costly by construction.</li>
+<li><strong>Hardware</strong> — a disk can only be committed once.</li>
+</ol>
+<p>Two properties matter more than any single stream. <strong>Confidence is stake-scaled</strong>: a small trade needs a weak posterior, a large vote a strong one, so you purchase exactly the identity-certainty the interaction warrants (the certainty loop again). And <strong>confidence composes along paths</strong>: for distant strangers you never compute a fine-grained estimate at all; you trust through chains, with attenuation, the same way exchange rates will compose in chapter 4. Identity confidence, trust, and exchange rates turn out to be one family of objects: fields over the body map that compose along routes.</p>
+<p>⚠️ Open: the quorum design for contested allocation (member selection, cross-zone disputes) is unwritten; the relay-incentive game (who pays whom for carrying traffic) waits on the market; timestamp precision under real gossip is unmeasured; and the typed-sessions program over disp (the concrete projection and coercion calculus) is a design note, not code.</p>
+<p>📐 Formal treatment: <a href="mathematical-core.html">Mathematical Core §4.4</a> (consensus requirements), <a href="mathematical-core.html">§10.3</a> (coupling surplus); the <a href="notes/coupling-and-merging.html">coupling-and-merging note</a>.</p>
+<hr />
+<p>Pairs and clusters can now transact, witness, timestamp, and know each other in proportion to the stakes. What they still lack is a way to price anything beyond barter: a market where capacity, effort, and knowledge clear against demand. That is <a href="03-market.html">chapter 3</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../stack/01-agent.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../stack/03-market.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../stack/01-agent.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../stack/03-market.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

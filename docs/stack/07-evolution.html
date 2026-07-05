@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>7 · Evolution - Dither Ideas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="../dither/02-routing.html"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="../dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="../dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="../dither/user-management.html"><strong aria-hidden="true">1.5.</strong> Account Management</a></li><li class="chapter-item expanded "><a href="../dither/identity.html"><strong aria-hidden="true">1.6.</strong> Identity Management</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="../disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li class="chapter-item expanded "><a href="../disp/syntax.html"><strong aria-hidden="true">2.2.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="../disp/names.html"><strong aria-hidden="true">2.3.</strong> Names</a></li><li class="chapter-item expanded "><a href="../disp/program-synthesis.html"><strong aria-hidden="true">2.4.</strong> Programs from Specifications</a></li><li class="chapter-item expanded "><a href="../disp/implementation.html"><strong aria-hidden="true">2.5.</strong> Implementation</a></li></ol></li><li class="chapter-item expanded "><a href="../applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="../applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li><li class="chapter-item expanded "><a href="../applications/fractional-funding.html"><strong aria-hidden="true">3.6.</strong> Fractional Funding</a></li></ol></li><li class="chapter-item expanded "><a href="../stack/overview.html"><strong aria-hidden="true">4.</strong> The Decentralization Stack</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/01-agent.html"><strong aria-hidden="true">4.1.</strong> 1 · The Agent</a></li><li class="chapter-item expanded "><a href="../stack/02-coupling.html"><strong aria-hidden="true">4.2.</strong> 2 · Coupling</a></li><li class="chapter-item expanded "><a href="../stack/03-market.html"><strong aria-hidden="true">4.3.</strong> 3 · The Market</a></li><li class="chapter-item expanded "><a href="../stack/04-money.html"><strong aria-hidden="true">4.4.</strong> 4 · Money</a></li><li class="chapter-item expanded "><a href="../stack/05-immune.html"><strong aria-hidden="true">4.5.</strong> 5 · The Immune System</a></li><li class="chapter-item expanded "><a href="../stack/06-governance.html"><strong aria-hidden="true">4.6.</strong> 6 · Governance</a></li><li class="chapter-item expanded "><a href="../stack/07-evolution.html" class="active"><strong aria-hidden="true">4.7.</strong> 7 · Evolution</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.8.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/mathematical-core.html"><strong aria-hidden="true">4.8.1.</strong> The Mathematical Core</a></li><li class="chapter-item expanded "><a href="../stack/futarchy-causality.html"><strong aria-hidden="true">4.8.2.</strong> Futarchy and Causality</a></li><li class="chapter-item expanded "><a href="../stack/glossary.html"><strong aria-hidden="true">4.8.3.</strong> Notation & Glossary</a></li><li class="chapter-item expanded "><a href="../stack/roadmap.html"><strong aria-hidden="true">4.8.4.</strong> Engineering Roadmap</a></li><li class="chapter-item expanded "><a href="../stack/open-questions.html"><strong aria-hidden="true">4.8.5.</strong> Open Questions</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.9.</strong> Working Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stack/notes/predictive-materialization.html"><strong aria-hidden="true">4.9.1.</strong> Predictive Materialization</a></li><li class="chapter-item expanded "><a href="../stack/notes/coupling-and-merging.html"><strong aria-hidden="true">4.9.2.</strong> Coupling and Merging</a></li><li class="chapter-item expanded "><a href="../stack/notes/protocols-as-priors.html"><strong aria-hidden="true">4.9.3.</strong> Protocols as Priors</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../applications/application-design-philosophy.html"><strong aria-hidden="true">5.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="../copyright-is-cancer.html"><strong aria-hidden="true">5.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../what-is-a-monad.html"><strong aria-hidden="true">6.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="../node_discovery_ideas.html"><strong aria-hidden="true">6.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dither Ideas</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="7--evolution"><a class="header" href="#7--evolution">7 · Evolution</a></h1>
+<p>Look back at what got built, and notice how little of it there is. One loop: spend to reduce uncertainty until confident enough for the stakes. One move: couple where surplus exceeds cost, explicitly and reversibly. One payment rule: reward equals verified improvement over the shared reference. One accounting: weight follows independence, and correlation is decomposed rather than ignored. Chapters 1 through 6 are these four sentences pointed at different questions — and that compression is not a stylistic victory but the design's survival strategy, because what is small can be reasoned about, and what can be reasoned about can be safely <em>changed</em>.</p>
+<p>Change is this chapter's subject, because every mechanism in this book is a <strong>shipped prior</strong>, and priors are meant to be outgrown.</p>
+<h2 id="the-organism-literally"><a class="header" href="#the-organism-literally">The organism, literally</a></h2>
+<p>The frame from the <a href="overview.html">overview</a> can now be cashed out. A system that maintains a boundary, predicts its environment well enough to pay its own maintenance, and is built at every scale from smaller things doing the same — that is an organism, and the mapping is structural:</p>
+<div class="table-wrapper"><table><thead><tr><th>Organ</th><th>Stack layer</th></tr></thead><tbody>
+<tr><td>membrane and immune system</td><td>correlation management, <code>n_eff</code> (<a href="05-immune.html">ch. 5</a>)</td></tr>
+<tr><td>metabolism</td><td>storage / routing / compute (<a href="03-market.html">ch. 3</a>)</td></tr>
+<tr><td>bloodstream</td><td>pool shares; demurrage as turnover; the drip as perfusion (<a href="04-money.html">ch. 4</a>)</td></tr>
+<tr><td>perception</td><td>the slow market (<a href="03-market.html">ch. 3</a>)</td></tr>
+<tr><td>motor system</td><td>governance (<a href="06-governance.html">ch. 6</a>)</td></tr>
+<tr><td>body map</td><td>the latency coordinate space (<a href="02-coupling.html">ch. 2</a>)</td></tr>
+<tr><td>genome</td><td>the protocol: the shipped priors (<a href="notes/protocols-as-priors.html">notes</a>)</td></tr>
+<tr><td>development</td><td>newcomer perfusion (<a href="04-money.html">ch. 4</a>)</td></tr>
+<tr><td>reproduction and evolution</td><td>forking; selection between networks (this chapter)</td></tr>
+<tr><td>cancer</td><td>extraction without contestability (<a href="04-money.html">ch. 4</a>, <a href="05-immune.html">ch. 5</a>)</td></tr>
+</tbody></table>
+</div>
+<p>Perception and action are one calculus pointed opposite ways — the slow market changes beliefs to match the world, governance changes the world to match beliefs — and chapter 5's <code>L &lt; 1</code> is the condition keeping that motor coupled to reality instead of idling in a dark room.</p>
+<p>The commons holds for the reason it holds in biology. The tragedy of the commons is a multipolar trap, and evolution's escape was always the same move, a <em>major transition</em>: a higher-level individual emerges whose own fitness depends on the commons, and which can discipline its constituents. Its stability conditions are this book's spec sheet: align constituent fitness with the whole (the market pays for work the network demands; cross-holdings entangle welfare); suppress internal defection (the immune accounting); and keep selection alive <em>between</em> wholes — which is where evolution earns its chapter.</p>
+<h2 id="networks-are-priors-forks-are-mutations"><a class="header" href="#networks-are-priors-forks-are-mutations">Networks are priors; forks are mutations</a></h2>
+<p>A protocol version is a hyperprior: the agreements participants carry before any interaction. In <a href="02-coupling.html">chapter 2</a>'s terms it is a family of typed session contracts; in the overview's terms it is the genome. That framing makes protocol change precise instead of catastrophic:</p>
+<ul>
+<li><strong>Backwards compatible</strong> = a typed coercion exists at the boundary, so old and new agents still transact — protocol versions interoperate the way currency zones do, through an adapter with a spread. A <strong>hard fork</strong> is a boundary with no coercion: <code>χ</code> undefined.</li>
+<li><strong>Forward-pressuring</strong> = the new version strictly dominates in surplus <em>for its adopters</em> without requiring global switchover. Adoption should be a ramp, never a cliff; network effects build cliffs by default, and ramp-engineering is a first-class protocol duty.</li>
+<li><strong>Merging</strong> needs no mechanism at all, because <a href="04-money.html">chapter 4</a> already is one: networks that trade accumulate each other's shares, cross-holdings align fitness, and the boundary thins until it stops mattering. Trade is merging in slow motion, and de-merging is symmetric.</li>
+</ul>
+<p>Selection between networks is then real selection: a network whose priors detach from reality (dark room), concentrate (capture), or extract (cancer) loses predictive surplus and sheds members to rivals — <em>provided exit stays cheap.</em> That proviso is V4, and it has geometry: a healthy focal point sits in a basin that is <strong>deep against unilateral defection and shallow against coordinated migration.</strong> Portable shares, portable reputation, and content-addressed data keep the coordinated-migration wall low; demurrage keeps stock from becoming a hostage. ⚠️ Exit has a dark side that stays flagged: selection between networks can race to the bottom, and network effects raise the migration wall silently. Keeping exit cheap is an engineering requirement with no finish line.</p>
+<h2 id="the-guardrails-revisited"><a class="header" href="#the-guardrails-revisited">The guardrails, revisited</a></h2>
+<p>The earlier editions of this book kept a section called <em>where the frame could deceive us</em>. The frame has earned updates to each entry:</p>
+<ul>
+<li><strong>&quot;Free energy explains everything, and that is suspicious.&quot;</strong> Resolved by making the frame operational: the Alignment Invariant (every payment is a verified marginal loss-reduction against the shared reference — <a href="mathematical-core.html">Math Core §10.1</a>) is a spec rule a mechanism either satisfies or fails. The metaphor no longer carries load; the invariant does.</li>
+<li><strong>&quot;The metabolism unification is abstraction-level.&quot;</strong> Downgraded, not closed: representations-as-policies reduces storage to amortized compute with a fidelity attribute, leaving one objective with per-term constants owed, rather than three unrelated markets.</li>
+<li><strong>&quot;Two irreducible open problems: reflexivity and the autoimmune limit.&quot;</strong> Unified into one: the <strong>correlation-decomposition problem</strong> (<a href="05-immune.html">ch. 5</a>) — shared source, deference, payoff, fate, and truth, separated at finite richness. Still open; now singular, with a measurement program (the pilot's <code>L̂</code> and <code>Σ̂</code>).</li>
+<li><strong>&quot;The identity trilemma is the bottleneck.&quot;</strong> Dissolved rather than solved: strong-cheap-private constrained a single global credential, and no such credential exists anymore. Identity is a local, stake-scaled posterior over multiple evidence streams; the residue is estimator design, not trilemma.</li>
+<li><strong>&quot;Exit's dark side.&quot;</strong> Restated as basin geometry, above — measurable now, finished never.</li>
+</ul>
+<p>What is <em>not</em> revisable is worth stating once, plainly. The priors — demurrage, log scoring, quadratic voting, every mechanism named in this book — are defaults, and the book's real claims are the conditions on the refinement loop: sound protocols, incentive-compatible play, self-measurement, evolvability, and the five viability conditions those imply. Any network violating them detaches from reality or gets captured, whatever its mechanisms. Any network satisfying them can outgrow every default this book shipped.</p>
+<p>📐 Formal treatment: <a href="mathematical-core.html">Mathematical Core §7</a> (the viability envelope and the grand conjecture — the coupled stability proof that remains the design's open centerpiece), <a href="mathematical-core.html">§10</a> (the working extensions).</p>
+<hr />
+<p>The list from <a href="overview.html">the overview</a> is crossed off, and no job required hiring a somebody. What this book ships is a genome, not a guarantee: good priors, a metabolism that pays to improve them, an immune system for the ways they corrupt, and cheap exit so that better genomes can win. Whether the organism lives is <a href="mathematical-core.html">one conjecture</a> with five named conditions — and the way to find out is to grow one.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../stack/06-governance.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../stack/mathematical-core.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../stack/06-governance.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../stack/mathematical-core.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

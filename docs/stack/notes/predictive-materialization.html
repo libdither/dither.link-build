@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Predictive Materialization - Dither Ideas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../custom.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../dither.html"><strong aria-hidden="true">1.</strong> Dither</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dither/structure.html"><strong aria-hidden="true">1.1.</strong> Structure</a></li><li class="chapter-item expanded "><a href="../../dither/02-routing.html"><strong aria-hidden="true">1.2.</strong> Anonymous Routing</a></li><li class="chapter-item expanded "><a href="../../dither/directional-trail-search.html"><strong aria-hidden="true">1.3.</strong> Data Trail Search</a></li><li class="chapter-item expanded "><a href="../../dither/reverse-hash-lookup.html"><strong aria-hidden="true">1.4.</strong> Reverse Hash Lookup</a></li><li class="chapter-item expanded "><a href="../../dither/user-management.html"><strong aria-hidden="true">1.5.</strong> Account Management</a></li><li class="chapter-item expanded "><a href="../../dither/identity.html"><strong aria-hidden="true">1.6.</strong> Identity Management</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> Consensus - WIP</div></li></ol></li><li class="chapter-item expanded "><a href="../../disp/disp.html"><strong aria-hidden="true">2.</strong> Disp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../disp/universal-system-of-types.html"><strong aria-hidden="true">2.1.</strong> Universal System of Types</a></li><li class="chapter-item expanded "><a href="../../disp/syntax.html"><strong aria-hidden="true">2.2.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="../../disp/names.html"><strong aria-hidden="true">2.3.</strong> Names</a></li><li class="chapter-item expanded "><a href="../../disp/program-synthesis.html"><strong aria-hidden="true">2.4.</strong> Programs from Specifications</a></li><li class="chapter-item expanded "><a href="../../disp/implementation.html"><strong aria-hidden="true">2.5.</strong> Implementation</a></li></ol></li><li class="chapter-item expanded "><a href="../../applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../applications/dither-chat.html"><strong aria-hidden="true">3.1.</strong> [WIP] Chat Client - Dither Chat</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Comment System - Dithca</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Package Manager - Dithix</div></li><li class="chapter-item expanded "><a href="../../applications/protocol-of-truth/protocol-of-truth.html"><strong aria-hidden="true">3.4.</strong> Protocol of Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Usage Examples (WIP)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Browser Alternative - D Framework</div></li><li class="chapter-item expanded "><a href="../../applications/fractional-funding.html"><strong aria-hidden="true">3.6.</strong> Fractional Funding</a></li></ol></li><li class="chapter-item expanded "><a href="../../stack/overview.html"><strong aria-hidden="true">4.</strong> The Decentralization Stack</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../stack/01-agent.html"><strong aria-hidden="true">4.1.</strong> 1 · The Agent</a></li><li class="chapter-item expanded "><a href="../../stack/02-coupling.html"><strong aria-hidden="true">4.2.</strong> 2 · Coupling</a></li><li class="chapter-item expanded "><a href="../../stack/03-market.html"><strong aria-hidden="true">4.3.</strong> 3 · The Market</a></li><li class="chapter-item expanded "><a href="../../stack/04-money.html"><strong aria-hidden="true">4.4.</strong> 4 · Money</a></li><li class="chapter-item expanded "><a href="../../stack/05-immune.html"><strong aria-hidden="true">4.5.</strong> 5 · The Immune System</a></li><li class="chapter-item expanded "><a href="../../stack/06-governance.html"><strong aria-hidden="true">4.6.</strong> 6 · Governance</a></li><li class="chapter-item expanded "><a href="../../stack/07-evolution.html"><strong aria-hidden="true">4.7.</strong> 7 · Evolution</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.8.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../stack/mathematical-core.html"><strong aria-hidden="true">4.8.1.</strong> The Mathematical Core</a></li><li class="chapter-item expanded "><a href="../../stack/futarchy-causality.html"><strong aria-hidden="true">4.8.2.</strong> Futarchy and Causality</a></li><li class="chapter-item expanded "><a href="../../stack/glossary.html"><strong aria-hidden="true">4.8.3.</strong> Notation & Glossary</a></li><li class="chapter-item expanded "><a href="../../stack/roadmap.html"><strong aria-hidden="true">4.8.4.</strong> Engineering Roadmap</a></li><li class="chapter-item expanded "><a href="../../stack/open-questions.html"><strong aria-hidden="true">4.8.5.</strong> Open Questions</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.9.</strong> Working Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../stack/notes/predictive-materialization.html" class="active"><strong aria-hidden="true">4.9.1.</strong> Predictive Materialization</a></li><li class="chapter-item expanded "><a href="../../stack/notes/coupling-and-merging.html"><strong aria-hidden="true">4.9.2.</strong> Coupling and Merging</a></li><li class="chapter-item expanded "><a href="../../stack/notes/protocols-as-priors.html"><strong aria-hidden="true">4.9.3.</strong> Protocols as Priors</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Philosophy</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../applications/application-design-philosophy.html"><strong aria-hidden="true">5.1.</strong> Design Philosophy</a></li><li class="chapter-item expanded "><a href="../../copyright-is-cancer.html"><strong aria-hidden="true">5.2.</strong> Copyright is Cancer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Articles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../what-is-a-monad.html"><strong aria-hidden="true">6.1.</strong> What is a Monad?</a></li><li class="chapter-item expanded "><a href="../../node_discovery_ideas.html"><strong aria-hidden="true">6.2.</strong> How to do Node Discovery while Limiting Structural Data Leakage?</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dither Ideas</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="working-note--predictive-materialization"><a class="header" href="#working-note--predictive-materialization">Working Note · Predictive Materialization</a></h1>
+<blockquote>
+<p>🧪 <strong>Working note.</strong> Source material for the rewritten <a href="../01-agent.html">Agent</a> and <a href="../03-market.html">Market</a> chapters. Denser than book prose; claims here are design candidates, not settled spec.</p>
+</blockquote>
+<h2 id="the-idea-in-one-paragraph"><a class="header" href="#the-idea-in-one-paragraph">The idea in one paragraph</a></h2>
+<p>Storage, retrieval, routing, and verification are one activity: <strong>spending resources to reduce uncertainty about a value until you are confident enough to act, where &quot;enough&quot; scales with the stakes.</strong> A stored representation is a <em>policy for future materialization</em>, not a pile of bits. A retrieval query is a partial context to complete. A route is a step toward someone whose model completes it better. A verification is the same purchase pointed at &quot;is this real.&quot; Exact bits and hash equality are not a different system; they are the infinite-certainty limit of this one.</p>
+<h2 id="storage-the-four-way-trade"><a class="header" href="#storage-the-four-way-trade">Storage: the four-way trade</a></h2>
+<p>The naive form of the idea (&quot;storage = model + residuals&quot;) optimizes description length only. The real objective has four terms, and the <a href="../03-market.html">MATERIALIZE</a> flow problem was already carrying three of them:</p>
+<div class="table-wrapper"><table><thead><tr><th>Axis</th><th>Cost</th><th>Formal anchor</th></tr></thead><tbody>
+<tr><td>bits held</td><td>storage × time</td><td>Shannon / MDL</td></tr>
+<tr><td>compute to materialize</td><td>decode / inference at request time</td><td>Levin's <code>Kt</code> (description + log time)</td></tr>
+<tr><td>latency</td><td>deadline pressure at the point of demand</td><td>the flow problem's spacetime edges</td></tr>
+<tr><td>fidelity vs. utility</td><td>expected distortion × stake of the use</td><td>rate–distortion, stake-weighted</td></tr>
+</tbody></table>
+</div>
+<p>Representations are points on the Pareto frontier over these four:</p>
+<ul>
+<li><strong>raw bits</strong> — max storage, zero decode, zero distortion, min latency;</li>
+<li><strong>compressed bits</strong> — fewer bits, some decode, zero distortion;</li>
+<li><strong>model + residual</strong> — few bits, more decode, still zero distortion (the residual corrects the model);</li>
+<li><strong>model only</strong> — minimal bits, decode cost, <em>known nonzero distortion carried as a confidence label</em>.</li>
+</ul>
+<p>Which point is optimal is decided <em>pointwise by the price field</em>: near hot demand latency dominates (hold raw); mid-field, model+residual; in the far tail, model-only. Storage tiers, CDN behavior, and semantic caching fall out as geometry over one field. The objective, informally:</p>
+<pre><code>minimize  Σ demand-weighted [ bits·t  +  decode-compute  +  latency-penalty  +  E[distortion]·stake ]
+</code></pre>
+<p>The generative option does not replace the market's flow problem; it <strong>widens the action set</strong> with edges that carry a new attribute (distortion/confidence), and the market prices that attribute like any other.</p>
+<h2 id="retrieval-uncertainty-descent"><a class="header" href="#retrieval-uncertainty-descent">Retrieval: uncertainty descent</a></h2>
+<p>A request is a partial context. The serving node either completes it above the caller's confidence threshold (cheap, possibly lossy, labeled), or routes toward nodes advertising lower expected loss on this context type. Routing becomes <strong>mixture-of-experts gating over the network</strong>; the old data-trail-search breadcrumbs generalize to descent on an uncertainty gradient. The residual store holds what no model predicts, priced higher; hash-anchored canonical data is the expensive exact tail.</p>
+<p>&quot;Content addressing&quot; then generalizes: agreement among independent models is probabilistic content addressing; hash equality is its deterministic limit, reached when the stakes justify the cost.</p>
+<h2 id="verification-one-curve-not-a-menu"><a class="header" href="#verification-one-curve-not-a-menu">Verification: one curve, not a menu</a></h2>
+<p>The old substrate chapter offered a verification <em>menu</em> (re-execute, sample <code>k</code> executors, bisect disputes, check a predicate). These are points on one curve of <strong>certainty per unit cost</strong>, and the right frame is sequential evidence purchase (Wald's SPRT: optimal stopping for hypothesis testing):</p>
+<ul>
+<li>each check is an action with a cost and an expected likelihood-ratio contribution;</li>
+<li>spend while marginal value of certainty (stake-dependent) exceeds marginal cost;</li>
+<li>stop at threshold <code>τ(stake)</code>, or when the budget runs out — then serve with the achieved confidence and its label.</li>
+</ul>
+<p><code>k</code>-replication was already on this curve (<code>P[fraud] ≤ (1−h)^k</code>: multiplicative confidence at linear cost). Model-agreement checks extend the curve downward into cheap territory; re-execution and hash equality sit at the top. Some claims never cross the threshold; they are served <em>as</em> uncertain or not at all.</p>
+<h2 id="soundness-rules-and-open-risks"><a class="header" href="#soundness-rules-and-open-risks">Soundness rules and open risks</a></h2>
+<ul>
+<li><strong>The confidence label is load-bearing.</strong> A generated completion must never silently substitute for canonical bits. The label is what separates memory from hallucination; dropping it is data corruption, not lossy compression.</li>
+<li><strong>Query privacy regresses.</strong> A partial context is a far richer surveillance surface than a hash request. The anonymity layer has new work (onion-wrapped inference? query splitting?), though generative serving also <em>adds</em> deniability in some regimes. Unresolved either way.</li>
+<li><strong>Model economics.</strong> Who trains, who pays, how staleness is priced. Connects to the open/closed split in the market chapter: <em>coordination models</em> (routing, pricing — the shared expectations the market needs to clear) are Schelling infrastructure and want to be open, funded as public goods; <em>content models</em> can stay closed and sell verified inference, since the certainty market never needs to see weights. The network buys a model open when the estimated value of diffusion exceeds the buyout price — retroactive public-goods funding, priced by the truth machinery.</li>
+<li><strong>Adversarial models</strong> poisoning the cheap end of the verification curve; the immune machinery (independence-weighting of model agreement) is the intended counter, undesigned.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../stack/open-questions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../stack/notes/coupling-and-merging.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../stack/open-questions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../stack/notes/coupling-and-merging.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
